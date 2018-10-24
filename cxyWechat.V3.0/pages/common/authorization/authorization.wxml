@@ -1,0 +1,8 @@
+<view class='big-box'>
+    <view class='small-box'>
+        <view class='small-box-content'>
+            畅享游商城申请获取您的基本信息。若不允许，则无法正常使用畅享游小程序的功能，请慎重选择！
+        </view>
+        <button hover-class='none' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">确认申请</button>
+    </view>
+</view>

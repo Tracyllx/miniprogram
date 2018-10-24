@@ -1,0 +1,15 @@
+<view class='outside-view' style='background-color: #fff;'>
+    <scroll-view scroll-y class='scroll-view'>
+        <block wx:for='{{list}}' wx:key='{{index}}'>
+            <navigator class='options-item' hover-class="none" open-type='navigateTo' url='{{item.url}}'>
+                <view class='icon chuizhi'>
+                    <image src='../img/personalCenter/{{item.id}}.png' style='width: {{item.width}}; height: {{item.height}};'></image>
+                </view>
+                <view class='title'>{{item.name}}</view>
+                <view class='arrow chuizhi'>
+                    <image src='../img/personalCenter/arrow.png'></image>
+                </view>
+            </navigator>
+        </block>
+    </scroll-view>
+</view>

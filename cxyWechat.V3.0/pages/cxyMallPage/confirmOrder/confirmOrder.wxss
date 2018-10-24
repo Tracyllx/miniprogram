@@ -1,0 +1,68 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+/* 滚动区域 */
+
+.scroll-view {
+    position: absolute;
+    top: 0;
+    bottom: 100rpx;
+    width: 100%;
+}
+
+/* 房型 */
+
+.list {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+}
+
+.list-item {
+    padding: 16rpx 24rpx;
+    height: 200rpx;
+    overflow: hidden;
+    display: flex;
+}
+
+.list-item-img {
+    width: 280rpx;
+    height: 100%;
+}
+
+.list-item-img>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.list-item-info {
+    flex: 1;
+    height: 100%;
+    margin-left: 24rpx;
+}
+
+.item-name {
+    height: 38%;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.item-price {
+    float: right;
+    font-size: 30rpx;
+    color: #f60;
+}
+
+.item-time, .item-count {
+    font-size: 24rpx;
+    color: #333;
+}
+
+/* 合计 */
+
+.confirm-order {
+    color: #f60;
+}

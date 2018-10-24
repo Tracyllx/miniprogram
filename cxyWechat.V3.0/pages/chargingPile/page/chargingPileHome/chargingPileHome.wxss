@@ -1,0 +1,237 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.the-container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    box-sizing: content-box;
+    position: relative;
+}
+
+/* 底部 */
+
+.tab-bar {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 99rpx;
+    overflow: hidden;
+    border-top: 1rpx solid #ededed;
+    display: flex;
+}
+
+.tab-item {
+    flex: 1;
+    text-align: center;
+    font-size: 26rpx;
+    font-family: "宋体";
+    color: #000;
+}
+
+.tab-item>image {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 6rpx;
+}
+
+.tab-acitve {
+    color: #39b6a3;
+}
+
+/* 地图 */
+
+.map-container {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 100rpx;
+    width: 100%;
+    overflow: hidden;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+/* 搜索栏 */
+
+.search-bar {
+    z-index: 2;
+    position: absolute;
+    top: 2%;
+    left: 4%;
+    width: 70%;
+    height: 58rpx;
+    border-radius: 58rpx;
+    background-color: #fff;
+    border: 1rpx solid #ededed;
+    display: flex;
+}
+
+.search-icon {
+    width: 34rpx;
+    height: 36rpx;
+    vertical-align: middle;
+    margin-left: 20rpx;
+    margin-top: 11rpx;
+    margin-right: 20rpx;
+}
+
+.search-input {
+    flex: 1;
+    height: 100%;
+    line-height: 58rpx;
+    font-size: 30rpx;
+    color: #999;
+}
+
+/* 左上角操作 */
+
+.top-list {
+    z-index: 2;
+    position: absolute;
+    top: 3%;
+    right: 6%;
+    width: 100rpx;
+    height: 100rpx;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #fff;
+    border: 1rpx solid #ededed;
+    box-shadow: 0 0 14rpx rgba(0, 0, 0, 0.3);
+}
+
+.top-list-img {
+    margin-left: 26rpx;
+    margin-top: 25rpx;
+    width: 48rpx;
+    height: 50rpx;
+    vertical-align: middle;
+}
+
+.top-position {
+    z-index: 2;
+    position: absolute;
+    top: 15%;
+    right: 6%;
+    width: 100rpx;
+    height: 100rpx;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #fff;
+    border: 1rpx solid #ededed;
+    box-shadow: 0 0 14rpx rgba(0, 0, 0, 0.3);
+}
+
+.top-position-img {
+    margin-left: 25rpx;
+    margin-top: 26rpx;
+    width: 51rpx;
+    height: 49rpx;
+    vertical-align: middle;
+}
+
+/* 详细内容 */
+
+.picker-show {
+    z-index: 99999999;
+    position: absolute;
+    bottom: 0;
+    width: 92%;
+    height: 180rpx;
+    padding: 20rpx 4%;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+}
+
+.picker-img {
+    width: 135rpx;
+}
+
+.picker-img>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.picker-info {
+    flex: 1;
+    margin: 0 16rpx;
+}
+
+.info-name {
+    line-height: 46rpx;
+    font-size: 28rpx;
+    color: #000;
+}
+
+.info-desc {
+    font-size: 24rpx;
+    color: #666;
+}
+
+.info-icon {
+    padding-top: 6rpx;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+}
+
+.all-count {
+    width: auto;
+    padding: 0 10rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    text-align: center;
+    font-size: 22rpx;
+    color: #f68650;
+    border-radius: 8rpx;
+    border: 1rpx solid #f68650;
+    margin-right: 16rpx;
+}
+
+.free-count {
+    width: auto;
+    padding: 0 10rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #39b6a3;
+    border-radius: 8rpx;
+    border: 1rpx solid #39b6a3;
+}
+
+.picker-option {
+    width: 140rpx;
+    height: 100%;
+}
+
+.picker-btn {
+    width: 100%;
+    height: 62rpx;
+    line-height: 62rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #fff;
+    background-color: #39b6a3;
+    border-radius: 10rpx;
+}
+
+.mt-det {
+    margin-top: 15%;
+}
+
+.info-dis {
+    float: right;
+    font-size: 20rpx;
+    color: #999;
+}
+

@@ -1,0 +1,59 @@
+<view class='outside-view' style='background-color: #fff;'>
+    <view class='page-search'>
+        <view hidden='{{showInput}}' class='page-search-box1 chuizhi' catchtap='searchBoxTap'>
+            <image class='page-search-icon' src='../../img/cxtripHomePage/search.png'></image>
+            <text class='page-search-txt'>{{searchTxt}}</text>
+        </view>
+        <view hidden='{{!showInput}}' class='page-search-box2'>
+            <image class='page-search-icon icon-margin' src='../../img/cxtripHomePage/search.png'></image>
+            <input class='page-search-input' type='text' focus='{{inputFocus}}' value='{{searchVal}}' placeholder='{{searchTxt}}' placeholder-style='color: #999;' confirm-type="search" bindinput="searchInput" bindblur='searchBlur' bindconfirm="searchConfirm"></input>
+        </view>
+    </view>
+    <view class='nav-bar'>
+        <view class='nav-item {{navActive == 1 ? "nav-active" : ""}}' catchtap='navTap' data-index='1'>热门推荐</view>
+        <view class='nav-item lr-border {{navActive == 2 ? "nav-active" : ""}}' catchtap='navTap' data-index='2'>附近</view>
+        <view class='nav-item {{navActive == 3 ? "nav-active" : ""}}' catchtap='navTap' data-index='3'>价格</view>
+    </view>
+    <scroll-view scroll-y class='scroll-view'>
+        <view wx:if='{{productList.length == 0}}' class='nonedata'>暂无更多数据~</view>
+        <block wx:for='{{productList}}' wx:key='{{index}}'>
+            <view class='list-item {{index == 0 ? "no-border" : ""}}' catchtap='gotoDetail' data-index='{{index}}'>
+                <view class='item-img'>
+                    <image wx:if='{{!item.imgUrl}}' mode='aspectFill' src='../../img/cxyMallPage/defaultImg.png'></image>
+                    <image wx:if='{{item.imgUrl}}' mode='aspectFill' src='{{item.imgUrl}}'></image>
+                </view>
+                <view class='item-info'>
+                    <view class='item-info-top'>
+                        <view class='item-name'>{{item.orgnName}}</view>
+                        <view class='item-star-distance'>
+                            <view class='item-star chuizhi'>
+                                <!-- 全颗星 -->
+                                <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= item.starFull}}'>
+                                    <image class='star-icon' src='../../img/cxyMallPage/full-star.png'></image>
+                                </block>
+                                <!-- 半颗星 -->
+                                <block wx:if='{{item.starHalf}}'>
+                                    <image class='star-icon' src='../../img/cxyMallPage/half-star.png'></image>
+                                </block>
+                                <!-- 空星 -->
+                                <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= item.starNo}}'>
+                                    <image class='star-icon' src='../../img/cxyMallPage/no-star.png'></image>
+                                </block>
+                                <text class='star-txt'>{{item.score}}分</text>
+                            </view>
+                            <view class='item-distance chuizhi'>{{distanceArr[index] ? distanceArr[index] : ''}}</view>
+                        </view>
+                    </view>
+                    <view class='item-price-comment'>
+                        <view class='item-price chuizhi'>
+                            <text class='item-price-big'>¥{{item.price}} </text>
+                            <text>{{pageType==='live'?'起':(pageType==='eat'?'/人':'')}}</text>
+                        </view>
+                        <view class='item-comment chuizhi' catchtap='gotoComment' data-index='{{index}}' style='{{item.isComment==0?"":"background-color:#67b0b0;"}}'>{{item.isComment==0?'评 价':'已评价'}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view wx:if='{{showAllBtn}}' class='nonedata' style='color: #399;' catchtap='showAllTap'>查看全部~</view>
+    </scroll-view>
+</view>

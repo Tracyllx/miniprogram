@@ -1,0 +1,179 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+/* 底部样式 */
+
+.take-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+}
+
+.take-btm-txt {
+    flex: 1;
+    padding-left: 24rpx;
+    font-size: 26rpx;
+    color: #333;
+}
+
+.gray {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.take-btm-btn {
+    width: 200rpx;
+    font-size: 28rpx;
+    color: #fff;
+    text-align: center;
+    background-color: #399;
+}
+
+/* --------------------------------------------- 线路图 --------------------------------------------- */
+
+.take-content {
+    position: absolute;
+    top: 0;
+    bottom: 100rpx;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* 背景图 */
+
+.take-bg {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* 线路box */
+
+.take-box {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* 主干线路 */
+
+.main-line {
+    position: absolute;
+    top: 48rpx;
+    bottom: 26rpx;
+    left: 47%;
+    width: 2rpx;
+    background-color: #399;
+}
+
+/* 分支线路 */
+
+.branch-line-one, .branch-line-two, .branch-line-three, .branch-line-four {
+    position: absolute;
+    width: 260rpx;
+    height: 2rpx;
+    background-color: #399;
+}
+
+.branch-line-one {
+    top: 240rpx;
+    left: 47%;
+}
+
+.branch-line-two {
+    top: 600rpx;
+    left: 47%;
+}
+
+.branch-line-three {
+    top: 720rpx;
+    left: 47%;
+}
+
+.branch-line-four {
+    top: 1000rpx;
+    right: 53%;
+}
+
+.branch-line-one-one, .branch-line-two-one {
+    position: absolute;
+    width: 2rpx;
+    background-color: #399;
+}
+
+.branch-line-one-one {
+    height: 174rpx;
+    bottom: 850rpx;
+    right: 10.5%;
+}
+
+.branch-line-two-one {
+    height: 278rpx;
+    bottom: 495rpx;
+    right: 10.5%;
+}
+
+/* 站点样式 */
+
+.site-box {
+    width: 140rpx;
+    line-height: 26rpx;
+    padding: 3.5rpx 12rpx 5rpx;
+    font-size: 20rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 80rpx;
+    background-color: #399;
+    position: absolute;
+}
+
+.site-main {
+    left: 47%;
+    margin-left: -73rpx;
+}
+
+.site-branch {
+    width: 110rpx;
+}
+
+/* 车辆样式 */
+
+.car-img {
+    position: absolute;
+    width: 52rpx;
+    height: 31.2rpx;
+}
+
+/* 说明 */
+
+.take-explain {
+    position: absolute;
+    top: 100rpx;
+    width: auto;
+    height: auto;
+}
+
+.take-explain-item {
+    padding-left: 24rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 24rpx;
+    color: #333;
+}
+
+/* 游客的位置 */
+
+.myAddImg {
+    width: 37.2rpx;
+    height: 36.6rpx;
+    position: absolute;
+}

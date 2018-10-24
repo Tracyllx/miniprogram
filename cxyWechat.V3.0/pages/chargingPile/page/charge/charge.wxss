@@ -1,0 +1,272 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.the-container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    box-sizing: content-box;
+    position: relative;
+}
+
+.scroll-view {
+    position: absolute;
+    top: 0;
+    bottom: 100rpx;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* banner图片 */
+
+.charge-banner {
+    width: 100%;
+    height: 340rpx;
+    overflow: hidden;
+}
+
+.charge-banner>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* 说明 */
+
+.charge-info {
+    padding: 0 24rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+/* 切换 */
+
+.charge-tab {
+    margin: 40rpx 24rpx 10rpx;
+    height: 62rpx;
+    line-height: 62rpx;
+    overflow: hidden;
+    border: 1rpx solid #39b6a3;
+    border-radius: 16rpx;
+    display: flex;
+}
+
+.charge-tab-item {
+    flex: 1;
+    text-align: center;
+    font-size: 30rpx;
+    color: #39b6a3;
+    background-color: #fff;
+}
+
+.charge-tab-active {
+    color: #fff;
+    background-color: #39b6a3;
+}
+
+/* 选择小时 */
+
+.time-bar {
+    padding: 16rpx 14rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    overflow: hidden;
+    border-bottom: 16rpx solid #f5f5f5;
+    display: flex;
+}
+
+.time-bar-item {
+    flex: 1;
+    margin: 0 10rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #999;
+    border-radius: 10rpx;
+    background-color: #ededed;
+    border: 1rpx solid #ededed;
+}
+
+.time-active {
+    color: #39b6a3;
+    background-color: #fff;
+    border: 1rpx solid #39b6a3;
+}
+
+/* 手动输入充电时间 */
+
+.time-input {
+    padding: 16rpx 24rpx;
+    border-bottom: 16rpx solid #f5f5f5;
+    display: flex;
+}
+
+.time-input-txt {
+    height: 58rpx;
+    line-height: 58rpx;
+    width: auto;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.time-input-box {
+    width: 120rpx;
+    margin: 0 16rpx;
+    border: 1rpx solid #ededed;
+    border-radius: 10rpx;
+}
+
+.time-input-box>input {
+    height: 58rpx;
+    line-height: 58rpx;
+    width: 100%;
+    border: 0;
+    outline: none;
+    text-align: center;
+    font-size: 28rpx;
+    color: #333;
+}
+
+/* 自动充电说明 */
+
+.charge-self {
+    border-bottom: 16rpx solid #f5f5f5;
+    padding: 16rpx 24rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+/* 计费详情 */
+
+.charge-details {
+    padding: 16rpx 24rpx;
+}
+
+.details-name {
+    font-size: 28rpx;
+    color: #333;
+    line-height: 60rpx;
+}
+
+.details-txt {
+    line-height: 48rpx;
+    font-size: 26rpx;
+    color: #999;
+}
+
+/* 充电中，表格信息 */
+
+.charging-table {
+    padding: 16rpx 24rpx;
+}
+
+.table-tr {
+    display: flex;
+    border-left: 1rpx solid #ededed;
+    border-right: 1rpx solid #ededed;
+    border-bottom: 1rpx solid #ededed;
+}
+
+.table-td {
+    flex: 1;
+    line-height: 58rpx;
+    font-size: 26rpx;
+    text-align: center;
+    color: #333;
+}
+
+.t-bt {
+    border-top: 1rpx solid #ededed;
+}
+
+.t-br {
+    border-right: 1rpx solid #ededed;
+}
+
+/* 充电图形 */
+
+.charging-canvas {
+    width: 100%;
+    height: 400rpx;
+    margin: 50rpx 0;
+    text-align: center;
+    position: relative;
+}
+
+.canvas-circle {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.canvas-txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50rpx;
+    color: #39b6a3;
+}
+
+/* 底部按钮 */
+
+.charge-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 99rpx;
+    line-height: 99rpx;
+    border-top: 1rpx solid #ededed;
+    display: flex;
+}
+
+.bottom-item {
+    flex: 1;
+    font-size: 32rpx;
+    text-align: center;
+}
+
+/* 页面公共样式 */
+
+.c-wihte {
+    color: #fff;
+}
+
+.c-black {
+    color: #333;
+}
+
+.c-gray {
+    color: #999;
+}
+
+.c-base {
+    color: #39b6a3;
+}
+
+.bg-base {
+    background-color: #39b6a3;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.mt-16 {
+    margin-top: 16rpx;
+}
+
+.mb-16 {
+    margin-bottom: 20rpx;
+}
+
+.fr {
+    float: right;
+}
+
+.b-t {
+    border-top:16rpx solid #f5f5f5;
+}

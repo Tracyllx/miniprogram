@@ -1,0 +1,118 @@
+<view class="outside-view">
+
+    <!-- 第一大部分：倒计时 -->
+    <view class='index_first'>
+        <!-- 支付剩余时间 -->
+        <view class='remainding_time'>支付剩余时间：</view>
+        <view class='times'>
+            <view class='text'>{{minute1}}</view>
+            <view class='text'>{{minute2}}</view>
+            <view class='maohao'>:</view>
+            <view class='text'>{{second1}}</view>
+            <view class='text'>{{second2}}</view>
+        </view>
+    </view>
+
+    <!-- 第二大部分：订单信息 -->
+    <view class='detail-box'>
+        <view class='detail-box-l'>
+            <image wx:if="{{imgs}}" src='{{imgs}}' class='detail-img' mode='aspectFill'></image>
+            <image wx:if="{{orderDetail.order_type==2}}" src='{{imgs?imgs:theCarImg}}' class='detail-img' mode='aspectFill'></image>
+        </view>
+        <view class='detail-box-r'>
+            <view class='detail-price'>¥ {{price}}</view>
+            <view class='detail-title' wx:if='{{orderDetail.product_type != 2 && orderDetail.product_type != 3}}'>{{orderDetail.productName}}</view>
+            <view class='detail-title' wx:if='{{orderDetail.product_type == 2 || orderDetail.product_type == 3 || orderDetail.order_type == 2}}' wx:for='{{products}}' wx:key='{{index}}'>
+                <text space='ensp'>{{item.productName}}      ×{{item.ticketNum}}</text>
+            </view>
+        </view>
+    </view>
+
+
+    <!-- 第三大部分：微信支付、余额支付 -->
+    <view class='index_third mt30 borderB' catchtap='clickPayMethod' data-method='1'>
+        <view class='show-wechat-pay'>余额支付</view>
+        <view class='show-checked'>
+            <view class='show-checked-view' hidden='{{currMethod == 1}}'></view>
+            <radio hidden='{{currMethod != 1}}' color="#01847d" checked='true'></radio>
+        </view>
+    </view>
+    <view class='index_third' catchtap='clickPayMethod' data-method='2'>
+        <view class='show-wechat-pay'>微信支付</view>
+        <view class='show-checked'>
+            <view class='show-checked-view' hidden='{{currMethod == 2}}'></view>
+            <radio hidden='{{currMethod != 2}}' color="#01847d" checked='true'></radio>
+        </view>
+    </view>
+
+    <!-- 第四大部分：选择红包、优惠券、推荐码 -->
+    <view class='index_third mt30' catchtap='gotoDiscount' data-the-type='redPacket'>
+        <view class='show-wechat-pay kkW1'>红包</view>
+        <view class='show-checked kkW2 chuizhi'>
+            <text wx:if='{{isUse}}'>不使用红包</text>
+            <text wx:if='{{!redpackNum && !isUse}}'>{{redpackListLen}}个红包可用</text>
+            <text wx:if='{{redpackNum && !isUse}}' class='kk-red'>-¥{{redpackNum}}</text>
+            <image src='../../img/personalCenter/arrow.png'></image>
+        </view>
+    </view>
+    <!-- <view class='index_third' catchtap='gotoDiscount' data-the-type='coupon'>
+        <view class='show-wechat-pay kkW1'>优惠券</view>
+        <view class='show-checked kkW2 chuizhi'>
+            <text wx:if='{{!couponNum}}'>{{couponListLen}}张优惠券可用</text>
+            <text wx:if='{{couponNum}}' class='kk-red'>-¥{{couponNum}}</text>
+            <image src='../../img/personalCenter/arrow.png'></image>
+        </view>
+    </view> -->
+    <view class='index_third mt30'>
+        <view class='show-wechat-pay codeW1' catchtap='referralCodeFocus'>推荐码</view>
+        <view class='show-checked codeW2'>
+            <input type='number' maxlength='4' id='referral-code' value='' focus='{{codeFocus}}' bindinput='referralCodeInput'></input>
+            <view class='item-code' catchtap='referralCodeInput'>
+                <view class='referral-code'>{{referralCode[0]}}</view>
+                <view class='referral-code'>{{referralCode[1]}}</view>
+                <view class='referral-code'>{{referralCode[2]}}</view>
+                <view class='referral-code'>{{referralCode[3]}}</view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 第五大部分：确认支付 -->
+    <view class='index_fourth'>
+        <view class='kk-left'>
+            <block wx:if='{{redpackNum == 0 && couponNum == 0 && !totalTxt}}'>
+                <text>合计：¥{{price}}</text>
+            </block>
+
+            <block wx:if='{{redpackNum != 0 && !totalTxt}}'>
+                <text>¥{{totalPrice}}</text>
+                <text class='kk-tip'>已优惠¥{{redpackNum}}</text>
+            </block>
+
+            <block wx:if='{{couponNum != 0 && !totalTxt}}'>
+                <text>¥{{totalPrice}}</text>
+                <text class='kk-tip'>已优惠¥{{couponNum}}</text>
+            </block>
+            
+            <block wx:if='{{totalTxt}}'>
+                <!-- <text>¥{{totalPrice}}</text> -->
+                <text class='kk-tip' style = 'color: #f00; padding-left: 14rpx;'>{{totalTxt}}</text>
+            </block>
+        </view>
+        <view class='kk-right {{totalTxt ? "errorBtn" : ""}}' catchtap='conformPay' data-total-txt='{{totalTxt}}'>确认支付</view>
+    </view>
+
+    <!-- 第六大部分：余额支付密码弹窗 -->
+    <view wx:if='{{showPsdModule}}' class='psd-mask'></view>
+    <view wx:if='{{showPsdModule}}' class='psd-box'>
+        <view class='psd-box-title'>支付密码</view>
+        <view class='psd-box-input'>
+            <input password='true' type='number' placeholder='请输入支付密码' maxlength='6' value='{{payPsd}}' bindblur='psdInput' bindinput='psdInput'></input>
+        </view>
+        <view class='psd-box-tip'>{{errorPsdTip}}</view>
+        <view class='psd-box-btn'>
+            <button type='default' id='box-cancal' catchtap='hidePsdModule'>取 消</button>
+            <button type='primary' id='box-conform' catchtap='userMyWallet'>确 定</button>
+        </view>
+    </view>
+
+</view>

@@ -1,0 +1,33 @@
+<view class='productAddComment'>
+    <view class='star-content'>
+        <view class='star-title'>评 分：</view>
+        <view class='star-box'>
+            <block wx:for="{{stars}}" wx:key='{{index}}'>
+                <image class="star-image" style="left: {{item * 80}}rpx" src="{{key2 > item ? (key2-item == 0.5 ? halfSrc : selectedSrc) : normalSrc}}">
+                    <view class="star-item" style="left: 0rpx" data-key="{{item + 0.5}}" data-the-type='service' bindtap="selectLeft"></view>
+                    <view class="star-item" style="left: 32rpx" data-key="{{item + 1}}" data-the-type='service' bindtap="selectRight"></view>
+                </image>
+            </block>
+        </view>
+    </view>
+    <view class='content'>
+        <!-- 评论内容 -->
+        <view class='content-txt'>
+            <textarea focus='{{focus}}' maxlength='300' value='{{contentVal}}' bindconfirm='bindinput' bindinput='bindinput' bindblur='bindinput' placeholder="精彩的旅程，分享一下吧~" placeholder-style="color: #999;"></textarea>
+        </view>
+        <!-- 评论图片 -->
+        <view class='content-img'>
+            <block wx:for='{{chooseImgUrls}}' wx:key='{{index}}'>
+                <image catchtap='previewImg' data-index='{{index}}' mode='aspectFill' src='{{item}}'></image>
+            </block>
+            <image wx:if='{{chooseImgUrls.length < chooseMax}}' catchtap='chooseImg' mode='aspectFill' src='{{HTTPS}}img/direct_train/add_img.png'></image>
+        </view>
+    </view>
+    <!-- 是否匿名 -->
+    <view class='anonymous'>
+        <image catchtap='anonymousTap' data-index='0' hidden='{{isAno == 0}}' src='../../img/direct_train/no_choose.png'></image>
+        <image catchtap='anonymousTap' data-index='1' hidden='{{isAno == 1}}' src='../../img/direct_train/choose.png'></image>
+        <text>匿名</text>
+    </view>
+    <button catchtap='sendTap' style='{{sendBtn ? "" : "background-color: #ccc;"}}'>发表评论</button>
+</view>

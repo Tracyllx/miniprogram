@@ -1,0 +1,37 @@
+<view class='the-container'>
+    <view class='map-container' style='bottom: {{showBottomTip?220:100}}rpx;'>
+        <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="12" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
+    </view>
+    <!-- 搜索栏 -->
+    <cover-view class="search-bar">
+        <cover-image class="search-icon" src="../imgs/search_icon.png" />
+        <cover-view class='search-input'>请输入省名称</cover-view>
+    </cover-view>
+    <!-- 左上角操作 -->
+    <cover-view class="top-list" catchtap='gotoList'>
+        <cover-image class="top-list-img" src="../imgs/char_list.png" />
+    </cover-view>
+    <cover-view class="top-position">
+        <cover-image class="top-position-img" src="../imgs/position.png" />
+    </cover-view>
+    <!-- 底部按钮 -->
+    <include src="../common/tabBar.wxml" />
+    <!-- 底部详细信息 -->
+    <view class='picker-show' wx:if='{{showBottomTip}}' catchtap='hideBottom'>
+        <view class='picker-img'>
+            <image src='../imgs/img_s.png'></image>
+        </view>
+        <view class='picker-info'>
+            <view class='info-name'>{{textData.name}}<text class='info-dis'>距离{{textData.distance}}</text></view>
+            <view class='info-desc'>{{textData.desc}}</view>
+            <view class='info-icon'>
+                <text class='all-count'>共{{textData.countAll}}个</text>
+                <text class='free-count'>空闲{{textData.countFree}}个</text>
+            </view>
+        </view>
+        <view class='picker-option'>
+            <view class='picker-btn' catchtap='openTheMap'>去这里</view>
+            <view class='picker-btn mt-det' catchtap='gotoDetail'>详情</view>
+        </view>
+    </view>
+</view>

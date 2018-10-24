@@ -1,0 +1,289 @@
+page {
+    height: 100%;
+    background-color: #eee;
+}
+
+.myContainer {
+    width: 100%;
+    height: 100%;
+}
+
+/* 展示标题 */
+
+.title {
+    width: 100%;
+    height: 90rpx;
+    background: #01847d;
+    box-shadow: 0 5rpx 25rpx #666;
+    overflow: hidden;
+}
+
+/* 每个标题平分 */
+
+.message {
+    width: 50%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+.chooseTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 92%;
+    color: #fff;
+    text-align: center;
+    font-size: 32rpx;
+}
+
+.line {
+    position: absolute;
+    bottom: 0;
+    height: 8%;
+    width: 26%;
+    background: #01847d;
+    left: 50%;
+    margin-left: -13%;
+}
+
+.weui-badge {
+    background-color: #ec7f5e;
+    color: #fff;
+    width: 32rpx;
+    height: 34rpx;
+    border-radius: 32rpx;
+    line-height: 32rpx;
+    padding: 0;
+    padding-right: 2rpx;
+    text-align: center;
+    position: absolute;
+    top: 16%;
+    right: 25%;
+}
+
+/* 展示内容最大的view */
+
+.content {
+    position: absolute;
+    top: 90rpx;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/* 展示可下拉 */
+
+.scroller {
+    width: 100%;
+    height: 100%;
+}
+
+/* 展示每一条信息的内容 */
+
+.pay-message {
+    width: 100%;
+    height: auto;
+    padding-bottom: 20rpx;
+    overflow: hidden;
+}
+
+/* 时间部分 */
+
+.time {
+    width: 100%;
+    height: 80rpx;
+    position: relative;
+}
+
+/* 居中的view */
+
+.show-time {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 20rpx;
+    color: #eee;
+    padding: 0rpx 10rpx;
+    letter-spacing: 2px;
+    background: #d2d2d2;
+    box-shadow: 0rpx 0rpx 10rpx rgba(1, 132, 125, 0.14);
+}
+
+/* 消息内容最大的view */
+
+.orderMessage {
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 92%;
+    /* height: 200rpx; */
+    background: #fff;
+    border-radius: 12rpx;
+    position: relative;
+    box-shadow: 0rpx 0rpx 20rpx rgba(1, 132, 125, 0.14);
+}
+
+/* 内容的标题 */
+
+.order-title {
+    width: 96%;
+    padding-left: 4%;
+    height: 70rpx;
+    position: relative;
+    line-height: 70rpx;
+    font-size: 30rpx;
+}
+
+.order-title-fontColor {
+    color: #51ba74;
+}
+
+/* 未读的显示 */
+
+.read {
+    height: 35rpx;
+    line-height: 35rpx;
+    color: #ec6941;
+    font-size: 24rpx;
+    width: 25%;
+    text-align: right;
+    position: absolute;
+    top: 21rpx;
+    right: 24rpx;
+}
+
+/* 显示内容 */
+
+.show-order-content {
+    width: 92%;
+    height: 106rpx;
+    padding-bottom: 24rpx;
+    padding-left: 4%;
+    padding-right: 4%;
+    overflow: hidden;
+}
+
+/* 展示图片及内容的公共样式 */
+
+.show-order-content>view {
+    float: left;
+    height: 100%;
+}
+
+/* 装img的view */
+
+.order-img {
+    width: 22%;
+    padding-right: 3%;
+}
+
+/* img的设置 */
+
+.img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 订单的消息 */
+
+.order-message {
+    width: 71%;
+    padding-left: 3%;
+    font-size: 27rpx;
+    line-height: 45rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 订单内容居中 */
+
+.order-message-center {
+    width: 100%;
+    line-height: 40rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 查看详情 */
+
+.show-detail {
+    position: absolute;
+    bottom: 10rpx;
+    right: 24rpx;
+    color: #01847d;
+    font-size: 24rpx;
+}
+
+/* 系统通知部分 */
+
+.sys-message {
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 92%;
+    height: auto;
+    background: #fff;
+    border-radius: 12rpx;
+    position: relative;
+    box-shadow: 0rpx 0rpx 20rpx rgba(1, 132, 125, 0.14);
+}
+
+/* 系统消息显示内容 */
+
+.show-sys-order-content {
+    width: 94%;
+    min-height: 106rpx;
+    max-height: 400rpx;
+    padding-bottom: 24rpx;
+    padding-left: 3%;
+    padding-right: 3%;
+    overflow: hidden;
+}
+
+/* 系统消息部分的内容 */
+
+.sys-content-message {
+    width: 100%;
+    font-size: 27rpx;
+    line-height: 45rpx;
+    overflow: hidden;
+    color: #999;
+    position: relative;
+}
+
+/* 没有更多内容了 */
+
+.noneData {
+    color: #999;
+    font-size: 30rpx;
+    text-align: center;
+    width: 100%;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin-bottom: 30rpx;
+}
+
+.border {
+    background: #fff;
+}
+
+/* 隐藏 */
+
+.displaynone {
+    display: none;
+}
+
+/* 滑动部分去掉滑动条 */
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}

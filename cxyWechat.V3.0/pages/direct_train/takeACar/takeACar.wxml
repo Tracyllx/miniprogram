@@ -1,0 +1,115 @@
+<!--pages/direct_train/takeACar/takeACar.wxml-->
+
+<view class='takeACar'>
+    <!-- 背景 -->
+    <view class='bg-img'>
+        <image src='{{HTTPS}}img/direct_train/takeACar/bg.png'></image>
+    </view>
+
+    <view class='tourist-map' catchtap='clickCar'>
+        <!-- 下行，去游客中心 -->
+        <view class='down-direction'>
+            <image src='{{HTTPS}}img/direct_train/takeACar/down_arrow.png'></image>
+            <view>下行 去游客中心</view>
+        </view>
+
+        <!-- 上行，去月牙湖 -->
+        <view class='up-direction'>
+            <view>上行 去月牙湖</view>
+            <image src='{{HTTPS}}img/direct_train/takeACar/up_arrow.png'></image>
+        </view>
+
+        <!-- 景点 -->
+        <view class='scenic-spot'>
+            <view wx:for='{{scenicSpot}}' wx:key='{{index}}' class='spot-item chuizhi'>
+                <image class='spot-item-icon' style='{{item.style}}' src='{{HTTPS}}img/direct_train/takeACar/{{item.icon}}.png'></image>
+                <view class='spot-item-name'>
+                    <text space='ensp'>{{item.name}}</text>
+                </view>
+            </view>
+        </view>
+
+        <!-- 路线 -->
+        <view class='route-line'>
+            <view wx:for='{{scenicSpot}}' wx:key='{{index}}' class='line-circle {{item.icon}}'>
+                <view hidden='{{myCurrPosition == index}}' class='line-circle-l'></view>
+                <view hidden='{{myCurrPosition == index}}' class='line-circle-r'></view>
+            </view>
+        </view>
+
+        <!-- 车辆所在的位置---往月牙湖方向 -->
+        <block wx:for='{{carToYueya}}' wx:key='{{index}}'>
+            <view class='car-left' style='bottom: {{item.rideState == 2 ? (item.distance >= endingStation1 ? endingStation1 : item.distance) : (item.distance + moveDistance >= endingStation1 ? endingStation1 : item.distance + moveDistance)}}rpx;'>
+                <view class='car-left-img' catchtap='clickCar' data-is-type='up' data-index='{{index}}'>
+                    <image src='{{HTTPS}}img/direct_train/takeACar/up_car.png'></image>
+                </view>
+                <view hidden='{{clickCarIndexUp != index}}' class='car-left-info {{item.status == 0 ? "kklh" : ""}}'>
+                    <view wx:if='{{item.status == 1}}'>未发车！</view>
+                    <view wx:if='{{item.status == 2}}'>此车已过站！</view>
+                    <view wx:if='{{item.status == 3 && item.arriveTime != 0}}'>车号：{{item.vehicleNumber}}，还有{{item.arriveTime}}分钟，到达您身边。</view>
+                    <view wx:if='{{item.status == 3 && item.arriveTime == 0}}'>此车已到达您身边。</view>
+                    <view wx:if='{{item.status == 0}}'>车号：{{item.vehicleNumber}}</view>
+                    <view class='car-left-info-tip'></view>
+                </view>
+            </view>
+        </block>
+        <!-- 车辆所在的位置---往游客中心方向 -->
+        <block wx:for='{{carToCentre}}' wx:key='{{index}}'>
+            <view class='car-right' style='top: {{item.rideState == 2 ? (item.distance >= endingStation2 ? endingStation2 : item.distance) : (item.distance + moveDistance >= endingStation2 ? endingStation2 : item.distance + moveDistance)}}rpx;'>
+                <view class='car-right-img' catchtap='clickCar' data-is-type='down' data-index='{{index}}'>
+                    <image src='{{HTTPS}}img/direct_train/takeACar/down_car.png'></image>
+                </view>
+                <view hidden='{{clickCarIndexDown != index}}' class='car-right-info {{item.status == 0 ? "kklh" : ""}}'>
+                    <view wx:if='{{item.status == 1}}'>未发车！</view>
+                    <view wx:if='{{item.status == 2}}'>此车已过站！</view>
+                    <view wx:if='{{item.status == 3 && item.arriveTime != 0}}'>车号：{{item.vehicleNumber}}，还有{{item.arriveTime}}分钟，到达您身边。</view>
+                    <view wx:if='{{item.status == 3 && item.arriveTime == 0}}'>此车已到达您身边。</view>
+                    <view wx:if='{{item.status == 0}}'>车号：{{item.vehicleNumber}}</view>
+                    <view class='car-right-info-tip'></view>
+                </view>
+            </view>
+        </block> 
+
+        <!-- 我所在的位置 -->
+        <view wx:if='{{myBottom != null}}' class='person-go-up' style='bottom: {{myBottom}}rpx;'>
+            <image src='{{HTTPS}}img/direct_train/takeACar/tag_person.png'></image>
+        </view> 
+        <view wx:if='{{myBottom != null}}' class='person-go-down' style='bottom: {{myBottom}}rpx;'>
+            <image src='{{HTTPS}}img/direct_train/takeACar/tag_person.png'></image>
+        </view> 
+    </view>
+
+    <!-- 底部标注 -->
+    <view class='bottom-tag'>
+        <view class='tag-item chuizhi'>
+            <image class='tag-person' src='{{HTTPS}}img/direct_train/takeACar/tag_person.png'></image>
+            <view class='tag-txt'>您所在的位置</view>
+            <view class='tag-line'></view>
+        </view>
+        <view class='tag-item kk-pdl20 chuizhi'>
+            <image class='tag-car' src='{{HTTPS}}img/direct_train/takeACar/tag_car.png'></image>
+            <view class='tag-txt'>车辆所在的位置</view>
+        </view>
+    </view>
+
+    <view class='kkTab'>
+        <view class='sightseeingBus chuizhi kkTab-active'>
+             <image src='{{HTTPS}}img/direct_train/train_car_hue.png'></image>
+             景区观光车
+        </view>
+        <view class='directTrain chuizhi' bindtap='directTrainActive'>
+             <image src='{{HTTPS}}img/direct_train/sight_bus.png'></image>
+             旅游直通车
+        </view>
+    </view>
+    <!-- <view class='kkTab'>
+        <view class='sightseeingBus chuizhi kkTab-active'>
+             <image src='{{HTTPS}}img/direct_train/train_car_hue.png'></image>
+             <view>五指山观光车</view>
+        </view>
+        <view class='directTrain chuizhi' bindtap='directTrainActive'>
+             <image src='{{HTTPS}}img/direct_train/sight_bus.png'></image>
+             <view>旅游直通车</view>
+        </view>
+    </view> -->
+</view>

@@ -1,0 +1,101 @@
+<view wx:if='{{statusCode == 100}}' class='loadingBox'>
+    <image src='../../img/direct_train/loading.gif'></image>
+    <view>{{statusDone ? '抱歉，该商品还没有上架！' : '数据加载中...'}}</view>
+</view>
+
+<view wx:else class='outside-view'>
+
+    <scroll-view scroll-y class='scroll-view' scroll-top='{{scrollTop}}' bindscroll='bindscroll' lower-threshold="50" bindscrolltolower="scrolltolower">
+        <!-- 轮播图 -->
+        <swiper class='swiper-box' autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="{{indicatorDots}}" indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="#fff">
+            <block wx:for='{{swiperImg}}' wx:key='{{index}}'>
+                <swiper-item>
+                    <image class='swiper-img' catchtap='previewImg' data-img-url='{{item}}' data-img-list='{{swiperImg}}' mode='aspectFill' src='{{item == 0 ? "../../img/cxyMallPage/defaultImg.png" : item}}'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+
+        <!-- 产品信息 -->
+        <view class='product-content'>
+            <view class='product-name'>
+                <view class='product-name-txt'>{{detailObj.name}}</view>
+                <view class='product-name-price'>¥{{detailObj.price?detailObj.price:'0.00'}}</view>
+            </view>
+            <view class='product-address' catchtap='openTheMap'>
+                <image src='../../img/direct_train/address.png'></image>
+                <text wx:if='{{addressInfo}}' class='product-address-txt'>{{addressInfo}} {{addressDistance}}</text>
+                <text class='product-address-map'>{{addressInfo?'查看地图':'暂无详细地址'}}</text>
+            </view>
+            <view wx:if='{{detailObj.opentime}}' class='product-time'>开放时间：{{detailObj.opentime}}</view>
+        </view>
+
+        <!-- 产品tab -->
+        <view class='product-info'>
+            <view class='product-info-tab {{navToTop ? "the-top-nav" : ""}}' id='nav-id'>
+                <view class='tab-item chuizhi {{tabIndex == 1 ? "tab-item-active" : ""}}' catchtap='tabTap' data-index='1'>产品详情</view>
+                <view class='tab-item chuizhi {{tabIndex == 2 ? "tab-item-active" : ""}}' catchtap='tabTap' data-index='2'>购买须知</view>
+                <view class='tab-item chuizhi {{tabIndex == 3 ? "tab-item-active" : ""}}' catchtap='tabTap' data-index='3'>用户评价</view>
+            </view>
+            <!-- 产品详情 -->
+            <view wx:if='{{tabIndex == 1}}' class='product-nav-content'>
+                <view class='productDetail'>
+                    <rich-text nodes="{{detailObj.productDetail}}"></rich-text>
+                </view>
+            </view>
+            <!-- 购买须知 -->
+            <view wx:if='{{tabIndex == 2}}' class='product-nav-content'>
+                <view class='buyNotes'>
+                    <rich-text nodes="{{detailObj.buyNotes}}"></rich-text>
+                </view>
+            </view>
+            <!-- 用户评价 -->
+            <view wx:if='{{tabIndex == 3}}' class='product-nav-content'>
+                <view class='commentList'>
+                    <view wx:if='{{commentList.length == 0}}' class='nonedata'>暂无更多数据~</view>
+                    <block wx:else>
+                        <view class='show-comment' wx:for='{{commentList}}' wx:key='{{index}}'>
+                            <view class='show-comment-head'>
+                                <image wx:if='{{!item.headUrl}}' mode='aspectFill' src='{{HTTPS}}img/cxyMallPage/user_head.png'></image>
+                                <image wx:if='{{item.headUrl}}' mode='aspectFill' src='{{item.headUrl}}'></image>
+                            </view>
+                            <view class='show-comment-con'>
+                                <view class='show-comment-name'>{{item.name ? item.name : '匿名用户'}}
+                                    <text style='float: right;'>{{item.commentDate}}</text>
+                                </view>
+                                <view class='show-comment-start'>
+                                    <!-- 全颗星 -->
+                                    <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= item.starFull}}'>
+                                        <image src='../../img/cxyMallPage/full-star.png'></image>
+                                    </block>
+                                    <!-- 半颗星 -->
+                                    <block wx:if='{{item.starHalf}}'>
+                                        <image src='../../img/cxyMallPage/half-star.png'></image>
+                                    </block>
+                                    <!-- 空星 -->
+                                    <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= item.starNo}}'>
+                                        <image src='../../img/cxyMallPage/no-star.png'></image>
+                                    </block>
+                                </view>
+                                <view class='show-comment-txt'>{{item.content}}</view>
+                                <view class='show-comment-img'>
+                                    <block wx:if='{{item.imgUrls}}' wx:for='{{item.imgUrls}}' wx:for-item='imgItem' wx:for-index='imgIndex' wx:key='{{imgIndex}}'>
+                                        <image lazy-load mode='aspectFill' wx:if='{{imgItem}}' src='{{imgItem}}' catchtap='previewImg' data-img-url='{{imgItem}}' data-img-list='{{item.imgUrls}}'></image>
+                                    </block>
+                                </view>
+                            </view>
+                        </view>
+                        <view wx:if='{{commentList.length == commentTotalCount}}' class='no-data'>没有更多了~</view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+
+    <view class='page-bottom'>
+        <view class='page-bottom-item chuizhi getTiket' catchtap='btmTap' data-btm='guide'>取票指引</view>
+        <view class='page-bottom-item chuizhi buyBtn' style='background-color:{{btnActive?"#399":"#999"}}' catchtap='btmTap' data-btm='buy'>
+            {{btnActive ? '在线预订' : '暂无预定'}}
+        </view>
+    </view>
+
+</view>

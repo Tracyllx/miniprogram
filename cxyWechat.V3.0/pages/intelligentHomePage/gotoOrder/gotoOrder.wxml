@@ -1,0 +1,50 @@
+<view class='outside-view'>
+    <view class='box-content'>
+        <view class='box-bar'>
+            <view class='box-label'>上车点：</view>
+            <view class='box-input'>
+                <input type='text' value='{{upSite}}' bindinput='upInput' placeholder='请输入上车站点' placeholder-style='color:#999;'></input>
+                <view class='site-list' wx:if='{{isUpSite}}'>
+                    <view wx:if='{{hasList===false}}' class='site-none'>您输入的站点不在乘车范围内，请返回上一页查看所有站点~</view>
+                    <block wx:if='{{hasList===true}}' wx:for='{{searchResult}}' wx:key='{{index}}'>
+                        <view class='site-item {{index==searchResult.length-1?"no-b":""}}' catchtap='chooseSite' data-name='{{item.station_name}}' data-the-type='up'>{{item.station_name}}</view>
+                    </block>
+                </view>
+            </view>
+            <!-- <view class='box-dropdown drop-up'></view> -->
+        </view>
+        <view class='box-bar'>
+            <view class='box-label'>下车点：</view>
+            <view class='box-input'>
+                <input type='text' value='{{downSite}}' bindinput='downInput' placeholder='请输入下车站点' placeholder-style='color:#999;'></input>
+                <view class='site-list' wx:if='{{isDownSite}}'>
+                    <view wx:if='{{hasList===false}}' class='site-none'>您输入的站点不在乘车范围内，请返回上一页查看所有站点~</view>
+                    <block wx:if='{{hasList===true}}' wx:for='{{searchResult}}' wx:key='{{index}}'>
+                        <view class='site-item {{index==searchResult.length-1?"no-b":""}}' catchtap='chooseSite' data-name='{{item.station_name}}' data-the-type='down'>{{item.station_name}}</view>
+                    </block>
+                </view>
+            </view>
+            <!-- <view class='box-dropdown drop-down'></view> -->
+        </view>
+        <view class='box-bar'>
+            <view class='box-label'>乘车人数：</view>
+            <view class='box-number'>
+                <view class='number-option' catchtap='numOption' data-option='-'>-</view>
+                <view class='number-input'>
+                    <input type='number' maxlength='3' value='{{peopleNum}}' bindinput='numInput'></input>
+                </view>
+                <view class='number-option' catchtap='numOption' data-option='+'>+</view>
+            </view>
+        </view>
+        <view class='box-bar'>
+            <text class='price-title'>价格：</text>
+            <text class='price-num'>¥ {{totalPrice}}</text>
+        </view>
+    </view>
+
+    <!-- 底部按钮 -->
+    <view class='bottom-btn'>
+        <view class='bottom-item'></view>
+        <view class='bottom-item' catchtap='createRideOrder' style='background-color:{{btnActive?"#399":"#999"}};'>在线预约</view>
+    </view>
+</view>

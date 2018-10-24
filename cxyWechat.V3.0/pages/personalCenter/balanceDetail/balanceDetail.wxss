@@ -1,0 +1,63 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.balanceDetail {
+    width: 100%;
+    height: 100%;
+    color: #333;
+}
+
+.kkBar {
+    width: 94%;
+    height: 100rpx;
+    padding: 10rpx 3%;
+    border-bottom: 1rpx solid #cdcdcd;
+    display: flex;
+}
+
+.kkBar-l {
+    flex: 1;
+    height: 100%;
+}
+
+.kkBar-title {
+    width: 100%;
+    height: 50%;
+    font-size: 30rpx;
+    font-weight: bold;
+    overflow: hidden;
+	 	text-overflow: ellipsis;
+	 	display: -webkit-box;
+	 	-webkit-line-clamp: 1;
+	 	-webkit-box-orient: vertical;
+}
+
+.kkBar-time {
+    width: 100%;
+    height: 50%;
+    font-size: 24rpx;
+    color: #9a9a9a;
+}
+
+.kkBar-r {
+    flex: 0 0 140rpx;
+    height: 100%;
+    font-size: 32rpx;
+    text-align: right;
+    padding-left: 10rpx;
+}
+
+.c-base {
+    color: #01847d;
+}
+
+.nonedata{
+    width: 100%;
+    line-height: 70rpx;
+    height: 70rpx;
+    text-align: center;
+    color: #01827d;
+    font-size: 27rpx;
+}

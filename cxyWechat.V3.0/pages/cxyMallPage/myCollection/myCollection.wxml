@@ -1,0 +1,23 @@
+<scroll-view scroll-y class='scroll-view' bindscrolltolower='loadMore'>
+    <view wx:if='{{dataList.length == 0}}' class='nonedata'>暂无更多数据~</view>
+    <block wx:for='{{dataList}}' wx:key='{{index}}'>
+        <view class='list-item'>
+            <view class='item-info' catchtap='gotoOrder' data-index='{{index}}'>
+                <view class='item-img'>
+                    <image mode='aspectFill' src='{{item.thisImg ? item.thisImg : "../../img/cxyMallPage/defaultImg.png"}}'></image>
+                </view>
+                <view class='item-txt'>
+                    <view class='item-name'>{{item.thisName}}</view>
+                    <!-- <view class='item-count'>数量：{{item.thisCount}}
+                        <text class='item-price'>¥{{item.thisPrice}}</text>
+                    </view> -->
+                </view>
+            </view>
+            <view class='item-btn'>
+                <button type='default' hover-class='none' size='mini' catchtap='deleteTap' data-index='{{index}}'>删 除</button>
+                <button type='primary' hover-class='none' size='mini' style='background-color: #399;' catchtap='gotoOrder' data-index='{{index}}'>去 下 单</button>
+            </view>
+        </view>
+    </block>
+    <view wx:if='{{dataList.length != 0 && dataList.length == totalCount}}' class="nonedata" style='color: #399;'>已加载完~</view>
+</scroll-view>

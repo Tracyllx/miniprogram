@@ -1,0 +1,34 @@
+<view class='the-container'>
+    <view class='nav-bar'>
+        <view class='nav-item {{navActive == 1 ? "nav-active" : ""}}' catchtap='navTap' data-index='1'>全 部
+            <text wx:if='{{navActive == 1}}' class='nav-line-0'></text>
+        </view>
+        <view class='nav-item {{navActive == 2 ? "nav-active" : ""}}' catchtap='navTap' data-index='2'>消费记录
+            <text wx:if='{{navActive == 2}}' class='nav-line'></text>
+        </view>
+        <view class='nav-item {{navActive == 3 ? "nav-active" : ""}}' catchtap='navTap' data-index='3'>充值记录
+            <text wx:if='{{navActive == 3}}' class='nav-line'></text>
+        </view>
+    </view>
+    <scroll-view scroll-y class='scroll-view' bindscrolltolower='loadMore'>
+        <view wx:if='{{dataList.length == 0}}' class='nonedata'>暂无更多数据~</view>
+        <block wx:for='{{dataList}}' wx:key='{{index}}'>
+            <view class='list-item' wx:if='{{navActive==1 || (navActive==2&&item.status=="充电") || (navActive==3&&item.status=="充值")}}'>
+                <view class='item-line item-time'>
+                    <view class='item-line-l s-small c-gray'>{{item.time}}</view>
+                    <view class='item-line-r s-small c-base'>{{item.status}}</view>
+                </view>
+                <view class='item-line'>
+                    <view class='item-line-l s-big c-black'>{{item.status=='充电'?'消费费用':'充值费用'}}</view>
+                    <view class='item-line-r s-big c-black'>{{item.cost}}</view>
+                </view>
+                <view class='item-line'>
+                    <view class='item-line-l s-big c-black'>余额</view>
+                    <view class='item-line-r s-big c-black'>{{item.balance}}</view>
+                </view>
+            </view>
+        </block>
+        <view wx:if='{{dataList.length != 0 && dataList.length == totalCount}}' class="nonedata" style='color: #399;'>已加载完~</view>
+    </scroll-view>
+    <include src="../common/tabBar.wxml" />
+</view>

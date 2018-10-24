@@ -1,0 +1,91 @@
+page {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.lu-item-content {
+    width: 94%;
+    padding: 0 3%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.lu-item-box2 {
+    width: 100%;
+    height: 220rpx;
+    padding: 35rpx 0;
+    border-bottom: 1rpx solid #f1f1f1;
+    display: flex;
+}
+
+.lu-bb0 {
+    border-bottom: 0;
+}
+
+.lu-item-box2-l {
+    flex: 0 0 45%;
+    height: 100%;
+    margin-right: 1.6%;
+}
+
+.lu-item-box2-l>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.lu-item-box2-r {
+    flex: 1;
+    height: 100%;
+    position: relative;
+}
+
+.lu-item-box2-r>.title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    font-size: 30rpx;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.lu-item-box2-r>.desc {
+    position: absolute;
+    top: 50rpx;
+    width: 100%;
+    font-size: 26rpx;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.lu-item-box2-r>.tags {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.lu-item-box2-r>.tags>text {
+    margin-right: 10rpx;
+}
+
+/* 没有更多数据了 */
+
+.nonedata {
+    width: 100%;
+    line-height: 70rpx;
+    height: 70rpx;
+    text-align: center;
+    color: #01827d;
+    font-size: 27rpx;
+}

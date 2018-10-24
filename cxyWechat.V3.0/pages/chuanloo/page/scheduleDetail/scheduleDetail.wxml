@@ -1,0 +1,45 @@
+<view class='the-container'>
+    <view class='detail-info'>
+        <view class='info-left'>
+            <view class='info-left-name'>{{dataList[dataIndex].name}}
+                <view class='info-type'>
+                    <text class='type-left'>5D</text>
+                    <text class='type-right'>IMAX</text>
+                </view>
+            </view>
+            <view class='info-left-txt'>{{dataList[dataIndex].types}}</view>
+            <view class='info-left-txt'>中国大陆 {{dataList[dataIndex].times}}</view>
+            <view class='info-left-txt'>西园区5D馆内</view>
+        </view>
+        <view class='info-right'>
+            <image src='{{dataList[dataIndex].imgUrl}}'></image>
+        </view>
+    </view>
+    <view class='time-tab'>
+        <block wx:for='{{timeList}}' wx:key='{{index}}'>
+            <view class='time-tab-item {{timeAcitve==index?"time-tab-acitve":""}}' catchtap='timeTap' data-index='{{index}}'>{{item.text}}</view>
+        </block>
+    </view>
+    <scroll-view scroll-y class='scroll-view'>
+        <view wx:if='{{infoList.length == 0}}' class='nonedata'>今天的场次结束了~</view>
+        <block wx:for='{{infoList}}' wx:key='{{index}}'>
+            <view class='list-item' wx:if='{{item.showItem}}'>
+                <view class='list-item-box'>
+                    <view class='list-item-line'>
+                        <view class='list-item-1 c-black s-big'>{{item.startTime}}</view>
+                        <view class='list-item-2 c-black s-small lh-2'>{{item.maxNum}}人/场</view>
+                        <view class='list-item-3 c-color s-big'>{{item.priceInt}}<text class='s-small'>{{item.priceFloat}}</text></view>
+                    </view>
+                    <view class='list-item-line'>
+                        <view class='list-item-1 c-gray s-small'>{{item.endTime}}散场</view>
+                        <view class='list-item-2 c-gray s-small'>剩余{{item.surplus+(timeAcitve*2-1)}}场</view>
+                        <view class='list-item-3 c-base s-small'>游乐金</view>
+                    </view>
+                </view>
+                <view class='list-item-yuyue'>
+                    <view class='c-base yuyue' catchtap='confirmSchedule' data-index='{{index}}'>预约</view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+</view>

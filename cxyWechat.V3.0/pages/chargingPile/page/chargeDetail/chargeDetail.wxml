@@ -1,0 +1,28 @@
+<scroll-view scroll-y class='scroll-view'>
+    <view class='charge-banner'>
+        <image src='../imgs/img.png'></image>
+    </view>
+    <view class='charge-info mt-16 mb-16'>{{dataDetail.name}}
+        <text class='fr c-gray'>距离{{dataDetail.distance}}</text>
+    </view>
+    <view class='charge-info'>{{dataDetail.desc}}</view>
+    <view class='info-icon'>
+        <text class='all-count'>共{{dataDetail.countAll}}个</text>
+        <text class='free-count'>空闲{{dataDetail.countFree}}个</text>
+    </view>
+    <view class='charge-details'>
+        <view class='details-name'>充电桩详情：</view>
+        <view class='details-txt'>电费：
+            <text class='fr'>0.9元/度</text>
+        </view>
+        <view class='details-txt'>服务费：
+            <text class='fr'>5元</text>
+        </view>
+        <view class='details-txt'>桩类型：
+            <text class='fr'>直流</text>
+        </view>
+        <view class='details-txt'>功率：
+            <text class='fr'>60kw</text>
+        </view>
+    </view>
+</scroll-view>

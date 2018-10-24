@@ -1,0 +1,78 @@
+.body {
+    background: #eee;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.box {
+    background: #fff;
+    padding: 100rpx 30rpx 50rpx;
+}
+
+.pdleft {
+    padding-left: 30rpx;
+}
+
+/* 有效字体颜色 */
+
+.valid-c {
+    color: #85e003;
+}
+
+/* 无效字体颜色 */
+
+.invalid-c {
+    color: #ff0000;
+}
+
+.people-num {
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    color: #e6761c;
+    font-size: 40rpx;
+    margin-bottom: 50rpx;
+}
+
+.content {
+    width: 84%;
+    padding: 0 2%;
+    margin: 50rpx auto;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 34rpx;
+    text-align: center;
+    border: 1rpx solid #c6c6c6;
+    border-radius: 30rpx;
+}
+
+.icon {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: middle;
+    margin-right: 16rpx;
+}
+
+.btn {
+    padding: 60rpx 0;
+    height: 76rpx;
+    line-height: 76rpx;
+    font-size: 30rpx;
+    display: flex;
+}
+
+.btn>view {
+    flex: 1;
+    margin: 0 20rpx;
+    text-align: center;
+    border: 1rpx solid #c6c6c6;
+    border-radius: 20rpx;
+}
+
+.continue {
+    background-color: #01827d;
+    color: #fff;
+    border: 0;
+}

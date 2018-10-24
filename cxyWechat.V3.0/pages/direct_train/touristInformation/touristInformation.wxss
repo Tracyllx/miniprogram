@@ -1,0 +1,49 @@
+/* pages/direct_train/touristInformation/touristInformation.wxss */
+page{
+    width: 100%;
+    height: 100%;
+}
+.tourist_information{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+/* 滑动部分 */
+.scroller{
+    width: 100%;
+    height: 100%;
+}
+/* 展示每一条数据 */
+.showlist,.showheader{
+    width: 100%;
+    /* height: 40px; */
+    height: 70rpx;
+    overflow: hidden;
+    border-bottom: 1rpx solid #7d7d7d;
+}
+/* 展示每个div的数据 */
+.showlist>view,.showheader>view{
+    width: 24.5%;
+    height: 100%;
+    float: left;
+    /* line-height: 40px; */
+    line-height: 70rpx;
+    font-size: 26rpx;
+    text-align: center;
+    border-right: 1px solid #cdcdcd;
+}
+.showlist>.noneborder,.showheader>.noneborder{
+    border: none;
+}
+/* 展示状态选的小图标 */
+.status-img>image{
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    margin-right: 14rpx;
+}
+ ::-webkit-scrollbar {
+	height: 0;
+    width: 0;
+    color: transparent;
+} 

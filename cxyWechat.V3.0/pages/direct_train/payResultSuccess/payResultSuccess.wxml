@@ -1,0 +1,57 @@
+<view class="outside-view">
+    <!-- 第一大部分：支付成功 -->
+    <view class='index_first'>
+        <view class='content chuizhi'>
+            <icon type='success' size='30' color='#399' style='margin-right: 20rpx;'></icon>支付成功
+        </view>
+    </view>
+
+    <!-- 第二大部分：注意公告 -->
+    <view class='index_second'>请注意合理安排时间，如行程变动尽量提前沟通退改</view>
+
+    <!-- 第三大部分：订单信息 -->
+    <view class='index_third'>
+        <view class='order_list_all'>
+            <view class='order_list'>
+                <view class='order_title {{detail.product_type == 2 ? "tit-c" : ""}}'>
+                    {{detail.order_type==2?'乘车订单':detail.product_type==2?detail.orgnName:detail.productName}}
+                </view>
+                <view class='order_message' wx:if='{{detail.product_type == 2}}' wx:for='{{productList}}' wx:key='{{index}}'>
+                    <text space='ensp'>{{item.productName}}      ×{{item.ticketNum}}</text>
+                </view>
+                <view class='tuipiao'>
+                    <image class='tuipiao_icon' src='../../img/direct_train/tuipiao.png'></image>
+                    <text class='suishitui'>随时退</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+    <!-- 第四大部分：订单总价、数量、时间 -->
+    <view class='index_fourth'>
+        <block>
+            <view class='sum'>订单总价：
+                <text class='order_price'>¥{{detail.amount}}</text>
+            </view>
+            <view wx:if='{{detail.ticketNum}}' class='count'>预定数量：
+                <text class='order_count'>{{detail.ticketNum}}{{detail.product_type == 3 ? '箱' : '张'}}</text>
+            </view>
+            <view wx:if='{{detail.car_num}}' class='count'>租车数量：
+                <text class='order_count'>{{detail.car_num}}辆</text>
+            </view>
+            <view wx:if='{{detail.start_date && detail.end_date}}' class='count'>{{detail.product_type == 2 ? '使用日期：' : '租车日期：'}}
+                <text class='order_count'>{{detail.start_date}}到{{detail.end_date}}</text>
+            </view>
+            <view class='time'>{{detail.product_type == 3 ? '订购日期：' : '预订时间：'}}
+                <text class='order_time'>{{createTime}}</text>
+            </view>
+        </block>
+    </view>
+
+    <!-- 第五大部分：查看订单按钮 -->
+    <view class='index_fifth'>
+        <button class='check_order' catchtap='readOrderDetail'>查看订单</button>
+    </view>
+
+</view>

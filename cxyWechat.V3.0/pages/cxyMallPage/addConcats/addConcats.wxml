@@ -1,0 +1,60 @@
+<view class='outside-view'>
+    <scroll-view scroll-y class='scroll-view'>
+        <view class='history-title'>历史联系人</view>
+        <view class='history-list'>
+            <view wx:if='{{dataList.length == 0}}' class='nonedata'>暂无更多数据~</view>
+            <view class='history-item' wx:for='{{dataList}}' wx:key='{{index}}'>
+                <view class='history-item-check' catchtap='checkTap' data-index='{{index}}'>
+                    <icon wx:if='{{isCheck && isCheckIndex == index}}' type="success" size="28" color="#399" />
+                    <icon wx:else type="circle" size="30"></icon>
+                </view>
+                <view class='history-item-info'>
+                    <view class='history-item-txt' catchtap='checkTap' data-index='{{index}}'>{{item.contactName}}
+                        <text class='history-item-phone'>{{item.contactPhone}}</text>
+                    </view>
+                    <view class='history-item-option'>
+                        <view catchtap='optionTap' data-txt='edit' data-index='{{index}}'>
+                            <image class='edit' src='{{HTTPS}}img/cxyMallPage/edit.png'></image>编辑
+                        </view>
+                        <view catchtap='optionTap' data-txt='del' data-index='{{index}}'>
+                            <image class='del' src='{{HTTPS}}img/cxyMallPage/del.png'></image>删除
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class='history-btn' catchtap='addTap' data-txt='add'>新增联系人</view>
+    </scroll-view>
+    <!-- 新增窗口 -->
+    <view hidden='{{!showAddBox}}' class='add-outside'>
+        <view class='add-box'>
+            <view class='add-box-title'>新增联系人</view>
+            <view class='add-box-info'>
+                <view class='add-box-cell'>
+                    <view class='add-box-label'>姓名：</view>
+                    <view class='add-box-input'>
+                        <input type='text' maxlength='20' value='{{nameVal}}' bindinput='nameInput' placeholder='请输入姓名' placeholder-style='color: #999;'></input>
+                    </view>
+                </view>
+                <view class='add-box-cell'>
+                    <view class='add-box-label'>手机号：</view>
+                    <view class='add-box-input'>
+                        <input type='number' maxlength='11' value='{{phoneVal}}' bindinput='phoneInput' placeholder='请输入手机号' placeholder-style='color: #999;'></input>
+                    </view>
+                </view>
+                <view class='add-box-cell' hidden='{{!showCodeBox}}'>
+                    <view class='add-box-label'>验证码：</view>
+                    <view class='add-box-input'>
+                        <input type='number' maxlength='6' value='{{codeVal}}' focus='{{codeFocus}}' bindinput='codeInput' placeholder='请输入验证码' placeholder-style='color: #999;'></input>
+                    </view>
+                    <view class='add-box-code' catchtap='getCodeTap'>{{codeText}}</view>
+                </view>
+            </view>
+            <view class='add-box-btn'>
+                <view class='add-error'>{{errorTip}}</view>
+                <view class='add-box-btn-item add-btn-cencel' catchtap='addTap' data-txt='cancel'>取 消</view>
+                <view class='add-box-btn-item add-btn-save' catchtap='saveTap'>保 存</view>
+            </view>
+        </view>
+    </view>
+</view>

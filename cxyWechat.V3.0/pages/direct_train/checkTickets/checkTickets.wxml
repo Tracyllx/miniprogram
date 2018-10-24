@@ -1,0 +1,31 @@
+<scroll-view class='body' scroll-y>
+    <view class='banner'>
+        <image src='{{HTTPS}}img/direct_train/check_banner.png'></image>
+        <view class='banner-txt'>使用说明教程</view>
+    </view>
+    <view class='list'>
+        <view wx:if='{{ticketPower.ztcCheckWzs}}' class='item bg2' bindtap='checkTap' data-list-type='检票入园' data-orgn-code='8001'>
+            <view class='box txt2'>五指山景区查票</view>
+            <view class='box txt2 txt2-2'></view>
+            <view class='bottom-txt2'>对五指山景区车票进行查票</view> 
+        </view>
+        <view wx:if='{{ticketPower.ztcCheckRide}}' class='item bg1' bindtap='checkTap' data-list-type='检票上车' data-orgn-code=''>
+            <view class='box txt1'>旅游直通车检票上车</view>
+            <view class='box txt1 txt1-1'></view>
+        </view>
+        <view wx:if='{{ticketPower.ztcCheckZsd}}' class='item bg3' bindtap='checkTap' data-list-type='检票' data-orgn-code='8003'>
+            <view class='box txt2'>卓思道温泉门票</view>
+            <view class='box txt2 txt2-2'></view>
+            <view class='bottom-txt2'>对卓思道温泉门票进行查票</view> 
+        </view>
+        <view wx:if='{{ticketPower.ztcCheckXms}}' class='item bg4' bindtap='checkTap' data-list-type='检票' data-orgn-code='9213'>
+            <view class='box txt2'>香蜜山门票</view>
+            <view class='box txt2 txt2-2'></view>
+            <view class='bottom-txt2'>对香蜜山门票进行查票</view> 
+        </view>
+        <view wx:if='{{ticketPower.ztcCheckAll}}' class='item bg5' bindtap='checkTap' data-list-type='检票' data-orgn-code=''>
+            <view class='box txt1'>其他景区查票</view>
+            <view class='box txt1 txt1-1'></view>
+        </view>
+    </view>
+</scroll-view>

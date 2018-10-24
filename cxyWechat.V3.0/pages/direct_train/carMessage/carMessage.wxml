@@ -1,0 +1,27 @@
+<view class='outside-view'>
+    <view class='title'>
+        <view class='second_title first' data-sort='1'  data-index='1' catchtap='getFilter'>编号</view>
+        <view class='second_title second' data-sort='5' data-index='2' catchtap='getFilter'>状态</view>
+        <view class='second_title third'>车牌号</view>
+        <view class='second_title fourth' data-sort='3' data-index='3' catchtap='getFilter'>电量</view>
+        <view class='second_title fifth'>选择</view>
+    </view>
+    <view class='list'>
+        <scroll-view class='scroller' scroll-y >
+            <view class='message' wx:for="{{list}}" wx:key="{{index}}" data-index="{{index}}" catchtap='chooseCar'>
+                <view class='one first'>{{item.car_no}}</view>
+                <view class='one second {{item.color}}'>{{item.shanStatus}}</view>
+                <view class='one third'>{{item.license_no}}</view>
+                <view class='one fourth {{item.eleColor}}'>{{item.energy}}%</view>
+                <view class='one fifth'><image class='choose' src='../../img/direct_train/{{item.selected ? "choose.png" : "no_choose.png"}}'></image></view>
+            </view>
+            <view class='display-button'></view>
+        </scroll-view>
+        <view class='show_button'>   
+            <view class='button cancel'  catchtap='cancel'>取消</view>
+            <view class='line'></view>
+            <view class='button confirm' catchtap='confirm'>确定</view>
+        </view>
+    </view>
+</view>
+   

@@ -1,0 +1,8 @@
+<view class="wrap">
+    <view class="circle-box">
+        <canvas class="circle" style="z-index: -99; width:212px; height:212px;" canvas-id="canvasCircle">
+        </canvas>
+        <canvas class="circle" style="width:212px; height:212px;" canvas-id="canvasArcCir">
+        </canvas>
+    </view>
+</view>

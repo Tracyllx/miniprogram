@@ -1,0 +1,14 @@
+<view class='tab-bar'>
+    <view class='tab-item {{tabIndex=="chargingPile"?"tab-acitve":""}}' style='padding-top: 8rpx;' catchtap='tabItemTap' data-index='chargingPile'>
+        <image src='../imgs/{{tabIndex=="chargingPile"?"charging_pile_active":"charging_pile"}}.png' style='width: 24rpx; height: 45rpx;'></image>
+        找桩充电
+    </view>
+    <view class='tab-item {{tabIndex=="charge"?"tab-acitve":""}}' style='padding-top: 9rpx;' catchtap='tabItemTap' data-index='charge'>
+        <image src='../imgs/{{tabIndex=="charge"?"find_char_active":"find_char"}}.png' style='width: 43rpx; height: 46rpx;'></image>
+        充电
+    </view>
+    <view class='tab-item {{tabIndex=="personal"?"tab-acitve":""}}' style='padding-top: 13rpx;' catchtap='tabItemTap' data-index='personal'>
+        <image src='../imgs/{{tabIndex=="personal"?"my_active":"my"}}.png' style='width: 38rpx; height: 40rpx;'></image>
+        我的订单
+    </view>
+</view>

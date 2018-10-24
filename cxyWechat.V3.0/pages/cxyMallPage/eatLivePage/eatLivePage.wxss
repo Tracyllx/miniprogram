@@ -1,0 +1,190 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+/* 搜索框 */
+
+.page-search {
+    width: 100%;
+    height: 68rpx;
+    margin: 24rpx auto;
+}
+
+.page-search-box1 {
+    width: 84%;
+    height: 100%;
+    padding: 0 3%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10rpx;
+    border: 1rpx solid #e5e5e5;
+}
+
+.page-search-icon {
+    width: 37rpx;
+    height: 36rpx;
+    vertical-align: middle;
+    margin-right: 12rpx;
+}
+
+.icon-margin {
+    margin-top: 16rpx;
+    margin-right: 20rpx;
+}
+
+.page-search-txt {
+    font-size: 28rpx;
+    color: #999;
+}
+
+.page-search-box2 {
+    width: 84%;
+    height: 100%;
+    padding: 0 3%;
+    margin: 0 auto;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    border: 1rpx solid #e5e5e5;
+    display: flex;
+    display: -webkit-flex;
+}
+
+.page-search-input {
+    flex: 1;
+    height: 100%;
+}
+
+/* 导航 */
+
+.nav-bar {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-top: 1rpx solid #d1d1d1;
+    border-bottom: 1rpx solid #d1d1d1;
+    display: flex;
+    display: -webkit-flex;
+}
+
+.nav-item {
+    flex: 1;
+    font-size: 30rpx;
+    color: #333;
+    text-align: center;
+}
+
+.nav-active {
+    color: #399;
+}
+
+/* 列表 */
+
+.scroll-view {
+    position: absolute;
+    top: 200rpx;
+    bottom: 0;
+    width: 100%;
+}
+
+.list-item {
+    height: 200rpx;
+    padding: 30rpx 24rpx;
+    border-top: 1rpx solid #d1d1d1;
+    display: flex;
+}
+
+.item-img {
+    width: 42%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.item-img>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.item-info {
+    flex: 1;
+    margin: 0 20rpx;
+    height: 100%;
+    overflow: hidden;
+}
+
+.item-info-top {
+    height: 72%;
+    overflow: hidden;
+}
+
+.item-name {
+    font-size: 30rpx;
+    color: #000;
+}
+
+/* 评分、距离 */
+
+.item-star-distance {
+    display: flex;
+    height: 50rpx;
+    line-height: 50rpx;
+    overflow: hidden;
+}
+
+.item-star {
+    flex: 1;
+    margin-top: -5rpx;
+}
+
+.star-icon {
+    width: 24rpx;
+    height: 24rpx;
+    vertical-align: middle;
+    margin-right: 4rpx;
+}
+
+.star-txt {
+    padding-left: 6rpx;
+    font-size: 26rpx;
+    color: #ffcc00;
+}
+
+.item-distance {
+    /* width: 120rpx; */
+    font-size: 26rpx;
+    color: #333;
+    text-align: right;
+}
+
+/* 价格、评价按钮 */
+
+.item-price-comment {
+    display: flex;
+    height: 28%;
+    overflow: hidden;
+}
+
+.item-price {
+    flex: 1;
+    font-size: 30rpx;
+    color: #ff6600;
+}
+
+.item-price-big {
+    font-size: 36rpx;
+}
+
+.item-comment {
+    padding-top: 5rpx;
+    width: 140rpx;
+    font-size: 28rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 10rpx;
+    background-color: #399;
+}
+
+.no-border {
+    border: 0;
+}

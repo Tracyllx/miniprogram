@@ -1,0 +1,245 @@
+<view wx:if='{{statusCode == 100}}' class='loadingBox'>
+    <image src='../../img/direct_train/loading.gif'></image>
+    <view>{{statusDone ? '抱歉，该商品还没有上架！' : '数据加载中...'}}</view>
+</view>
+
+<view wx:else class='outside-view'>
+
+    <scroll-view scroll-y class='scroll-view' scroll-top='{{scrollTop}}' bindscroll='bindscroll' lower-threshold="50" bindscrolltolower="scrolltolower">
+        <!-- 轮播图 -->
+        <swiper class='swiper-box' autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="{{indicatorDots}}" indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="#fff">
+            <block wx:for='{{swiperImg}}' wx:key='{{index}}'>
+                <swiper-item>
+                    <image class='swiper-img' catchtap='previewImg' data-img-url='{{item}}' data-img-list='{{swiperImg}}' mode='aspectFill' src='{{item == 0 ? "../../img/cxyMallPage/defaultImg.png" : item}}'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+
+        <!-- 产品信息 -->
+        <view wx:if='{{productTitle != "buy"}}' class='product-content'>
+            <view class='product-name'>
+                <view class='product-name-txt'>{{detailObj.name}}</view>
+                <view class='product-name-star' wx:if='{{detailObj.score}}'>
+                    <!-- 全颗星 -->
+                    <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= detailObj.starFull}}'>
+                        <image class='star-icon' src='../../img/cxyMallPage/full-star.png'></image>
+                    </block>
+                    <!-- 半颗星 -->
+                    <block wx:if='{{detailObj.starHalf}}'>
+                        <image class='star-icon' src='../../img/cxyMallPage/half-star.png'></image>
+                    </block>
+                    <!-- 空星 -->
+                    <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= detailObj.starNo}}'>
+                        <image class='star-icon' src='../../img/cxyMallPage/no-star.png'></image>
+                    </block>
+                    <text class='star-txt'>{{detailObj.score}}分</text>
+                </view>
+            </view>
+            <view class='product-address-phone'>
+                <view class='product-address' catchtap='openTheMap'>
+                    <image wx:if='{{productTitle === "tourism"}}' src='../../img/direct_train/address.png'></image>
+                    <text wx:if='{{addressInfo}}' class='product-address-txt'>{{addressInfo}} {{addressDistance}}</text>
+                    <view wx:if='{{productTitle === "eat" || productTitle === "live"}}' class='product-address-map'>{{addressInfo?'查看地图':'暂无详细地址'}}</view>
+                </view>
+                <view wx:if='{{productTitle === "eat" || productTitle === "live"}}' class='product-phone'>
+                    <image mode='aspectFill' src='{{HTTPS}}img/cxyMallPage/call.png' catchtap='callPhone'></image>
+                </view>
+            </view>
+            <view wx:if='{{(productTitle === "eat" || productTitle === "tourism") && detailObj.opentime}}' class='product-time'>开放时间：{{detailObj.opentime}}</view>
+            <view wx:if='{{productTitle === "live"}}' class='product-classify' catchtap='chooseHouseType'>
+                <view class='product-classify-txt'>选择房型</view>
+                <view class='product-classify-buy'>在线预订</view>
+            </view>
+        </view>
+
+        <!-- 商城模块 -->
+        <block wx:if='{{productTitle === "buy"}}'>
+            <view class='buy-product-content'>
+                <view class='buy-product-name'>
+                    <view class='buy-product-title'>{{detailObj.name}}</view>
+                    <view class='buy-product-price'>¥{{detailObj.price}}</view>
+                </view>
+                <view class='buy-product-collect' catchtap='bottomTap' data-index='1'>
+                    <image hidden='{{detailObj.isCollect==1}}' src='../../img/cxyMallPage/collect.png'></image>
+                    <image hidden='{{detailObj.isCollect==0}}' src='../../img/cxyMallPage/collect_hue.png'></image>
+                    <view class='{{detailObj.isCollect==1 ? "collect" : ""}}'>{{detailObj.isCollect==1 ? '已收藏' : '收藏'}}</view>
+                </view>
+            </view>
+            <view class='kk-cell buy-product-type' catchtap='showPickerTap'>
+                <view class='kk-cell-title' style='color: #399;'>选择种类
+                    <text space='ensp' style='float: right; color: #ff6600;'>{{isChooseText}}</text>
+                </view>
+                <view class='kk-cell-icon'></view>
+            </view>
+        </block>
+
+        <!-- 产品tab -->
+        <view class='product-info'>
+            <view class='product-info-tab {{navToTop ? "the-top-nav" : ""}}' id='nav-id'>
+                <view class='tab-item chuizhi {{tabIndex == 1 ? "tab-item-active" : ""}}' catchtap='tabTap' data-index='1'>产品详情</view>
+                <view class='tab-item chuizhi {{tabIndex == 2 ? "tab-item-active" : ""}}' catchtap='tabTap' data-index='2'>购买须知</view>
+                <view class='tab-item chuizhi {{tabIndex == 3 ? "tab-item-active" : ""}}' catchtap='tabTap' data-index='3'>用户评价</view>
+            </view>
+            <!-- 产品详情 -->
+            <view wx:if='{{tabIndex == 1}}' class='product-nav-content'>
+                <view class='productDetail'>
+                    <rich-text nodes="{{detailObj.productDetail}}"></rich-text>
+                </view>
+            </view>
+            <!-- 购买须知 -->
+            <view wx:if='{{tabIndex == 2}}' class='product-nav-content'>
+                <view class='buyNotes'>
+                    <rich-text nodes="{{detailObj.buyNotes}}"></rich-text>
+                </view>
+            </view>
+            <!-- 用户评价 -->
+            <view wx:if='{{tabIndex == 3}}' class='product-nav-content'>
+                <view class='commentList'>
+                    <view wx:if='{{commentList.length == 0}}' class='nonedata'>暂无更多数据~</view>
+                    <block wx:else>
+                        <view class='show-comment' wx:for='{{commentList}}' wx:key='{{index}}'>
+                            <view class='show-comment-head'>
+                                <image wx:if='{{!item.headUrl}}' mode='aspectFill' src='{{HTTPS}}img/cxyMallPage/user_head.png'></image>
+                                <image wx:if='{{item.headUrl}}' mode='aspectFill' src='{{item.headUrl}}'></image>
+                            </view>
+                            <view class='show-comment-con'>
+                                <view class='show-comment-name'>{{item.name ? item.name : '匿名用户'}}
+                                    <text style='float: right;'>{{item.commentDate}}</text>
+                                </view>
+                                <view class='show-comment-start'>
+                                    <!-- 全颗星 -->
+                                    <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= item.starFull}}'>
+                                        <image src='../../img/cxyMallPage/full-star.png'></image>
+                                    </block>
+                                    <!-- 半颗星 -->
+                                    <block wx:if='{{item.starHalf}}'>
+                                        <image src='../../img/cxyMallPage/half-star.png'></image>
+                                    </block>
+                                    <!-- 空星 -->
+                                    <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= item.starNo}}'>
+                                        <image src='../../img/cxyMallPage/no-star.png'></image>
+                                    </block>
+                                </view>
+                                <view class='show-comment-txt'>{{item.content}}</view>
+                                <view class='show-comment-img'>
+                                    <block wx:if='{{item.imgUrls}}' wx:for='{{item.imgUrls}}' wx:for-item='imgItem' wx:for-index='imgIndex' wx:key='{{imgIndex}}'>
+                                        <image lazy-load mode='aspectFill' wx:if='{{imgItem}}' src='{{imgItem}}' catchtap='previewImg' data-img-url='{{imgItem}}' data-img-list='{{item.imgUrls}}'></image>
+                                    </block>
+                                </view>
+                            </view>
+                        </view>
+                        <view wx:if='{{commentList.length == commentTotalCount}}' class='no-data'>没有更多了~</view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+
+    <view class='page-bottom'>
+        <view class='page-bottom-item chuizhi'>
+            <view class='page-bottom-item-icon'>
+                <view class='page-bottom-icon' catchtap='bottomTap' data-index='0'>
+                    <image src='../../img/cxtripHomePage/product.png'></image>
+                    <view>首页</view>
+                </view>
+                <view class='page-bottom-icon' catchtap='bottomTap' data-index='1'>
+                    <image hidden='{{detailObj.isCollect==1}}' src='../../img/cxyMallPage/collect.png'></image>
+                    <image hidden='{{detailObj.isCollect==0}}' src='../../img/cxyMallPage/collect_hue.png'></image>
+                    <view class='{{detailObj.isCollect==1 ? "collect" : ""}}'>{{detailObj.isCollect==1 ? '已收藏' : '收藏'}}</view>
+                </view>
+            </view>
+        </view>
+        <view class='page-bottom-item chuizhi buyBtn' catchtap='mainBottomTap' style='{{(productTitle==="eat"||productTitle==="live")&&detailObj.isComment==1?"background-color:#67b0b0;":""}}'>
+            <text>{{(productTitle==="eat"||productTitle==="live")&&detailObj.isComment==1?'已评价':bottomText}}</text>
+        </view>
+    </view>
+
+
+    <!-- ***************************************************************************************************************************
+                                                        从底部弹起信息 style='{{item.isComment==0?"":"background-color:#67b0b0;"}}'>{{item.isComment==0?'评 价':'已评价'}}
+    *************************************************************************************************************************** -->
+    <view hidden='{{!showPicker}}' class='kk-picker-mask' catchtap='hidePickerTap'></view>
+    <view class='kk-picker-outside {{showPicker ? "kk-picker-transform" : ""}}' style='height: 80%;'>
+        <view class='picker-box'>
+            <block wx:if='{{productTitle === "live"}}'>
+                <view class='picker-choose-date'>
+                    <view class='picker-choose-date-item' style='border-bottom: 1rpx solid #f1f1f1;'>
+                        <view class='picker-choose-date-txt'>入住时间：</view>
+                        <view class='picker-choose-date-time'>2018-05-10</view>
+                        <view class='picker-choose-date-icon'>
+                            <image src='../../img/direct_train/choose_more.png'></image>
+                        </view>
+                    </view>
+                    <view class='picker-choose-date-item'>
+                        <view class='picker-choose-date-txt'>离店时间：</view>
+                        <view class='picker-choose-date-time'>2018-05-12</view>
+                        <view class='picker-choose-date-icon'>
+                            <image src='../../img/direct_train/choose_more.png'></image>
+                        </view>
+                    </view>
+                </view>
+                <scroll-view scroll-y class='picker-choose-type'>
+                    <view class='picker-choose-type-item {{index == 0 ? "picker-bottom-noborder" : ""}}' wx:for='{{[0,1,2,3,4]}}' wx:key='{{index}}'>
+                        <view class='picker-choose-type-check'>
+                            <image hidden='{{1==1}}' src='../../img/direct_train/choose.png'></image>
+                            <image src='../../img/direct_train/no_choose.png'></image>
+                        </view>
+                        <view class='picker-choose-type-info'>
+                            <view class='picker-choose-type-name-price chuizhi'>
+                                <text class='picker-choose-type-name'>平日标准双人房</text>
+                                <text class='picker-choose-type-price'>¥588</text>
+                            </view>
+                            <view class='picker-choose-type-num'>
+                                <view class='picker-choose-type-num-txt'>购买数量：</view>
+                                <view class='picker-choose-type-num-option'>-</view>
+                                <view class='picker-choose-type-num-input'>
+                                    <input type='number' value='1'></input>
+                                </view>
+                                <view class='picker-choose-type-num-option'>+</view>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </block>
+            <block wx:if='{{productTitle === "buy"}}'>
+                <scroll-view scroll-y class='buy-picker'>
+                    <view class='buy-picker-info'>
+                        <view class='buy-picker-info-img'>
+                            <image mode='aspectFill' src='{{swiperImg[0]==0?"../../img/cxyMallPage/defaultImg.png":swiperImg[0]}}'></image>
+                        </view>
+                        <view class='buy-picker-info-txt'>
+                            <view class='buy-picker-info-name'>{{detailObj.name}}
+                                <!-- <text class='buy-picker-info-price'>¥{{specPrice}}</text> -->
+                            </view>
+                            <!-- <view class='buy-picker-info-stock'>库存1000</view> -->
+                        </view>
+                        <view class='buy-picker-info-price'>{{specPrice ? '¥' + specPrice : ''}}</view>
+                    </view>
+                    <view class='buy-picker-spec'>
+                        <view class='buy-picker-spec-txt'>选择种类</view>
+                        <view class='buy-picker-spec-box'>
+                            <block wx:for='{{specList}}' wx:key='{{index}}'>
+                                <view class='buy-picker-spec-item {{specItemIndex==index?"buySpecItemActive":""}}' style='{{item.price==0?"background-color:#ccc;":""}}' catchtap='specItemTap' data-index='{{index}}'>
+                                    <text>{{item.spec_name}}</text>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                    <view class='buy-picker-num'>
+                        <view class='buy-picker-num-txt'>购买数量：</view>
+                        <view class='buy-picker-num-option' catchtap='specOptions' data-option='-1'>-</view>
+                        <view class='buy-picker-num-input'>
+                            <input type='number' maxlength='3' value='{{specCount}}' bindinput='specIntput' bindblur='specIntput'></input>
+                        </view>
+                        <view class='buy-picker-num-option' catchtap='specOptions' data-option='1'>+</view>
+                    </view>
+                </scroll-view>
+            </block>
+            <view class='picker-bottom'>
+                <view class='picker-bottom-item chuizhi picker-bottom-total'>合计：¥{{specTotalPrice}}</view>
+                <view class='picker-bottom-item chuizhi picker-bottom-left' catchtap='pickerBottomTap'>{{pickerBottomText}}</view>
+            </view>
+        </view>
+    </view>
+
+</view>

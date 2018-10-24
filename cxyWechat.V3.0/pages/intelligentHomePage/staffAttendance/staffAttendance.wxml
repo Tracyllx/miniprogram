@@ -1,0 +1,43 @@
+<view class='outside-view' style='background-color:#fff;'>
+    <view class='option-bar' catchtap='chooseTap' data-the-type='all'>
+        <view class='option-date {{showDate?"drop-up1":"drop-down1"}}' catchtap='chooseTap' data-the-type='date'>{{checkDate}}</view>
+        <view class='option-staff {{showStaff?"drop-up2":"drop-down2"}}' catchtap='chooseTap' data-the-type='staff'>{{chooseStaff}}
+            <scroll-view wx:if='{{showStaff}}' scroll-y class='option-staff-list'>
+                <block wx:for='{{staffList}}' wx:key='{{index}}'>
+                    <view class='option-staff-item {{index==staffList.length-1?"no-bb":""}} {{chooseStaff==item.driver_name?"color":""}}' catchtap='staffItemTap' data-index='{{index}}'>{{item.driver_name}}</view>
+                </block>
+            </scroll-view>
+        </view>
+    </view>
+    <view class='table-th'>
+        <view class='table-td-zero'>姓 名</view>
+        <view class='table-td-one'>出勤天数</view>
+        <view class='table-td-two'>休息天数</view>
+        <view class='table-td-three'>迟到</view>
+        <view class='table-td-four'>早退</view>
+        <view class='table-td-five'>操作</view>
+    </view>
+    <scroll-view scroll-y class='scroll-view' bindscrolltolower='loadMore' catchtap='chooseTap' data-the-type='all'>
+        <view wx:if='{{noData}}' class='nonedata'>暂无更多数据~</view>
+        <view class='table-tr' wx:for='{{dataList}}' wx:key='{{index}}'>
+            <view class='table-td-zero'>{{item.driver_name}}</view>
+            <view class='table-td-one'>{{item.work_days}}天</view>
+            <view class='table-td-two'>{{item.rest_days}}天</view>
+            <view class='table-td-three {{item.late_times == 0 ? "" : "red"}}'>{{item.late_times}}次</view>
+            <view class='table-td-four {{item.early_times == 0 ? "" : "red"}}'>{{item.early_times}}次</view>
+            <view class='table-td-five color' catchtap='optionsTap' data-index='{{index}}'>详情</view>
+        </view>
+        <view wx:if='{{!noData}}' class='nonedata'>--------- 到底了 ---------</view>
+    </scroll-view>
+    <view class='date-model' wx:if='{{showDate}}'>
+        <scroll-view scroll-y class='date-box'>
+            <view class='date-item' wx:for='{{dateTime}}' wx:key='{{index}}' catchtap='chooseDateItem' data-index='{{index}}'>
+                <view class='date-item-icon'>
+                    <icon hidden='{{item.check}}' type='circle' size='24' style='margin-top:-8rpx;'></icon>
+                    <icon hidden='{{!item.check}}' type='success' size='24' style='margin-top:-8rpx;' color='#399' />
+                </view>
+                <view class='date-item-txt {{item.check?"color":""}}'>{{item.date}}</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

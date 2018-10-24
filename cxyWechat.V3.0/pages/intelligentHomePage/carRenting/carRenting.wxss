@@ -1,0 +1,445 @@
+page {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+}
+
+.scroll-view {
+    position: absolute;
+    top: 0;
+    bottom: 100rpx;
+    width: 100%;
+}
+
+.fold-next {
+    width: 27rpx;
+    height: 15rpx;
+    vertical-align: middle;
+}
+
+.show_date {
+    background: #fff;
+    width: 95%;
+    height: 80rpx;
+    padding: 16rpx 24rpx;
+    border-top: 1rpx solid #c6c6c6;
+}
+
+.show_date_title {
+    width: 30%;
+    line-height: 80rpx;
+    font-size: 30rpx;
+}
+
+.show_date_title, .show_detail_date {
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+.show_detail_date {
+    width: 70%;
+    position: relative;
+}
+
+/* 选择时分 */
+
+.picker-time {
+    position: absolute;
+    top: 50%;
+    right: 24rpx;
+    transform: translate(0%, -50%);
+    width: 16%;
+    height: 100%;
+    font-size: 26rpx;
+    color: #000;
+    text-align: center;
+    line-height: 80rpx;
+}
+
+#showDate {
+    width: 100%;
+    height: 80%;
+}
+
+.show_shan_li {
+    width: 75%;
+    height: 70%;
+    float: left;
+    font-size: 27rpx;
+    border-radius: 10rpx;
+    padding-top: 1.5%;
+    margin-top: 2%;
+    line-height: 50rpx;
+    text-align: center;
+    margin-right: 3.5%;
+    border: 1rpx solid #01827d;
+}
+
+.disable_shan_li {
+    color: #999;
+    border: 1rpx solid #999;
+}
+
+#showDate li text {
+    margin-left: 6rpx;
+    display: inline;
+}
+
+.kk_show_time {
+    width: 86%;
+    float: left;
+}
+
+.showthisnext {
+    width: 33rpx;
+    height: 36rpx;
+    margin-left: 5rpx;
+    margin-top: -4rpx;
+    vertical-align: middle;
+}
+
+/* ===================================================== V2.0 ========================================================= */
+
+.lu-writing-icon {
+    float: left;
+    width: 46rpx;
+    height: 48rpx;
+    vertical-align: middle;
+    margin-top: 4%;
+}
+
+.lu-up-addressBig {
+    position: relative;
+}
+
+.lu-up-address {
+    z-index: 99;
+    position: absolute;
+    bottom: -100rpx;
+    width: 100%;
+    display: flex;
+}
+
+.lu-up-address-l {
+    flex: 0 0 28%;
+}
+
+.lu-up-address-r {
+    flex: 1;
+    margin-right: 22%;
+    padding: 0 16rpx;
+    line-height: 38rpx;
+    font-size: 27rpx;
+    text-align: center;
+    background-color: #fff;
+    border: 1rpx solid #d2d2d2;
+    border-top: 0;
+    box-shadow: 1rpx 2rpx 2rpx #dbeded;
+}
+
+.lu-up-address-item {
+    padding: 10rpx 0;
+    border-bottom: 1rpx solid #d2d2d2;
+}
+
+.lu-small-txt {
+    line-height: 28rpx;
+    font-size: 22rpx;
+}
+
+.lu-border-none {
+    border: 0;
+}
+
+.lu-pdT {
+    padding-top: 20rpx;
+}
+
+.lu-address-input {
+    width: 96%;
+    padding-left: 3%;
+    text-align: left;
+}
+
+.lu-center-txt {
+    text-align: center;
+}
+
+.lu-rental-bar {
+    height: 80rpx;
+    padding: 16rpx 24rpx;
+    background-color: #fff;
+    display: flex;
+}
+
+.lu-rental-title {
+    flex: 1;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 40rpx;
+    position: relative;
+}
+
+.lu-rental-line {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0%, -50%);
+    width: 1rpx;
+    height: 40rpx;
+    background-color: #c6c6c6;
+}
+
+.lu-rental-title-active {
+    color: #399;
+}
+
+/* 租车月数 */
+
+.lu-rental-month {
+    padding: 16rpx 24rpx;
+    height: 80%;
+}
+
+.lu-rental-month-option {
+    width: 24%;
+    height: 100%;
+    font-size: 28rpx;
+    float: left;
+    line-height: 60rpx;
+}
+
+.lu-rental-month-input {
+    width: 50%;
+    font-size: 28rpx;
+    float: left;
+    height: 100%;
+    border-right: 1rpx solid #01827d;
+    border-left: 1rpx solid #01827d;
+    border-bottom: none;
+    border-top: none;
+    color: #000;
+    text-align: center;
+}
+
+.lu-rental-month-input>input {
+    width: 100%;
+    height: 100%;
+}
+
+/* -------------------------------------------- 3.0 -------------------------------------------------- */
+
+.lu-button {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    background-color: #fff;
+    display: flex;
+}
+
+.lu-button-item {
+    flex: 1;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 34rpx;
+}
+
+.total-price {
+    color: #f60;
+}
+
+.buy-online {
+    color: #fff;
+    background-color: #399;
+}
+
+.buy-online-dis {
+    background-color: #999;
+}
+
+/* 租车详情 */
+
+.zc-detail {
+    line-height: 80rpx;
+    font-size: 34rpx;
+    color: #399;
+    margin-bottom: 16rpx;
+}
+
+.zc-detail-txt {
+    padding: 0 6rpx 2rpx;
+    border-bottom: 1rpx solid #399;
+}
+
+/* 车型 */
+
+.car-model {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.car-model-option {
+    position: absolute;
+    top: 30%;
+    bottom: 30%;
+    width: 80rpx;
+}
+
+.fl {
+    left: 0;
+}
+
+.fr {
+    right: 0;
+}
+
+.car-model-prev {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    margin-top: -14rpx;
+    height: 28rpx;
+    width: 28rpx;
+    display: inline-block;
+    border-width: 0 0 4rpx 4rpx;
+    border-color: rgba(51, 153, 153, 0.9);
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+
+.car-model-next {
+    position: absolute;
+    top: 50%;
+    right: 40%;
+    margin-top: -14rpx;
+    height: 28rpx;
+    width: 28rpx;
+    display: inline-block;
+    border-width: 4rpx 4rpx 0 0;
+    border-color: rgba(51, 153, 153, 0.9);
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+
+.swiper {
+    width: 100%;
+    height: 300rpx;
+    padding: 50rpx 0;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+}
+
+.slide-image {
+    width: 340rpx;
+    height: 220rpx;
+    vertical-align: middle;
+}
+
+.slide-text {
+    padding-top: 22rpx;
+    height: 58rpx;
+    line-height: 58rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+
+/* 联系人、电话 */
+
+.show-bind-phone {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 15rpx;
+}
+
+/*展示电话号码绑定*/
+
+.show_phone {
+    width: 92%;
+    height: auto;
+    background: #fff;
+    padding: 4%;
+    overflow: hidden;
+}
+
+/* 手机号输入出错提示 */
+
+.showMisstake {
+    width: 100%;
+    text-align: center;
+    color: red;
+    font-size: 25rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+/*展示绑定电话*/
+
+.show_phone_number {
+    width: 100%;
+    height: 80rpx;
+    border: 1rpx solid #999;
+}
+
+/*电话和发送验证码的公共设置*/
+
+.show_phone_number>view {
+    height: 100%;
+    float: left;
+}
+
+/*展示电话的最小div（装输入的input）*/
+
+.show_client_phone {
+    width: 68%;
+}
+
+/*发送验证码*/
+
+#send_message_code {
+    width: 32%;
+    color: #01827d;
+    text-align: right;
+    font-size: 29rpx;
+    float: left;
+    outline: none;
+    background: none;
+    height: 100%;
+    padding-top: 4rpx;
+    padding-right: 24rpx;
+    line-height: 78rpx;
+    padding-left: 0;
+}
+
+button::after {
+    content: '';
+    border: 0;
+}
+
+/*收验证码与电话号码之间的距离*/
+
+.thismargin {
+    margin-top: 18rpx;
+}
+
+/*展示验证码输入框*/
+
+#phoneNumber, #checkCode {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 28rpx;
+    padding-left: 25rpx;
+}
+
+.nonedisplay {
+    display: none;
+}

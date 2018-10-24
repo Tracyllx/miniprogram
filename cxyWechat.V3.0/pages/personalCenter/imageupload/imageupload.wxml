@@ -1,0 +1,14 @@
+<view class="page">
+    <view class='page__hd'>
+        <!-- 文本域 -->
+        <view class="text_area">
+            <textarea class="text_contents" bindinput='showlength' bindblur='getValue' maxlength='200' placeholder="请输入文本" value='{{content}}' />
+            <view class="weui-textarea-counter text_tips">
+                <text class='showtip {{tipShow == false? "nonedisplay":""}}'>文字不能超出200个字</text>
+                <text>{{textLength}}</text>/200
+            </view>
+        </view>
+        <view class="send" catchtap='sendMessage'>保存</view>
+    </view>
+
+</view>

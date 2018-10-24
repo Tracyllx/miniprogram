@@ -1,0 +1,260 @@
+<view wx:if='{{statusCode == 100}}' class='loadingBox'>
+    <image src='../../img/direct_train/loading.gif'></image>
+    <view>加载中...</view>
+</view>
+<view wx:if='{{statusCode == 200}}' class='order_detail'>
+    <scroll-view class='scroller' scroll-y scroll-top="{{loadScrollHeight}}">
+        <view class='lu-orderId'>订单号：{{orderId}}</view>
+        <!-- 是否进行了支付 -->
+        <view class='pay-status'>
+            <!-- <view wx:if='{{(orderStatus == 2 || orderStatus == 6 || orderStatus == 7) && theMessageList.product_type != 5 && theMessageList.product_type != 4}}' class='evaluate' catchtap='evaluateTap'>
+                {{commentNum == 0 ? '评 价' : '已评价'}}
+            </view> -->
+            <view wx:if='{{orderStatus == 2}}' class='payed {{orderStatus == 2? "":nonedisplay}}'>已支付</view>
+            <view wx:if='{{orderStatus == 3}}' class='payed {{orderStatus == 3? "":nonedisplay}}'>已取消</view>
+            <view wx:if='{{orderStatus == 6}}' class='payed {{orderStatus == 6? "":nonedisplay}}'>已核销</view>
+            <view wx:if='{{orderStatus == 7}}' class='payed {{orderStatus == 7? "":nonedisplay}}'>已取票</view>
+            <view wx:if='{{orderStatus == 1}}' class='wait-pay {{orderStatus == 1? "":nonedisplay}}'>
+                <view class='wait-pay-time'>
+                    <view class='font-wait-pay'>待付款</view>
+                    <view class='wait-pay-times'>剩余支付时间：
+                        <text class='show-time'>0:{{minute1}}{{minute2}}:{{second1}}{{second2}}</text>
+                    </view>
+                </view>
+                <view class='pay-continuce'>
+                    <view class='click-continuce' catchtap='continueToPay'>继续支付</view>
+                </view>
+            </view>
+        </view>
+
+        <!-- 展示门票 -->
+        <view class='ticket-remark' wx:if='{{theMessageList.order_type==2}}'>乘车订单
+            <text space='ensp'>       ×{{theMessageList.ticketNum}}</text>
+        </view>
+        <view class='ticket-remark' wx:if='{{theMessageList.product_type!=2&&theMessageList.order_type!=2}}'>{{theMessageList.productName}}
+            <text space='ensp' wx:if='{{theMessageList.product_type==3}}'>       ×{{kkProducts[0].ticketNum}}</text>
+        </view>
+        <view class='ticket-remark' wx:if='{{theMessageList.product_type==2 && theMessageList.isServe==2}}'>
+            <view class='lu-pro-orgn'>{{theMessageList.orgnName}}</view>
+            <block wx:for='{{kkProducts}}' wx:key='{{index}}'>
+                <view class='lu-pro-list'>
+                    <text space='ensp'>{{item.productName}}       ×{{item.ticketNum}}</text>
+                </view>
+            </block>
+            <view class='lu-pro-list'>
+                <text space='ensp'>入住时间：{{theMessageList.start_date}}  离开时间：{{theMessageList.end_date}}</text>
+            </view>
+        </view>
+        <!-- 展示订单总价 -->
+        <view class='order-count'>
+            <view class='order-count-view'>订单总价：</view>
+            <view class='order-count-view font-color'>¥ {{theMessageList.amount}}</view>
+            <!-- 已支付，可以退款  {{kkCanRefund ? "kkRefund" : ""}} -->
+            <!-- <view wx:if='{{theMessageList.orderStatus == 2 && theMessageList.product_type != 2 && theMessageList.product_type != 3}}' class='apply-refund' bindtap='applyRefundTap'>申请退款</view> -->
+            <!-- 已申请退款，正在处理 -->
+            <!-- <view wx:if='{{theMessageList.orderStatus == 4}}' class='apply-refund refunding'>退款中</view>  -->
+            <!-- 已完成退款 -->
+            <!-- <view wx:if='{{theMessageList.orderStatus == 5}}' class='apply-refund refunding'>已退款</view> -->
+        </view>
+        <!-- 展示特产收货信息 -->
+        <view class='delivery-info' wx:if='{{theMessageList.product_type == 3}}'>
+            <view class='delivery-item'>收货信息</view>
+            <view>收件人：{{theMessageList.delivery_name}}</view>
+            <view>联系电话：{{theMessageList.delivery_phone}}</view>
+            <view>收货地址：{{theMessageList.delivery_addr}}</view>
+            <view>邮政编码：{{theMessageList.zip_code}}</view>
+        </view>
+        <!-- 展示票价 -->
+        <view wx:if='{{isServe != 2 && theMessageList.product_type != 2 && theMessageList.product_type != 3}}' class="shanshowPrice">
+            <view class=" float show_price_title color">门票价格：</view>
+            <view class=" float text-right">{{llkPrice}}×{{theMessageList.ticketNum}}</view>
+        </view>
+        <view wx:if='{{theMessageList.product_type == 5}}' class="show_use_tip">
+            <view>
+                <view class="tip_title">
+                    <text space='emsp'>单  价：</text>
+                </view>{{llkPrice}} 元</view>
+            <view>
+                <view class="tip_title">车辆数量：</view>{{theMessageList.car_num}} 辆</view>
+            <!-- <view><view class="tip_title">租车天数：</view>{{theMessageList.ticketNum/theMessageList.car_num}} 天</view> -->
+        </view>
+        <!-- 展示说明 -->
+        <view class="show_use_tip">
+            <view wx:if='{{theMessageList.product_type == 5}}'>
+                <view class="tip_title">租车日期：</view>{{theMessageList.start_date}} 至 {{theMessageList.end_date}}</view>
+            <view wx:if='{{theMessageList.orderDate && theMessageList.product_type != 5}}'>
+                <view class="tip_title">{{theMessageList.product_type == 3 ? '订购日期：' : '使用日期：'}}</view>{{theMessageList.orderDate}} {{orderDate}}</view>
+            <view wx:if='{{theMessageList.instructions && theMessageList.isServe == 1}}'>
+                <view class="tip_title">入园方式：</view>{{theMessageList.instructions}}</view>
+            <view wx:if='{{theMessageList.open_time}}'>
+                <view class="tip_title">换票时间：</view>{{theMessageList.open_time}}</view>
+            <view wx:if='{{theMessageList.get_ticket_addr}}'>
+                <view class="tip_title">换票地址：</view>{{theMessageList.get_ticket_addr}}</view>
+            <view wx:if='{{(theMessageList.remark && theMessageList.isServe == 1) || (theMessageList.product_desc &&  theMessageList.isServe == 2 && theMessageList.product_type == 4)}}'>
+                <view class="tip_title">
+                    <text space='emsp'>备  注：</text>
+                </view>{{theMessageList.isServe == 1 ? theMessageList.remark : theMessageList.product_desc}}</view>
+            <view wx:if='{{theMessageList.product_desc && theMessageList.product_type == 5}}'>
+                <view class="tip_title">
+                    <text space='emsp'>备  注：</text>
+                </view>{{theMessageList.product_desc}}</view>
+            <view wx:if='{{theMessageList.consumer_hotline}}' bindtap='callConsumer'>
+                <view class="tip_title">
+                    <text space='emsp'>客服电话：</text>
+                </view>{{theMessageList.consumer_hotline}}</view>
+        </view>
+        <!--入园凭证-->
+        <view class='showit'>
+            <view class="show_to_park {{orderStatus ==2?'':'nonedisplay'}}" catchtap='bigCode'>
+                <view class="showtoparktip">
+                    <view wx:if='{{theMessageList.product_type != 5 && theMessageList.product_type != 3}}'>{{theMessageList.isServe == 1 ? '入园凭证' : '取票码'}}：</view>
+                    <view wx:if='{{theMessageList.product_type == 5 || theMessageList.product_type == 3}}'>凭证码：</view>
+                    <view class="park_number">{{theMessageList.voucher}}</view>
+                </view>
+                <view class="show_park_erweima">
+                    <image wx:if="{{theMessageList.qrcodeUrl}}" src="{{subpageUrl}}wechat/spot/qrCode.png?getTicketNo={{voucher}}"></image>
+                </view>
+            </view>
+        </view>
+
+        <!-- 待消费，是否乘车 -->
+        <view wx:if='{{orderStatus != 3 && theMessageList.isServe == 1 && 1==0}}' class="show_price">
+            <view class="show_price_title show_consume_title">
+                待消费：
+                <text class="font-color">{{theMessageList.ticketNum}}张</text>
+            </view>
+            <view class="show_money_and_number">
+                <image catchtap='choose' src='{{isChoose == false?"../../img/direct_train/no_choose.png":"../../img/direct_train/choose.png"}}'></image> 是否乘车
+            </view>
+        </view>
+
+        <!-- 乘车接送 -->
+        <view wx:if='{{theMessageList.isServe == 1 && 1==0}}' class='show-shuttle-car {{isChoose == false?"nonedisplay":""}}'>
+            <view class='shuttle-client'>乘车接送：
+                <view class='car-trajectory {{(goStatus ==3 ||backStatus == 3 || goStatus==1 || backStatus == 1)&& orderUseTime == newDateTime?"":"nonedisplay"}}' catchtap='getCarRouter'>车辆轨迹</view>
+                <view class='car-reset {{(backStatus ==3 ||goStatus ==3) && getChoosePlay == 0 && orderUseTime == newDateTime?"":"nonedisplay"}}' catchtap='getNewCarDetail'>重新约车</view>
+            </view>
+            <!-- 展示去程和返程 -->
+            <view class='to-or-back'>
+                <view class='show-to-here'>去程
+                    <view class='show-to-here-tip'>(为确保接送准时，只预约一个小时后的接送服务)</view>
+                </view>
+            </view>
+            <view class='boarding'>
+                <!-- 上车地点 -->
+                <view>
+                    <view class="font-car-here {{isUpdate ==2?(goStatus ==3?'color':''):'color'}}">上车地点：</view>
+                    <view class='showpiker'>
+                        <picker class='show-picker  {{isUpdate ==2?(goStatus ==3?"gray":""):"gray"}}' disabled="{{isUpdate ==2?(goStatus ==3?true:false):true}}" data-new-index='0' bindchange="bindPickerChange" value="{{index}}" range="{{toScenicList}}">
+                            <view class="picker" catchchange="bindPickerChange">{{toScenicList[currentIndex]}}</view>
+                        </picker>
+                        <view class='show-next'>
+                            <image src='../../img/direct_train/down.png'></image>
+                        </view>
+                    </view>
+                </view>
+                <!-- 下车地点 -->
+                <view class='none-color'>
+                    <view class="font-car-here">下车地点：</view>
+                    <view class='showpiker kk-border-none'>{{noChangeStops[0].addrDetail}}</view>
+                </view>
+                <!-- 显示乘车时间 -->
+                <view>
+                    <view class="font-car-here {{isUpdate ==2?(goStatus ==3?'color':''):'color'}}">乘车时间：</view>
+                    <view class='showpiker'>
+                        <picker class='show-picker {{isUpdate ==2?(goStatus ==3?"gray":""):"gray"}}' disabled="{{isUpdate ==2?(goStatus ==3?true:false):true}}" data-new-index='1' bindchange="bindPickerChange" value="{{index}}" range="{{toCarTime}}">
+                            <view class="picker-left" catchchange="bindPickerChange">{{toCarTime[secondeIndex]}}</view>
+                        </picker>
+                        <view class='show-next'>
+                            <image src='../../img/direct_train/down.png'></image>
+                        </view>
+                    </view>
+                </view>
+                <view class='tip-font {{(goStatus ==3 && getChoosePlay == 0 && orderUseTime == newDateTime?"":"nonedisplay")}}'>您预约的车走丢了，请重新约车或联系客服</view>
+            </view>
+            <!-- 下次 -->
+            <view class='to-or-back'>
+                <view class='show-to-here'>返程
+                    <view class='show-to-here-tip'>(可不填，可以在个人中心进行修改)</view>
+                </view>
+            </view>
+            <view class='boarding'>
+                <!-- 上车地点 -->
+                <view class='none-color'>
+                    <view class="font-car-here {{isUpdate == 1?'color':''}}">上车地点：</view>
+                    <view class='showpiker kk-border-none'>{{noChangeStops[0].addrDetail}}</view>
+                </view>
+                <!-- 下车地点 -->
+                <view>
+                    <!-- <view class="font-car-here {{isUpdate ==1?'color':(change == false?'':'gray')}}">下车地点：</view> -->
+                    <view class="font-car-here {{isUpdate ==1?'color':(change == false?(backStatus ==3?'color':''):'color')}}">下车地点：</view>
+                    <view class='showpiker'>
+                        <!-- <picker class='show-picker {{isUpdate ==1?"gray":(change == false?(backStatus ==3?"gray":""):"gray")}}' disabled="{{isUpdate ==1?true:(change == true?true:(backStatus ==3?true:false))}}" data-new-index='2' bindchange="bindPickerChange" value="{{index}}" range="{{toScenicList}}"> -->
+                        <picker class='show-picker {{isUpdate ==1?"gray":(change == false?(backStatus ==3?"color":""):"color")}}' disabled="{{isUpdate ==1?true:(change == true?true:(backStatus ==3?true:false))}}" data-new-index='2' bindchange="bindPickerChange" value="{{index}}"
+                            range="{{toScenicList}}">
+                            <view class="picker" catchchange="bindPickerChange">{{toScenicList[thridIndex]}}</view>
+                        </picker>
+                        <view class='show-next'>
+                            <image src='../../img/direct_train/down.png'></image>
+                        </view>
+                    </view>
+                </view>
+                <!-- 显示乘车时间 -->
+                <view>
+                    <view class="font-car-here {{isUpdate ==1?'color':(change == false?(backStatus ==3?'color':''):'color')}}">乘车时间：</view>
+                    <view class='showpiker'>
+                        <picker class='show-picker {{isUpdate ==1?"gray":(change == false?(backStatus ==3?"color":""):"color")}}' disabled="{{isUpdate ==1?true:(change == true?true:(backStatus ==3?true:false))}}" data-new-index='3' bindchange="bindPickerChange" value="{{index}}"
+                            range="{{showBackCarTime}}">
+                            <view class="picker-left" catchchange="bindPickerChange">{{showBackCarTime[fourthIndex]}}</view>
+                        </picker>
+                        <view class='show-next'>
+                            <image src='../../img/direct_train/down.png'></image>
+                        </view>
+                    </view>
+                </view>
+                <view class='tip-font {{(backStatus ==3  && getChoosePlay == 0 && orderUseTime == newDateTime?"":"nonedisplay")}}'>您预约的车走丢了，请重新约车或联系客服</view>
+            </view>
+            <!-- 白色隔开的位置 -->
+            <!-- <view class='line-break'></view>  -->
+            <!-- 点击确定 -->
+            <view class='to-confirm'>
+                <button class='confirm' catchtap='saveRideInfo'>确定</button>
+            </view>
+            <view class='small-line'></view>
+        </view>
+
+        <!-- 订制旅游：事由/描述 -->
+        <view wx:if='{{theMessageList.isServe == 2 && theMessageList.product_type == 4}}' class='show-desc'>
+            <view class='info-title'>订制事由/项目描述：</view>
+            <view class='info-content'>{{theMessageList.customize_desc}}</view>
+        </view>
+
+        <!-- 车辆租赁：事由/描述 -->
+        <view wx:if='{{theMessageList.product_type == 5}}' class='show-desc'>
+            <view class='info-title'>租车事由/项目描述：</view>
+            <view class='info-content'>{{theMessageList.customize_desc}}</view>
+        </view>
+
+        <!-- <view style='height: 20rpx; background-color: #eee;'></view> -->
+
+        <!--展示规则和费用包含-->
+        <view wx:if='{{orderStatus != 3 && (theMessageList.refund_rule || theMessageList.fee_detail)}}' class="show_rule">
+            <view wx:if='{{theMessageList.refund_rule && theMessageList.product_type != 2}}' class='kk_rule'>
+                <text class="show_rule_title">退改规则：</text>
+                <text class="show_rule_content evertimecanreturn">{{theMessageList.refund_rule}}</text>
+            </view>
+            <view wx:if='{{theMessageList.refund_rule && theMessageList.product_type == 2}}' class='kk_rule' bindtap='callConsumer'>
+                <text class="show_rule_title">退改规则：</text>
+                <text class="show_rule_content evertimecanreturn">如需退款，请联系客服：{{theMessageList.consumer_hotline}}</text>
+            </view>
+            <view wx:if='{{theMessageList.fee_detail}}' class='kk_rule'>
+                <text class="show_rule_title">费用包含：</text>
+                <text class="show_rule_content colorgray scontentdetail">{{theMessageList.fee_detail}}</text>
+            </view>
+        </view>
+    </scroll-view>
+    <view class='popimg {{bigImage == false?"nonedisplay":""}}' catchtap='hideErWeiCode'></view>
+    <view class='showErWeiCode {{bigImage == false?"nonedisplay":""}}'>
+        <image wx:if="{{voucher}}" src="{{subpageUrl}}wechat/spot/qrCode.png?getTicketNo={{voucher}}"></image>
+    </view>
+</view>

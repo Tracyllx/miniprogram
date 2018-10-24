@@ -1,0 +1,144 @@
+page {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+}
+
+/* 第一大部分：支付成功 */
+
+.index_first {
+    width: 100%;
+    height: 12%;
+    border-top: 1px solid #dedede;
+    background-color: #fff;
+    position: relative;
+}
+
+.content {
+    width: 300rpx;
+    height: 100rpx;
+    color: #01827d;
+    font-size: 35rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 第二大部分 */
+
+.index_second {
+    width: 100%;
+    height: 10%;
+    border-top: 1px solid #c6c6c6;
+    background-color: #fff;
+    font-size: 29rpx;
+    color: #333;
+    line-height: 110rpx;
+    text-align: center;
+}
+
+/* 第三大部分：订单信息 */
+
+.index_third {
+    width: 94%;
+    margin-top: 25rpx;
+    background-color: #fff;
+    padding-left: 24rpx;
+    padding-right: 24rpx;
+    padding-top: 14rpx;
+    padding-bottom: 14rpx;
+    border-bottom: 1px solid #c6c6c6;
+}
+
+.order_list_all {
+    width: 100%;
+    height: 100%;
+}
+
+/* 订单信息内容列表 */
+
+.order_list {
+    width: 100%;
+    height: 100%;
+}
+
+.order_title {
+    font-size: 28rpx;
+    color: #333;
+    width: 100%;
+    height: 60rpx;
+    line-height: 60rpx;
+    overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis; /*文字隐藏后添加省略号*/
+    white-space: nowrap; /*强制不换行*/
+}
+
+.order_message {
+    font-size: 25rpx;
+    color: #999;
+    text-align: center;
+}
+
+.tuipiao {
+    width: 100%;
+    line-height: 50rpx;
+}
+
+.tuipiao_icon {
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+
+.suishitui {
+    font-size: 25rpx;
+    color: #333;
+    height: 60rpx;
+}
+
+/* 第四大部分：订单总价、数量、时间 */
+
+.index_fourth {
+    width: 94%;
+    /* height: 18.5%; */
+    background-color: #fff;
+    padding-left: 24rpx;
+    padding-right: 24rpx;
+    padding-bottom: 10rpx;
+    padding-top: 20rpx;
+    font-size: 27rpx;
+    color: #999;
+}
+
+.sum, .count, .time {
+    line-height: 50rpx;
+}
+
+.order_price, .order_count, .order_time {
+    color: #444;
+    letter-spacing: 7rpx;
+}
+
+/* 第五大部分：查看订单按钮 */
+
+.index_fifth {
+    width: 90%;
+    height: 100rpx;
+    margin-top: 6%;
+    padding-left: 5%;
+}
+
+.check_order {
+    height: 100%;
+    line-height: 100rpx;
+    background-color: #01827d;
+    border-radius: 12rpx;
+    color: #fff;
+    font-size: 32rpx;
+}
+
+.tit-c {
+    text-align: center;
+}

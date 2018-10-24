@@ -1,0 +1,51 @@
+<!--pages/direct_train/productHomePage/productHomePage.wxml-->
+<!-- V2.0新增 -->
+<view class='productHomePage'>
+    <view class='search-box'>
+        <view class='search-icon chuizhi'>
+            <image src='../../../img/cxtripHomePage/search.png'></image>
+        </view>
+        <view class='search-bar'>
+            <input type='text' value='{{searchVal}}' placeholder='搜索酒店' placeholder-style='color: #999;' confirm-type="search" bindinput="searchInput" bindconfirm="getHotelList" catchtap='getFocus' focus="{{focusTo}}"></input>
+        </view>
+    </view>
+    <!-- <view class='nav-bar'>
+        <view class='nav-item {{showClassify ? "nav-menu-active" : ""}}' catchtap='clickClassify'>{{classifyName}}
+             <image hidden='{{showClassify}}' src='../../img/direct_train/nav_down.png'></image>
+            <image hidden='{{!showClassify}}' src='../../img/direct_train/nav_up.png'></image> 
+            <view class='nav-item-line'></view>
+        </view>
+    </view> -->
+    <view class='nav-bar'>
+        <view class='nav-item'>{{classifyName}}</view>
+    </view>
+    <view wx:if="{{list.length == 0}}" class='nonedata'>暂无数据~</view>
+    <block wx:if="{{list.length != 0}}">
+        <scroll-view scroll-y class='list-box' scroll-top='{{scrollTop}}'>
+            <block wx:for='{{list}}' wx:key='{{index}}'>
+                <view class='list-item {{index == 0 ? "list-item-mt" : ""}}' catchtap='gotoProductDetail' data-id='{{item.orgnId}}'>
+                    <view class='list-item-img'>
+                        <image wx:if='{{item.imgUrl}}' src='{{item.imgUrl}}' mode='aspectFill' lazy-load></image>
+                    </view>
+                    <view class='list-item-txt'>
+                        <view class='orgin-name'>{{item.orgnName}}</view>
+                        <view class='product-name'>
+                            <text space='ensp'>{{item.orgnDesc}}</text>
+                        </view>
+                    </view>
+                    <view class='list-item-price'>¥{{item.price}}起</view>
+                </view>
+            </block>
+            <view wx:if='{{lookAll}}' class='list-look-all' catchtap='allList'>查看全部</view>
+        </scroll-view>
+    </block>
+    <!-- 下拉选项 -->
+    <!-- <view class='nav-menu-mask' wx:if='{{showClassify}}' catchtap='clickClassify'></view>
+    <scroll-view scroll-y class='nav-menu-list' wx:if='{{showClassify}}'>
+        <view class='nav-menu-box'>
+            <view class='nav-menu-item {{index == classifyval ? "nav-menu-active" : ""}}' wx:for='{{classify}}' wx:key='{{index}}'>
+                <text space='ensp'>{{item.name}}</text>
+            </view>
+        </view>
+    </scroll-view> -->
+</view>

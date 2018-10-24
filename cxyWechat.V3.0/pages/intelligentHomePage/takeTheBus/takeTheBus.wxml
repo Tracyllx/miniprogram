@@ -1,0 +1,103 @@
+<view class='outside-view'>
+    <view class='take-content'>
+        <image class='take-bg' mode='aspectFill' src='{{takeBusImg}}'></image>
+        <view class='take-box'>
+            <!-- 说明： -->
+            <view class='take-explain'>
+                <view class='take-explain-item'>
+                    <image style='width: 65rpx; height: 39rpx; transform: rotate(-90deg); margin-left: -10rpx; margin-bottom: -5rpx;' src='{{mainCarImg}}'></image>
+                    <text>主干线车辆</text>
+                </view>
+                <view class='take-explain-item'>
+                    <image style='width: 65rpx; height: 39rpx; transform: rotate(-90deg); margin-left: -10rpx; margin-bottom: -5rpx;' src='{{carImg}}'></image>
+                    <text>全程线车辆</text>
+                </view>
+                <view class='take-explain-item'>
+                    <image style='width: 49.6rpx; height: 48.8rpx; margin-right: 10rpx; margin-bottom: -10rpx;' src='{{myAddressImg}}'></image>
+                    <text>游客所在</text>
+                </view>
+            </view>
+
+            <!-- 主干线： -->
+            <view class='main-line'></view>
+
+            <!-- 分支线 1：五指山景区 -->
+            <view class='branch-line-one'></view>
+
+            <!-- 分支线 1-1：溪头村、千泷沟瀑布、胜象竹海 -->
+            <view class='branch-line-one-one'></view>
+
+            <!-- 分支线 2：卡丁车 -->
+            <view class='branch-line-two'></view>
+
+            <!-- 分支线 2-1：人文蜡像馆、碧水云天、世外萄园、良平村、碧水湾漂流、影古驿站 -->
+            <view class='branch-line-two-one'></view>
+
+            <!-- 分支线 3：碧水园农庄、六三市美食 -->
+            <view class='branch-line-three'></view>
+
+            <!-- 分支线 4：耕山小寨、崴格诗温泉 -->
+            <view class='branch-line-four'></view>
+
+            <!-- 主干线路站点： -->
+            <view class='site-box site-main' style='top:20rpx;'>广承轩酒店</view>
+            <view class='site-box site-main' style='top:70rpx;'>香蜜山果庄</view>
+            <view class='site-box site-main' style='top:120rpx;'>古田村</view>
+            <view class='site-box site-main' style='top:170rpx;'>听湖山居</view>
+
+            <view class='site-box site-main' style='top:340rpx;'>湖光山庄</view>
+            <view class='site-box site-main' style='top:420rpx;'>流溪河森林公园</view>
+            <view class='site-box site-main' style='top:500rpx;'>良口镇政府</view>
+
+            <view class='site-box site-main' style='top:640rpx;'>碧水湾</view>
+
+            <view class='site-box site-main' style='top:770rpx;'>文轩苑</view>
+            <view class='site-box site-main' style='top:820rpx;'>都喜泰丽</view>
+            <view class='site-box site-main' style='top:870rpx;'>卓思道温泉</view>
+            <view class='site-box site-main' style='top:920rpx;'>从都国际</view>
+
+            <view class='site-box site-main' style='top:1050rpx;'>游船码头</view>
+
+            <!-- 分支线站点：1 -->
+            <view class='site-box site-branch' style='top:225rpx;right:27%;'>五指山景区</view>
+            <view class='site-box site-branch' style='top:225rpx;right:2%;'>溪头村</view>
+            <view class='site-box site-branch' style='top:140rpx;right:2%;'>千泷沟瀑布</view>
+            <view class='site-box site-branch' style='top:60rpx;right:2%;'>胜象竹海</view>
+
+            <!-- 分支线站点：2 -->
+            <view class='site-box site-branch' style='top:585rpx;right:27%;'>卡丁车</view>
+            <view class='site-box site-branch' style='top:585rpx;right:2%;'>人文蜡像馆</view>
+            <view class='site-box site-branch' style='top:530rpx;right:2%;'>碧水云天</view>
+            <view class='site-box site-branch' style='top:475rpx;right:2%;'>世外萄园</view>
+            <view class='site-box site-branch' style='top:420rpx;right:2%;'>良平村</view>
+            <view class='site-box site-branch' style='top:365rpx;right:2%;'>碧水峡漂流</view>
+            <view class='site-box site-branch' style='top:310rpx;right:2%;'>影古驿站</view>
+
+            <!-- 分支线站点：3 -->
+            <view class='site-box site-branch' style='top:705rpx;right:27%;'>碧水园农庄</view>
+            <view class='site-box site-branch' style='top:705rpx;right:2%;'>六三市美食</view>
+
+            <!-- 分支线站点：4 -->
+            <view class='site-box site-branch' style='top:985rpx;left:24%;'>耕山小寨</view>
+            <view class='site-box site-branch' style='top:985rpx;left:2%;'>崴格诗温泉</view>
+
+            <!-- 游客所在 -->
+            <image wx:if='{{myAddressSite}}' class='myAddImg' style='top:{{myAddressSite[0]}}rpx;right:{{myAddressSite[1]}}rpx;' src='{{myAddressImg}}'></image>
+
+            <!-- 主干线车辆： -->
+            <image class='car-img' src='{{mainCarImg}}' style='left:43.5%;top:{{mainTop}}rpx;transform:{{mainDire=="down"?"rotate(90deg)":"rotate(-90deg)"}};'></image>
+
+            <!-- 全程线车辆： -->
+            <image wx:if='{{lineDirection[0]=="down"}}' class='car-img' src='{{carImg}}' style='top:{{lineCoordinate[0]}}rpx;right:{{lineCoordinate[1]}}rpx;transform:rotate(90deg);'></image>
+            <image wx:if='{{lineDirection[0]=="up"}}' class='car-img' src='{{carImg}}' style='top:{{lineCoordinate[0]}}rpx;right:{{lineCoordinate[1]}}rpx;transform:rotate(-90deg);'></image>
+            <image wx:if='{{lineDirection[1]=="left"}}' class='car-img' src='{{carImg}}' style='top:{{lineCoordinate[0]}}rpx;right:{{lineCoordinate[1]}}rpx;}};transform:rotate(180deg)'></image>
+            <image wx:if='{{lineDirection[1]=="right"}}' class='car-img' src='{{carImg}}' style='top:{{lineCoordinate[0]}}rpx;right:{{lineCoordinate[1]}}rpx;}};'></image>
+        </view>
+    </view>
+    <view class='take-bottom'>
+        <view class='take-btm-txt'>{{myAddressName ? '上车点：' + myAddressName : ''}}
+            <text wx:if='{{!myAddressName}}' class='gray'>距离站点太远了，无法定位最近站点</text>
+        </view>
+        <view class='take-btm-btn' catchtap='gotoOrder'>去预定</view>
+    </view>
+</view>

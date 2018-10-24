@@ -1,0 +1,64 @@
+<view class='outside-view'>
+    <scroll-view scroll-y class='scroll-view'>
+        <block wx:if='{{titleText == "approval"}}'>
+            <view class='bar-box'>
+                <view class='bar-label'>审批人：</view>
+                <view class='bar-right'>
+                    <input type='text' value='{{approver}}' bindinput='approverInput' placeholder='请输入审批人' placeholder-style='color:#999;'></input>
+                </view>
+            </view>
+            <view class='bar-box'>
+                <view class='bar-label kktxt'>
+                    <text>预估维修\n费用(元)：</text>
+                </view>
+                <view class='bar-right'>
+                    <input type='text' value='{{costsTotal}}' bindinput='costsTotalInput' placeholder='请输入预估维修费用' placeholder-style='color:#999;'></input>
+                </view>
+            </view>
+        </block>
+        <block wx:if='{{titleText == "followUp"}}'>
+            <view class='bar-box'>
+                <view class='bar-label'>跟进时间：</view>
+                <view class='bar-right'>
+                    <!-- <input type='text' value='{{followTime}}' bindinput='followTimeInput' placeholder='请输入跟进时间' placeholder-style='color:#999;'></input> -->
+                    <picker mode="date" value="{{dateTime}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
+                        <view class="picker">{{dateTime}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class='bar-box'>
+                <view class='bar-label'>详情：</view>
+                <view class='bar-right'>
+                    <input type='text' value='{{detailTxt}}' bindinput='detailTxtInput' placeholder='请输入详情' placeholder-style='color:#999;'></input>
+                </view>
+            </view>
+            <view class='bar-box'>
+                <view class='bar-label'>状态：</view>
+                <view class='bar-right'>
+                    <view class='bar-type {{showType?"drop-up":"drop-down"}}' catchtap='chooseTypeTap'>{{chooseType}}</view>
+                    <view class='bar-drop' hidden='{{!showType}}'>
+                        <view class='bar-drop-item' catchtap='chooseTypeItem' data-name='维修'>维修</view>
+                        <view class='bar-drop-item' catchtap='chooseTypeItem' data-name='换件'>换件</view>
+                        <view class='bar-drop-item no-b' catchtap='chooseTypeItem' data-name='自主检修'>自主检修</view>
+                    </view>
+                </view>
+            </view>
+            <view class='bar-box'>
+                <view class='bar-label'>处理人：</view>
+                <view class='bar-right'>
+                    <input type='text' value='{{handelMan}}' bindinput='handelManInput' placeholder='请输入处理人' placeholder-style='color:#999;'></input>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+    <view class='btm-button'>
+        <block wx:if='{{titleText == "approval"}}'>
+            <view class='btm-button-item' style='color:#399;' catchtap='buttonTap' data-the-type='noPass'>审批不通过</view>
+            <view class='btm-button-item' style='background-color:#399;color:#fff;' catchtap='buttonTap' data-the-type='pass'>审批通过</view>
+        </block>
+        <block wx:if='{{titleText == "followUp"}}'>
+            <view class='btm-button-item' style='color:#399;' catchtap='buttonTap' data-the-type='cancel'>取 消</view>
+            <view class='btm-button-item' style='background-color:#399;color:#fff;' catchtap='buttonTap' data-the-type='save'>保 存</view>
+        </block>
+    </view>
+</view>

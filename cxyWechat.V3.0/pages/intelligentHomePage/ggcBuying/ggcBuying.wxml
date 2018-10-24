@@ -1,0 +1,33 @@
+<view class='outside-view'>
+
+    <scroll-view scroll-y class='scroll-view'>
+        <view class='list'>
+            <view class='list-item'>
+                <view class='item-title'>{{detail.name}}</view>
+                <view class='item-info'>
+                    <view class='item-number-txt chuizhi'>购买数量：</view>
+                    <view class='item-number-box'>
+                        <view class='item-number-option chuizhi' catchtap='countOptionTap' data-the-type='-'>-</view>
+                        <view class='item-number-input'>
+                            <input type='number' maxlength='3' value='{{count}}' bindinput='countInput' bindblur='countBlur'></input>
+                        </view>
+                        <view class='item-number-option chuizhi' catchtap='countOptionTap' data-the-type='+'>+</view>
+                    </view>
+                    <view class='item-price chuizhi'>¥{{ticketPrice}}</view>
+                </view>
+            </view>
+        </view>
+        <view class='choose-date'>
+            <view class='choose-date-txt'>使用日期：{{useDate}}</view>
+            <view class='choose-date-btn'>
+                <view hidden='{{noMoreDate}}' catchtap='moreDateTap'>更多日期</view>
+                <view hidden='{{!noMoreDate}}' class='disabled'>暂无更多日期</view>
+            </view>
+        </view>
+    </scroll-view>
+
+    <view class='page-bottom'>
+        <view class='page-bottom-item chuizhi price'>合计：¥{{totalPrice}}</view>
+        <view class='page-bottom-item chuizhi buyBtn' catchtap='toPay' style='background-color:{{btnActive?"#399":"#999"}};'>去支付</view>
+    </view>
+</view>

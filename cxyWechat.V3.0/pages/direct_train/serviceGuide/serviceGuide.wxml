@@ -1,0 +1,71 @@
+<view class='outside-view'>
+    <view class="content-center">
+        <scroll-view class='scrollView' scroll-y>
+            <view class='title'>1. 购票须知</view>
+            <view class='kk-con kk-bt'>
+                <view class='detail kk-num'>( 1 )</view>
+                <view class='detail kk-desc'>
+                    <view class='kk-bt15'>相同景区的门票有多种选择，请按照个人需求选择是否需要景区观光车或旅游直通车服务；</view>
+                    <view class='base-c'>门票类别区分如下：</view>
+                    <view class='kk-c'>
+                        <text style='font-size: 40rpx;'>· </text>门票(不含景区观光车或旅游直通车)</view>
+                    <view class='kk-c'>
+                        <text style='font-size: 40rpx;'>· </text>门票+景区观光车(不含旅游直通车)</view>
+                    <view class='kk-c'>
+                        <text style='font-size: 40rpx;'>· </text>门票+景区观光车(含旅游直通车)</view>
+                    <view class='kk-c'>
+                        <text style='font-size: 40rpx;'>· </text>景区观光车(不含门票或旅游直通车)</view>
+                </view>
+            </view>
+            <view class='kk-con kk-bt'>
+                <view class='detail kk-num'>( 2 )</view>
+                <view class='detail kk-desc'>购票时需提供准确真实的个人信息；</view>
+            </view>
+            <view class='kk-con kk-bt'>
+                <view class='detail kk-num'>( 3 )</view>
+                <view class='detail kk-desc'>在此程序购票成功后，无需换票，可凭借生成的二维码扫描入园；</view>
+            </view>
+            <view class='kk-con kk-bt'>
+                <view class='detail kk-num'>( 4 )</view>
+                <view class='detail kk-desc'>
+                    <view>若购票成功后需退票，应在未超过使用日期前一天时间23:59申请，受理后退款将在1-7个工作日内返还到原先支付来源。</view>
+                    <view class='base-c'>另注：当天购买并当天使用的票据不可申请退款。</view>
+                </view>
+            </view>
+
+            <view class='title'>2. 乘车须知</view>
+            <view class='detail base-c kk-bt15'>景区观光车：</view>
+            <view class='kk-con kk-bt'>
+                <view class='detail kk-num'>( 1 )</view>
+                <view class='detail kk-desc'>购买凭票中包含“景区观光车”该项服务时，可在有效日期内无限次乘坐(仅限于景区内)；</view>
+            </view>
+            <view class='kk-con kk-bt'>
+                <view class='detail kk-num'>( 2 )</view>
+                <view class='detail kk-desc'>部分门票不含景区观光车服务，购买时需注意选择。</view>
+            </view>
+
+            <view class='detail base-c kk-bt15'>旅游直通车：</view>
+            <view class='kk-con kk-bt'>
+                <view class='detail kk-num'>( 1 )</view>
+                <view class='detail kk-desc'>部分门票不含旅游直通车服务，购买时需注意选择；</view>
+            </view>
+            <view class='kk-con kk-bt'>
+                <view class='detail kk-num'>( 2 )</view>
+                <view class='detail kk-desc'>若需乘坐直通车，服务范围需在程序中可选的站点内；</view>
+            </view>
+            <view class='kk-con kk-bt'>
+                <view class='detail kk-num'>( 3 )</view>
+                <view class='detail kk-desc'>为确保接送准时，直通车服务只可预约1小时后的车次；</view>
+            </view>
+            <view class='kk-con kk-bt'>
+                <view class='detail kk-num'>( 4 )</view>
+                <view class='detail kk-desc'>直通车服务可在个人中心里“我的订单”中修改上下车的站点和时间；</view>
+            </view>
+            <view class='kk-con kk-bt'>
+                <view class='detail kk-num'>( 5 )</view>
+                <view class='detail kk-desc'>为保障其他游客的乘车服务，请您按照预定时间及地点候车。</view>
+            </view>
+            <view class="line50"></view>
+        </scroll-view>
+    </view>
+</view>

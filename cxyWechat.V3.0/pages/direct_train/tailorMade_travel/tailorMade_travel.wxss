@@ -1,0 +1,58 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.travel-page {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.travel-banner {
+    width: 100%;
+    height: 400rpx;
+    overflow: hidden;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.travel-grid {
+    width: 100%;
+    position: absolute;
+    top: 400rpx;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.grid-item {
+    width: 33.33%;
+    height: 170rpx;
+    padding: 20rpx 0;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.grid-icon {
+    width: 120rpx;
+    height: 120rpx;
+    margin: 0 auto;
+}
+
+.grid-icon>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.grid-title {
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 26rpx;
+    margin-top: 6rpx;
+}

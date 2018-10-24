@@ -1,0 +1,143 @@
+page {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.outside-view {
+    background: #fff;
+}
+
+/* 展示标题 */
+
+.title {
+    width: 100%;
+    height: 85rpx;
+    line-height: 85rpx;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+/* 每一个标题 */
+
+.second_title, .one {
+    float: left;
+    height: 100%;
+    width: 20%;
+    text-align: center;
+    font-size: 32rpx;
+}
+
+.one {
+    font-size: 28rpx;
+}
+
+/* 展示列表 */
+
+.list {
+    position: absolute;
+    top: 85rpx;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* 展示滑动部分 */
+
+.scroller {
+    width: 100%;
+    height: 100%;
+}
+
+/* 每一条消息的设置 */
+
+.message {
+    width: 100%;
+    height: 78rpx;
+    line-height: 78rpx;
+    overflow: hidden;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.first, .second, .fourth, .fifth {
+    width: 18%;
+}
+
+.third {
+    width: 28%;
+}
+
+/* 展示是否选择 */
+
+.choose {
+    width: 51rpx;
+    height: 45rpx;
+    vertical-align: middle;
+}
+
+/* 展示button */
+
+.show_button {
+    position: absolute;
+    bottom: 60rpx;
+    left: 50%;
+    width: 400rpx;
+    height: 100rpx;
+    margin-left: -200rpx;
+    border-radius: 12rpx;
+    background: #fff;
+    box-shadow: 3rpx 2rpx 8rpx #e1e1e1;
+}
+
+.button {
+    width: 50%;
+    height: 100%;
+    line-height: 100rpx;
+    font-size: 38rpx;
+    float: left;
+    text-align: center;
+}
+
+.cancel {
+    color: #f60;
+}
+
+.confirm {
+    color: #01847d;
+}
+
+.line {
+    position: absolute;
+    left: 50%;
+    width: 1px;
+    height: 70%;
+    top: 15%;
+    z-index: 1;
+    background: #eee;
+}
+
+.display-button {
+    width: 100%;
+    height: 200rpx;
+}
+
+.ele_color1 {
+    color: #14be78; /*绿色*/
+}
+
+.ele_color2 {
+    color: #f3c21b; /*黄色*/
+}
+
+.ele_color3 {
+    color: #2eb7c3; /*蓝色*/
+}
+
+.ele_color4 {
+    color: #ff3e3e;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}

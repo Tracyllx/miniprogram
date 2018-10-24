@@ -1,0 +1,3 @@
+<view class="my-wallet" catchtap='gotoUrl'>
+    <image src='../imgs/money2.jpg'></image>
+</view>

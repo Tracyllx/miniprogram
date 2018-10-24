@@ -1,0 +1,21 @@
+<view class='outside-view' style='background-color:#fff;'>
+    <view class='table-th'>
+        <view class='table-td-zero'>编号</view>
+        <view class='table-td-one'>车辆编号</view>
+        <view class='table-td-two'>报障人</view>
+        <view class='table-td-three'>故障类型</view>
+        <view class='table-td-four'>审批状态</view>
+    </view>
+    <scroll-view scroll-y class='scroll-view' style='bottom:{{isApply?"100rpx":"0"}};' bindscrolltolower='loadMore'>
+        <view wx:if='{{noData}}' class='nonedata'>暂无更多数据~</view>
+        <view class='table-tr' wx:for='{{dataList}}' wx:key='{{index}}' catchtap='gotoNext' data-index='{{index}}'>
+            <view class='table-td-zero'>{{index + 1}}</view>
+            <view class='table-td-one'>{{item.car_no}}</view>
+            <view class='table-td-two'>{{item.submitter}}</view>
+            <view class='table-td-three'>{{item.fault_type}}</view>
+            <view class='table-td-four {{item.status==2||item.status==3?"orange":""}} {{item.status==4||item.status==5||item.status==6?"red":""}}'>{{approvalStatus[item.status]}}</view>
+        </view>
+        <view class='nonedata'>--------- 加载完了 ---------</view>
+    </scroll-view>
+    <view wx:if='{{isApply}}' class='car-bottom' catchtap='applyTap'>故障申报</view>
+</view>

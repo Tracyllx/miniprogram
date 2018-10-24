@@ -1,0 +1,4 @@
+<view class='the-container'>
+    <view class='the-box box-1' catchtap='scanCodeCharge'>扫码充电</view>
+    <view class='the-box box-2' catchtap='inputCharge'>输码充电</view>
+</view>

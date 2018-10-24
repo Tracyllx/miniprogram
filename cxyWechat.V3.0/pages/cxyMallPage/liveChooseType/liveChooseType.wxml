@@ -1,0 +1,54 @@
+<view class='outside-view' wx:if='{{loadingDone}}'>
+    <scroll-view scroll-y class='picker-choose-type'>
+        <view class='picker-choose-date'>
+            <view class='picker-choose-date-item b-btn' catchtap='moreDateTap' data-time-type='start'>
+                <view class='picker-choose-date-txt'>入住时间：</view>
+                <view class='picker-choose-date-time'>{{startTime ? startTime : '暂无预订日期'}}</view>
+                <view class='picker-choose-date-icon'>
+                    <image src='../../img/direct_train/choose_more.png'></image>
+                </view>
+            </view>
+            <view class='picker-choose-date-item' catchtap='moreDateTap' data-time-type='end'>
+                <view class='picker-choose-date-txt'>离店时间：</view>
+                <view class='picker-choose-date-time'>{{endTime ? endTime : '暂无预订日期'}}</view>
+                <view class='picker-choose-date-icon'>
+                    <image src='../../img/direct_train/choose_more.png'></image>
+                </view>
+            </view>
+        </view>
+        <view class='picker-list'>
+            <block wx:for='{{listData}}' wx:key='{{index}}'>
+                <view class='picker-choose-type-item {{index == 0 ? "picker-bottom-noborder" : ""}}'>
+                    <view class='picker-choose-type-check' catchtap='checkTap' data-index='{{index}}'>
+                        <text wx:if='{{item.kkErrorTxt!=""}}' style='background-color:#c9c9c9;display:inline-block;width:48rpx;height:48rpx;margin-top:10rpx;'></text>
+                        <block wx:else>
+                            <image hidden='{{item.kkCheck}}' src='../../img/direct_train/no_choose.png'></image>
+                            <image hidden='{{!item.kkCheck}}' src='../../img/direct_train/choose.png'></image>
+                        </block>
+                    </view>
+                    <view class='picker-choose-type-info'>
+                        <view class='picker-choose-type-name-price chuizhi' catchtap='checkTap' data-index='{{index}}'>
+                            <view style='width: 100%; height: auto; overflow: hidden;'>
+                                <text class='picker-choose-type-name'>{{item.product_name}}</text>
+                                <text class='picker-choose-type-price'>¥{{item.kkAmount}}</text>
+                            </view>
+                            <view class='picker-choose-type-error'>{{item.kkErrorTxt}}</view>
+                        </view>
+                        <view class='picker-choose-type-num'>
+                            <view class='picker-choose-type-num-txt'>购买数量：</view>
+                            <view class='picker-choose-type-num-option' catchtap='countOptionTap' data-index='{{index}}' data-the-type='-'>-</view>
+                            <view class='picker-choose-type-num-input'>
+                                <input type='number' maxlength='3' value='{{item.kkCount}}' disabled='{{item.kkErrorTxt!=""}}' bindinput='countInput' bindblur='countBlur' data-index='{{index}}'></input>
+                            </view>
+                            <view class='picker-choose-type-num-option' catchtap='countOptionTap' data-index='{{index}}' data-the-type='+'>+</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+    <view class='picker-bottom'>
+        <view class='picker-bottom-item chuizhi picker-bottom-total'>合计：¥{{orderAmount}}</view>
+        <view class='picker-bottom-item chuizhi picker-bottom-left' style='{{ButtonActive?"":"background-color: #bbb;"}}' catchtap='pickerBottomTap'>下一步，填写信息</view>
+    </view>
+</view>

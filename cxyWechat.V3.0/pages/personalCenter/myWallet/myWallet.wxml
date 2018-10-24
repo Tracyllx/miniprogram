@@ -1,0 +1,31 @@
+<view class='myWallet'>
+    <view class='img'>
+        <image mode='aspectFill' src='{{HTTPS}}img/personalCenter/wallet.png'></image>
+    </view>
+    <view class='txt tc'>我的余额</view>
+    <view class='num tc'>¥{{myWallet == 0 ? '0.00' : myWallet}}</view>
+    <button type='primary' style='background-color: #01847D;' catchtap='rechargeBtn'>充 值</button>
+    
+    <button type='default' id='{{myWallet < 100 ? "withdrawals" : ""}}' catchtap='withdrawals'>提 现</button>
+    <!-- <view class='small tc'>余额达到100元即可提现，提现收取1%手续费。</view> -->
+    
+    <navigator class='bottom' hover-class="none" open-type='navigateTo' url='../balanceDetail/balanceDetail'>余额明细</navigator>
+    
+    <view wx:if='{{showModule}}' class='module-mask' catchtap='rechargeBtn'></view>
+    <view wx:if='{{showModule}}' class='module-box'>
+        <view class='input-bar'>
+            <view class='input-lable chuizhi' catchtap='focusTap' data-is-type='1'>充值金额：</view>
+            <input class='input-box' type='digit' maxlength='12' value='{{czAmount}}' bindinput='bindInput' bindblur='bindInput' focus='{{focusIndex==1}}' data-is-type='1' placeholder='请输入充值金额'></input>
+        </view>
+        <view class='input-bar input-mt15'>
+            <view class='input-lable chuizhi' catchtap='focusTap' data-is-type='2'>联 系 人：</view>
+            <input class='input-box chuizhi' type='text' maxlength='20' value='{{userName}}' bindinput='bindInput' bindblur='bindInput' focus='{{focusIndex==2}}' data-is-type='2' placeholder='请输入您的姓名'></input>
+        </view>
+        <view class='input-bar input-mt15'>
+            <view class='input-lable chuizhi' catchtap='focusTap' data-is-type='3'>手 机 号：</view>
+            <input class='input-box chuizhi' type='number' maxlength='11' value='{{userPhone}}' bindinput='bindInput' bindblur='bindInput' focus='{{focusIndex==3}}' data-is-type='3' placeholder='请输入手机号'></input>
+        </view>
+        <view class='input-error'>{{inputError}}</view>
+        <button class='input-btn' type='primary' style='background-color: {{canConform?"#01847D":"#ededed"}}; color: {{canConform?"#fff":"#6c6c6c"}};' catchtap='conform'>确 认</button>
+    </view>
+</view>

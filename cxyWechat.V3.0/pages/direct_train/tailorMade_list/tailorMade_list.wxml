@@ -1,0 +1,16 @@
+<scroll-view scroll-y class='list-box'>
+    <view wx:if='{{list.length == 0}}' class='nonedata c9'>暂无数据~</view>
+    <block wx:if='{{list.length != 0}}' wx:for='{{list}}' wx:key='{{index}}'>
+        <view class='list-item {{index == 0 ? "list-item-mt" : ""}}' catchtap='gotoProductDetail' data-id='{{item.product_id}}'>
+            <view class='list-item-img'>
+                <image wx:if='{{item.imgUrl[0]}}' src='{{item.imgUrl[0]}}' mode='aspectFill'></image>
+            </view>
+            <view class='list-item-txt'>
+                <view class='orgin-name'>{{item.product_name}}</view>
+                <view class='product-name'>{{item.product_desc}}</view>
+            </view>
+            <view class='list-item-price'>¥{{item.product_price}}起</view>
+        </view>
+    </block>
+    <!-- <view wx:if='{{list.length != 0}}' class='nonedata'>没有更多了~</view> -->
+</scroll-view>

@@ -1,0 +1,34 @@
+<scroll-view scroll-y class='producComment' lower-threshold="50" bindscrolltolower="scrolltolower">
+    <view class='show-comment' wx:for='{{dataList}}' wx:key='{{index}}'>
+        <view class='show-comment-head'>
+            <image wx:if='{{!item.headUrl}}' mode='aspectFill' src='../../../img/direct_train/user_head.png'></image>
+            <image wx:if='{{item.headUrl}}' mode='aspectFill' src='{{item.headUrl}}'></image>
+        </view>
+        <view class='show-comment-con'>
+            <view class='show-comment-name'>{{item.name ? item.name : '匿名用户'}}
+                <text style='float: right;'>{{item.commentDate}}</text>
+            </view>
+            <view class='show-comment-start'>
+                <!-- 全颗星 -->
+                <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= item.starFull}}'>
+                    <image src='../../../img/cxyMallPage/full-star.png'></image>
+                </block>
+                <!-- 半颗星 -->
+                <block wx:if='{{item.starHalf}}'>
+                    <image src='../../../img/cxyMallPage/half-star.png'></image>
+                </block>
+                <!-- 空星 -->
+                <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= item.starNo}}'>
+                    <image src='../../../img/cxyMallPage/no-star.png'></image>
+                </block>
+            </view>
+            <view class='show-comment-txt'>{{item.content}}</view>
+            <view class='show-comment-img'>
+                <block wx:if='{{item.imgUrls}}' wx:for='{{item.imgUrls}}' wx:for-item='imgItem' wx:for-index='imgIndex' wx:key='{{imgIndex}}'>
+                    <image lazy-load mode='aspectFill' wx:if='{{imgItem}}' src='{{imgItem}}' catchtap='previewImage' data-img-url='{{imgItem}}' data-img-list='{{item.imgUrls}}'></image>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view wx:if='{{noData || dataList.length == totalCount}}' class='no-data'>没有更多了~</view>
+</scroll-view>

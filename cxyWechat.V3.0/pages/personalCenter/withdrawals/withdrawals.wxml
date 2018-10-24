@@ -1,0 +1,33 @@
+<view wx:if='{{showStep1}}' class='withdrawals'>
+    <view class='title'>提现到微信钱包</view>
+    <view class='title tip1'>提现金额</view>
+    <view class='input'>
+        <view class='input-tip'>¥</view>
+        <view class='input-box'>
+            <input type='number' maxlength='12' placeholder='' value='{{inputVal}}' focus='{{focus}}' bindinput='bindInput' bindblur='bindInput' placeholder='请输入整数金额' placeholder-class='plhClass'></input>
+        </view>
+    </view>
+    <view class='tip2'>
+        当前余额{{myWallet}}元，
+        <text class='color' catchtap='getAll'>全部提现 \n 注：只提现整数金额</text>
+    </view>
+    <button type='primary' id='btn' style='{{btnDisabled ? "background-color: #cdcdcd;" : ""}}' catchtap='btnTap'>提 现</button>
+</view>
+
+<view wx:if='{{!showStep1}}' class='progress'>
+    <view class='progress-content'>
+        <view class='content-box'>
+            <view class='content-one'>发起提现申请</view>
+            <view class='content-two'>余额提现处理中</view>
+            <view class='content-three'>到账成功</view>
+            <view class='circle0'></view>
+            <image class='circle1' src='../../img/personalCenter/countDown.png'></image>
+            <view class='circle2'></view>
+        </view>
+    </view>
+    <view class='title2'>提现金额
+        <text class='tip3'>¥{{inputVal}}</text>
+    </view>
+    <view class='title2'>到账到微信钱包</view>
+    <button type='default' id='finish' catchtap='finishTap'>完 成</button>
+</view>

@@ -1,0 +1,45 @@
+<scroll-view scroll-y class='scroll-view'>
+    <view class='content-box no-mb'>
+        <view class='content-title2'>
+            <image src='../../img/cxyMallPage/zc_icon.png' style='width: 71rpx; height: 52rpx; margin-right: 8rpx; margin-top: -8rpx;'></image>
+            <text>共享巴士</text>
+        </view>
+        <view class='zc-content' catchtap='gotoUrl' data-index='2'>
+            <image mode='aspectFill' src='{{HTTPS}}img/intelligentTraffic/zc_img.png'></image>
+        </view>
+    </view>
+    <view class='content-box'>
+        <view class='content-title2'>
+            <image src='../../img/cxyMallPage/ggc_icon.png' style='width: 71rpx; height: 50rpx; margin-right: 6rpx;'></image>
+            <text>景区观光车</text>
+        </view>
+        <view class='content-list2'>
+            <view wx:if='{{dataList1.length == 0}}' class='nonedata'>暂无更多数据~</view>
+            <block wx:for='{{dataList1}}' wx:key='{{index}}'>
+                <view class='content-item2 {{index==0?"first-item":""}}' catchtap='gotoUrl' data-index='0'>
+                    <view class='content-item-img'>
+                        <image mode='aspectFill' src='{{item.imgUrls[0] ? item.imgUrls[0] : defaultImg}}'></image>
+                    </view>
+                    <view class='content-item2-name'>{{item.productName}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class='content-box'>
+        <view class='content-title2'>
+            <image src='../../img/cxyMallPage/ztc_icon.png' style='width: 71rpx; height: 35rpx; margin-right: 14rpx;'></image>
+            <text>旅游直通车</text>
+        </view>
+        <view class='content-list2'>
+            <view wx:if='{{dataList2.length == 0}}' class='nonedata'>暂无更多数据~</view>
+            <block wx:for='{{dataList2}}' wx:key='{{index}}'>
+                <view class='content-item3 {{index == 0 || (index > 0 && index % 2 == 0) ? "content-item3-mr" : ""}}' catchtap='gotoUrl' data-index='1'>
+                    <view class='content-item3-img'>
+                        <image mode='aspectFill' src='{{item.imgUrls[0] ? item.imgUrls[0] : defaultImg}}'></image>
+                    </view>
+                    <view class='content-item3-name'>{{item.productName}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+</scroll-view>

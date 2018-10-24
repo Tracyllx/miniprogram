@@ -1,0 +1,12 @@
+<view class='the-container'>
+    <view class='input-code'>
+        <view class='input-bar'>
+            <input type='number' maxlength='8' value='{{codeNum}}' bindblur='inputTap' bindinput='inputTap' placeholder='请输入8位充电桩码' placeholder-style='color: #999;'></input>
+        </view>
+        <view class='input-error'>{{errorTxt}}</view>
+        <view class='input-btn'>
+            <view class='input-btn-item bg-gray' catchtap='cancel'>取 消</view>
+            <view class='input-btn-item bg-base' catchtap='comfirm'>确 定</view>
+        </view>
+    </view>
+</view>

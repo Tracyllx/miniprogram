@@ -1,0 +1,10 @@
+/* pages/riding/carRiding/carRiding.wxss */
+page{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.shanMap{
+    width: 100%;
+    height: 100%;
+}

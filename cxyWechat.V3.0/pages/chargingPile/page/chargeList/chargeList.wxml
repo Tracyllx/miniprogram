@@ -1,0 +1,18 @@
+<scroll-view scroll-y class='scroll-view'>
+    <block wx:for='{{dataList}}' wx:key='{{index}}'>
+        <view class='list-item' catchtap='gotoDetail' data-index='{{index}}'>
+            <view class='item-img'>
+                <image src='../imgs/img_s.png'></image>
+            </view>
+            <view class='item-info'>
+                <view class='item-name'>{{item.name}}<text class='item-distance'>距离{{distanceList[index]}}</text></view>
+                <view class='item-desc'>{{item.address}}</view>
+                <view class='item-icon'>
+                    <text class='all-count'>共{{item.countAll}}个</text>
+                    <text class='free-count'>空闲{{item.countFree}}个</text>
+                </view>
+            </view>
+            <view class='item-btn' catchtap='openTheMap' data-index='{{index}}'>去这里</view>
+        </view>
+    </block>
+</scroll-view>

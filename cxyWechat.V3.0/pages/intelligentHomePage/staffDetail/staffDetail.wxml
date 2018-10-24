@@ -1,0 +1,56 @@
+<view class='outside-view' style='background-color:#fff;'>
+    <view class='option-bar'>
+        <!--  {{showDate?"drop-up1":"drop-down1"}}' catchtap='chooseTap' data-the-type='date' -->
+        <view class='option-date'>{{checkDate}}</view>
+        <view class='option-staff'>{{dataDetail.driver_name}}</view>
+    </view>
+    <scroll-view scroll-y class='scroll-view'>
+        <view class='detail-item'>
+            <view class='detail-item-left'>出勤天数</view>
+            <view class='detail-item-right'>{{dataDetail.work_days}}天</view>
+        </view>
+        <!-- <view class='detail-item'>
+            <view class='detail-item-left'>出勤班次</view>
+            <view class='detail-item-right'>6次</view>
+        </view> -->
+        <view class='detail-item'>
+            <view class='detail-item-left'>休息天数</view>
+            <view class='detail-item-right'>{{dataDetail.rest_days}}天</view>
+        </view>
+        <view class='detail-item {{dataDetail.late_times == 0 ? "" : "red"}}'>
+            <view class='detail-item-left'>迟到</view>
+            <view class='detail-item-right'>{{dataDetail.late_times}}次 {{dataDetail.late_times == 0 ? '' : '共' + dataDetail.late_hours}}</view>
+        </view>
+        <view class='detail-item {{dataDetail.early_times == 0 ? "" : "red"}}'>
+            <view class='detail-item-left'>早退</view>
+            <view class='detail-item-right'>{{dataDetail.early_times}}次 {{dataDetail.early_times == 0 ? '' : '共' + dataDetail.early_hours}}</view>
+        </view>
+        <view class='detail-item {{(dataDetail.miss_in_times + dataDetail.miss_off_times) == 0 ? "" : "red"}}'>
+            <view class='detail-item-left'>缺卡</view>
+            <view class='detail-item-right'>{{dataDetail.miss_in_times + dataDetail.miss_off_times}}次</view>
+        </view>
+        <view class='detail-item'>
+            <view class='detail-item-left'>外勤</view>
+            <view class='detail-item-right'>{{dataDetail.busi_trip_days}}天</view>
+        </view>
+        <view class='detail-item'>
+            <view class='detail-item-left'>事假</view>
+            <view class='detail-item-right'>{{dataDetail.busi_leave_hours}}小时</view>
+        </view>
+        <view class='detail-item'>
+            <view class='detail-item-left'>加班</view>
+            <view class='detail-item-right'>{{dataDetail.overtime}}小时</view>
+        </view>
+    </scroll-view>
+    <!-- <view class='date-model' wx:if='{{showDate}}'>
+        <scroll-view scroll-y class='date-box'>
+            <view class='date-item' wx:for='{{dateTime}}' wx:key='{{index}}' catchtap='chooseDateItem' data-index='{{index}}'>
+                <view class='date-item-icon'>
+                    <icon hidden='{{item.check}}' type='circle' size='24' style='margin-top:-8rpx;'></icon>
+                    <icon hidden='{{!item.check}}' type='success' size='24' style='margin-top:-8rpx;' color='#399' />
+                </view>
+                <view class='date-item-txt {{item.check?"color":""}}'>{{item.date}}</view>
+            </view>
+        </scroll-view>
+    </view> -->
+</view>

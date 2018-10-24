@@ -1,0 +1,73 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.the-container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    box-sizing: content-box;
+    position: relative;
+}
+
+.input-code {
+    position: absolute;
+    top: 8%;
+    left: 10%;
+    width: 80%;
+    height: auto;
+    overflow: hidden;
+}
+
+.input-bar {
+    padding: 0 24rpx;
+    height: 80rpx;
+    overflow: hidden;
+    border-radius: 10rpx;
+    border: 1rpx solid #ededed;
+}
+
+.input-bar>input {
+    width: 100%;
+    height: 100%;
+    font-size: 30rpx;
+    color: #666;
+    outline: none;
+    border: 0;
+}
+
+.input-error {
+    width: 100%;
+    height: 140rpx;
+    line-height: 140rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: red;
+}
+
+.input-btn {
+    width: 100%;
+    height: 78rpx;
+    line-height: 78rpx;
+    display: flex;
+}
+
+.input-btn-item {
+    flex: 1;
+    height: 100%;
+    margin: 0 4%;
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+    border-radius: 10rpx;
+}
+
+.bg-base {
+    background-color: #39b6a3;
+}
+
+.bg-gray {
+    background-color: rgb(199, 199, 199);
+}

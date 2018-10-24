@@ -1,0 +1,74 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll-view {
+    position: absolute;
+    top: 80rpx;
+    bottom: 100rpx;
+    width: 100%;
+    overflow: hidden;
+}
+
+.table-th {
+    padding: 0 20rpx;
+    height: 79rpx;
+    line-height: 79rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #333;
+    border-bottom: 1rpx solid #999;
+    display: flex;
+}
+
+.table-tr {
+    padding: 16rpx 20rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #333;
+    border-bottom: 1rpx solid #cdcdcd;
+    display: flex;
+}
+
+.table-td-zero {
+    flex: 1;
+}
+
+.table-td-one {
+    width: 18%;
+}
+
+.table-td-two {
+    width: 22%;
+}
+
+.table-td-three {
+    width: 25%;
+}
+
+.table-td-four {
+    width: 25%;
+}
+
+.car-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 34rpx;
+    color: #fff;
+    background-color: #399;
+}
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}

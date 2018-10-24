@@ -1,0 +1,208 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+/* 滚动区域 */
+
+.scroll-view {
+    position: absolute;
+    top: 0;
+    bottom: 100rpx;
+    width: 100%;
+}
+
+/* 产品列表 */
+
+.list-box {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+}
+
+.list-item {
+    /* height: 180rpx; */
+    height: auto;
+    padding: 20rpx 24rpx;
+    border-top: 1rpx solid #f1f1f1;
+    display: flex;
+}
+
+.item-check {
+    width: 80rpx;
+    text-align: center;
+}
+
+.item-info {
+    flex: 1;
+    position: relative;
+}
+
+.item-name {
+    /* height: 50%; */
+    font-size: 30rpx;
+    color: #333;
+}
+
+.item-error {
+    font-size: 26rpx;
+    color: #ff6600;
+}
+
+.item-number {
+    width: auto;
+    /* height: 40%; */
+    overflow: hidden;
+    margin-top: 3%;
+}
+
+.item-number-txt {
+    float: left;
+    width: 150rpx;
+    height: 68rpx;
+    line-height: 68rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.item-number-box {
+    float: left;
+    width: auto;
+    height: 66rpx;
+    line-height: 66rpx;
+    border: 1rpx solid #ccc;
+    display: flex;
+}
+
+.item-number-box>text {
+    padding: 0 30rpx;
+    font-size: 40rpx;
+    color: #333;
+}
+
+.item-number-box>input {
+    width: 100rpx;
+    height: 100%;
+    text-align: center;
+    font-size: 28rpx;
+    color: #333;
+    outline: none;
+    border: 0;
+    border-left: 1rpx solid #ccc;
+    border-right: 1rpx solid #ccc;
+}
+
+.item-price {
+    position: absolute;
+    right: 16rpx;
+    bottom: 16rpx;
+    font-size: 32rpx;
+    color: #ff6600;
+}
+
+.no-border {
+    border: 0;
+}
+
+/* 日期 */
+
+.choose-date {
+    margin-top: 14rpx;
+    padding: 16rpx 24rpx;
+    height: 68rpx;
+    background-color: #fff;
+    display: flex;
+}
+
+.choose-date-txt {
+    flex: 1;
+    line-height: 68rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.choose-date-btn {
+    height: 100%;
+    overflow: hidden;
+}
+
+.choose-date-btn>view {
+    padding: 10rpx 20rpx 0;
+    height: 80%;
+    margin: 0 auto;
+    font-size: 30rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 10rpx;
+    background-color: #399;
+}
+
+.choose-date-btn>.disabled {
+    color: #999;
+    background-color: #fff;
+    border: 1rpx solid #ccc;
+}
+
+/* 联系信息 */
+
+.concat-info {
+    margin-top: 14rpx;
+    padding: 16rpx 0;
+    height: auto;
+    background-color: #fff;
+}
+
+.concat-item {
+    padding: 16rpx 24rpx;
+    height: 78rpx;
+    display: flex;
+}
+
+.concat-label {
+    width: 180rpx;
+    height: 78rpx;
+    line-height: 78rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.concat-code-btn {
+    width: 200rpx;
+    height: 78rpx;
+    line-height: 78rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #399;
+    border-radius: 10rpx;
+}
+
+.concat-input {
+    flex: 1;
+    padding: 0 14rpx;
+    margin-right: 20rpx;
+    border: 1rpx solid #e5e5e5;
+}
+
+.concat-input>input {
+    width: 100%;
+    height: 100%;
+    font-size: 30rpx;
+    color: #333;
+    border: 0;
+    outline: none;
+}
+
+.concat-error {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    color: red;
+    text-align: center;
+}
+
+/* 合计 */
+
+.online-booking {
+    color: #ff6600;
+}

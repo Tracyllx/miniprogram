@@ -1,0 +1,61 @@
+<view class='my-card'>
+    <view class='nav-bar'>
+        <view class='nav-item {{navActive == 1 ? "nav-active" : ""}}' catchtap='navTap' data-index='1'>预约中
+            <text wx:if='{{navActive == 1}}' class='nav-line'></text>
+        </view>
+        <view class='nav-item {{navActive == 2 ? "nav-active" : ""}}' catchtap='navTap' data-index='2'>服务中
+            <text wx:if='{{navActive == 2}}' class='nav-line'></text>
+        </view>
+        <view class='nav-item {{navActive == 3 ? "nav-active" : ""}}' catchtap='navTap' data-index='3'>已完成
+            <text wx:if='{{navActive == 3}}' class='nav-line'></text>
+        </view>
+        <view class='nav-item-big {{navActive == 4 ? "nav-active" : ""}}' catchtap='navTap' data-index='4'>已取消/过号
+            <text wx:if='{{navActive == 4}}' class='nav-line'></text>
+        </view>
+    </view>
+    <scroll-view scroll-y class='scroll-view' bindscrolltolower='loadMore'>
+        <view wx:if='{{dataList.length == 0}}' class='nonedata'>暂无更多数据~</view>
+        <block wx:for='{{dataList}}' wx:key='{{index}}'>
+            <view class='list-item'>
+                <view class='item-color-bar'></view>
+                <view class='item-info'>
+                    <view class='item-info-item'>
+                        <view class='info-black {{navActive==4?"gray":""}}'>{{item.queueNo}}</view>
+                        <view class='info-gray'>排队号码</view>
+                    </view>
+                    <view class='item-info-item'>
+                        <view wx:if='{{navActive != 4}}' class='info-black'>{{item.waiting}}</view>
+                        <view wx:if='{{navActive != 4}}' class='info-gray'>预计等待/分钟</view>
+                        <view wx:if='{{navActive == 4}}' class='info-cancel'>已取消排号</view>
+                    </view>
+                </view>
+                <view class='the-line b-t mt-30'>
+                    <view class='the-line-title'>{{item.itemName}}</view>
+                    <view class='the-line-desc desc-arrow'>去这里</view>
+                </view>
+                <view class='the-line-box b-t'>
+                    <view class='the-line-small'>
+                        <view class='the-line-title'>座位号</view>
+                        <view class='the-line-desc'>{{item.seatNo}}</view>
+                    </view>
+                    <view class='the-line-small'>
+                        <view class='the-line-title'>人数</view>
+                        <view class='the-line-desc'>{{item.peopleNum}}人</view>
+                    </view>
+                    <view class='the-line-small'>
+                        <view class='the-line-title'>时间段</view>
+                        <view class='the-line-desc'>{{item.orderDate}} {{item.timeRange}}</view>
+                    </view>
+                </view>
+                <view class='the-line b-t'>
+                    <view class='the-line-title'>总金额</view>
+                    <view class='the-line-desc price'>{{item.totalCost}}元</view>
+                </view>
+                <view wx:if='{{navActive != 4}}' class='the-btns b-t'>
+                    <view class='close-num' catchtap='cancelQueue' data-index='{{index}}'>取消排号</view>
+                </view>
+            </view>
+        </block>
+        <view wx:if='{{dataList.length != 0 && dataList.length == totalCount}}' class="nonedata" style='color: #399;'>已加载完~</view>
+    </scroll-view>
+</view>

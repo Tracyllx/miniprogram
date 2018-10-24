@@ -1,0 +1,41 @@
+<!--pages/riding/carList/carList.wxml-->
+<view class='outside-view'>
+    <scroll-view class='scroller' scroll-y>
+        <view class='line'></view>
+        <view class='list' wx:for="{{list}}" data-index='{{index}}' wx:key="{{index}}" catchtap='getOrderDetail'>
+            <view class='show-content'>
+                <view class='float padding img'>
+                    <image mode='aspectFill' wx:if="{{item.photo}}" src='{{item.photo}}'></image>
+                </view>
+                <view class='float content'>
+                    <view class='ticketName'>
+                        <view class='content-float name all'>{{item.product_name}}</view>
+                        <view class='content-float status'>{{item.status ==1?"待付款":"已付款"}}</view>
+                    </view>
+                    <view class='orderTime'>下单时间：{{item.create_time}}</view>
+                    <view class='number_count'>
+                        <view class='common'>张数：{{item.people_num}}张</view>
+                        <view class='common count'>总价：¥ {{item.amount}}</view>
+                        <view class='buttons {{item.shanStatus==4?"noClick":""}}' data-index='{{index}}' catchtap='getRouter'>
+                           {{item.operateName}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class='show_tip color {{item.isLate && getLeday==0?"":"nonedisplay"}}'>您预约的车走丢了，请重新约车或联系客服</view>
+            <view class='show_tip {{item.isLate && getLeday==1?"":"nonedisplay"}}'>末班车已发，如有问题请联系客服</view>
+            <view class='show_tip {{item.shanStatus ==4?"":"nonedisplay"}}'>末班车已发，如有问题请联系客服</view>
+        </view>
+        <view class="nonedata {{list.length != 0 ? 'hidden' : ''}}">暂无待出行信息~</view>
+    </scroll-view>
+    <view class='kkTab'>
+        <view  class='sightseeingBus chuizhi' bindtap='sightseeingBusActive'>
+             <image src='{{HTTPS}}img/direct_train/train_car.png'></image> 
+            景区观光车
+        </view>
+        <view  class='directTrain chuizhi kkTab-active'>
+             <image src='{{HTTPS}}img/direct_train/sight_bus_hue.png'></image> 
+            旅游直通车
+        </view>
+    </view>
+</view>

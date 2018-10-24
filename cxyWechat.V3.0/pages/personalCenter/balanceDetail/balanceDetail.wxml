@@ -1,0 +1,13 @@
+<scroll-view scroll-y class='balanceDetail' bindscrolltolower='loadMore'>
+    <view wx:if='{{list.length == 0}}' class="nonedata">暂无更多数据~</view>
+    <view wx:if='{{list.length != 0}}'>
+        <view class='kkBar' wx:for='{{list}}' wx:key='{{index}}'>
+            <view class='kkBar-l'>
+                <view class='kkBar-title chuizhi'>{{titleArr[item.tran_type]}}</view>
+                <view class='kkBar-time chuizhi'>{{item.time}}</view>
+            </view>
+            <view class='kkBar-r chuizhi {{item.money > 0 ? "c-base" : ""}}'>{{item.money > 0 ? '+' + item.money : item.money}}</view>
+        </view>
+    </view>
+    <view wx:if='{{list.length != 0 && list.length == totalCount}}' class="nonedata">已加载完~</view>
+</scroll-view>

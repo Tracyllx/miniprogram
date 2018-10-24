@@ -1,0 +1,33 @@
+<view class='myContainer'>
+    <view class='first_index'>
+        <image src='{{HTTPS}}img/personalCenter/about_us/LOGO.jpeg' class='logo'></image>
+    </view>
+    <view class='second_index'>
+        <view class='border_input'>
+            <image src='{{HTTPS}}img/personalCenter/about_us/touxiang.png' class='icon'></image>
+            <view class='touxiang'>微信小程序</view>
+            <view class='right_content'>广东畅享游</view>
+        </view>
+
+        <view class='border_input'>
+            <image src='{{HTTPS}}img/personalCenter/about_us/phone.png' class='icon'></image>
+            <view class='nickname'>联系电话</view>
+            <view class='right_content' bindtap='callNumber'>400 9690 196</view>
+        </view>
+
+        <view class='border_input'>
+            <image src='{{HTTPS}}img/personalCenter/about_us/email.png' class='icon'></image>
+            <view class='bangding'>电子邮箱</view>
+            <view class='right_content'>service@cxtrip.cc</view>
+        </view>
+        <view class='border_input'>
+            <image src='{{HTTPS}}img/personalCenter/about_us/web.png' class='icon'></image>
+            <view class='offical_web'>官方网站</view>
+            <view class='right_content'>www.cxtrip.cc</view>
+        </view>
+    </view>
+    <view class='third_index'>
+        <view class='company'>广东畅享游科技有限公司</view>
+        <view class='text'>智慧旅游专家</view>
+    </view>
+</view>

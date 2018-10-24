@@ -1,0 +1,49 @@
+<view class='the-container'>
+    <scroll-view scroll-y class='scroll-view'>
+        <view class='detail-info'>
+            <view class='info-left'>
+                <view class='info-left-name'>{{detailInfo.itemName}}
+                    <view class='info-type'>
+                        <text class='type-left'>5D</text>
+                        <text class='type-right'>IMAX</text>
+                    </view>
+                </view>
+                <view class='info-left-txt'>{{detailInfo.types}}</view>
+                <view class='info-left-txt'>中国大陆 {{detailInfo.times}}</view>
+                <view class='info-left-txt'>西园区5D馆内</view>
+            </view>
+            <view class='info-right'>
+                <image src='{{detailInfo.imgUrl}}'></image>
+            </view>
+        </view>
+        <view class='the-line'>
+            <view class='the-line-title'>场馆名：</view>
+            <view class='the-line-desc'>{{detailInfo.itemName}}</view>
+        </view>
+        <view class='the-line'>
+            <view class='the-line-title'>时间段</view>
+            <view class='the-line-desc'>{{detailInfo.orderDate}} {{detailInfo.timeRange}}</view>
+        </view>
+        <!-- <view class='the-line'>
+            <view class='the-line-title'>座位号</view>
+            <view class='the-line-desc'>第{{rowsNo}}排 {{colsNo}}座</view>
+        </view> -->
+        <view class='the-line no-b'>
+            <view class='the-line-title'>票价总计</view>
+            <view class='the-line-desc price'>
+                <text class='s-big'>{{detailInfo.cost}}</text>元</view>
+        </view>
+        <view class='the-line bt-10'>
+            <view class='the-line-title'>购票须知</view>
+            <view class='the-line-desc'></view>
+        </view>
+        <view class='the-con'>
+            <view class='the-con-txt'>
+                <view>1、预约后会冻结相关费用，取消后返还</view>
+                <view>2、预约后又快速通道凭信息入场入号</view>
+                <view>3、预约后在开场5分钟内不允许取消</view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class='order-confirm' style='{{confirmActive?"background-color:#39b6a3;":"background-color:#999;"}}' catchtap='confirmNow'>立即预约</view>
+</view>

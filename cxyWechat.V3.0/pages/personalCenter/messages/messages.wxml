@@ -1,0 +1,58 @@
+<view class="myContainer">
+    <view class='title'>
+        <view class='message '>
+            <view class=' chooseTitle pageMessage shan' data-msg-type='1' catchtap='getMsgType'>交易信息</view>
+            <view class='line {{msgType ==1? "border":""}}'></view>
+            <view class='weui-badge {{unreadNum <= 0?"displaynone":""}}'>{{unreadNum}}</view>
+        </view>
+        <view class='message '>
+            <view class=' chooseTitle pageMessage shan' data-msg-type='2' catchtap='getMsgType'>系统通知</view>
+            <view class='line {{msgType ==2? "border":""}}'></view>
+            <view class='weui-badge {{unreadNum2 <= 0?"displaynone":""}}'>{{unreadNum2}}</view>
+        </view>
+    </view>
+    <view class='content'>
+        <scroll-view class='scroller' scroll-y bindscrolltolower="LoadMore">
+            <!-- 交易信息 -->
+            <view class='pay-message {{msgType ==1?"":"displaynone"}}' wx:for="{{list}}" wx:key="{{index}}" data-index='{{index}}' catchtap='getDetail' data-status="{{item.status}}" data-id='{{item.id}}'>
+                <!-- 时间的显示 -->
+                <view class='time'>
+                    <view class='show-time'>{{item.format_time}}</view>
+                </view>
+                <!-- 展示内容 -->
+                <view class='orderMessage'>
+                    <view class='order-title order-title-fontColor'>{{item.title}}
+                        <view class='read'>{{item.status ==1?"未读":""}}</view>
+                    </view>
+                    <!-- 展示内容部分 -->
+                    <view class='show-order-content' style='{{item.title=="充值成功"?"height: auto;":""}}'>
+                        <view wx:if="{{item.title!='充值成功'}}" class='order-img'>
+                            <image mode='aspectFill' class='img' wx:if='{{item.img_url}}' src='{{item.img_url}}'></image>
+                        </view>
+                        <view class='order-message' style='{{item.title=="充值成功"?"width: 96%;":""}}'>{{item.content}}</view>
+                    </view>
+                    <view wx:if="{{item.title!='充值成功'}}" class='show-detail'>查看详情</view>
+                </view>
+            </view>
+            <!-- 系统消息 -->
+            <view class='pay-message {{msgType ==2?"":"displaynone"}}' wx:for="{{list}}" wx:key="{{index}}" data-index='{{index}}' catchtap='getDetail' data-status="{{item.status}}" data-id='{{item.id}}'>
+                <!-- 时间的显示 -->
+                <view class='time'>
+                    <view class='show-time'>{{item.format_time}}</view>
+                </view>
+                <!-- 展示内容 -->
+                <view class='sys-message'>
+                    <view class='order-title'>{{item.title}}
+                        <view class='read'>{{item.status ==1? "未读":""}}</view>
+                    </view>
+                    <!-- 展示内容部分 -->
+                    <view class='show-sys-order-content'>
+                        <view class='sys-content-message'>{{item.content}}</view>
+                    </view>
+                    <view class='show-detail'>订单详情</view>
+                </view>
+            </view>
+            <view class='noneData {{noneData == false?"displaynone":""}}'>没有更多内容了~</view>
+        </scroll-view>
+    </view>
+</view>

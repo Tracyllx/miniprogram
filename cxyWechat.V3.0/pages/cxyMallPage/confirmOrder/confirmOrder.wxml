@@ -1,0 +1,32 @@
+<view class='outside-view'>
+
+    <scroll-view scroll-y class='scroll-view'>
+        <view class='list'>
+            <view class='list-item' wx:for='{{dataInfo.list}}' wx:key='{{index}}'>
+                <view class='list-item-img'>
+                    <image src='{{item.imgUrl ? item.imgUrl : "../../img/cxyMallPage/defaultImg.png"}}'></image>
+                </view>
+                <view class='list-item-info'>
+                    <view class='item-name'>{{item.name}}<text class='item-price'>¥{{item.amount}}</text></view>
+                    <view class='item-time'>入住时间：{{dataInfo.startTime}}</view>
+                    <view class='item-time'>离店时间：{{dataInfo.endTime}}</view>
+                    <view class='item-count'>房间数：{{item.count}}间 共{{dataInfo.differDays}}晚</view>
+                </view>
+            </view>
+        </view>
+        <view class='kk-cell' catchtap='concatNameTap'>
+            <view class='kk-cell-title'>联系人</view>
+            <view class='kk-cell-desc'>
+                <text wx:if='{{concatName && concatPhone}}' space='ensp'>{{concatName}}  {{concatPhone}}</text>
+                <text wx:else>用于接受订单信息</text>
+            </view>
+            <view class='kk-cell-icon'></view>
+        </view>
+    </scroll-view>
+
+    <view class='page-bottom'>
+        <view class='page-bottom-item chuizhi confirm-order'>合计：¥{{dataInfo.orderAmount}}</view>
+        <view class='page-bottom-item chuizhi buyBtn' style='{{ButtonActive?"":"background-color: #bbb;"}}' catchtap='gotoPay'>去 支 付</view>
+    </view>
+
+</view>

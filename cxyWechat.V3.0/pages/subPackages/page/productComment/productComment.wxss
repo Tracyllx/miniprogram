@@ -1,0 +1,85 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.producComment {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.show-comment {
+    padding: 16rpx 24rpx 30rpx;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    display: -webkit-flex;
+    border-bottom: 1rpx solid rgba(153, 153, 153, .5);
+}
+
+.no-border {
+    border: 0;
+}
+
+.show-comment-head {
+    flex: 0 0 100rpx;
+    height: auto;
+    overflow: hidden;
+}
+
+.show-comment-head>image {
+    width: 65rpx;
+    height: 65rpx;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+
+.show-comment-con {
+    flex: 1;
+}
+
+.show-comment-name {
+    font-size: 22rpx;
+    color: #999;
+}
+
+.show-comment-start {
+    height: 30rpx;
+    line-height: 30rpx;
+    margin-top: 6rpx;
+}
+
+.show-comment-start>image {
+    width: 26rpx;
+    height: 26rpx;
+    margin-right: 5rpx;
+}
+
+.show-comment-txt {
+    font-size: 26rpx;
+    color: #333;
+    line-height: 40rpx;
+    margin: 10rpx 0;
+}
+
+.show-comment-img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.show-comment-img>image {
+    width: 100rpx;
+    height: 100rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.no-data {
+    font-size: 26rpx;
+    color: #399;
+    line-height: 60rpx;
+    text-align: center;
+}

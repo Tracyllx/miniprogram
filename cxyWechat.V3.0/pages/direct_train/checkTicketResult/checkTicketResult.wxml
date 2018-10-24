@@ -1,0 +1,32 @@
+<view class='body'>
+    <view class='box'>
+
+        <view class='content'>
+            <!-- 有效 -->
+            <view wx:if='{{isValid == true}}'>
+                <image class='icon' src='../../img/direct_train/correct.png'></image>
+                <text class='valid-c'>有效</text>
+                <text class='pdleft'>{{nuclearNum}}</text>
+                <text class='pdleft' hidden='{{titleTxt == "检票上车"}}'>{{count}}次</text>
+            </view>
+            <!-- 无效 -->
+            <view wx:if='{{isValid == false}}'>
+                <image class='icon' src='../../img/direct_train/error.png'></image>
+                <text class='invalid-c'>无效</text>
+                <text class='pdleft'>{{nuclearNum}}</text>
+            </view>
+        </view>
+
+        <!-- 有效人数 -->
+        <view class='people-num'>
+            <text wx:if='{{isValid == true}}'>共 {{peopleNum}} 人</text>
+        </view>
+
+        <!-- 操作按钮 -->
+        <view class='btn'>
+            <view class='return' bindtap='returnTap'>返回检票中心</view>
+            <view class='continue' bindtap='continueTap'>{{titleTxt}}</view>
+        </view>
+
+    </view>
+</view>

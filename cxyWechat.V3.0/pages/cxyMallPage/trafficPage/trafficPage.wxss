@@ -1,0 +1,169 @@
+page {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+}
+
+.scroll-view {
+    width: 100%;
+    height: 100%;
+}
+
+.content-box {
+    width: 100%;
+    height: auto;
+    margin-bottom: 24rpx;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.content-title {
+    width: 94%;
+    height: 68rpx;
+    line-height: 68rpx;
+    margin: 0 auto;
+    padding: 16rpx 0;
+    font-size: 36rpx;
+    color: #333;
+}
+
+.content-list {
+    width: 94%;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.content-item {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    padding-top: 24rpx;
+    border-top: 4rpx solid #eee;
+}
+
+.first-item {
+    padding-top: 0;
+    border: 0;
+}
+
+.content-item-price {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    max-width: 170rpx;
+    padding: 4rpx 10rpx;
+    font-size: 30rpx;
+    color: #fff;
+    background: rgba(0, 131, 123, 0.6);
+}
+
+.content-item-img {
+    width: 100%;
+    height: 350rpx;
+    overflow: hidden;
+}
+
+.content-item-img>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.content-item-name {
+    padding: 24rpx 0;
+    text-align: center;
+    font-size: 36rpx;
+    color: #399;
+}
+
+/* 第二版样式 */
+
+.content-title2 {
+    padding: 16rpx 24rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #3dc48f;
+}
+
+.content-title2>image {
+    vertical-align: middle;
+}
+
+.content-list2 {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    padding: 24rpx 0;
+    overflow: hidden;
+}
+
+.content-item2 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.content-item2-name {
+    padding: 16rpx 24rpx;
+    line-height: 58rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.content-item3 {
+    float: left;
+    width: 49%;
+    height: auto;
+    margin-bottom: 16rpx;
+    overflow: hidden;
+}
+
+.content-item3-mr {
+    margin-right: 2%;
+}
+
+.content-item3-img {
+    width: 100%;
+    height: 240rpx;
+    overflow: hidden;
+}
+
+.content-item3-img>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.content-item3-name {
+    padding: 16rpx 24rpx;
+    line-height: 48rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #333;
+}
+
+/* 租车 */
+
+.zc-content {
+    width: 90%;
+    height: 300rpx;
+    margin: 0 auto;
+    padding: 24rpx 0;
+    overflow: hidden;
+}
+
+.zc-content>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.no-mb {
+    margin-bottom: 0;
+}

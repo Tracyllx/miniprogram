@@ -1,0 +1,41 @@
+<scroll-view scroll-y class='scroll-view'>
+    <swiper class='swiper-box'>
+        <block wx:for='{{bannerImgs}}' wx:key='{{index}}'>
+            <swiper-item>
+                <image class='swiper-img' catchtap='previewImg' data-index='{{index}}' mode='aspectFill' src='{{bannerImgs[0].photoUrl ? bannerImgs[0].photoUrl : bannerImgs[0]}}'></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class='page-search'>
+        <view hidden='{{showInput}}' class='page-search-box1 chuizhi' catchtap='searchBoxTap'>
+            <image class='page-search-icon' src='../../img/cxtripHomePage/search.png'></image>
+            <text class='page-search-txt'>{{searchTxt}}</text>
+        </view>
+        <view hidden='{{!showInput}}' class='page-search-box2'>
+            <image class='page-search-icon icon-margin' src='../../img/cxtripHomePage/search.png'></image>
+            <input class='page-search-input' type='text' focus='{{inputFocus}}' value='{{searchVal}}' placeholder='{{searchTxt}}' placeholder-style='color: #999;' confirm-type="search" bindinput="searchInput" bindblur='searchBlur' bindconfirm="searchConfirm"></input>
+        </view>
+    </view>
+    <view wx:if='{{productList.length == 0}}' class='nonedata'>暂无更多数据~</view>
+    <view wx:else class='content-list'>
+        <block wx:for='{{productList}}' wx:key='{{index}}'>
+            <!-- <view class='list-item' catchtap='gotoDetail' data-index='{{index}}'>
+                <image class='item-img' mode='aspectFill' src='{{item.imgUrl ? item.imgUrl : defaultImg}}'></image>
+                <view class='item-box'>
+                    <view class='item-box-txt'>{{item.orgnName}}</view>
+                </view>
+            </view> -->
+            <view class='list-item2' catchtap='gotoDetail' data-index='{{index}}'>
+                <view class='list-item2-img'>
+                    <image class='item-img' mode='aspectFill' src='{{item.imgUrl ? item.imgUrl : defaultImg}}'></image>
+                </view>
+                <view class='list-item2-text'>
+                    <view class='list-item2-title'>{{item.orgnName}}</view>
+                    <view class='list-item2-name'>{{item.productName}}</view>
+                </view>
+                <view class='list-item2-price'>¥ {{item.price}}</view>
+            </view>
+        </block>
+    </view>
+    <view wx:if='{{showAllBtn}}' class='nonedata' style='color: #399;' catchtap='showAllTap'>查看全部~</view>
+</scroll-view>

@@ -1,0 +1,37 @@
+<view class='myContainer'>
+    <view class='bigBox'>
+
+        <view class='bangding'>
+
+            <!-- 输入手机号 -->
+            <view class='phone_input'>
+                <image class='phone_icon' src='../../img/personalCenter/phone_icon.png'></image>
+                <input maxlength='11' placeholder='请输入手机号码' class='input_area1' value='{{phoneVal}}' bindinput='phoneInput' bindblur='phoneBlur'></input>
+                <icon type='clear' color='#999' size='15' class='cancel_icon' bindtap='clearPhoneval'></icon>
+            </view>
+
+            <!-- 输入验证号码 -->
+            <view wx:if='{{isType=="forgetPass"}}' class='check_num'>
+                <input maxlength='6' placeholder='请输入验证码' class='input_area2 ml50' value='{{phoneCode}}' bindinput='codeInput' bindblur='codeInput'></input>
+                <view class='send_num' catchtap='sendPhoneCode'>{{phoneCodeTip}}</view>
+            </view>
+
+            <!-- 输入原密码 -->
+            <view wx:if='{{isType=="modifyPass"}}' class='check_num'>
+                <input password type='number' placeholder='请输入6位数字的原密码' maxlength='6' class='input_area2 ml50' bindblur='oldPsdInput' bindinput='oldPsdInput'></input>
+            </view>
+
+            <!-- 输入新密码 -->
+            <view wx:if='{{isType=="modifyPass" || isType=="forgetPass"}}' class='check_num'>
+                <input password type='number' placeholder='请输入6位数字的新密码' maxlength='6' class='input_area2 ml50' bindblur='newPsdInput' bindinput='newPsdInput'></input>
+            </view>
+        </view>
+
+        <view class='showPrevPhone'>{{errrorTip}}</view>
+
+        <view class='button'>
+            <button class='finish' bindtap='finishTap'>完成</button>
+        </view>
+
+    </view>
+</view>

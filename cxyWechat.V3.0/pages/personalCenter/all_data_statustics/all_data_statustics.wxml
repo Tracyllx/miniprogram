@@ -1,0 +1,194 @@
+<view class="outside-view" style='background-color: #fff;'>
+    <!-- 选择时间 -->
+    <view class='select-time'>
+        <view class='select-data'>
+            <view class='select select-day {{isChooseDate == 1?"color":""}}' data-type="1" catchtap='getFilterDate'>日
+                <view class='show-line'></view>
+            </view>
+            <view class='select select-week {{isChooseDate == 2?"color":""}}' data-type="2" catchtap='getFilterDate'>周
+                <view class='show-line'></view>
+            </view>
+            <view class='select select-month {{isChooseDate == 3?"color":""}}' data-type="3" catchtap='getFilterDate'>月
+                <view class='show-line'></view>
+            </view>
+            <view wx:if='{{isTypes==5}}' class='select select-menu' catchtap='clickKKTip'>{{kktipList[kktipIndex].ORGN_NAME}}
+                <image wx:if='{{!thisOrgnId}}' class='select-menu-arrow' src='../../img/direct_train/nav_down.png'></image>
+            </view>
+        </view>
+    </view>
+    <!-- 下拉菜单 -->
+    <view class='select-menu-mask' wx:if='{{showKKTip}}'  catchtap='clickKKTip'></view>
+    <scroll-view scroll-y wx:if='{{showKKTip}}' class='select-menu-box'>
+        <view wx:for='{{kktipList}}' wx:key='{{index}}' class='kktip {{index==kktipIndex?"kktip-active":""}}' catchtap='clickKKTipItem' data-index='{{index}}'>{{item.ORGN_NAME}}</view>
+    </scroll-view>
+    <view class='show-data' catchtap='clickTeamData' data-index='empty'>
+        <!-- 数据统计 -->
+        <view class='data-one-two' wx:if="{{isTypes == 1}}">
+            <view class='data-title '>
+                <view class='title select'>{{title[0]}}</view>
+                <view class='title select'>{{title[1]}}</view>
+                <view class='title select'>{{title[2]}}</view>
+                <view class='noneborder title select '>{{title[3]}}</view>
+            </view>
+            <scroll-view class='scroller' scroll-y bindscrolltolower="LoadMore">
+                <view class='table-tr' wx:for="{{list}}" wx:key="{{index}}">
+                    <view class='tr-data select'>{{item.flowTime}}</view>
+                    <view class='tr-data select'>{{item.visitorsNum}}</view>
+                    <view class='tr-data select' catchtap='clickTeamData' data-index='{{index}}' data-flow-date='{{item.flowTime}}' data-num='{{item.teamVisitorsNum}}'>
+                        {{item.teamVisitorsNum}}
+                    </view>
+                    <view class='noneborder tr-data select'>{{item.visitorsNum + item.teamVisitorsNum}}</view>
+                    <view wx:if='{{item.teamVisitorsNum != 0 && clickIndex == index}}' class='tr-data-teamBubble {{groupDetail.length <= 1 ? "tr-data-teamBubble-h52" : ""}}'>
+                        <view class='tr-data-teamBubble-triangle'></view>
+                        <block hidden='{{groupDetail.length == 0}}' wx:for='{{groupDetail}}' wx:for-index="id" wx:for-item="val" wx:key='{{id}}'>
+                            <view class='tr-data-teamBubble-item'>{{val.visitorGroup}}：{{val.visitorNum}}人</view>
+                        </block>
+                    </view>
+                </view>
+                <view class='{{noneDatas == false? "nonedisplay":""}} noneData '>没有更多数据了~</view>
+            </scroll-view>
+            <view class='all-count'>
+                <view class='title select'>合计</view>
+                <view class='title select'>{{oneCount}}</view>
+                <view class='title select'>{{twoCount}}</view>
+                <view class='noneborder title select'>{{threeCount}}</view>
+            </view>
+        </view>
+        <!-- 分销平台 -->
+        <view class='data-three-four' wx:if="{{isTypes == 3}}">
+            <view class='data-title '>
+                <view class='title select'>{{title[0]}}</view>
+                <view class='title select'>{{title[1]}}</view>
+                <view class='title select'>{{title[2]}}</view>
+                <view class='noneborder title select '>{{title[3]}}</view>
+            </view>
+            <scroll-view class='scroller' scroll-y bindscrolltolower="LoadMore">
+                <view class='table-tr {{dataIndex==index?"active-color":""}}' wx:for="{{list}}" wx:key="{{index}}" catchtap='clickTransactionNumber' data-index='{{index}}' data-item='{{item}}'>
+                    <view class='tr-data select'>{{item.flowTime}}</view>
+                    <view class='tr-data select'>{{item.orderNum}}</view>
+                    <view class='tr-data select'>{{item.ticketNum}}</view>
+                    <view class='noneborder tr-data select'>{{item.amount}}</view>
+                </view>
+                <view class='{{noneDatas == false? "nonedisplay":""}} noneData'>没有更多数据了~</view>
+            </scroll-view>
+            <view class='all-count'>
+                <view class='title select'>合计</view>
+                <view class='title select'>{{oneCount}}</view>
+                <view class='title select'>{{twoCount}}</view>
+                <view class='noneborder title select'>{{threeCount}}</view>
+            </view>
+        </view>
+        <!-- 交易平台 -->
+        <view class='data-three-four' wx:if="{{isTypes == 4}}">
+            <view class='data-title '>
+                <view class='title select'>{{title[0]}}</view>
+                <view class='title select'>{{title[1]}}</view>
+                <view class='title select'>{{title[2]}}</view>
+                <view class='noneborder title select '>{{title[3]}}</view>
+            </view>
+            <scroll-view class='scroller' scroll-y bindscrolltolower="LoadMore">
+                <view class='table-tr {{dataIndex==index?"active-color":""}}' wx:for="{{list}}" wx:key="{{index}}" catchtap='clickTransactionNumber' data-index='{{index}}' data-item='{{item}}'>
+                    <view class='tr-data select'>{{item.flowTime}}</view>
+                    <view class='tr-data select'>{{item.orderNum}}</view>
+                    <view class='tr-data select'>{{item.ticketNum}}</view>
+                    <view class='noneborder tr-data select'>{{item.amount}}</view>
+                </view>
+                <view class='{{noneDatas == false? "nonedisplay":""}} noneData'>没有更多数据了~</view>
+            </scroll-view>
+            <view class='all-count'>
+                <view class='title select'>合计</view>
+                <view class='title select'>{{oneCount}}</view>
+                <view class='title select'>{{twoCount}}</view>
+                <view class='noneborder title select'>{{threeCount}}</view>
+            </view>
+        </view>
+        <!-- 服务商数据 -->
+        <view class='data-one-two' wx:if="{{isTypes == 5}}">
+            <view class='data-title '>
+                <view class='title-two select'>{{title[0]}}</view>
+                <view class='title-two select'>{{title[1]}}</view>
+                <view class='noneborder title-two select '>{{title[2]}}</view>
+            </view>
+            <scroll-view class='scroller' scroll-y bindscrolltolower="LoadMore" scroll-top='{{scrollTop}}'>
+                <view class='table-tr {{dataIndex==index?"active-color":""}}' wx:for="{{list}}" wx:key="{{index}}" catchtap='clickTransactionNumber' data-index='{{index}}' data-item='{{item}}'>
+                    <view class='tr-data-two select'>{{item.flowTime}}</view>
+                    <view class='tr-data-two select'>{{item.orderNum}}</view>
+                    <view class='noneborder tr-data-two select'>{{item.ticketNum}}</view>
+                </view>
+                <view class='{{noneDatas == false? "nonedisplay":""}} noneData '>没有更多数据了~</view>
+            </scroll-view>
+            <view class='all-count'>
+                <view class='title-two select'>合计</view>
+                <view class='title-two select'>{{oneCount}}</view>
+                <view class='noneborder title-two select'>{{twoCount}}</view>
+            </view>
+        </view>
+    </view>
+    <view class='footers'>
+        <view class='select-all-day'>
+            <view class='day ten-day select' data-day="10" catchtap='getFilterDay'>10
+                <image class='chooseImg' src='{{HTTPS}}img/personalCenter/data_statustics/{{isChooseDay==10?"true":"nochecked"}}.png'></image>
+            </view>
+            <view class='day thirty-day select' data-day="30" catchtap='getFilterDay'>30
+                <image class='chooseImg' src='{{HTTPS}}img/personalCenter/data_statustics/{{isChooseDay==30?"true":"nochecked"}}.png'></image>
+            </view>
+            <view class='day sixteen-day select' data-day="60" catchtap='getFilterDay'>60
+                <image class='chooseImg' src='{{HTTPS}}img/personalCenter/data_statustics/{{isChooseDay==60?"true":"nochecked"}}.png'></image>
+            </view>
+        </view>
+        <view class='select-type'>
+            <!-- 游客统计 -->
+            <view class='data-types' data-choose="1" catchtap='getChooseType' wx:if='{{dataPower.ztcStatVisitor}}'>
+                <view class='types'>
+                    <image src='{{HTTPS}}img/personalCenter/data_statustics/{{isTypes ==1?"11":"1"}}.png'></image>
+                    <view class='font {{isTypes ==1?"active-color":""}}'>游客统计</view>
+                </view>
+            </view>
+            <!-- 充电 -->
+            <!-- <view class='data-types'  data-choose="2" catchtap='getChooseType'>
+                <view class='types'>
+                     <image src='{{HTTPS}}img/personalCenter/data_statustics/{{isTypes ==2?"21":"2"}}.png'></image>
+                     <view class='font {{isTypes ==2?"active-color":""}}'>充电数据</view>
+                </view>
+            </view> -->
+            <!-- 分销平台 -->
+            <view class='data-types' data-choose="3" catchtap='getChooseType' wx:if='{{dataPower.ztcStatZws}}'>
+                <view class='types'>
+                    <image src='{{HTTPS}}img/personalCenter/data_statustics/{{isTypes ==3?"31":"3"}}.png'></image>
+                    <view class='font {{isTypes ==3?"active-color":""}}'>分销平台</view>
+                </view>
+            </view>
+            <!-- 交易平台 -->
+            <view class='data-types' data-choose="4" catchtap='getChooseType' wx:if='{{dataPower.ztcStatZtc}}'>
+                <view class='types'>
+                    <image src='{{HTTPS}}img/personalCenter/data_statustics/{{isTypes ==4?"41":"4"}}.png'></image>
+                    <view class='font {{isTypes ==4?"active-color":""}}'>交易平台</view>
+                </view>
+            </view>
+            <!-- 服务商数据 -->
+            <view class='data-types' data-choose="5" catchtap='getChooseType' wx:if='{{dataPower.ztcStatAgent}}'>
+                <view class='types'>
+                    <image src='{{HTTPS}}img/personalCenter/data_statustics/{{isTypes ==5?"51":"5"}}.png'></image>
+                    <view class='font {{isTypes ==5?"active-color":""}}'>服务商数据</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 交易平台：点击交易数的弹窗 -->
+    <view class='kkModule-mask {{isShowModule ? "" : "nonedisplay"}}' catchtap='clickTransactionNumber'></view>
+    <view class='kkModule-box {{isShowModule ? "" : "nonedisplay"}}' style='height: {{moduleData.length < 8 ? 85+(85 * moduleData.length) : 810}}rpx;'>
+        <view class='table-th'>
+            <view class='table-td-one select'>产品名称</view>
+            <view class='table-td-two select'>数量</view>
+            <view class='table-td-three select'>总金额</view>
+        </view>
+        <scroll-view scroll-y class='table-body' style='height: {{moduleData.length < 8 ? (85 * moduleData.length) : 720}}rpx;'>
+            <view class='table-trm' wx:for='{{moduleData}}' wx:key='{{index}}'>
+                <view class='table-td-one'>{{item.productName}}</view>
+                <view class='table-td-two select'>{{item.ticketNum}}</view>
+                <view class='table-td-three select'>¥{{item.amount}}</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

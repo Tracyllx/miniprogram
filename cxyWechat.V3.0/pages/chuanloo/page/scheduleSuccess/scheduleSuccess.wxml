@@ -1,0 +1,13 @@
+<view class='the-container'>
+
+    <view class='success-box'>
+        <view class='success-box-icon'>
+            <icon type="success" size="90" color='#39b6a3' />
+        </view>
+        <view class='success-box-txt'>预约成功，祝您玩得开心！</view>
+        <view class='success-box-txt'>请凭游乐卡滴卡进场</view>
+    </view>
+
+    <button type='primary' catchtap='goBack'>返回</button>
+
+</view>

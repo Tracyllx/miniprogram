@@ -1,0 +1,61 @@
+<view class='outside-view'>
+
+    <scroll-view scroll-y class='scroll-view'>
+        <view hidden='{{addressInfo != ""}}' class='kk-cell mt-0' catchtap='addAddress'>
+            <view class='kk-cell-title' style='color: #399;'>填写收货地址</view>
+            <view class='kk-cell-icon'></view>
+        </view>
+        <view hidden='{{addressInfo == ""}}' class='address-msg' catchtap='addAddress'>
+            <view class='address-name'>
+                <text>{{addressInfo.userName}}</text>
+                <text>{{addressInfo.telNumber}}</text>
+            </view>
+            <view class='address-info'>
+                <text>{{addressInfo.provinceName}}</text>
+                <text>{{addressInfo.cityName}}</text>
+                <text>{{addressInfo.countyName}}</text>
+                <text>{{addressInfo.detailInfo}}</text>
+            </view>
+        </view>
+        <view class='shopping-list border-t'>
+            <view class='list-title'>购物清单</view>
+            <view class='list-item'>
+                <view class='list-item-img'>
+                    <image mode='aspectFill' src='{{productInfo.imgUrl==0?"../../img/cxyMallPage/defaultImg.png":productInfo.imgUrl}}'></image>
+                </view>
+                <view class='list-item-info'>
+                    <view class='list-item-name'>{{productInfo.productName}}{{productInfo.productSpec}}</view>
+                    <view class='list-item-count'>数量：{{productInfo.productCount}}</view>
+                </view>
+                <view class='list-item-price'>¥{{productInfo.productPrice}}</view>
+            </view>
+        </view>
+        <view class='leaving-msg border-t'>
+            <view class='leaving-msg-title'>给卖家留言：</view>
+            <view class='leaving-msg-textarea'>
+                <textarea maxlength='100' value='{{leavingMsg}}' bindinput='textareaInput' bindblur='textareaInput'></textarea>
+            </view>
+            <view class='leaving-msg-tip txt-r'>{{msgLength}}/100</view>
+        </view>
+        <view class='order-info border-t'>
+            <view class='order-info-item txt-r'>共
+                <text class='c-ff6600'>{{productInfo.productCount}}</text>件商品 合计：
+                <text class='c-ff6600'>¥{{productInfo.productTotal}}</text>
+            </view>
+            <view class='order-info-item'>支付方式
+                <text class='fr'>在线支付</text>
+            </view>
+            <view class='kk-cell mt-0 border-b'>
+                <view class='kk-cell-title'>快递费用</view>
+                <view class='.kk-cell-desc c-ff6600'>+{{postage}}</view>
+                <!-- <view class='kk-cell-icon'></view> -->
+            </view>
+        </view>
+    </scroll-view>
+
+    <view class='page-bottom'>
+        <view class='page-bottom-item chuizhi c-ff6600'>合计：¥{{orderTotal}}</view>
+        <view class='page-bottom-item chuizhi buyBtn' catchtap='submitBtn' style='{{btnActive?"":"background-color:#999;"}}'>提交订单</view>
+    </view>
+
+</view>

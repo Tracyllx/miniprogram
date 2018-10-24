@@ -1,0 +1,125 @@
+<view class='outside-view'>
+    <view class='top-bar'>
+        <view class='address-box chuizhi' catchtap='gotoTraffic'>
+            <text>{{currentCity}}</text>
+        </view>
+        <view class='search-bar' catchtap='gotoSearch'>
+            <view class='search-icon center'>
+                <image src='../img/cxtripHomePage/search.png'></image>
+            </view>
+            <view class='search-input center'>
+                <text>吃住行游购</text>
+            </view>
+        </view>
+    </view>
+    <scroll-view scroll-y class='content-view'>
+        <!-- 主要业务 -->
+        <view class='main-view'>
+            <view class='main-item tourism-box' catchtap='gotoUrl' data-the-type='tourism'>
+                <view class='main-item-in'>
+                    <image class='main-bg' src='{{HTTPS}}img/cxtripHomePage/tourism_bg.png'></image>
+                    <view class='main-item-box'>
+                        <view class='transform-middle'>
+                            <image class='tourism-icon' src='../img/cxtripHomePage/tourism.png'></image>
+                            <text class='main-txt'>游</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class='main-item live-box' catchtap='gotoUrl' data-the-type='live'>
+                <view class='main-item-in'>
+                    <image class='main-bg' src='{{HTTPS}}img/cxtripHomePage/live_bg.png'></image>
+                    <view class='main-item-box'>
+                        <view class='transform-middle'>
+                            <image class='live-icon' src='../img/cxtripHomePage/live.png'></image>
+                            <view class='main-txt'>住</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class='main-item traffic-box' catchtap='gotoUrl' data-the-type='traffic'>
+                <view class='main-item-in'>
+                    <image class='main-bg' src='{{HTTPS}}img/cxtripHomePage/traffic_bg.png'></image>
+                    <view class='main-item-box'>
+                        <view class='transform-middle'>
+                            <image class='traffic-icon' src='../img/cxtripHomePage/traffic.png'></image>
+                            <view class='main-txt'>行</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class='main-item buy-box' catchtap='gotoUrl' data-the-type='buy'>
+                <view class='main-item-in'>
+                    <image class='main-bg' src='{{HTTPS}}img/cxtripHomePage/buy_bg.png'></image>
+                    <view class='main-item-box'>
+                        <view class='transform-middle'>
+                            <image class='buy-icon' src='../img/cxtripHomePage/buy.png'></image>
+                            <view class='main-txt'>购</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class='main-item eat-box' catchtap='gotoUrl' data-the-type='eat'>
+                <view class='main-item-in'>
+                    <image class='main-bg' src='{{HTTPS}}img/cxtripHomePage/eat_bg.png'></image>
+                    <view class='main-item-box'>
+                        <view class='transform-middle'>
+                            <image class='eat-icon' src='../img/cxtripHomePage/eat.png'></image>
+                            <text class='main-txt' style='padding-top: 10rpx;'>吃</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <!-- 广告栏 -->
+        <!-- <view class='ad-view'>
+            <image src='{{bannerImgs[0].photoUrl ? bannerImgs[0].photoUrl : "../img/cxyMallPage/defaultImg.png"}}'></image>
+        </view> -->
+        <swiper class='swiper-box' autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="{{indicatorDots}}" indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="#fff">
+            <block wx:for='{{bannerImgs}}' wx:key='{{index}}'>
+                <swiper-item>
+                    <image class='swiper-img' src='{{item.photoUrl ? item.photoUrl : item}}'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+
+        <!-- 订制、攻略 -->
+        <view class='other-view'>
+            <view class='customMade-box' catchtap='gotoUrl' data-the-type='customMade'>
+                <view class='transform-middle'>
+                    <image class='customMade-icon' src='../img/cxtripHomePage/custom_made.png'></image>
+                    <!-- <view class='other-txt'>订制旅游</view> -->
+                    <view class='other2-txt'>订制旅游</view>
+                </view>
+            </view>
+            <view class='strategy-box' catchtap='gotoUrl' data-the-type='strategy'>
+                <view class='transform-middle'>
+                    <image class='strategy-icon' src='../img/cxtripHomePage/strategy.png'></image>
+                    <!-- <view class='other-txt'>攻略</view> -->
+                    <view class='other2-txt'>攻略</view>
+                </view>
+            </view>
+        </view>
+
+        <!-- 战略合作 -->
+        <view class='cooperation-view'>
+            <view class='cooperation-name'>合作运营专区</view>
+            <view class='cooperation-list'>
+                <view class='cooperation-item cooperation-mr' catchtap='cooperationTap' data-name='enshi'>
+                    <image src='{{HTTPS}}img/cxtripHomePage/cooperation/enshi.png'></image>
+                    <view class='cooperation-item-txt chuizhi'>
+                        <text>恩施之旅</text>
+                    </view>
+                </view>
+                <view class='cooperation-item' catchtap='cooperationTap' data-name='xiangmishan'>
+                    <image src='{{HTTPS}}img/cxtripHomePage/cooperation/xiangmishan.png'></image>
+                    <view class='cooperation-item-txt chuizhi'>
+                        <text>香蜜庄园</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <include src="../common/common_footer/common_footer.wxml" />
+</view>

@@ -1,0 +1,288 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.block-box1,
+.block-box2 {
+    width: 100%;
+    height: 100%;
+}
+
+.shan:after {
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    content: "";
+    vertical-align: middle;
+}
+
+/*展示图片的大div*/
+
+.show_scancode {
+    width: 100%;
+    height: 32%;
+    position: relative;
+}
+
+/*展示二维码img*/
+
+.show_scancode>image {
+    width: 300rpx;
+    height: 300rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*展示点击按钮scan所有文字最大div*/
+
+.show_click_button {
+    width: 100%;
+    height: 28%;
+}
+
+/*展示scan按钮的div*/
+
+.show_scan {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    font-size: 28rpx;
+}
+
+/*展示扫描二维码这几个字*/
+
+.show_font_scan {
+    width: 100%;
+    height: 30%;
+    text-align: center;
+    font-size: 32rpx;
+}
+
+/*点击按钮和开启扫码文字变灰色*/
+
+.show_scan>text {
+    color: #999;
+    float: left;
+    height: 100%;
+    width: 28%;
+}
+
+.startscancode {
+    text-align: left;
+}
+
+.clickscancode {
+    text-align: right;
+}
+
+/*scan按钮的设置*/
+
+#scan {
+    width: 35%;
+    height: 100rpx;
+    border: none;
+    outline: none;
+    float: left;
+    margin-top: 3%;
+    border-radius: 10rpx;
+    background: #01827d;
+    color: #fff;
+    font-size: 40rpx;
+    letter-spacing: 2rpx;
+    margin-left: 24rpx;
+    margin-right: 24rpx;
+}
+
+/*扫描二维码的文字设置*/
+
+.fontweight {
+    font-size: 42rpx;
+}
+
+/*展示或和虚线最大div*/
+
+.show_or {
+    width: 100%;
+    height: 20%;
+    overflow: hidden;
+}
+
+/*虚线最大div下的小div的设置*/
+
+.show_or>div {
+    float: left;
+}
+
+/*虚线的设置*/
+
+.show_line_one, .show_line_two {
+    width: 40%;
+    height: 5rpx;
+    margin-top: 5%;
+    float: left;
+    border-top: 1px dashed #999;
+}
+
+/*展示虚线中间或这个字*/
+
+.show_font_or {
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 32rpx;
+    float: left;
+    color: #999;
+}
+
+/*校验部分*/
+
+.show_checked {
+    height: 26%;
+    width: 94%;
+    overflow: hidden;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+/*展示按钮和输入框的中样式*/
+
+.show_checked>button, .show_checked>input {
+    width: 100%;
+    height: 30%;
+    border: none;
+    outline: none;
+    font-size: 35rpx;
+    color: #fff;
+    border-radius: 10rpx;
+}
+
+.tip {
+    width: 100%;
+    text-align: center;
+    height: 50rpx;
+    margin-top: 1%;
+    line-height: 50rpx;
+    font-size: 26rpx;
+    color: red;
+}
+
+/*input框的自身设置*/
+
+.show_checked>input {
+    background: #d2d2d2;
+    text-align: center;
+    margin-bottom: 5%;
+    position: relative;
+}
+
+/*展示核销按钮的设置*/
+
+.show_checked>button {
+    background: #01827d;
+    line-height: 100rpx;
+}
+
+
+/*弹出询问是否删除*/
+
+.pop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 4;
+}
+
+/*询问内容*/
+
+.pop_content {
+    width: 70%;
+    height: 300rpx;
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    border-radius: 20rpx;
+}
+
+.pop_content>view {
+    width: 100%;
+    height: 65%;
+    font-size: 32rpx;
+    text-align: center;
+
+}
+.success_nuclear_ticket{
+    border-bottom: 1px solid #cdcdcd;
+}
+/*选择确定或取消*/
+
+.pop_content>.yes_or_no {
+    width: 100%;
+    height: 35%;
+    overflow: hidden;
+    border-bottom-left-radius: 20rpx;
+    border-bottom-right-radius: 20rpx;
+}
+
+/*确定,取消*/
+
+#confirm {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    background: #fff;
+    color: #01827d;
+    font-weight: bold;
+    font-size: 32rpx;
+    border: none;
+    line-height: 105rpx;
+}
+.display-none{
+    display: none;
+}
+
+/* 动图 */
+
+.show_gif {
+    width: 100%;
+    height: 14%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.show_gif_txt {
+    font-size: 34rpx;
+    color: #e6761c;
+}
+
+.show_gif_img {
+    width: 58rpx;
+    height: 92rpx;
+    vertical-align: middle;
+}
+
+.tranUp {
+    z-index: 1;
+    transform: translate(0%, 0%);
+    transition: all 0.5s;
+}
+
+/* 查票 */
+.tranDown {
+    z-index: 2;
+    transform: translate(0%, -100%);
+    transition: all 0.2s;
+}

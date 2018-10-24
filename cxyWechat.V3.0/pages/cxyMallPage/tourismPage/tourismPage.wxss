@@ -1,0 +1,179 @@
+page {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.scroll-view {
+    width: 100%;
+    height: 100%;
+}
+
+/* 轮播图 */
+
+.swiper-box {
+    width: 100%;
+    height: 370rpx;
+    overflow: hidden;
+}
+
+.swiper-img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* 搜索框 */
+
+.page-search {
+    width: 100%;
+    height: 68rpx;
+    margin: 24rpx auto;
+    /* z-index: 9;
+    position: absolute;
+    top: 370rpx;
+    transition: all 1s; */
+}
+
+.page-search-box1 {
+    width: 84%;
+    height: 100%;
+    padding: 0 3%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10rpx;
+    border: 1rpx solid #e5e5e5;
+}
+
+.page-search-icon {
+    width: 37rpx;
+    height: 36rpx;
+    vertical-align: middle;
+    margin-right: 12rpx;
+}
+
+.icon-margin {
+    margin-top: 16rpx;
+    margin-right: 20rpx;
+}
+
+.page-search-txt {
+    font-size: 28rpx;
+    color: #999;
+}
+
+.page-search-box2 {
+    width: 84%;
+    height: 100%;
+    padding: 0 3%;
+    margin: 0 auto;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    border: 1rpx solid #e5e5e5;
+    display: flex;
+    display: -webkit-flex;
+}
+
+.page-search-input {
+    flex: 1;
+    height: 100%;
+}
+
+/* 内容列表 */
+
+.content-list {
+    /* width: 94%; */
+    padding: 0 3%;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.list-item {
+    width: 100%;
+    height: 400rpx;
+    margin: 14rpx auto;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+}
+
+.item-img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.item-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 86%;
+    height: auto;
+    border: 1rpx solid rgba(51, 153, 153, .6);
+}
+
+.item-box-txt {
+    margin: 10rpx;
+    height: 75rpx;
+    line-height: 75rpx;
+    font-size: 42rpx;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(51, 153, 153, .6);
+}
+
+/* 第二版列表样式 */
+
+.list-item2 {
+    width: 100%;
+    height: auto;
+    margin: 24rpx auto;
+    background-color: #fff;
+    border-radius: 8rpx;
+    box-shadow: 0 5rpx 10rpx #ccc;
+    overflow: hidden;
+    position: relative;
+}
+
+.list-item2-img {
+    width: 100%;
+    height: 280rpx;
+}
+
+.list-item2-text {
+    padding: 20rpx 24rpx;
+    height: 88rpx;
+    text-align: center;
+}
+
+.list-item2-title {
+    line-height: 58rpx;
+    font-size: 34rpx;
+    color: #399;
+}
+
+.list-item2-name {
+    line-height: 30rpx;
+    font-size: 26rpx;
+    color: #999;
+}
+
+.list-item2-price {
+    position: absolute;
+    top: 56%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 130rpx;
+    height: 58rpx;
+    line-height: 58rpx;
+    text-align: center;
+    font-size: 27rpx;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(1, 193, 177, .6);
+    border-top-right-radius: 58rpx;
+    border-bottom-right-radius: 58rpx;
+}

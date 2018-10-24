@@ -1,0 +1,15 @@
+<view class='travel-page'>
+    <view class='travel-banner'>
+        <image class='banner-img' src='{{baseUrl}}img/direct_train/tailorMade_travel/banner.png'></image>
+    </view>
+    <scroll-view scroll-y class='travel-grid'>
+        <block wx:for='{{gridData}}' wx:key='{{index}}'>
+            <view class='grid-item' catchtap='goto' data-id='{{item.id}}'>
+                <view class='grid-icon'>
+                    <image mode='aspectFill' wx:if='{{item.icon}}' src='{{item.icon}}'></image>
+                </view>
+                <view class='grid-title'>{{item.title}}</view>
+            </view>
+        </block>
+    </scroll-view>
+</view>

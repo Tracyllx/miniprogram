@@ -1,0 +1,74 @@
+<view class='kkContainer' wx:if='{{list.length == 0}}'>
+    <view class='noData'>暂无数据~</view>
+</view>
+<view class='kkContainer' wx:if='{{list.length != 0}}'>
+    <view class='title'>
+        <view class='txt'>{{isType == 'redPacket' ? '不使用红包' : isType == 'coupon' ? '不使用优惠券' : ''}}</view>
+        <view class='icon' catchtap='isUseTap'>
+            <image hidden='{{!isUse}}' src='../../img/personalCenter/check.png'></image>
+        </view>
+    </view>
+    <!-- 红包 -->
+    <scroll-view scroll-y wx:if='{{isType == "redPacket"}}' class='content'>
+        <view class='tip'>您有
+            <text class='c-red'>{{list.length}}个</text>红包可用</view>
+        <block wx:for='{{list}}' wx:key='{{index}}'>
+            <view class='content-box'>
+                <view class='box {{currIndex == index && !isUse ? "box-active" : ""}} {{item.is_available == 2 || item.is_available == 3 ? "box-overdue":""}}' catchtap='clickBox' data-index='{{index}}'>
+                    <view class='box-t'>
+                        <view class='box-t-l'>
+                            <view>¥
+                                <text class='money'>{{item.coupon_value}}</text>
+                            </view>
+                            <view>满¥{{item.limit_value}} 可用</view>
+                        </view>
+                        <view class='box-t-r'>
+                            <view class='tit'>{{item.coupon_name}}</view>
+                            <view class='desc'>
+                                <text>· 限{{item.validity_end}}之前使用 \n</text>
+                                <text>· 限定使用手机号{{userPhone}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='box-b'>{{item.validity_differ == 0 ? '将于今天过期' : (item.validity_differ
+                        < 0 ? '已过期' : '有效期还剩' + item.validity_differ + '天')}}</view>
+                    </view>
+                    <view class='box-circle'>
+                        <view class='box-circle-l'></view>
+                        <view class='box-circle-r'></view>
+                    </view>
+                </view>
+        </block>
+    </scroll-view>
+
+    <!-- 优惠券 -->
+    <scroll-view scroll-y wx:if='{{isType == "coupon"}}' class='content'>
+        <view class='tip'>您有
+            <text class='c-red'>{{list.length}}张</text>优惠券可用</view>
+        <block wx:for='{{list}}' wx:key='{{index}}'>
+            <view class='content-box'>
+                <view class='box yhq-border {{currIndex == index && !isUse ? "box-active" : ""}}' catchtap='clickBox' data-index='{{index}}'>
+                    <view class='box-t yhq-box-t'>
+                        <view class='box-t-l borderR yhq-box-t-l'>
+                            <image class='yhq-img' mode='aspectFill' wx:if='{{item.imgUrl}}' src='{{item.imgUrl}}'></image>
+                        </view>
+                        <view class='box-t-r'>
+                            <view class='tit'>{{item.coupon_name}}</view>
+                            <view class='desc'>
+                                <text>· 满¥{{item.limit_value}} 可用 \n</text>
+                                <text>· 限{{item.validity_end}}之前使用 \n</text>
+                                <text>· 限定使用手机号{{userPhone}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='box-b'>{{item.validity_differ == 0 ? '将于今天过期' : (item.validity_differ
+                        < 0 ? '已过期' : '有效期还剩' + item.validity_differ + '天')}}</view>
+                    </view>
+                    <view class='box-circle'>
+                        <view class='box-circle-l'></view>
+                        <view class='box-circle-r'></view>
+                    </view>
+                </view>
+        </block>
+    </scroll-view>
+    </view>

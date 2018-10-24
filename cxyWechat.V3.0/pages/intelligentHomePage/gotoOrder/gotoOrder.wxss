@@ -1,0 +1,174 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.box-content {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    padding-top: 30rpx;
+}
+
+.box-bar {
+    padding: 20rpx 48rpx 20rpx 24rpx;
+    height: 68rpx;
+    display: flex;
+}
+
+.box-label {
+    width: 160rpx;
+    line-height: 68rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.box-input {
+    flex: 1;
+    padding: 0 10rpx;
+    border: 1rpx solid #ccc;
+    /* border-right: 0; */
+    position: relative;
+}
+
+.box-input>input {
+    width: 100%;
+    height: 100%;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.box-number {
+    flex: 1;
+    border: 1rpx solid #ccc;
+    display: flex;
+}
+
+.number-option {
+    flex: 1;
+    line-height: 68rpx;
+    text-align: center;
+    font-size: 50rpx;
+    color: #333;
+}
+
+.number-input {
+    flex: 1;
+    border-left: 1rpx solid #ccc;
+    border-right: 1rpx solid #ccc;
+}
+
+.number-input>input {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.price-title {
+    line-height: 68rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.price-num {
+    line-height: 68rpx;
+    font-size: 36rpx;
+    color: #f60;
+}
+
+.bottom-btn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 99rpx;
+    line-height: 99rpx;
+    border-top: 1rpx solid #e5e5e5;
+    background-color: #fff;
+    display: flex;
+}
+
+.bottom-item {
+    flex: 1;
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+}
+
+/* 下拉选项 */
+
+.box-dropdown {
+    width: 80rpx;
+    border: 1rpx solid #ccc;
+    position: relative;
+}
+
+.drop-down::after {
+    content: " ";
+    display: inline-block;
+    height: 20rpx;
+    width: 20rpx;
+    border-width: 0 1rpx 1rpx 0;
+    border-color: #999;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -15rpx;
+    margin-right: -10rpx;
+}
+
+.drop-up::after {
+    content: " ";
+    display: inline-block;
+    height: 20rpx;
+    width: 20rpx;
+    border-width: 1rpx 0 0 1rpx;
+    border-color: #999;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -5rpx;
+    margin-right: -10rpx;
+}
+
+/* 查询站点结果列表 */
+
+.site-list {
+    z-index: 999;
+    position: absolute;
+    top: 66rpx;
+    left: -1rpx;
+    width: 100%;
+    height: auto;
+    border-left: 1rpx dashed #ccc;
+    border-right: 1rpx dashed #ccc;
+    border-bottom: 1rpx dashed #ccc;
+    background-color: #fff;
+}
+
+.site-none {
+    height: auto;
+    font-size: 24rpx;
+    color: #666;
+    padding: 16rpx 24rpx;
+}
+
+.site-item {
+    height: 42rpx;
+    line-height: 42rpx;
+    font-size: 28rpx;
+    color: #999;
+    padding: 16rpx 24rpx;
+    border-bottom: 1rpx dashed #ccc;
+}
+
+.no-b {
+    border: 0;
+}

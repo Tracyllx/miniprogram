@@ -1,0 +1,17 @@
+<view class='myContainer'>
+    <view class='bangding'>
+        <view class='phone_input'>
+            <image class='phone_icon' src='../../img/personalCenter/phone_icon.png'></image>
+            <input placeholder='请输入手机号码' class='input_area1' bindfocus='jiaodian' bindblur='phoneNumber' wx:if="{{!phoneTip}}" value='{{phoneNumber}}'></input>
+            <input placeholder='' class='input_area1' style='color:red' bindfocus='jiaodian' wx:if="{{phoneTip}}" value='{{phoneTip}}'></input>
+            <icon type='clear' color='#999' size='15' class='cancel_icon' bindtap='clear'></icon>
+        </view>
+        <view class='check_num'>
+            <input placeholder='请输入验证码' class='input_area2' style='margin-left:55rpx' bindblur='check_num'></input>
+            <view class='send_num' bindtap='send_num'>{{sendCodeTips}}</view>
+        </view>
+    </view>
+    <view class='button'>
+        <button class='finish' bindtap='finish'>完成</button>
+    </view>
+</view>

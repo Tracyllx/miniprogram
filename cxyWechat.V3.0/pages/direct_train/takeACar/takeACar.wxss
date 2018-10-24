@@ -1,0 +1,440 @@
+/* pages/direct_train/takeACar/takeACar.wxss */
+
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.takeACar {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 垂直居中 */
+
+.chuizhi::after {
+    content: "";
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* 背景 */
+
+.bg-img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.bg-img>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* 观光图 */
+
+.tourist-map {
+    position: relative;
+    width: 100%;
+    height: 87%;
+    overflow: hidden;
+}
+
+/* 上行，下行 */
+
+.up-direction {
+    position: absolute;
+    bottom: 5%;
+    left: 3%;
+}
+
+.up-direction>image {
+    width: 26rpx;
+    height: 239rpx;
+    vertical-align: middle;
+    margin-bottom: 18rpx;
+    margin-left: 10rpx;
+    float: left;
+}
+
+.up-direction>view {
+    color: #399;
+    font-size: 26rpx;
+    float: left;
+    width: 30rpx;
+    margin: 0 auto;
+}
+
+.down-direction {
+    position: absolute;
+    top: 5%;
+    right: 3%;
+}
+
+.down-direction>image {
+    width: 26rpx;
+    height: 239rpx;
+    vertical-align: middle;
+    margin-top: 25rpx;
+    margin-right: 10rpx;
+    float: left;
+}
+
+.down-direction>view {
+    color: #399;
+    font-size: 26rpx;
+    float: left;
+    width: 30rpx;
+    margin: 0 auto;
+}
+
+/* 景点 */
+
+.scenic-spot {
+    position: absolute;
+    top: 3%;
+    bottom: 3%;
+    left: 30%;
+    width: 40%;
+}
+
+.spot-item {
+    width: 100%;
+    height: 16.66%;
+    text-align: center;
+}
+
+.spot-item-icon {
+    width: 88rpx;
+    vertical-align: middle;
+    margin-bottom: 10rpx;
+}
+
+.spot-item-name {
+    width: 140rpx;
+    margin: 0 auto;
+    font-size: 32rpx;
+    color: #999;
+}
+
+/* 路线 */
+
+.route-line {
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: 34.8%;
+    width: 30%;
+    border-left: 4rpx solid #333;
+    border-right: 4rpx solid #333;
+}
+
+/* 路线中的小圆圈 */
+
+.line-circle {
+    width: 100%;
+    height: 16.66%;
+}
+
+.line-circle-l, .line-circle-r {
+    width: 32rpx;
+    height: 32rpx;
+    border: 4rpx solid #333;
+    border-radius: 100%;
+    background: #fdfdfd;
+}
+
+.line-circle-l {
+    float: left;
+    margin-left: -20rpx;
+}
+
+.line-circle-r {
+    float: right;
+    margin-right: -19rpx;
+}
+
+.YueyaLake {
+    margin-top: -10rpx;
+}
+
+.TeaGarden {
+    margin-top: 28rpx;
+}
+
+.YouthVilla {
+    margin-top: 28rpx;
+}
+
+.LongCorridor {
+    margin-top: 24rpx;
+}
+
+.VoicelessBridge {
+    margin-top: 32rpx;
+}
+
+.TouristCentre {
+    margin-top: 30rpx;
+}
+
+/* 我的位置 */
+
+.person-go-up, .person-go-down {
+    position: absolute;
+    /* width: 53.3rpx; */
+    /* height: 54.6rpx; */
+    width: 45.1rpx;
+    height: 46.2rpx;
+}
+
+.person-go-up {
+    bottom: 212rpx;
+    left: 32%;
+}
+
+.person-go-down {
+    /* top: 73rpx; */
+    bottom: 212rpx;
+    right: 31.8%;
+}
+
+.person-go-up>image, .person-go-down>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* 车辆所在的位置 */
+
+.car-left, .car-right {
+    position: absolute;
+    width: 35%;
+    height: 84.5rpx;
+    clear: both;
+    /* border: 1rpx solid #333;  */
+}
+
+.car-left {
+    left: 2.6%;
+    bottom: 50rpx;
+}
+
+.car-right {
+    right: 2.5%;
+    top: 50rpx;
+}
+
+.car-left-img, .car-right-img {
+    /* width: 50.7rpx;
+    height: 84.5rpx; */
+    width: 42.9rpx;
+    height: 71.5rpx;
+}
+
+.car-left-img {
+    float: right;
+}
+
+.car-right-img {
+    float: left;
+}
+
+.car-left-img>image, .car-right-img>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.car-left-info, .car-right-info {
+    width: 62%;
+    height: 74rpx;
+    padding: 20rpx;
+    font-size: 18rpx;
+    text-align: center;
+    border-radius: 50%;
+    background: rgba(232, 217, 4, 0.8);
+    position: relative;
+}
+
+.kklh {
+    line-height: 74rpx;
+}
+
+.car-left-info {
+    float: right;
+    margin-top: -138rpx;
+    margin-right: 52rpx;
+}
+
+.car-right-info {
+    margin-top: 30rpx;
+    /* float: right; */
+    margin-left: 52rpx;
+}
+
+.car-left-info::after, .car-right-info::after {
+    content: "";
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* 气泡的三角形 */
+
+.car-left-info-tip {
+    width: 0;
+    height: 0;
+    border-width: 18rpx 0 18rpx 20rpx;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(232, 217, 4, 0.8);
+    position: absolute;
+    right: 0rpx;
+    bottom: 7rpx;
+    transform: rotate(45deg);
+}
+
+.car-right-info-tip {
+    width: 0;
+    height: 0;
+    border-width: 18rpx 20rpx 18rpx 0;
+    border-style: solid;
+    border-color: transparent rgba(232, 217, 4, 0.8) transparent transparent;
+    position: absolute;
+    left: 0rpx;
+    top: 7rpx;
+    transform: rotate(45deg);
+}
+
+/* 底部标注 */
+
+.bottom-tag {
+    width: 88%;
+    padding: 0 6%;
+    height: 5%;
+    /* background: rgba(190, 190, 190, 0.5);  */
+    overflow: hidden;
+    display: flex;
+}
+
+.tag-item {
+    flex: 1;
+    height: 100%;
+    text-align: center;
+    font-size: 26rpx;
+    color: #333;
+    position: relative;
+}
+
+.tag-line {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -40%);
+    height: 50%;
+    width: 2rpx;
+    background: #cdcdcd;
+}
+
+.kk-pdl20 {
+    padding-left: 20rpx;
+}
+
+.tag-txt {
+    display: inline-block;
+    margin-top: 4%;
+}
+
+.tag-person {
+    /* 41*42 */
+    width: 41rpx;
+    height: 42rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+    /* margin-top: 2%; */
+}
+
+.tag-car {
+    /* 65*39 */
+    width: 71.5rpx;
+    height: 42.9rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+    /* margin-top: 1%; */
+}
+
+.color {
+    color: #399;
+}
+
+.kkTest {
+    position: absolute;
+    /* left: 31.7%; */
+    left: 26%;
+    background: brown;
+    width: 50%;
+    height: 2rpx;
+}
+
+/* 底部 tab */
+
+.kkTab {
+    width: 100%;
+    height: 8%;
+    overflow: hidden;
+    background: #fff;
+}
+
+.sightseeingBus {
+    float: left;
+    width: 46%;
+    height: 99.6%;
+    padding: 0.4% 2% 0;
+    text-align: center;
+    font-size: 30rpx;
+}
+
+.directTrain {
+    float: left;
+    width: 46%;
+    height: 99.6%;
+    padding: 0.4% 2% 0;
+    text-align: center;
+    font-size: 30rpx;
+}
+
+.sightseeingBus>image {
+    width: 73rpx;
+    height: 41rpx;
+    vertical-align: middle;
+    margin-right: 4rpx; 
+    /* width: 58.4rpx;
+    height: 32.8rpx;
+    vertical-align: middle */
+}
+
+.directTrain>image {
+    width: 57rpx;
+    height: 39rpx;
+    vertical-align: middle;
+    margin-right: 4rpx; 
+    /* width: 45.6rpx;
+    height: 31.2rpx;
+    vertical-align: middle; */
+}
+
+.sightseeingBus>view, .directTrain>view {
+    font-size: 24rpx;
+}
+
+.kkTab-active {
+    color: #339999;
+}

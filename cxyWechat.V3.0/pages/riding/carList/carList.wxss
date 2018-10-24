@@ -1,0 +1,269 @@
+/* pages/riding/carList/carList.wxss */
+
+page {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 滑动区间 */
+
+.scroller {
+    width: 100%;
+    height: 92%;
+    overflow: hidden;
+}
+
+/* 展示距离顶部高度 */
+
+.line {
+    width: 100%;
+    height: 3.5%;
+}
+
+/* 每一个小区域 */
+
+.list {
+    width: 87.8%;
+    padding: 26rpx 16rpx 22rpx 16rpx;
+    margin-left: 4%;
+    margin-right: 4%;
+    background: #fff;
+    margin-bottom: 4%;
+    overflow: hidden;
+}
+
+.show-content {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* 展示文字省略号 */
+
+.all {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* 每个内容需要浮动 */
+
+.float {
+    float: left;
+    height: 100%;
+    overflow: hidden;
+}
+
+.padding {
+    margin-top: 1%;
+}
+
+/* 展示图片部分 */
+
+.img {
+    width: 25%;
+    height: 160rpx;
+    border-radius: 14rpx;
+}
+
+/* 展示图片 */
+
+.img>image {
+    width: 100%;
+    height: 100%;
+}
+
+/* 展示内容部分 */
+
+.content {
+    width: 72%;
+    padding-left: 3%;
+    overflow: hidden;
+}
+
+/* 展示票名字 */
+
+.ticketName {
+    width: 100%;
+    height: 52rpx;
+    margin-bottom: 13rpx;
+    line-height: 52rpx;
+}
+
+/* 展示内容与是否付款 */
+
+.content-float {
+    float: left;
+}
+
+/* 展示票的名字 */
+
+.name {
+    width: 76%;
+    height: 100%;
+    font-size: 30rpx;
+}
+
+/* 展示状态 */
+
+.status {
+    width: 22%;
+    height: 100%;
+    font-size: 27rpx;
+    color: #01847d;
+    text-align: right;
+    padding-right: 2%;
+}
+
+/* 展示下单时间 */
+
+.orderTime {
+    width: 100%;
+    height: 45rpx;
+    font-size: 27rpx;
+    color: #999;
+}
+
+/* 展示数量和总价 */
+
+.number_count {
+    width: 100%;
+    height: 65rpx;
+    overflow: hidden;
+}
+
+.common {
+    float: left;
+    height: 100%;
+    font-size: 27rpx;
+    color: #999;
+    line-height: 70rpx;
+    overflow: hidden;
+}
+
+.count {
+    margin-left: 20rpx;
+    margin-right: 12rpx;
+}
+
+/* 按钮的设置 */
+
+.buttons {
+    width: 31%;
+    height: 92%;
+    border-radius: 10rpx;
+    background: #fff;
+    color: #01847d;
+    float: right;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 28rpx;
+    line-height: 65rpx;
+    border: 1px solid #01847d;
+}
+
+/* 展示提示 */
+
+.show_tip {
+    padding-top: 10rpx;
+    width: 98%;
+    padding-right: 2%;
+    height: 45rpx;
+    color: #01847d;
+    font-size: 27rpx;
+    text-align: right;
+}
+
+/* 根据状态是否显示 */
+
+.nonedisplay {
+    display: none;
+}
+
+/* 无法约车 */
+
+.noClick {
+    color: #999;
+    border: 1px solid #999;
+}
+
+.color {
+    color: #e97005;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+/* 底部 tab */
+
+.kkTab {
+    width: 100%;
+    height: 8%;
+    overflow: hidden;
+    background: #fff;
+}
+
+.kkTab-active {
+    color: #399;
+}
+
+.sightseeingBus {
+    float: left;
+    width: 46%;
+    height: 99.6%;
+    padding: 0.4% 2% 0;
+    text-align: center;
+    font-size: 30rpx;
+}
+
+.sightseeingBus>image {
+    width: 73rpx;
+    height: 41rpx;
+    vertical-align: middle;
+    margin-right: 4rpx;
+}
+
+.directTrain {
+    float: left;
+    width: 46%;
+    height: 99.6%;
+    padding: 0.4% 2% 0;
+    text-align: center;
+    font-size: 30rpx;
+}
+
+.directTrain>image {
+    width: 57rpx;
+    height: 39rpx;
+    vertical-align: middle;
+    margin-right: 4rpx;
+}
+
+/* 垂直居中 */
+
+.chuizhi::after {
+    content: "";
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* 没有更多数据了 */
+
+.nonedata {
+    width: 100%;
+    line-height: 70rpx;
+    height: 70rpx;
+    text-align: center;
+    color: #01827d;
+    font-size: 27rpx;
+}
+
+.hidden {
+    display: none;
+}

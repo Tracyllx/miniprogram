@@ -1,0 +1,40 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.the-container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    box-sizing: content-box;
+    position: relative;
+}
+
+.the-box {
+    width: 80%;
+    height: 290rpx;
+    line-height: 290rpx;
+    overflow: hidden;
+    margin: 100rpx auto;
+    text-align: center;
+    letter-spacing: 3rpx;
+    font-size: 50rpx;
+    color: #fff;
+    border-radius: 16rpx;
+}
+
+.box-1 {
+    background: -webkit-linear-gradient(-57deg, #1288ec, #509df5); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(-57deg, #1288ec, #509df5); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(-57deg, #1288ec, #509df5); /* Firefox 3.6 - 15 */
+    background: linear-gradient(-57deg, #1288ec, #509df5); /* 标准的语法 */
+}
+
+.box-2 {
+    background: -webkit-linear-gradient(-57deg, #f88044, #ec985a); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(-57deg, #f88044, #ec985a); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(-57deg, #f88044, #ec985a); /* Firefox 3.6 - 15 */
+    background: linear-gradient(-57deg, #f88044, #ec985a); /* 标准的语法 */
+}

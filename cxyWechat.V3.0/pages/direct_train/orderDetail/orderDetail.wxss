@@ -1,0 +1,805 @@
+page {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+}
+
+.lu-orderId {
+    height: 60rpx;
+    line-height: 60rpx;
+    padding-left: 24rpx;
+    font-size: 28rpx;
+    color: #fff;
+    background: #01827d;
+}
+
+/* 订单详情 */
+
+.order_detail {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* 滑动区域 */
+
+.scroller {
+    width: 100%;
+    height: 100%;
+    /* background: #fff; */
+    overflow: hidden;
+}
+
+/* 支付情况 */
+
+.pay-status {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 评价按钮 */
+
+.evaluate {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translate(0%, -50%);
+    width: 160rpx;
+    height: 48rpx;
+    padding-top: 4rpx;
+    font-size: 26rpx;
+    color: #fff;
+    text-align: center;
+    background-color: #01827d;
+    border: 1rpx solid #fff;
+    border-radius: 6rpx;
+}
+
+.evaluate::after {
+    content: '';
+    width: 0%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* 已支付显示 */
+
+.payed {
+    width: 100%;
+    height: 80rpx;
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    padding-left: 24rpx;
+    background: #01827d;
+}
+
+/* 待支付 */
+
+.wait-pay {
+    width: 100%;
+    background: #01827d;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* 展示待支付及时间 */
+
+.wait-pay-time {
+    width: 100%;
+    height: 80rpx;
+    overflow: hidden;
+}
+
+/* 时间的显示间隔 */
+
+.show-time {
+    letter-spacing: 4rpx;
+}
+
+/* 待支付及时间的公共样式 */
+
+.wait-pay-time>view {
+    height: 100%;
+    font-size: 26rpx;
+    line-height: 80rpx;
+    float: left;
+}
+
+/* 展示等待支付 */
+
+.font-wait-pay {
+    width: 36%;
+    padding-left: 24rpx;
+}
+
+/* 展示剩余支付时间 */
+
+.wait-pay-times {
+    width: 57%;
+    padding-right: 24rpx;
+    text-align: right;
+}
+
+/* 继续支付 最大view样式*/
+
+.pay-continuce {
+    padding-bottom: 40rpx;
+    height: 70rpx;
+}
+
+/* 可以点击的继续支付 */
+
+.click-continuce {
+    margin: 0 auto;
+    width: 90%;
+    height: 100%;
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 70rpx;
+    border-radius: 10rpx;
+    border: 1rpx solid #fff;
+}
+
+/* 展示门票的信息 */
+
+.ticket-remark {
+    width: 95%;
+    padding: 12rpx 24rpx;
+    line-height: 60rpx;
+    overflow: hidden;
+    background: #fff;
+    font-size: 25rpx;
+    /* border-bottom: 1rpx solid #c6c6c6; */
+}
+
+/* 展示订单的总价大div */
+
+.order-count {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    overflow: hidden;
+    background: #fff;
+    font-size: 26rpx;
+    /* border-bottom: 1rpx solid #c6c6c6; */
+    border-top: 1rpx solid #c6c6c6;
+}
+
+/* 门票价格设置 */
+
+.float {
+    float: left;
+    width: 46%;
+}
+
+/* 价格文字设置 */
+
+.text-right {
+    text-align: right;
+    padding-right: 20rpx;
+    color: #999;
+}
+
+/* 总价及#80.00之间的公共样式 */
+
+.order-count-view {
+    float: left;
+    height: 100%;
+    padding-left: 24rpx;
+}
+
+/*展示提示*/
+
+.show_use_tip {
+    /* width: 98%; */
+    padding: 14rpx 24rpx;
+    line-height: 50rpx;
+    font-size: 25rpx;
+    background: #fff;
+    /* border-bottom: 1rpx solid #c6c6c6; */
+    border-top: 1rpx solid #c6c6c6;
+}
+
+/*标题灰色*/
+
+.tip_title {
+    color: #999;
+    display: inline;
+}
+
+/*展示入园凭证*/
+
+.showit {
+    overflow: hidden;
+    width: 100%;
+}
+
+.show_to_park {
+    width: 100%;
+    height: 100rpx;
+    padding: 12rpx 24rpx;
+    font-size: 26rpx;
+    background: #fff;
+    /* border-bottom: 1rpx solid #c6c6c6; */
+    border-top: 1rpx solid #c6c6c6;
+}
+
+/*展示入园凭证的每个div*/
+
+.show_to_park>view {
+    width: 47%;
+    height: 100%;
+    float: left;
+}
+
+/*入园凭证的文字及数字*/
+
+.showtoparktip>view {
+    width: 100%;
+    height: 50%;
+}
+
+/*入园门票的数目*/
+
+.park_number {
+    color: #01827d;
+    font-size: 28rpx;
+    letter-spacing: 3rpx;
+}
+
+/*展示二维码*/
+
+.show_park_erweima {
+    text-align: right;
+    padding-right: 28rpx;
+    line-height: 100rpx;
+}
+
+/*展示二维码的图片*/
+
+.show_park_erweima>image {
+    width: 80rpx;
+    height: 80rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+    /* border: 1rpx saddlebrown solid; */
+}
+
+.shanshowPrice {
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 100%;
+    background: #fff;
+    font-size: 26rpx;
+    overflow: hidden;
+    /* border-bottom: 1rpx solid #c6c6c6; */
+    border-top: 1rpx solid #c6c6c6;
+}
+
+/* 展示价格 */
+
+.show_price {
+    width: 100%;
+    height: 90rpx;
+    background: #fff;
+    font-size: 26rpx;
+    line-height: 90rpx;
+    overflow: hidden;
+    /* border-bottom: 1rpx solid #c6c6c6; */
+    border-top: 1rpx solid #c6c6c6;
+}
+
+/* 价格的每个view共同设置 */
+
+.show_price>view {
+    float: left;
+    width: 46.5%;
+    height: 100%;
+}
+
+/*展示门票价格这几个字*/
+
+.show_price_title {
+    /* color: #999; */
+    padding-left: 24rpx;
+}
+
+/*展示数量和单价*/
+
+.show_money_and_number {
+    text-align: right;
+    padding-right: 24rpx;
+    letter-spacing: 4rpx;
+    line-height: 90rpx;
+    color: #999;
+    overflow: hidden;
+}
+
+/* 展示打钩 */
+
+.show_money_and_number image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+}
+
+/* 展示乘车接送部分 */
+
+.show-shuttle-car {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* 展示乘车接送 */
+
+.shuttle-client {
+    /* width: 100%; */
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 26rpx;
+    padding-left: 24rpx;
+    background: #fff;
+    /* border-bottom: 1rpx solid #c6c6c6; */
+    border-top: 1rpx solid #c6c6c6;
+}
+
+/* 去程和返程 */
+
+.to-or-back {
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* 展示去程 */
+
+.show-to-here {
+    width: 96%;
+    font-size: 26rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding-left: 3.5%;
+    /* border-bottom: 1rpx solid #c6c6c6; */
+    border-top: 1rpx solid #c6c6c6;
+}
+
+/* tip只能预约1小时后的接送服务 */
+
+.show-to-here-tip {
+    display: inline;
+    font-size: 22rpx;
+    margin-left: 10rpx;
+    color: #8a8a8a;
+}
+
+/* 上车点 */
+
+.boarding {
+    padding: 14rpx 24rpx;
+    background: #fff;
+    overflow: hidden;
+    /* border-bottom: 1rpx solid #c6c6c6; */
+    border-top: 1rpx solid #c6c6c6;
+}
+
+/* 展示上车点的左右两边view */
+
+.boarding>view {
+    float: left;
+    height: 60rpx;
+    padding: 15rpx 0;
+    width: 98%;
+    font-size: 26rpx;
+    overflow: hidden;
+}
+
+/* 上车点下车点文字 */
+
+.font-car-here {
+    float: left;
+    line-height: 60rpx;
+}
+
+/* 展示多选框 */
+
+.showpiker {
+    float: left;
+    width: 80%;
+    height: 58rpx;
+    line-height: 58rpx;
+    /* margin: 15rpx 0; *//* height: 60%; *//* margin-top: 8rpx; */
+    position: relative;
+    border-radius: 10rpx;
+    z-index: 2;
+    /* padding-top: 6rpx; */
+    border: 1rpx solid #c6c6c6;
+}
+
+/* 乘车时间和乘车人数的设置 */
+
+.ride-car-piker {
+    width: 205rpx;
+}
+
+.section {
+    width: 100%;
+    height: 100%;
+}
+
+/* 多选框的设置 */
+
+.show-picker {
+    width: 100%;
+    height: 100%;
+}
+
+/* 展示下拉小三角 */
+
+.show-next {
+    position: absolute;
+    /* right: 15rpx; *//* top: 6rpx; */
+    right: 0;
+    top: 0;
+    width: 50rpx;
+    height: 60rpx;
+    z-index: -1;
+    text-align: center;
+    border-left: 1rpx solid #c6c6c6;
+}
+
+/* 下拉小三角的图标设置 */
+
+.show-next>image {
+    width: 25rpx;
+    height: 15rpx;
+    vertical-align: middle;
+}
+
+.picker {
+    text-align: center;
+    padding-right: 50rpx;
+}
+
+.picker-left {
+    text-align: center;
+    padding-right: 50rpx;
+}
+
+/* 乘车时间和乘车人数 */
+
+.ride-time {
+    width: 50%;
+    float: left;
+    height: 100%;
+}
+
+/* 乘车人数的设置 */
+
+.number-of-passengers {
+    width: 55%;
+    float: left;
+    height: 60%;
+    margin-top: 10rpx;
+    position: relative;
+    border-radius: 10rpx;
+    z-index: 2;
+    border: 1rpx solid #c6c6c6;
+}
+
+/* 乘车人数输入框 */
+
+.showNumber {
+    width: 100rpx;
+    height: 100%;
+    float: left;
+    text-align: center;
+    border-right: 1rpx solid #c6c6c6;
+    border-left: 1rpx solid #c6c6c6;
+    border-bottom: none;
+    border-top: none;
+    font-size: 28rpx;
+}
+
+/* 展示按钮的高度 */
+
+.number-of-passengers>button {
+    line-height: 50rpx;
+}
+
+/* 展示颜色是灰色 */
+
+.none-color {
+    color: #8a8a8a;
+}
+
+/*展示点击的时候的数量改变第二层div，有个框框的感觉*/
+
+.show_change_number {
+    width: 205rpx;
+    height: 70%;
+    /* border: 1rpx solid #01827D; */
+    border-radius: 10rpx;
+    overflow: hidden;
+    float: left;
+}
+
+/*数量的加减按钮*/
+
+.show_change_number>button {
+    width: 50rpx;
+    height: 100%;
+    font-size: 28rpx;
+    outline: none;
+    border: none;
+    padding: 0;
+    float: left;
+    background: none;
+    line-height: 60rpx;
+    background: none;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+    background: none;
+}
+
+button::after {
+    border: none;
+}
+
+.to-confirm {
+    width: 100%;
+    height: 100rpx;
+    background: #fff;
+}
+
+.confirm {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    background: #01827d;
+    color: #fff;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    font-size: 32rpx;
+    border: 1rpx solid #01827d;
+}
+
+/* 分割线 */
+
+.line-break {
+    width: 100%;
+    height: 40rpx;
+    background: #fff;
+}
+
+/* 小一号的分割线 */
+
+.small-line {
+    height: 20rpx;
+    background: #fff;
+}
+
+.small-line50 {
+    height: 50rpx;
+    background: #fff;
+}
+
+/*展示退改规则*/
+
+.show_rule {
+    padding: 24rpx 24rpx;
+    background: #fff;
+}
+
+/*展示每一行*/
+
+.show_rule {
+    margin-top:15rpx;
+    font-size: 26rpx;
+}
+
+/*展示退票的规则内容颜色不一样 */
+
+.show_rule_content {
+    color: #01827d;
+}
+
+/*费用包含内容字体颜色灰色*/
+
+.colorgray {
+    color: #999 !important;
+}
+
+/* 点击二维码放大 */
+
+.popimg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* 二维码图片 */
+
+.showErWeiCode {
+    width: 350rpx;
+    height: 350rpx;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+}
+
+.showErWeiCode>image {
+    width: 100%;
+    height: 100%;
+}
+
+/* 滚动条不要 */
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+/* 字体颜色改变 */
+
+.font-color {
+    color: #01827d;
+}
+
+.nonedisplay {
+    display: none;
+}
+
+.pay-status>.nonedisplay {
+    display: none;
+}
+
+.showit>.nonedisplay, .boarding>.nonedisplay {
+    display: none;
+}
+
+.gray {
+    color: #999;
+}
+
+.color {
+    color: #999;
+}
+
+.ground {
+    background: #999;
+    color: #fff;
+}
+
+.borderNone {
+    border: none;
+}
+
+.apply-refund, .car-trajectory {
+    float: right;
+    margin: 13rpx 0;
+    margin-right: 30rpx;
+    width: 152rpx;
+    height: 52rpx;
+    line-height: 52rpx;
+    text-align: center;
+    color: #01827d;
+    border: 1rpx solid #01827d;
+    border-radius: 10rpx;
+}
+
+.refunding {
+    width: 100rpx;
+    height: 50rpx;
+    border: 0;
+}
+
+.kkRefund {
+    color: #999;
+    border: 1rpx solid #c6c6c6;
+}
+
+.kk-0-height {
+    height: 0;
+    transition: All 0.6s ease;
+    -webkit-transition: All 0.6s ease;
+}
+
+.kk-full-height {
+    height: 900rpx;
+}
+
+.kk-pd-b30 {
+    padding-bottom: 30rpx;
+}
+
+.kk-border-none {
+    border: 0;
+    color: #999;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.car-reset {
+    float: right;
+    margin: 13rpx 0;
+    margin-right: 30rpx;
+    width: 152rpx;
+    height: 52rpx;
+    line-height: 52rpx;
+    text-align: center;
+    color: #e97005;
+    border: 1rpx solid #e97005;
+    border-radius: 10rpx;
+}
+
+/* 提示约车超时 */
+
+.boarding>.tip-font {
+    width: 96%;
+    height: 50rpx;
+    line-height: 50rpx;
+    color: #e97005;
+    font-size: 24rpx;
+}
+
+/* 定制旅游 */
+
+.show-desc {
+    margin-top: 15rpx;
+    padding: 24rpx;
+    background-color: #fff;
+}
+
+.info-title {
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 26rpx;
+}
+
+.info-content {
+    font-size: 28rpx;
+    color: #999;
+}
+
+.kk_rule {
+    padding-bottom: 20rpx;
+}
+
+/* ========================================= V2.0 ================================================ */
+
+.lu-pro-orgn {
+    font-size: 32rpx;
+}
+
+.lu-pro-list {
+    color: #999;
+    line-height: 40rpx;
+}
+
+/* 收货地址 */
+
+.delivery-info {
+    padding: 16rpx 24rpx;
+    font-size: 26rpx;
+    color: #999;
+    border-top: 1rpx solid #c6c6c6;
+    background: #fff;
+}
+
+.delivery-item {
+    color: #000;
+    line-height: 60rpx;
+}

@@ -1,0 +1,228 @@
+/* scroll-view 的外层 view */
+
+.outside-view {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    overflow: hidden;
+    box-sizing: content-box;
+    position: relative;
+}
+
+/* 底部内容 */
+
+.footer {
+    width: 100%;
+    height: 99rpx;
+    overflow: hidden;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    border-top: 1rpx solid #f1f1f1;
+}
+
+.footer>view {
+    width: 50%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    font-size: 28rpx;
+    font-family: "宋体";
+    padding-top: 15rpx;
+}
+
+.homepage>image, .personal>image {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 6rpx;
+}
+
+.home-color {
+    color: #01847d;
+}
+
+/* 最底部固定栏 */
+
+.page-bottom {
+    z-index: 999;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 99rpx;
+    border-top: 1rpx solid #f1f1f1;
+    background-color: #fff;
+    display: flex;
+}
+
+.page-bottom-item {
+    flex: 1;
+    height: 100%;
+    padding-top: 5rpx;
+    text-align: center;
+    font-size: 34rpx;
+}
+
+.buyBtn {
+    color: #fff;
+    background-color: #f60;
+}
+
+/* 加载中页面 */
+
+.loadingBox {
+    text-align: center;
+    padding-top: 50%;
+}
+
+.loadingBox>image {
+    width: 150rpx;
+    height: 150rpx;
+    vertical-align: middle;
+}
+
+.loadingBox>view {
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #399;
+    font-size: 38rpx;
+    padding-left: 20rpx;
+}
+
+/* 暂无更多数据~ */
+
+.nonedata {
+    width: 100%;
+    line-height: 70rpx;
+    height: 70rpx;
+    text-align: center;
+    color: #ccc;
+    font-size: 27rpx;
+}
+
+/* 垂直居中 */
+
+.chuizhi::after {
+    width: 0;
+    content: "";
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* 左右线条 */
+
+.lr-border {
+    position: relative;
+}
+
+.lr-border::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 30%;
+    bottom: 30%;
+    width: 1px;
+    border-left: 1px solid #ccc;
+    color: #ccc;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+}
+
+.lr-border::after {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 30%;
+    bottom: 30%;
+    width: 1px;
+    border-left: 1px solid #ccc;
+    color: #ccc;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+}
+
+/* 底部弹窗 */
+
+.kk-picker-mask {
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.kk-picker-outside {
+    z-index: 10000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background-color: #eee;
+    transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    transform: translate(0%, 100%);
+    -webkit-transform: translate(0%, 100%);
+}
+
+.kk-picker-transform {
+    transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+}
+
+.picker-box {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* flex布局：标题、说明、右箭头 */
+
+.kk-cell {
+    margin-top: 16rpx;
+    padding: 16rpx 24rpx;
+    height: 68rpx;
+    line-height: 68rpx;
+    background-color: #fff;
+    display: flex;
+}
+
+.kk-cell-title {
+    flex: 1;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.kk-cell-desc {
+    font-size: 26rpx;
+    color: #999;
+}
+
+.kk-cell-icon {
+    width: 50rpx;
+    position: relative;
+}
+
+.kk-cell-icon::after {
+    content: " ";
+    display: inline-block;
+    height: 28rpx;
+    width: 28rpx;
+    border-width: 1rpx 1rpx 0 0;
+    border-color: #ccc;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    margin-top: -14rpx;
+    position: absolute;
+    top: 50%;
+    right: 4rpx;
+}

@@ -1,0 +1,822 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+/* 背景 */
+
+.bg-img {
+    position: absolute;
+    top: 0;
+    bottom: 100rpx;
+    width: 100%;
+}
+
+.bg-img>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* 头部导航栏 */
+
+.tab-bar {
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100rpx;
+    background-color: #fff;
+    display: flex;
+}
+
+.tab-item {
+    flex: 1;
+    font-size: 30rpx;
+    color: #333;
+    text-align: center;
+    line-height: 100rpx;
+}
+
+.tab-item-active {
+    color: #399;
+}
+
+/* 底部导航 */
+
+.inte-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    overflow: hidden;
+    text-align: center;
+}
+
+.ggc-btm {
+    background-color: #399;
+    display: flex;
+}
+
+.take-bus {
+    line-height: 100rpx;
+    font-size: 34rpx;
+    color: #fff;
+    background-color: #399;
+}
+
+.ggc-nav-item {
+    flex: 1;
+    height: 100%;
+}
+
+.ggc-nav-item-txt {
+    font-family: "宋体";
+    font-size: 28rpx;
+    color: #fff;
+}
+
+.ggc-nav-item-img {
+    width: 48rpx;
+    height: 48rpx;
+    vertical-align: middle;
+    margin-bottom: 3rpx;
+}
+
+/* ---------------------------------------------- 租车 ------------------------------------------------------------------ */
+
+.zc-content {
+    position: absolute;
+    top: 100rpx;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.zc-banner {
+    width: 100%;
+    height: 370rpx;
+    overflow: hidden;
+}
+
+.zc-banner>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.zc-main {
+    padding: 24rpx 5%;
+    height: auto;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+}
+
+.zc-main-icon {
+    flex: 1;
+    text-align: center;
+}
+
+.zc-main-icon>image {
+    width: 120rpx;
+    height: 120rpx;
+    vertical-align: middle;
+    margin-bottom: 10rpx;
+}
+
+.zc-main-icon>view {
+    font-size: 26rpx;
+    color: #333;
+}
+
+.zc-car-model {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 16rpx;
+    background-color: #fff;
+    border-top: 16rpx solid #eee;
+}
+
+.zc-car-title {
+    padding: 16rpx 24rpx;
+    line-height: 68rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.zc-car-box {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.zc-car-box-item {
+    float: left;
+    width: 48%;
+    height: auto;
+    padding: 24rpx 0;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 10rpx;
+    border: 1rpx solid #e5e5e5;
+}
+
+.zc-box-item-mr {
+    margin-right: 2%;
+}
+
+.zc-car-box-item>image {
+    width: 170rpx;
+    height: 110rpx;
+    vertical-align: top;
+    margin-bottom: 10rpx;
+}
+
+.zc-car-box-item>view {
+    font-size: 30rpx;
+    color: #333;
+}
+
+/* 车的大小 */
+
+.carImg {
+    width: 71.5rpx;
+    height: 42.9rpx;
+    vertical-align: middle;
+}
+
+.carImg-2 {
+    width: 42.9rpx;
+    height: 71.5rpx;
+    vertical-align: middle;
+}
+
+/* 人的大小 */
+
+.personImg {
+    width: 61.5rpx;
+    height: 63rpx;
+    vertical-align: middle;
+    transform: none !important;
+}
+
+/* -------------------------------- 直通车：车行线路----------------------------------------------------------------------- */
+
+.ztc-car-map {
+    position: absolute;
+    top: 150rpx;
+    bottom: 100rpx;
+    width: 100%;
+}
+
+.ztc-box {
+    margin: 0 auto;
+    width: 82%;
+    height: 86%;
+    /* border: 2rpx solid red; */
+    transform: rotate(20deg);
+    position: relative;
+}
+
+.ztc-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* border: 2rpx solid red; */
+    border-radius: 50%;
+}
+
+.ztc-move {
+    position: absolute;
+    animation: moveY 60s ease-in-out infinite alternate;
+}
+
+.ztc-car {
+    position: absolute;
+    top: -24rpx;
+    left: 300rpx;
+    transform-origin: 0 300rpx;
+    animation: rotation 120s linear infinite;
+}
+
+@keyframes moveY {
+    to {
+        transform: translateY(240rpx);
+    }
+}
+
+@keyframes rotation {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* 改版 */
+
+.ztc-car-box {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.ztc-car-img {
+    position: absolute;
+}
+
+.ztc-car-img-0 {
+    bottom: 25%;
+    left: 12%;
+    transform: rotate(35deg);
+}
+
+.ztc-car-img-1 {
+    bottom: 28%;
+    left: 15%;
+    transform: rotate(35deg);
+}
+
+.ztc-car-img-2 {
+    bottom: 31.5%;
+    left: 18%;
+    transform: rotate(30deg);
+}
+
+.ztc-car-img-3 {
+    bottom: 35%;
+    left: 20%;
+    transform: rotate(28deg);
+}
+
+.ztc-car-img-4 {
+    bottom: 39%;
+    left: 22%;
+    transform: rotate(25deg);
+}
+
+.ztc-car-img-5 {
+    bottom: 42%;
+    left: 24%;
+    transform: rotate(22deg);
+}
+
+.ztc-car-img-6 {
+    bottom: 46%;
+    left: 26%;
+    transform: rotate(30deg);
+}
+
+.ztc-car-img-7 {
+    bottom: 50%;
+    left: 29%;
+    transform: rotate(34deg);
+}
+
+.ztc-car-img-8 {
+    bottom: 52%;
+    left: 33%;
+    transform: rotate(45deg);
+}
+
+.ztc-car-img-9 {
+    bottom: 55%;
+    left: 38%;
+    transform: rotate(45deg);
+}
+
+.ztc-car-img-10 {
+    bottom: 58%;
+    left: 42%;
+    transform: rotate(52deg);
+}
+
+.ztc-car-img-11 {
+    bottom: 60%;
+    left: 46%;
+    transform: rotate(56deg);
+}
+
+.ztc-car-img-12 {
+    bottom: 62%;
+    left: 52%;
+    transform: rotate(70deg);
+}
+
+.ztc-car-img-13 {
+    bottom: 62%;
+    left: 58%;
+    transform: rotate(80deg);
+}
+
+.ztc-car-img-14 {
+    bottom: 62%;
+    left: 62%;
+    transform: rotate(70deg);
+}
+
+.ztc-car-img-15 {
+    bottom: 64%;
+    left: 66%;
+    transform: rotate(40deg);
+}
+
+.ztc-car-img-16 {
+    bottom: 68%;
+    left: 70%;
+    transform: rotate(30deg);
+}
+
+.ztc-car-img-17 {
+    bottom: 71%;
+    left: 72%;
+    transform: rotate(30deg);
+}
+
+.ztc-car-img-18 {
+    bottom: 75%;
+    left: 75%;
+    transform: rotate(30deg);
+}
+
+.ztc-car-img-19 {
+    bottom: 78%;
+    left: 77%;
+    transform: rotate(30deg);
+}
+
+.ztc-car-img-20 {
+    bottom: 82%;
+    left: 80%;
+    transform: rotate(40deg);
+}
+
+/* -------------------------------------- 观光车：车行线路 --------------------------------------------------------------- */
+
+.ggc-car-map {
+    position: absolute;
+    top: 0;
+    bottom: 100rpx;
+    width: 100%;
+    overflow: hidden;
+}
+
+.ggc-car-box {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.ggc-car-img {
+    width: auto;
+    height: auto;
+}
+
+/* ************************车行走的点*********************************** */
+
+.ggc-piont0 {
+    /* 月牙湖 */
+    position: absolute;
+    top: 26%;
+    left: 45.5%;
+}
+
+.ggc-carImg0 {
+    transform: rotate(20deg);
+}
+
+.ggc-piont1 {
+    position: absolute;
+    top: 30%;
+    left: 45%;
+}
+
+.ggc-carImg1 {
+    transform: rotate(0deg);
+}
+
+.ggc-piont2 {
+    position: absolute;
+    top: 34%;
+    left: 48%;
+}
+
+.ggc-carImg2 {
+    transform: rotate(-30deg);
+}
+
+.ggc-piont3 {
+    position: absolute;
+    top: 38%;
+    left: 51%;
+}
+
+.ggc-carImg3 {
+    transform: rotate(-25deg);
+}
+
+.ggc-piont4 {
+    /* 茶园 */
+    position: absolute;
+    top: 42%;
+    left: 53.5%;
+}
+
+.ggc-carImg4 {
+    transform: rotate(-20deg);
+}
+
+.ggc-piont5 {
+    position: absolute;
+    top: 46%;
+    left: 55%;
+}
+
+.ggc-carImg5 {
+    transform: rotate(-20deg);
+}
+
+.ggc-piont6 {
+    position: absolute;
+    top: 50%;
+    left: 57%;
+}
+
+.ggc-carImg6 {
+    transform: rotate(-20deg);
+}
+
+.ggc-piont7 {
+    position: absolute;
+    top: 54%;
+    left: 59%;
+}
+
+.ggc-carImg7 {
+    transform: rotate(-5deg);
+}
+
+.ggc-piont8 {
+    position: absolute;
+    top: 58%;
+    left: 59%;
+}
+
+.ggc-carImg8 {
+    transform: rotate(10deg);
+}
+
+.ggc-piont9 {
+    position: absolute;
+    top: 62%;
+    left: 56%;
+}
+
+.ggc-carImg9 {
+    transform: rotate(35deg);
+}
+
+.ggc-piont10 {
+    /* 观景长廊 */
+    position: absolute;
+    top: 65%;
+    left: 50%;
+}
+
+.ggc-carImg10 {
+    transform: rotate(76deg);
+}
+
+.ggc-piont11 {
+    position: absolute;
+    top: 66%;
+    left: 44%;
+}
+
+.ggc-carImg11 {
+    transform: rotate(90deg);
+}
+
+.ggc-piont12 {
+    position: absolute;
+    top: 65%;
+    left: 38%;
+}
+
+.ggc-carImg12 {
+    transform: rotate(115deg);
+}
+
+.ggc-piont13 {
+    position: absolute;
+    top: 62%;
+    left: 32%;
+}
+
+.ggc-carImg13 {
+    transform: rotate(160deg);
+}
+
+.ggc-piont14 {
+    position: absolute;
+    top: 56%;
+    left: 30%;
+}
+
+.ggc-carImg14 {
+    transform: rotate(170deg);
+}
+
+.ggc-piont15 {
+    position: absolute;
+    top: 50%;
+    left: 28%;
+}
+
+.ggc-carImg15 {
+    transform: rotate(155deg);
+}
+
+.ggc-piont16 {
+    position: absolute;
+    top: 46%;
+    left: 24%;
+}
+
+.ggc-carImg16 {
+    transform: rotate(125deg);
+}
+
+.ggc-piont17 {
+    /* 青年山庄 */
+    position: absolute;
+    top: 47%;
+    left: 18%;
+}
+
+.ggc-carImg17 {
+    transform: rotate(30deg);
+}
+
+.ggc-piont18 {
+    position: absolute;
+    top: 52%;
+    left: 18%;
+}
+
+.ggc-carImg18 {
+    transform: rotate(-20deg);
+}
+
+.ggc-piont19 {
+    position: absolute;
+    top: 56%;
+    left: 20%;
+}
+
+.ggc-carImg19 {
+    transform: rotate(-12deg);
+}
+
+.ggc-piont20 {
+    position: absolute;
+    top: 60%;
+    left: 20%;
+}
+
+.ggc-carImg20 {
+    transform: rotate(0deg);
+}
+
+.ggc-piont21 {
+    position: absolute;
+    top: 64%;
+    left: 20%;
+}
+
+.ggc-carImg21 {
+    transform: rotate(0deg);
+}
+
+.ggc-piont22 {
+    position: absolute;
+    top: 68%;
+    left: 20%;
+}
+
+.ggc-carImg22 {
+    transform: rotate(0deg);
+}
+
+.ggc-piont23 {
+    /* 清音桥 */
+    position: absolute;
+    top: 72%;
+    left: 20%;
+}
+
+.ggc-carImg23 {
+    transform: rotate(0deg);
+}
+
+.ggc-piont24 {
+    position: absolute;
+    top: 76%;
+    left: 20%;
+}
+
+.ggc-carImg24 {
+    transform: rotate(0deg);
+}
+
+.ggc-piont25 {
+    position: absolute;
+    top: 80%;
+    left: 20%;
+}
+
+.ggc-carImg25 {
+    transform: rotate(-10deg);
+}
+
+.ggc-piont26 {
+    position: absolute;
+    top: 84%;
+    left: 20%;
+}
+
+.ggc-carImg26 {
+    transform: rotate(0deg);
+}
+
+.ggc-piont27 {
+    position: absolute;
+    top: 87%;
+    left: 22%;
+}
+
+.ggc-carImg27 {
+    transform: rotate(-90deg);
+}
+
+.ggc-piont28 {
+    position: absolute;
+    top: 86%;
+    left: 26%;
+}
+
+.ggc-carImg28 {
+    transform: rotate(-154deg);
+}
+
+.ggc-piont29 {
+    position: absolute;
+    top: 84%;
+    left: 26%;
+}
+
+.ggc-carImg29 {
+    transform: rotate(-180deg);
+}
+
+.ggc-piont30 {
+    position: absolute;
+    top: 82%;
+    left: 28%;
+}
+
+.ggc-carImg30 {
+    transform: rotate(-85deg);
+}
+
+.ggc-piont31 {
+    position: absolute;
+    top: 84%;
+    left: 34%;
+}
+
+.ggc-carImg31 {
+    transform: rotate(-60deg);
+}
+
+.ggc-piont32 {
+    position: absolute;
+    top: 86%;
+    left: 38%;
+}
+
+.ggc-carImg32 {
+    transform: rotate(-50deg);
+}
+
+.ggc-piont33 {
+    position: absolute;
+    top: 88%;
+    left: 42%;
+}
+
+.ggc-carImg33 {
+    transform: rotate(-65deg);
+}
+
+.ggc-piont34 {
+    position: absolute;
+    top: 90%;
+    left: 46%;
+}
+
+.ggc-carImg34 {
+    transform: rotate(-65deg);
+}
+
+.ggc-piont35 {
+    /* 游客中心 */
+    position: absolute;
+    top: 91%;
+    left: 50%;
+}
+
+.ggc-carImg35 {
+    transform: rotate(-60deg);
+}
+
+/*--------------------------------------------  */
+
+.ggc-carInfo {
+    width: 200rpx;
+    height: 90rpx;
+    padding: 20rpx 30rpx;
+    border-radius: 50%;
+    background: rgba(232, 217, 4, 0.8);
+    position: relative;
+    margin-top: -70%;
+    margin-left: 12%;
+    display: none;
+}
+
+.ggc-carImg-tip {
+    width: 0;
+    height: 0;
+    border-width: 16rpx 26rpx 16rpx 0;
+    border-style: solid;
+    border-color: transparent rgba(232, 217, 4, 0.8) transparent transparent;
+    position: absolute;
+    bottom: 10rpx;
+    left: -5rpx;
+    transform: rotate(-45deg);
+}
+
+.ggc-carImg-txt {
+    text-align: center;
+    font-size: 20rpx;
+    color: #000;
+}
+
+/*--------------------------------------------  */
+
+.show {
+    display: block;
+}

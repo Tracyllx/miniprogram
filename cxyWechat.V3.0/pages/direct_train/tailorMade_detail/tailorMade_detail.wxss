@@ -1,0 +1,1206 @@
+page {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+}
+
+/* 最大的view */
+
+.ticket-detail {
+    width: 100%;
+    height: 100%;
+}
+
+/* 景区介绍 */
+
+.scenic-introduction {
+    position: absolute;
+    top: -60rpx;
+    right: 30rpx;
+    width: auto;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 0 20rpx;
+    font-size: 26rpx;
+    color: #fff;
+    background: rgba(0, 131, 123, 0.6);
+}
+
+.swiper {
+    width: 100%;
+    height: 400rpx;
+}
+
+.swiper>block, .swiper-items {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-items>image {
+    width: 100%;
+    height: 100%;
+}
+
+/* 轮播的导航点距离底部 */
+
+.swiper .wx-swiper-dots.wx-swiper-dots-horizontal {
+    margin-bottom: 2rpx;
+}
+
+/* 轮播的导航点 */
+
+.swiper .wx-swiper-dot {
+    width: 18rpx;
+    height: 18rpx;
+    border-radius: 100%;
+    margin-left: 10rpx;
+}
+
+.show_content {
+    width: 100%;
+    height: auto;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.show-ticket {
+    line-height: 50rpx;
+    padding: 18rpx 24rpx;
+    height: auto;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* 展示门票内容 */
+
+.show-remark {
+    width: 73%;
+    font-size: 30rpx;
+    background: #fff;
+    float: left;
+}
+
+/* 展示购买此票可提供免费接送 */
+
+.showtip {
+    display: inline;
+    color: #e6761c;
+    font-size: 30rpx;
+    line-height: 30rpx;
+}
+
+/* 展示景区的简介及攻略 */
+
+.show-summary {
+    float: left;
+    width: 27%;
+    height: 100%;
+    color: #8a8a8a;
+    font-size: 27rpx;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* 展示价格 */
+
+.ticketPrice {
+    /* width: 100%; */
+    font-size: 36rpx;
+    color: #01827d;
+    /* margin-right: 25rpx; */
+    font-weight: 500;
+    text-align: right;
+    /* margin-top: 45%; */
+}
+
+/* 展示景区的相关信息 */
+
+.show-orgn-name {
+    background: #fff;
+    padding-top: 15rpx;
+    padding-bottom: 18rpx;
+    padding-right: 24rpx;
+    padding-left: 24rpx;
+    border-top: 1rpx solid #c6c6c6;
+}
+
+/* 展示景区的地址及开放时间 */
+
+.show-orgn-name>view {
+    line-height: 50rpx;
+    font-size: 28rpx;
+    color: #8a8a8a;
+}
+
+/* 景区的地址图片 */
+
+.show-orgn-name image {
+    width: 25rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
+}
+
+/* 景区的时间图片 */
+
+.show-orgn-name .show-time {
+    width: 28rpx;
+    height: 28rpx;
+    vertical-align: middle;
+    margin-top: -5rpx;
+}
+
+/* 提示如何退票 */
+
+.show-the-tip {
+    display: inline;
+    color: #8a8a8a;
+}
+
+/*展示提示,如随时退*/
+
+.show_tip {
+    width: 100%;
+    height: auto;
+    line-height: 60rpx;
+    padding-right: 24rpx;
+    padding-left: 24rpx;
+    color: #666;
+    /* margin-bottom: 15rpx; */
+    background: #fff;
+}
+
+/*展示文字距离打钩图片多远*/
+
+.show_tip>view {
+    margin-right: 20rpx;
+    font-size: 28rpx;
+}
+
+/*打钩图片设置*/
+
+.show_tip>image {
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
+}
+
+/*展示购票须知*/
+
+.show_get_ticket_tip {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    overflow: hidden;
+    margin-top: 15rpx;
+}
+
+.llk-the-note {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+    font-weight: 500;
+    padding: 16rpx 24rpx;
+}
+
+.llk-the-note-active {
+    color: #399;
+}
+
+.llk-the-note-line {
+    margin: 0 40rpx;
+    color: #999;
+}
+
+/*展示下面内容*/
+
+.show_ticket_block {
+    width: 100%;
+    height: auto;
+    /* padding-top: 14rpx; */
+    overflow: hidden;
+    position: relative;
+}
+
+/*ul和li 的设置*/
+
+.show_ticket_block_ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: 16rpx 0;
+    border-top: 1rpx solid rgba(153, 153, 153, 0.5);
+}
+
+.use-tip {
+    width: 94%;
+    line-height: 40rpx;
+    padding-left: 24rpx;
+    display: block;
+    padding-right: 24rpx;
+    overflow: hidden;
+}
+
+/*li下的span二级标题的内容*/
+
+.show_tip_content {
+    margin-right: 10rpx;
+    font-size: 28rpx;
+    color: #999;
+    display: inline;
+}
+
+/* 购票须知二级标题 */
+
+.showtitlecolor {
+    color: #01827d;
+    margin-right: 0;
+    font-size: 28rpx;
+    display: inline;
+}
+
+/* 展示往下展开 */
+
+.shownext {
+    width: 100%;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    padding-bottom: 10rpx;
+}
+
+/* 展示img的宽高 */
+
+.fold-next {
+    width: 27rpx;
+    height: 15rpx;
+    vertical-align: middle;
+    /* margin-left: 45%;
+    display: block;
+    margin-top: 3%; */
+}
+
+/* 展示下面使用日期 */
+
+.show-date {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 15rpx;
+}
+
+/*展示日期*/
+
+.show_date {
+    background: #fff;
+    width: 95%;
+    height: 80rpx;
+    padding: 16rpx 24rpx;
+    border-bottom: 1rpx solid #c6c6c6;
+}
+
+/*显示日期的div下的div公共样式*/
+
+.show_date>view {
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+/*展示使用日期*/
+
+.show_date_title {
+    width: 22%;
+    line-height: 80rpx;
+    font-size: 30rpx;
+}
+
+/*展示详细的日期*/
+
+.show_detail_date {
+    width: 77%;
+}
+
+/*ul的设置*/
+
+#showDate {
+    width: 100%;
+    height: 80%;
+}
+
+/*日期的选择*/
+
+.show_shan_li {
+    width: 50%;
+    height: 75%;
+    float: left;
+    font-size: 27rpx;
+    border-radius: 10rpx;
+    padding-top: 1%;
+    margin-top: 1%;
+    line-height: 55rpx;
+    text-align: center;
+    margin-right: 3.5%;
+    border: 1rpx solid #01827d;
+}
+
+/*日期文字离钱数一定距离*/
+
+#showDate li text {
+    margin-left: 6rpx;
+    display: inline;
+}
+
+/*最后一个日期去掉margin*/
+
+.noneborderright {
+    float: right;
+    margin-right: 0 !important;
+}
+
+/*更多日期的小图标*/
+
+.showthisnext {
+    width: 15rpx;
+    height: 25rpx;
+    margin-left: 5rpx;
+    margin-top: -4rpx;
+    vertical-align: middle;
+}
+
+/*展示预订数量*/
+
+.show_ticket_number {
+    width: 100%;
+    height: 80rpx;
+    padding: 16rpx 24rpx;
+    background: #fff;
+    border-bottom: 1rpx solid #c6c6c6;
+}
+
+/*预订下的div共同设置*/
+
+.show_ticket_number>view {
+    float: left;
+    height: 100%;
+}
+
+/*展示预订数量*/
+
+.show_number_title {
+    width: 22%;
+    font-size: 28rpx;
+    line-height: 80rpx;
+}
+
+/*展示点击的时候的数量改变最大div*/
+
+.show_click_change_number {
+    width: 73%;
+    margin-top: 1%;
+    text-align: center;
+    overflow: hidden;
+}
+
+/*展示点击的时候的数量改变第二层div，有个框框的感觉*/
+
+.show_change_number {
+    width: 220rpx;
+    height: 75%;
+    border: 1rpx solid #01827d;
+    border-radius: 10rpx;
+    overflow: hidden;
+    float: left;
+}
+
+/*数量的加减按钮*/
+
+.show_change_number>view {
+    width: 47rpx;
+    height: 100%;
+    font-size: 28rpx;
+    float: left;
+    line-height: 60rpx;
+    background: none;
+}
+
+.show_change_number>.number {
+    width: 55rpx;
+}
+
+button::after {
+    border: none;
+}
+
+/*展示数量*/
+
+.show_change_number>input {
+    width: 100rpx;
+    height: 100%;
+    float: left;
+    text-align: center;
+    border-right: 1rpx solid #01827d;
+    border-left: 1rpx solid #01827d;
+    border-bottom: none;
+    border-top: none;
+    font-size: 28rpx;
+    color: #000;
+}
+
+.show_change_number>.nonechoose {
+    color: #999;
+}
+
+/* 展示注释哪天有效 */
+
+.time-to-use {
+    margin-left: 13rpx;
+    color: #e6761c;
+    line-height: 65rpx;
+    font-size: 27rpx;
+    float: left;
+}
+
+/*展示标注及总价*/
+
+.show_tip_about_ticket, .all_the_money {
+    width: 100%;
+    height: 80rpx;
+    padding: 16rpx 24rpx;
+    background: #fff;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    border-bottom: 1rpx solid #333;
+}
+
+/*展示注字字体大小及总价的字体大小*/
+
+.tip_title {
+    font-size: 28rpx;
+    margin-right: 0.1rem;
+}
+
+/*展示钱数*/
+
+.all_the_money {
+    border-bottom: none !important;
+}
+
+/*钱数颜色和字体大小*/
+
+#money {
+    color: #01827d;
+    font-size: 34rpx;
+}
+
+/*展示人民币符号和钱数距离*/
+
+#all_money {
+    margin-left: 8rpx;
+}
+
+.show-bind-phone {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 15rpx;
+}
+
+/*展示电话号码绑定*/
+
+.show_phone {
+    width: 92%;
+    height: auto;
+    background: #fff;
+    padding: 4%;
+    overflow: hidden;
+}
+
+/* 手机号输入出错提示 */
+
+.showMisstake {
+    width: 100%;
+    text-align: center;
+    color: red;
+    font-size: 25rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+/*展示绑定电话*/
+
+.show_phone_number {
+    width: 100%;
+    height: 80rpx;
+    border: 1rpx solid #999;
+}
+
+/*电话和发送验证码的公共设置*/
+
+.show_phone_number>view {
+    height: 100%;
+    float: left;
+}
+
+/*展示电话的最小div（装输入的input）*/
+
+.show_client_phone {
+    width: 68%;
+}
+
+/*发送验证码*/
+
+#send_message_code {
+    width: 32%;
+    color: #01827d;
+    text-align: right;
+    font-size: 29rpx;
+    float: left;
+    border: none;
+    outline: none;
+    background: none;
+    height: 100%;
+    padding-top: 4rpx;
+    padding-right: 24rpx;
+    line-height: 78rpx;
+    padding-left: 0;
+}
+
+/*收验证码与电话号码之间的距离*/
+
+.thismargin {
+    margin-top: 18rpx;
+}
+
+/*展示验证码输入框*/
+
+#phoneNumber, #checkCode {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 28rpx;
+    padding-left: 25rpx;
+}
+
+/* 展示是否接送的最大一层view */
+
+show-shuttle-big-view {
+    width: 100%;
+    overflow: hidden;
+    transition: All 0.3s ease;
+    -webkit-transition: All 0.3s ease;
+}
+
+/* 展示是否免费乘车 */
+
+.show-car-to-feel {
+    margin-top: 15rpx;
+    background: #fff;
+    padding-left: 24rpx;
+    padding-right: 24rpx;
+    border-bottom: 1rpx solid #c6c6c6;
+}
+
+/* 展示是否免费接送 */
+
+.shuttle-tourist {
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.shuttle-tourist image {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: middle;
+}
+
+/* 单选按钮 */
+
+#radio .wx-radio-input.wx-radio-input-checked {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 0;
+    border-color: #eee;
+}
+
+/* 单选的设置 */
+
+.radio .wx-radio-input {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 0;
+    margin-left: 1rpx;
+}
+
+/* 单选选中的效果 */
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+    color: #01827d;
+    font-size: 26px;
+    margin-left: 0;
+    border: 1rpx solid #bfbfbf;
+}
+
+/* 是否接送文字 */
+
+.show-fonts {
+    display: inline;
+    font-size: 36rpx;
+    color: #399;
+    margin-left: 10rpx;
+}
+
+/* 去程和返程 */
+
+.to-or-back {
+    width: 100%;
+    /* background: #fff; */
+    overflow: hidden;
+}
+
+/* 展示去程 */
+
+.show-to-here {
+    /* width: 96%; */
+    font-size: 28rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding-left: 3.5%;
+    border-bottom: 1rpx solid #c6c6c6;
+    background: #399;
+    color: #fff;
+}
+
+/* tip只能预约1小时后的接送服务 */
+
+.show-to-here-tip {
+    display: inline;
+    font-size: 26rpx;
+    margin-left: 10rpx;
+    /* color: #8a8a8a; */
+    color: #fff;
+}
+
+/* 上车点 */
+
+.boarding {
+    padding: 14rpx;
+    padding-left: 24rpx;
+    overflow: hidden;
+    background: #e2fdf4;
+    /* border-bottom: 1rpx solid #c6c6c6; */
+}
+
+/* 展示上车点的左右两边view */
+
+.boarding>view {
+    float: left;
+    height: 60rpx;
+    padding: 15rpx 0;
+    width: 98%;
+    font-size: 27rpx;
+    overflow: hidden;
+}
+
+/* 上车点下车点文字 */
+
+.font-car-here {
+    float: left;
+    line-height: 60rpx;
+}
+
+/* 展示多选框 */
+
+.showpiker {
+    float: left;
+    width: 80%;
+    height: 60rpx;
+    line-height: 60rpx;
+    /* margin: 15rpx 0; *//* height: 60%; *//* margin-top: 8rpx; */
+    position: relative;
+    border-radius: 10rpx;
+    z-index: 2;
+    /* padding-top: 6rpx; */
+    border: 1rpx solid #c6c6c6;
+}
+
+/* 乘车时间和乘车人数的设置 */
+
+.ride-car-piker {
+    width: 198rpx;
+}
+
+.section {
+    width: 100%;
+    height: 100%;
+}
+
+/* 多选框的设置 */
+
+.show-picker {
+    width: 100%;
+    /* width: 205rpx; */
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 展示下拉小三角 */
+
+.show-next {
+    position: absolute;
+    /* right: 15rpx; *//* top: 6rpx; */
+    right: 0;
+    top: 0;
+    width: 50rpx;
+    height: 60rpx;
+    z-index: -1;
+    text-align: center;
+    border-left: 1rpx solid #c6c6c6;
+}
+
+/* 下拉小三角的图标设置 */
+
+.show-next>image {
+    width: 25rpx;
+    height: 15rpx;
+    vertical-align: middle;
+}
+
+.picker {
+    text-align: center;
+    padding-right: 50rpx;
+    /* padding-top: 3.5rpx; */
+}
+
+.picker-left {
+    text-align: center;
+    padding-right: 50rpx;
+    /* padding-top: 3.5rpx; */
+}
+
+/* 乘车时间和乘车人数 */
+
+.ride-time {
+    width: 49%;
+    float: left;
+    height: 100%;
+}
+
+.marginleft {
+    margin-left: 12rpx;
+}
+
+/* 乘车人数的设置 */
+
+.number-of-passengers {
+    width: 198rpx;
+    float: left;
+    height: 60rpx;
+    line-height: 60rpx;
+    /* margin-top: 9rpx; */
+    position: relative;
+    border-radius: 16rpx;
+    z-index: 2;
+    border: 1rpx solid #c6c6c6;
+}
+
+.number-of-passengers>view {
+    line-height: 60rpx;
+    text-align: center;
+}
+
+.number-of-passengers>.none-colors {
+    color: #999;
+}
+
+/* 乘车人数输入框 */
+
+.showNumber {
+    width: 50%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    border-right: 1rpx solid #c6c6c6;
+    border-left: 1rpx solid #c6c6c6;
+    border-bottom: none;
+    border-top: none;
+    font-size: 28rpx;
+}
+
+/* 展示按钮的高度 */
+
+.number-of-passengers>button {
+    line-height: 50rpx;
+}
+
+.number-of-passengers>.none-color {
+    border-color: #c6c6c6;
+}
+
+/* 展示颜色是灰色 */
+
+.none-color {
+    color: #8a8a8a;
+}
+
+/* 总价和在线预订 */
+
+.allCount {
+    width: 100%;
+    height: 86rpx;
+    overflow: hidden;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+    color: #fff;
+    background-color: #999;
+}
+
+.no-border {
+    border-top: 1rpx solid #999;
+}
+
+.no-border-active {
+    border-top: 1rpx solid #01827d;
+}
+
+/* 总价及预订的共有view */
+
+.allCount>view {
+    height: 100%;
+    float: left;
+}
+
+/* 展示价格 */
+
+.onePrice {
+    width: 60%;
+    background: #fff;
+}
+
+/* 预订 */
+
+.book {
+    width: 40%;
+    color: #fff;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 86rpx;
+    border-radius: 0;
+}
+
+/* 在线预订没有电话及六位验证码的情况 */
+
+.book-active-color {
+    background: #01827d;
+}
+
+.book-no-color {
+    background: #999;
+}
+
+/* 滚动条不要 */
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+/*点击日期的时候颜色*/
+
+.activeDate {
+    /* background: #01827d !important; */
+    color: #01827d;
+    font-size: 32rpx;
+    border: none;
+}
+
+.padding_top {
+    padding-top: 1.2%;
+    text-align: left;
+}
+
+.nonedisplay {
+    display: none;
+}
+
+#showDate li .nonedisplay {
+    display: none;
+}
+
+.display {
+    display: block;
+}
+
+.center {
+    text-align: center;
+}
+
+.noneborder {
+    border: none;
+}
+
+.noClick {
+    border: 1rpx solid #eee;
+    background: #eee;
+}
+
+.color {
+    color: #999;
+}
+
+.kk-0-height {
+    height: 0;
+    transition: All 0.5s ease;
+    -webkit-transition: All 0.5s ease;
+}
+
+.kk-full-height {
+    height: 740rpx;
+}
+
+.kk-style {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 9;
+    background-color: #fff;
+}
+
+.kk-bottom {
+    position: absolute;
+    top: 0;
+    bottom: 88rpx;
+    width: 100%;
+}
+
+.kk-border-none {
+    border: 0;
+    color: #999;
+}
+
+/* 定制旅游 */
+
+.show-desc {
+    margin-top: 15rpx;
+    padding: 0 24rpx 24rpx;
+    background-color: #fff;
+    /* height: 300rpx; */
+    position: relative;
+}
+
+.info-title {
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+}
+
+.info-title-tip {
+    color: #999;
+    font-size: 20rpx;
+    padding-left: 30rpx;
+}
+
+.info-content-input {
+    font-size: 28rpx;
+    outline: none;
+    padding: 0 25rpx;
+    height: 80rpx;
+    border: 1rpx solid #999;
+}
+
+.info-con-box {
+    position: relative;
+    z-index: 1;
+    height: 260rpx;
+    padding: 15rpx;
+    border: 1rpx solid #999;
+    border-radius: 10rpx;
+    background-color: #fff;
+    font-size: 26rpx;
+    color: #999;
+}
+
+.info-content {
+    width: 100%;
+    height: 100%;
+    white-space: pre-line;
+}
+
+.info-input {
+    position: absolute;
+    z-index: -1;
+    right: 24rpx;
+    bottom: 24rpx;
+    width: 1rpx;
+    color: transparent;
+}
+
+.kk-remark-hh {
+    line-height: 80rpx;
+    padding-top: 0;
+}
+
+.kk-price-hh {
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.kk-price-mgt {
+    margin-top: 0;
+}
+
+/* ===================================== 特产收货地址部分 ========================================== */
+
+.receiving-address {
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+}
+
+.address-bar {
+    padding: 16rpx 24rpx;
+    font-size: 28rpx;
+}
+
+.address-c9 {
+    color: #999;
+}
+
+.address-c39 {
+    color: #399;
+}
+
+.address-title {
+    line-height: 80rpx;
+    border-top: 1rpx solid #c6c6c6;
+}
+
+.address-bj {
+    color: #399;
+    float: right;
+    padding: 0 24rpx;
+}
+
+.address-pdB0 {
+    padding-bottom: 0;
+}
+
+.address-pdB24 {
+    padding-bottom: 24rpx;
+}
+
+/* 产品评论 */
+
+.show-comment {
+    padding: 16rpx 24rpx 40rpx;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    display: -webkit-flex;
+    border-top: 1rpx solid rgba(153, 153, 153, 0.5);
+}
+
+.show-comment-head {
+    flex: 0 0 100rpx;
+    height: auto;
+    overflow: hidden;
+}
+
+.show-comment-head>image {
+    width: 65rpx;
+    height: 65rpx;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+
+.show-comment-con {
+    flex: 1;
+}
+
+.show-comment-name {
+    font-size: 22rpx;
+    color: #999;
+}
+
+.show-comment-start {
+    height: 30rpx;
+    line-height: 30rpx;
+    margin-top: 6rpx;
+}
+
+.show-comment-start>image {
+    width: 26rpx;
+    height: 26rpx;
+    margin-right: 5rpx;
+}
+
+.show-comment-txt {
+    font-size: 26rpx;
+    color: #333;
+    line-height: 40rpx;
+    margin: 10rpx 0;
+}
+
+.show-comment-img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.show-comment-img>image {
+    width: 100rpx;
+    height: 100rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.show-more-comment {
+    position: absolute;
+    bottom: 8rpx;
+    right: 24rpx;
+    width: 180rpx;
+    font-size: 24rpx;
+    color: #399;
+    text-align: right;
+}
+
+.show-commnet-no {
+    font-size: 28rpx;
+    color: #999;
+    text-align: center;
+    padding: 24rpx 0;
+    border-top: 1rpx solid rgba(153, 153, 153, 0.5);
+}
+
+/* 填写总价 */
+
+.lu-write-total {
+    background: #fff;
+    padding: 16rpx 24rpx;
+    height: 80rpx;
+    display: flex;
+    display: -webkit-flex;
+}
+
+.lu-write-label {
+    flex: 0 0 100rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+}
+
+.lu-write-input {
+    flex: 1;
+    height: 100%;
+    /* border: 1rpx solid #999; */
+}
+
+.lu-write-input>input {
+    width: 100%;
+    height: 100%;
+    font-size: 30rpx;
+    color: #01827d;
+}

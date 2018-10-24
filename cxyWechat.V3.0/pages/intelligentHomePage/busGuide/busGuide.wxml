@@ -1,0 +1,14 @@
+<view class='outside-view busGuide'>
+    <view class='line-img'>
+        <image src='{{HTTPS}}img/intelligentTraffic/bg_ggc.png'></image>
+    </view>
+    <view class='add-list'>
+        <view class='add-item {{index==siteList.length-1?"no-b":""}}' wx:for='{{siteList}}' wx:key='{{index}}'>
+            <view class='add-item-bar'>
+                <view>{{item.name}}</view>
+                <view>距离您{{item.distance}}</view>
+            </view>
+            <view class='how-to-go chuizhi' catchtap='howToGo' data-index='{{index}}'>怎么去</view>
+        </view>
+    </view>
+</view>

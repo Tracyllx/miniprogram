@@ -1,0 +1,20 @@
+<view class='shuttle_mes'>
+    <view class='showheader' style='background:#fff'>
+        <view class='shan'>时间</view>
+        <view class='shan'>上车点</view>
+        <view class='shan'>下车点</view>
+        <view class='shan'>人数</view>
+        <view class='noneborder shan'>车号</view>
+    </view>
+    <scroll-view class='scroller' scroll-y scroll-top='{{top}}'>
+        <view class='showlist {{item.class}}' wx:for="{{list}}" wx:key="{{index}}" data-index='{{index}}' data-len='{{list.length}}' catchtap='touristDetail'>
+            <view>{{item.ride_time}}</view>
+            <view class='overflow' data-index='{{index}}' data-name-index="1" catchtap='getName'>{{item.up_address}}</view>
+            <view class='overflow' data-index='{{index}}' data-name-index="2" catchtap='getName'>{{item.down_address}}</view>
+            <view>{{item.total_num}}人</view>
+            <view class='noneborder {{item.newCarNum?"":"color"}}' data-index='{{index}}' catchtap='getCarNumber'>{{item.newCarNum?item.newCarNum:"分配"}}</view>
+            <view class='block {{item.isBlock== false?"displaynone":""}}' catchtap='getNone'>{{content}}</view>
+        </view>
+        <view class="nonedata {{list.length != 0 ? 'hidden' : ''}}">暂无接送信息~</view>
+    </scroll-view>
+</view>

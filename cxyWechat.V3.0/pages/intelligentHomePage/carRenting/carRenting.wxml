@@ -1,0 +1,154 @@
+<view class='outside-view'>
+    <scroll-view scroll-y class='scroll-view'>
+        <!-- 半日租、日租、月租 -->
+        <view class='lu-rental-bar'>
+            <view class='lu-rental-title {{chooseRentalID == 1 ? "lu-rental-title-active" : ""}}' catchtap='chooseRentalTap' data-index='1'>
+                <text>半日租</text>
+                <text class='lu-small-txt'>\n(4小时)</text>
+                <view class='lu-rental-line'></view>
+            </view>
+            <view class='lu-rental-title {{chooseRentalID == 2 ? "lu-rental-title-active" : ""}}' catchtap='chooseRentalTap' data-index='2'>
+                <text>日租</text>
+                <view class='lu-rental-line'></view>
+                <text class='lu-small-txt'>\n(10小时)</text>
+            </view>
+            <view class='lu-rental-title {{chooseRentalID == 3 ? "lu-rental-title-active" : ""}}' catchtap='chooseRentalTap' data-index='3'>
+                <text>月租<text class='lu-small-txt'>\n(30天)</text></text>
+            </view>
+        </view>
+        <!-- 租车开始时间 -->
+        <view class="show_date">
+            <view class="show_date_title">租车开始时间：</view>
+            <view class="show_detail_date">
+                <ul id="showDate">
+                    <li class="show_shan_li" data-type-index="1" catchtap="chooseMoreDate">
+                        <view class='kk_show_time'>
+                            <text space='ensp'>{{chooseDateDetailTime}}  {{chooseRentalID==1?beginTime:''}}</text>
+                        </view>
+                        <image class="showthisnext" src="../../img/direct_train/choose_more.png"></image>
+                    </li>
+                </ul>
+                <view wx:if='{{chooseRentalID == 1}}' class='picker-time'>
+                    <picker class='picker-time-box' mode="time" value="{{pickerTime}}" start="{{pickerStart}}" end="20:59" bindchange="bindTimeChange">
+                        <text>选时间</text>
+                    </picker>
+                </view>
+            </view>
+        </view>
+        <!-- 租车结束时间 -->
+        <view class="show_date" style='border: 0;'>
+            <view class="show_date_title">租车结束时间：</view>
+            <view class="show_detail_date">
+                <ul id="showDate">
+                    <li class="show_shan_li {{chooseRentalID == 2 ? '' : 'disable_shan_li'}}" data-type-index="2" catchtap="chooseMoreDate">
+                        <view class='kk_show_time'>
+                            <text space='ensp'>{{chooseDateDetailTimeEnd}}  {{chooseRentalID==1?finishTime:''}}</text>
+                        </view>
+                        <image wx:if='{{chooseRentalID == 2}}' class="showthisnext" src="../../img/direct_train/choose_more.png"></image>
+                        <image wx:if='{{chooseRentalID != 2}}' class="showthisnext" src="../../img/direct_train/choose_more_hue.png"></image>
+                    </li>
+                </ul>
+            </view>
+        </view>
+        <!-- 租车月数 -->
+        <view wx:if='{{chooseRentalID == 3}}' class="show_date" style='border: 0;'>
+            <view class="show_date_title">租车月数：</view>
+            <view class="show_detail_date">
+                <view class='show_shan_li' style='padding-top: 0;'>
+                    <view class="lu-rental-month-option" data-click-index='0' data-minus-plus="-1" catchtap="monthCountOption">-</view>
+                    <view class='lu-rental-month-input'>
+                        <input type='number' bindblur='monthCountBlur' bindinput='monthCountInput' value='{{monthCount}}'></input>
+                    </view>
+                    <view class="lu-rental-month-option" data-click-index='0' data-minus-plus="1" catchtap="monthCountOption">+</view>
+                </view>
+            </view>
+        </view>
+        <!-- 租车数量 -->
+        <view class="show_date">
+            <view class="show_date_title">租车数量：</view>
+            <view class="show_detail_date">
+                <view class='show_shan_li' style='padding-top: 0;'>
+                    <view class="lu-rental-month-option" data-click-index='0' data-minus-plus="-1" catchtap="changeNumber">-</view>
+                    <view class='lu-rental-month-input'>
+                        <input type="number" bindinput="changeInputValue" bindblur="getInputValue" value="{{ticketNumber}}" />
+                    </view>
+                    <view class="lu-rental-month-option" data-click-index='0' data-minus-plus="1" catchtap="changeNumber">+</view>
+                </view>
+            </view>
+        </view>
+        <!-- 上车地点 -->
+        <view class="show_date lu-up-addressBig">
+            <view class="show_date_title">上车地点：</view>
+            <view class="show_detail_date">
+                <view wx:if='{{!luAddressInput}}' class='show_shan_li' catchtap='showAddressData'>
+                    <view class='kk_show_time'>{{addressValue}}</view>
+                    <image class='fold-next' src='../../img/direct_train/{{luAddress ? "up.png" : "down.png"}}'></image>
+                </view>
+                <view wx:if='{{luAddressInput}}' class='show_shan_li'>
+                    <input class='lu-address-input {{addressFocus?"":"lu-center-txt"}}' bindblur='addressInputBlur' bindinput='addressInput' focus='{{addressFocus}}' value='{{addressValue}}'></input>
+                </view>
+                <image catchtap='addressWrite' class='lu-writing-icon' src='../../img/direct_train/write_icon.png'></image>
+            </view>
+            <!-- 上车地点的选项 -->
+            <view class='lu-up-address' wx:if='{{luAddress}}'>
+                <view class='lu-up-address-l'></view>
+                <view class='lu-up-address-r'>
+                    <block wx:for='{{luAddressData}}' wx:key='{{index}}'>
+                        <view class='lu-up-address-item {{index + 1 == luAddressData.length ? "lu-border-none" : ""}}' catchtap='addItemTap' data-name='{{item.name}}'>
+                            <text>{{item.name}}</text>
+                            <text wx:if='{{item.tip}}' class='lu-small-txt'>\n({{item.tip}})</text>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <view class='show-bind-phone'>
+            <view class="show_phone">
+                <view class="show_phone_number">
+                    <view class="show_client_phone">
+                        <input type="text" name="userName" id="phoneNumber" bindinput='bindInputName' bindblur="bindBlurName" maxlength="30" value="{{contactsVal}}" placeholder="请输入联系人姓名" />
+                    </view>
+                </view>
+                <view class='showMisstake'>{{isEmptyName ? "请填写联系人姓名" : ""}}</view>
+                <view class="show_phone_number">
+                    <view class="show_client_phone">
+                        <input type="number" name="phoneNumber" id="phoneNumber" bindinput='getPhoneNumber' bindblur="getBlurValue" maxlength="11" value="{{phoneValue}}" placeholder="请输入手机号码" />
+                    </view>
+                    <button id="send_message_code" class='{{sixCodeDisplay == true?"nonedisplay":""}}' disabled='{{isFalse}}' catchtap='sendCode'>{{sendCodeTip}}</button>
+                </view>
+                <view class='showMisstake {{sixCodeDisplay == true?"nonedisplay":""}}'>{{phoneTip}}</view>
+                <view class='show_phone_number {{sixCodeDisplay == true?"nonedisplay":""}}'>
+                    <input type="number" maxlength="6" name="checkCode" id="checkCode" focus='{{focusTo}}' bindinput='geSixCkeckedNumber' value="{{sixCode}}" placeholder="请输入手机短信中的验证码" />
+                </view>
+            </view>
+        </view>
+        <!-- 租车详情 -->
+        <view class="show_date zc-detail">
+            <text class='zc-detail-txt' catchtap='zcDetail'>租车详情</text>
+        </view>
+        <!-- 车型 -->
+        <view class='car-model'>
+            <swiper class='swiper' current='{{slideCurrent}}'>
+                <block wx:for="{{imgUrls}}" wx:key='{{index}}'>
+                    <swiper-item class='swiper-item'>
+                        <image src="{{item}}" class="slide-image" />
+                        <view class='slide-text'>10~16座车型</view>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class='car-model-option fl' catchtap='carModelOption' data-option='prev'>
+                <view class='car-model-prev'></view>
+            </view>
+            <view class='car-model-option fr' catchtap='carModelOption' data-option='next'>
+                <view class='car-model-next'></view>
+            </view>
+        </view>
+    </scroll-view>
+
+    <!-- 显示价格和在线预订 -->
+    <view class='lu-button'>
+        <view class='lu-button-item total-price'>合计：¥{{allMoney}}</view>
+        <view class='lu-button-item buy-online {{ButtonActive?"":"buy-online-dis"}}' catchtap='bookTicket'>确认租车</view>
+    </view>
+
+</view>

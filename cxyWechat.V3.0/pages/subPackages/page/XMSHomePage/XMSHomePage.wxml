@@ -1,0 +1,84 @@
+<view class='outside-view'>
+
+    <scroll-view scroll-y class='scroll-view'>
+        <!-- 轮播图 -->
+        <swiper class='swiper-box' autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="{{indicatorDots}}" indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="#fff">
+            <block wx:for='{{swiperImg}}' wx:key='{{index}}'>
+                <swiper-item>
+                    <image class='swiper-img' catchtap='previewImg' data-img-url='{{item}}' data-img-list='{{swiperImg}}' mode='aspectFill' src='{{item}}'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+        <!-- 主营业务 -->
+        <view class='business'>
+            <view class='business-content box-shadow kk-box'>
+                <block wx:for='{{mainBusiness}}' wx:key='{{index}}'>
+                    <navigator hover-class="none" hover-stop-propagation open-type='navigateTo' url='{{item.url}}' class='part-of-business'>
+                        <view class='business-icon'>
+                            <image mode='aspectFill' src='{{HTTPS}}img/cxtripHomePage/cooperation/xms/{{item.icon}}.png'></image>
+                        </view>
+                        <view class='business-title'>{{item.title}}</view>
+                    </navigator>
+                </block>
+            </view>
+        </view>
+        <!-- 热门推荐、攻略 -->
+        <view class='lu-product-list'>
+            <view class='lu-list-item'>
+                <view class='lu-item-title'>
+                    <view class='h-title'>热门推荐</view>
+                    <view class='line'></view>
+                    <view class='more' catchtap='gotoMore' data-page-type='hot'>更多</view>
+                </view>
+                <view class='lu-item-content'>
+                    <view wx:if='{{list.length == 0}}' class='nonedata'>暂无推荐~</view>
+                    <block wx:for="{{list}}" wx:key="{{index}}" wx:if="{{index < 6}}">
+                        <view class='lu-item-box {{index == 1 || index == 4 ? "lu-box-pdlr" : ""}}' catchtap='tapNavToWhere' data-img-urls="{{item.imgUrls}}" data-hot-index="{{index}}">
+                            <view class='lu-item-box-img'>
+                                <image mode='aspectFill' wx:if="{{item.imgUrls[0]}}" src='{{item.imgUrls[0]}}'></image>
+                            </view>
+                            <view class='lu-item-box-txt'>{{item.productName}}</view>
+                            <view class='lu-item-price'>¥{{item.productPrice}}起</view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <!-- <view class='lu-list-item'>
+                <view class='lu-item-title'>
+                    <view class='r-title'>
+                        <view class='block-c'></view>攻略</view>
+                    <view class='line'></view>
+                    <view class='more' catchtap='gotoMore' data-page-type='raider'>更多</view>
+                </view>
+                <view class='lu-item-content'>
+                    <block wx:for="{{raidersList}}" wx:key="{{index}}">
+                        <view class='lu-item-box2 {{index == 0 ? "lu-pt0" : ""}} {{raidersList.lenght - 1 == index ? "lu-bb0" : ""}}' catchtap='gotoUrl' data-goto-url='{{item.goto_url}}'>
+                            <view class='lu-item-box2-l'>
+                                <image mode='aspectFill' wx:if="{{item.intro_photo_url}}" src='{{item.intro_photo_url}}'></image>
+                            </view>
+                            <view class='lu-item-box2-r'>
+                                <view class='desc'>{{item.intro_desc}}</view>
+                                <view class='tags'>
+                                    <text wx:for='{{item.labelArr}}' wx:for-index='i' wx:for-item='val' wx:key='{{i}}' wx:if='{{i < 5}}'>{{val}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view> -->
+        </view>
+    </scroll-view>
+
+    <!-- 底部导航栏 -->
+    <view class='footer '>
+        <view class='homepage {{isHome == true ? "home-color" : ""}} '>
+            <image src='{{imgHome == true ? "../../../img/cxtripHomePage/home.png" : "../../../img/cxtripHomePage/home_hue.png"}}'></image>
+            首页
+        </view>
+        <view class='personal {{isMy == true ? "home-color" : ""}} ' bindtap='changePersonalActive'>
+            <image src='{{imgPersonal == true ? "../../../img/cxtripHomePage/my_hue.png" : "../../../img/cxtripHomePage/my.png"}}'></image>
+            个人中心
+        </view>
+    </view>
+
+</view>

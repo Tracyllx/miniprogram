@@ -1,0 +1,47 @@
+<view class='outside-view'>
+
+    <scroll-view scroll-y class='scroll-view'>
+        <!-- 轮播图 -->
+        <swiper class='swiper-box' autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="{{indicatorDots}}" indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="#fff">
+            <block wx:for='{{swiperImg}}' wx:key='{{index}}'>
+                <swiper-item>
+                    <image class='swiper-img' catchtap='previewImg' data-img-url='{{item}}' data-img-list='{{swiperImg}}' mode='aspectFill' src='{{item ? item : defaultImg}}'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+        <!-- 产品列表 -->
+        <view class='product-list'>
+            <!-- <view wx:if='{{dataList.length == 0}}' class='nonedata'>{{loadingTXT}}</view> -->
+            <block wx:for='{{dataList}}' wx:key='{{index}}'>
+                <view class='product-item' catchtap='gotoDetail' data-index='{{index}}'>
+                    <view class='product-item-img'>
+                        <image mode='aspectFill' src='{{item.imgUrls[0] ? item.imgUrls[0] : defaultImg}}'></image>
+                    </view>
+                    <view class='product-item-txt'>
+                        <view class='product-item-title'>{{item.productName}}</view>
+                        <view class='product-item-tip'>{{item.productDesc}}
+                            <text class='product-item-price'>¥{{item.productPrice}}</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <!-- 攻略 -->
+        <view wx:if='{{showStrategy}}' class='strategy-box' catchtap='gotoStrategy'>
+            <image mode='aspectFill' src='{{HTTPS}}img/cxtripHomePage/cooperation/enshi/strategy.png'></image>
+        </view>
+    </scroll-view>
+
+    <!-- 底部导航栏 -->
+    <view class='footer '>
+        <view class='homepage {{isHome == true ? "home-color" : ""}} '>
+            <image src='{{imgHome == true ? "../../../img/cxtripHomePage/home.png" : "../../../img/cxtripHomePage/home_hue.png"}}'></image>
+            首页
+        </view>
+        <view class='personal {{isMy == true ? "home-color" : ""}} ' bindtap='changePersonalActive'>
+            <image src='{{imgPersonal == true ? "../../../img/cxtripHomePage/my_hue.png" : "../../../img/cxtripHomePage/my.png"}}'></image>
+            个人中心
+        </view>
+    </view>
+
+</view>

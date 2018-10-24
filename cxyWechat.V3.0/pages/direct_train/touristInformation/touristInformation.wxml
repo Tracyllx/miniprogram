@@ -1,0 +1,20 @@
+<!--pages/direct_train/touristInformation/touristInformation.wxml-->
+<view class='tourist_information'>
+    <view class='showheader' style='background:#fff'>
+        <view>姓名</view>
+        <view>电话</view>
+        <view>人数</view>
+        <view class='noneborder'>是否验票</view>
+    </view>
+    <scroll-view class='scroller' scroll-y scroll-top='{{top}}'>
+        <view class='showlist ' wx:for="{{list}}" wx:key="{{index}}">
+            <view>{{item.name}}</view>
+            <view data-index='{{index}}' catchtap='bindPhone'>{{item.mobile_no}}</view>
+            <view>{{item.people_num}}</view>
+            <view class='noneborder status-img'>
+                <image src='../../img/direct_train/{{item.status == 1 ? "wait_checked.png" : (item.status == 2 ? "checked.png" : "no_checked.png")}}'></image>
+                <text>{{item.status == 1 ? "待核验" : (item.status == 2 ? "已核验" : "未核验")}}</text>
+            </view>
+        </view>
+    </scroll-view>
+</view>

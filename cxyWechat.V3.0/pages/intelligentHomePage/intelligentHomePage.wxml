@@ -1,0 +1,99 @@
+<view class='outside-view' style='background-color: #fff;'>
+    <!-- 观光车：背景图 -->
+    <view wx:if='{{tabIndex==0}}' class='bg-img'>
+        <image src='{{HTTPS}}img/intelligentTraffic/bg_ggc.png'></image>
+    </view>
+
+    <!-- 直通车：背景图 -->
+    <view wx:if='{{tabIndex==1}}' class='bg-img'>
+        <image src='{{HTTPS}}img/intelligentTraffic/bg_ztc.png'></image>
+    </view>
+
+    <!-- 导航条 -->
+    <view wx:if='{{hasTab}}' class='tab-bar'>
+        <view class='tab-item {{tabIndex == 0 ? "tab-item-active" : ""}}' catchtap='tabTap' data-index='0'>观光车</view>
+        <view class='tab-item {{tabIndex == 1 ? "tab-item-active" : ""}}' catchtap='tabTap' data-index='1'>直通车</view>
+        <view class='tab-item {{tabIndex == 2 ? "tab-item-active" : ""}}' catchtap='tabTap' data-index='2'>租 车</view>
+    </view>
+
+    <!-- 观光车：车行线路 -->
+    <view wx:if='{{tabIndex==0}}' class='ggc-car-map'>
+        <view class='ggc-car-box' catchtap='clickCar' data-index='null'>
+            <!-- 人 -->
+            <image wx:if='{{personPoint}}' class='personImg' src='{{personImg}}' style='position:absolute;{{personPoint}}'></image>
+            <!-- 车 -->
+            <view wx:for='{{carList}}' wx:key='{{index}}' class='ggc-car-img {{"ggc-piont"+item.classNum}}' catchtap='clickCar' data-index='{{index}}'>
+                <image wx:if='{{item.direction==1}}' class='carImg-2 {{"ggc-carImg"+item.classNum}}' src='{{carImgUp}}'></image>
+                <image wx:if='{{item.direction==2}}' class='carImg-2 {{"ggc-carImg"+item.classNum}}' src='{{carImgDown}}'></image>
+                <view class='ggc-carInfo {{clickIndex==index?"show":""}}'>
+                    <view class='ggc-carImg-tip'></view>
+                    <view class='ggc-carImg-txt'>编号：{{item.vehicleNumber}}号</view>
+                    <view class='ggc-carImg-txt' wx:if='{{item.status==1}}'>未发车！</view>
+                    <view class='ggc-carImg-txt' wx:if='{{item.status==2}}'>此车已过站！</view>
+                    <view class='ggc-carImg-txt' wx:if='{{item.status==3 && item.arriveTime!=0}}'>还有{{item.arriveTime}}分钟，到达您身边。</view>
+                    <view class='ggc-carImg-txt' wx:if='{{item.status==3 && item.arriveTime==0}}'>此车已到达您身边。</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 直通车：车行线路，css3实现 -->
+    <!-- <view wx:if='{{tabIndex==1}}' class='ztc-car-map'>
+        <view class='ztc-box'>
+            <div class='ztc-track'></div>
+            <view class='ztc-move'>
+                <image class='carImg ztc-car' src='{{carImg}}'></image>
+            </view>
+        </view>
+    </view> -->
+    <view wx:if='{{tabIndex==1}}' class='ztc-car-map'>
+        <view class='ztc-car-box'>
+            <image class='carImg-2 ztc-car-img {{ztcPosi}}' src='{{ztcDire=="down"?carImgDown:carImgUp}}'></image>
+        </view>
+    </view>
+
+    <!-- 租车内容 -->
+    <scroll-view scroll-y wx:if='{{tabIndex==2}}' class='zc-content' style='{{hasTab ? "" : "top: 0;"}}'>
+        <view class='zc-banner'>
+            <image mode='aspectFill' src='{{HTTPS}}img/intelligentTraffic/zc_banner.png'></image>
+        </view>
+        <view class='zc-main'>
+            <view class='zc-main-icon' catchtap='gotoCarRenting' data-the-type='1'>
+                <image mode='aspectFill' src='{{HTTPS}}img/intelligentTraffic/zc_icon1.png'></image>
+                <view>租车4小时</view>
+            </view>
+            <view class='zc-main-icon' catchtap='gotoCarRenting' data-the-type='2'>
+                <image mode='aspectFill' src='{{HTTPS}}img/intelligentTraffic/zc_icon2.png'></image>
+                <view>租车10小时</view>
+            </view>
+            <view class='zc-main-icon' catchtap='gotoCarRenting' data-the-type='3'>
+                <image mode='aspectFill' src='{{HTTPS}}img/intelligentTraffic/zc_icon3.png'></image>
+                <view>包车30天</view>
+            </view>
+        </view>
+        <view class='zc-car-model'>
+            <view class='zc-car-title'>推荐车型</view>
+            <view class='zc-car-box'>
+                <block wx:for='{{[1]}}' wx:key='{{index}}'>
+                    <view class='zc-car-box-item {{index==0||(index>0&&index%2==0)?"zc-box-item-mr":""}}' catchtap='gotoCarRenting' data-the-type='1'>
+                        <image mode='aspectFill' src='{{HTTPS}}img/intelligentTraffic/zc_type.png'></image>
+                        <view>10~16座车型</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </scroll-view>
+
+    <!-- 底部导航 -->
+    <view wx:if='{{tabIndex==0}}' class='inte-bottom ggc-btm'>
+        <view class='ggc-nav-item' catchtap='navItemTap' data-id='buy'>
+            <image class='ggc-nav-item-img' mode='aspectFill' src='{{HTTPS}}img/intelligentTraffic/ggc_icon1_w.png'></image>
+            <view class='ggc-nav-item-txt'>购票</view>
+        </view>
+        <view class='ggc-nav-item' catchtap='navItemTap' data-id='guide'>
+            <image class='ggc-nav-item-img' mode='aspectFill' src='{{HTTPS}}img/intelligentTraffic/ggc_icon2_w.png'></image>
+            <view class='ggc-nav-item-txt'>乘车指引</view>
+        </view>
+    </view>
+    <view wx:if='{{tabIndex==1}}' class='inte-bottom take-bus' catchtap='takeTheBus'>我要乘车</view>
+</view>

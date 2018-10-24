@@ -1,0 +1,4 @@
+<!--pages/riding/carRiding/carRiding.wxml-->
+<view class='outside-view'>
+    <map id="map" class='shanMap' longitude="{{lng}}" latitude="{{lat}}" scale="{{scale}}"  bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap"></map>
+</view>

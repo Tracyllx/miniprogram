@@ -1,0 +1,87 @@
+page, .myContainer {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+}
+
+/* 第一部分：logo部位 */
+
+.first_index {
+    width: 100%;
+    height: 270rpx;
+    text-align: center;
+    background-color: white;
+}
+
+/* logo图片 */
+
+.logo {
+    width: 240rpx;
+    height: 240rpx;
+    padding-top: 15rpx;
+}
+
+/* 第二部分：放关于我们的相应信息 */
+
+.second_index {
+    width: 100%;
+    background-color: white;
+}
+
+/* 微信小程序，联系电话，电子邮箱，官方网站 */
+
+.border_input {
+    height: 100rpx;
+    width: 90%;
+    margin-left: 5%;
+    border-top: 1px solid #dcdcdc;
+}
+
+/* 文字 */
+
+.touxiang, .nickname, .bangding, .offical_web {
+    color: #aaa;
+    font-size: 26rpx;
+    line-height: 100rpx;
+    float: left;
+    margin-left: 15rpx;
+}
+
+/* 图标 */
+
+.icon {
+    width: 50rpx;
+    height: 50rpx;
+    padding-top: 25rpx;
+    float: left;
+}
+
+/* 右边对应的内容 */
+
+.right_content {
+    color: #01827d;
+    font-size: 26rpx;
+    line-height: 100rpx;
+    float: right;
+}
+
+/* 第三部分：底部 */
+
+.third_index {
+    width: 100%;
+    position: absolute;
+    bottom: 15rpx;
+    text-align: center;
+}
+
+.company {
+    font-size: 27rpx;
+    font-weight: bold;
+    line-height: 45rpx;
+}
+
+.text {
+    font-size: 25rpx;
+    color: #01827d;
+    line-height: 40rpx;
+}

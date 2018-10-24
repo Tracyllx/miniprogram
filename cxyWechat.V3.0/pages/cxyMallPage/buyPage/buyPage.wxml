@@ -1,0 +1,37 @@
+<scroll-view scroll-y class='scroll-view'>
+    <swiper class='swiper-box'>
+        <block wx:for='{{bannerImgs}}' wx:key='{{index}}'>
+            <swiper-item>
+                <image class='swiper-img' catchtap='previewImg' data-index='{{index}}' mode='aspectFill' src='{{bannerImgs[0].photoUrl ? bannerImgs[0].photoUrl : defaultImg}}'></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class='page-search'>
+        <view hidden='{{showInput}}' class='page-search-box1 chuizhi' catchtap='searchBoxTap'>
+            <image class='page-search-icon' src='../../img/cxtripHomePage/search.png'></image>
+            <text class='page-search-txt'>{{searchTxt}}</text>
+        </view>
+        <view hidden='{{!showInput}}' class='page-search-box2'>
+            <image class='page-search-icon icon-margin' src='../../img/cxtripHomePage/search.png'></image>
+            <input class='page-search-input' type='text' focus='{{inputFocus}}' value='{{searchVal}}' placeholder='{{searchTxt}}' placeholder-style='color: #999;' confirm-type="search" bindinput="searchInput" bindblur='searchBlur' bindconfirm="searchConfirm"></input>
+        </view>
+    </view>
+    <view wx:if='{{productList.length == 0}}' class='nonedata'>暂无更多数据~</view>
+    <view wx:else class='content-list'>
+        <block wx:for='{{productList}}' wx:key='{{index}}'>
+            <view class='list-item {{index == 0 || (index > 0 && index % 2 == 0) ? "list-item-mr" : ""}}' catchtap='gotoDetail' data-index='{{index}}'>
+                <view class='item-img'>
+                    <image mode='aspectFill' src='{{item.productImg ? item.productImg : defaultImg}}'></image>
+                </view>
+                <view class='item-txt'>
+                    <view class='item-txt-name'>{{item.productName}}</view>
+                    <view class='item-txt-num'>
+                        <text class='item-txt-price'>¥{{item.price}}</text>
+                        <text class='item-txt-sell'>已售{{item.sellNum}}件</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view wx:if='{{showAllBtn}}' class='nonedata' style='color: #399;' catchtap='showAllTap'>查看全部~</view>
+</scroll-view>

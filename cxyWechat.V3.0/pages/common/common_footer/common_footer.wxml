@@ -1,0 +1,46 @@
+<!-- <view class='footer '>
+    <view class='homepage {{imgHome ==true?"home-color":""}} ' bindtap='changeHomeActive'>
+        <image src='{{imgHome ==true?"../img/cxtripHomePage/product_active.png":"../img/cxtripHomePage/product.png"}}'></image>
+        首页
+    </view>
+    <view class='personal  {{imgPersonal ==true?"home-color":""}} ' bindtap='changePersonalActive'>
+        <image src='{{imgPersonal ==false?"../img/cxtripHomePage/personal.png":"../img/cxtripHomePage/personal_active.png"}}'></image>
+        个人中心
+    </view>
+</view> -->
+
+<view class='footer'>
+    <block wx:if='{{cooperationName === "ENSHI"}}'>
+        <!-- 合作伙伴：恩施女儿城  -->
+        <view class='homepage {{imgHome == true ? "home-color" : ""}}' bindtap='changeHomeActive'>
+            <image src='{{imgHome == true ? "../img/cxtripHomePage/home_hue.png" : "../img/cxtripHomePage/home.png"}}'></image>
+            首页
+        </view>
+        <view class='personal {{imgPersonal == true ? "home-color" : ""}}' bindtap='changePersonalActive'>
+            <image src='{{imgPersonal == false ? "../img/cxtripHomePage/my.png" : "../img/cxtripHomePage/my_hue.png"}}'></image>
+            个人中心
+        </view>
+    </block>
+    <block wx:elif='{{cooperationName === "XMS"}}'>
+        <!-- 合作伙伴：香蜜山  -->
+        <view class='homepage {{imgHome == true ? "home-color" : ""}}' bindtap='changeHomeActive'>
+            <image src='{{imgHome == true ? "../img/cxtripHomePage/home_hue.png" : "../img/cxtripHomePage/home.png"}}'></image>
+            首页
+        </view>
+        <view class='personal {{imgPersonal == true ? "home-color" : ""}}' bindtap='changePersonalActive'>
+            <image src='{{imgPersonal == false ? "../img/cxtripHomePage/my.png" : "../img/cxtripHomePage/my_hue.png"}}'></image>
+            个人中心
+        </view>
+    </block>
+    <block wx:else>
+        <!-- 畅享游商城  -->
+        <view class='homepage {{imgHome == true ? "home-color" : ""}}' bindtap='changeHomeActive'>
+            <image src='{{imgHome == true ? "../img/cxtripHomePage/product_active.png" : "../img/cxtripHomePage/product.png"}}'></image>
+            首页
+        </view>
+        <view class='personal {{imgPersonal == true ? "home-color" : ""}}' bindtap='changePersonalActive'>
+            <image src='{{imgPersonal == false ? "../img/cxtripHomePage/personal.png" : "../img/cxtripHomePage/personal_active.png"}}'></image>
+            个人中心
+        </view>
+    </block>
+</view>

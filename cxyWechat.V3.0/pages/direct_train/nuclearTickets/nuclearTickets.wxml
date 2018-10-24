@@ -1,0 +1,63 @@
+<swiper class='swiper' current="{{currentIndex}}" vertical="{{vertical}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" bindchange="swiperChange">
+
+    <!-- 检票 -->
+    <swiper-item>
+        <view class='block-box1'>
+            <view class="show_scancode">
+                <image bindtap='scanCode' src="{{HTTPS}}img/direct_train/scancode.png"></image>
+            </view>
+            <view class="show_click_button">
+                <view class="show_scan">
+                    <text class='shan clickscancode'>点击按钮</text>
+                    <button id="scan" style='background-color: #19A964;' bindtap='scanCode'>SCAN</button>
+                    <text class='shan startscancode'>开启扫码</text>
+                </view>
+                <view class="show_font_scan fontweight shan"> 扫描二维码</view>
+                <view class="show_or">
+                    <view class="show_line_one"></view>
+                    <view class="show_font_or shan">或</view>
+                    <view class="show_line_two"> </view>
+                </view>
+            </view>
+            <view class="show_checked">
+                <view class="tip">{{tipAppear}}</view>
+                <input class="shanshanTicket" type="number" maxlength="8" focus="{{focusTo0}}" value="{{nuclearNum}}" catchtap='getFocus0' bindinput="bindInput" bindblur="bindBlur" placeholder="输入票号" placeholder-style="color:#fff;" />
+                <button id="checkTicket" style='background-color: rgba(25,169,100,{{abled0?".7":"1"}});' catchtap='nuclearTicket' disabled="{{abled0}}">{{titleTxt}}</button>
+            </view>
+            <view class='show_gif'>
+                <view class='show_gif_txt'>上滑查票</view>
+                <image class='show_gif_img' src='{{HTTPS}}img/direct_train/gif_down.gif'></image>
+            </view>
+        </view>
+    </swiper-item>
+
+    <!-- 查票 -->
+    <swiper-item>
+        <view class="show_scancode">
+            <image bindtap='scanCode' src="{{HTTPS}}img/direct_train/scancode.png"></image>
+        </view>
+        <view class="show_click_button">
+            <view class="show_scan">
+                <text class='shan clickscancode'>点击按钮</text>
+                <button id="scan" style='background-color: #4EA4D7;' bindtap='scanCode'>SCAN</button>
+                <text class='shan startscancode'>开启扫码</text>
+            </view>
+            <view class="show_font_scan fontweight shan"> 扫描二维码</view>
+            <view class="show_or">
+                <view class="show_line_one"></view>
+                <view class="show_font_or shan">或</view>
+                <view class="show_line_two"> </view>
+            </view>
+        </view>
+        <view class="show_checked">
+            <view class="tip">{{tipAppear}}</view>
+            <input class="shanshanTicket" type="number" maxlength="8" focus="{{focusTo1}}" value="{{nuclearNum}}" catchtap='getFocus1' bindinput="bindInput" bindblur="bindBlur" placeholder="输入票号" placeholder-style="color:#fff;" />
+            <button id="checkTicket" style='background-color: rgba(78,164,215,{{abled1?".7":"1"}});' catchtap='nuclearTicket' disabled="{{abled1}}">查票</button>
+        </view>
+        <view class='show_gif'>
+            <view class='show_gif_txt'>下滑{{titleTxt}}</view>
+            <image class='show_gif_img' src='{{HTTPS}}img/direct_train/gif_up.gif'></image>
+        </view>
+    </swiper-item>
+
+</swiper>

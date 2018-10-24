@@ -1,0 +1,87 @@
+<view class='outside-view'>
+    <!-- <view class='page-search'>
+        <view hidden='{{showInput}}' class='page-search-box1 chuizhi' catchtap='searchBoxTap'>
+            <image class='page-search-icon' src='../../img/cxtripHomePage/search.png'></image>
+            <text class='page-search-txt'>{{searchVal}}</text>
+        </view>
+        <view hidden='{{!showInput}}' class='page-search-box2'>
+            <image class='page-search-icon icon-margin' src='../../img/cxtripHomePage/search.png'></image>
+            <input class='page-search-input' type='text' focus='{{inputFocus}}' placeholder='搜索订单' placeholder-style='color: #999;' confirm-type="search" bindinput="searchInput" bindblur='searchBlur' bindconfirm="searchConfirm"></input>
+        </view>
+    </view> -->
+    <view class='nav-bar'>
+        <view class='nav-item {{navActive == 1 ? "nav-active" : ""}}' catchtap='navTap' data-index='1'>全 部
+            <text wx:if='{{navActive == 1}}' class='nav-line'></text>
+        </view>
+        <view class='nav-item {{navActive == 2 ? "nav-active" : ""}}' catchtap='navTap' data-index='2'>待付款
+            <text wx:if='{{navActive == 2}}' class='nav-line'></text>
+        </view>
+        <view class='nav-item {{navActive == 3 ? "nav-active" : ""}}' catchtap='navTap' data-index='3'>已付款
+            <text wx:if='{{navActive == 3}}' class='nav-line'></text>
+        </view>
+    </view>
+    <scroll-view scroll-y class='scroll-view' bindscrolltolower='loadMore'>
+        <view wx:if='{{dataList.length == 0}}' class='nonedata'>暂无更多数据~</view>
+        <block wx:for='{{dataList}}' wx:key='{{index}}'>
+            <view class='list-item'>
+                <view class='item-info {{item.order_type==2?"no-bb":""}}' catchtap='theBtnTap' data-the-type='1' data-index='{{index}}'>
+                    <view class='item-img'>
+                        <image wx:if='{{item.order_type!=2}}' mode='aspectFill' src='{{item.photos[0] ? item.photos[0] : defaultImg}}'></image>
+                        <image wx:if='{{item.order_type==2}}' mode='aspectFill' src='{{item.photos[0] ? item.photos[0] : theCarImg}}'></image>
+                    </view>
+                    <view class='item-txt'>
+                        <view class='item-name'>{{item.order_type==2?'乘车订单':item.productName}}
+                            <text class='item-status'>{{orderStatusArr[item.orderStatus]}}</text>
+                        </view>
+                        <view class='item-count'>数量：{{item.ticketNum}}
+                            <text class='item-price'>¥{{item.amount}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='item-btn'>
+                    <block wx:if='{{item.orderStatus==1}}'>
+                        <button catchtap='theBtnTap' data-the-type='0' data-index='{{index}}' type='default' hover-class='none' size='mini'>
+                            <text>取消订单</text>
+                        </button>
+                    </block>
+                    <block wx:if='{{item.orderStatus==1}}'>
+                        <button catchtap='theBtnTap' data-the-type='1' data-index='{{index}}' type='primary' hover-class='none' size='mini' style='background-color: #399;'>
+                            <text>去 付 款</text>
+                        </button>
+                    </block>
+                    <block wx:if='{{item.orderStatus==2 && item.product_type != 2 && item.product_type != 3}}'>
+                        <button catchtap='theBtnTap' data-the-type='2' data-index='{{index}}' type='default' hover-class='none' size='mini' disabled='{{item.overdue>0}}'>
+                            <text>申请退款</text>
+                        </button>
+                    </block>
+                    <block wx:if='{{item.orderStatus==4}}'>
+                        <button type='default' hover-class='none' size='mini'>
+                            <text>退款中</text>
+                        </button>
+                    </block>
+                    <block wx:if='{{item.orderStatus==5}}'>
+                        <button type='default' hover-class='none' size='mini'>
+                            <text>已退款</text>
+                        </button>
+                    </block>
+                    <block wx:if='{{item.isComment==0 && (item.orderStatus==2||item.orderStatus==6||item.orderStatus==7) && item.product_type != 5 && item.product_type != 4}}'>
+                        <button catchtap='theBtnTap' data-the-type='3' data-index='{{index}}' type='primary' hover-class='none' size='mini' style='background-color: #399;'>
+                            <text>去 评 价</text>
+                        </button>
+                    </block>
+                    <block wx:if='{{item.isComment==1 && (item.orderStatus==2||item.orderStatus==6||item.orderStatus==7) && item.product_type != 5 && item.product_type != 4}}'>
+                        <button type='primary' hover-class='none' size='mini' style='background-color: #399;' disabled>
+                            <text>已 评 价</text>
+                        </button>
+                    </block>
+                    <block wx:if='{{item.orderStatus!=1}}'>
+                        <button catchtap='theBtnTap' data-the-type='4' data-index='{{index}}' type='primary' hover-class='none' size='mini' style='background-color: #399;'>
+                            <text>再来一单</text>
+                        </button>
+                    </block>
+                </view>
+            </view>
+        </block>
+        <view wx:if='{{dataList.length != 0 && dataList.length == totalCount}}' class="nonedata" style='color: #399;'>已加载完~</view>
+    </scroll-view>
+</view>

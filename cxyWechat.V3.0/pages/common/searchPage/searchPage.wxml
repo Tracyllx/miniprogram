@@ -1,0 +1,35 @@
+<view class='outside-view' style='background-color: #fff;'>
+    <view class='the-top'>
+        <view class='search-bar'>
+            <view class='search-icon center'>
+                <image src='../../img/cxtripHomePage/search.png'></image>
+            </view>
+            <view class='search-input'>
+                <input focus='{{focusVal}}' value='{{inputVal}}' type='text' placeholder='关键词/景点/酒店' placeholder-style='color: #999;' confirm-type="search" bindinput="searchInput" bindconfirm="searchConfirm"></input>
+            </view>
+        </view>
+    </view>
+    <block wx:if='{{showHistory}}'>
+        <scroll-view scroll-y class='result-list'>
+            <view class='history-title'>历史搜索 <text class='clear' catchtap='clearHistory'>清除</text></view>
+            <block wx:for='{{historyRes}}' wx:key='{{index}}'>
+                <view class='list-item' catchtap='historyItem' data-index='{{index}}'>
+                    <view class='res history-res'>{{item}}</view>
+                </view>
+            </block>
+        </scroll-view>
+    </block>
+    <block wx:else>
+        <scroll-view scroll-y class='result-list'>
+            <block wx:for='{{result}}' wx:key='{{index}}'>
+                <view class='list-item' catchtap='gotoDetail' data-index='{{index}}'>
+                    <view class='icon'>
+                        <image src='../../img/cxtripHomePage/search.png'></image>
+                    </view>
+                    <view class='res'>{{item.name}}</view>
+                    <view class='res-num'>{{productTypes[item.productType]}}</view>
+                </view>
+            </block>
+        </scroll-view>
+    </block>
+</view>

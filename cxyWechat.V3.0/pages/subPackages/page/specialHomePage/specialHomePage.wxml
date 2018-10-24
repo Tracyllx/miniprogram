@@ -1,0 +1,65 @@
+<!--pages/direct_train/specialHomePage/specialHomePage.wxml-->
+<view class='specialHomePage'>
+    <!-- 搜索页面 -->
+    <view class="show_search">
+        <view class="input_to_search">
+            <view class="show_search_input">
+                <input type="text" id="search" value="{{InputValue}}" confirm-type="search" bindconfirm="searchProduct" placeholder="输入景区/产品名" focus="{{focusTo}}" catchtap='getFocus' bindinput='getInputValue' bindblur="getInputValue" />
+            </view>
+            <view class="show_search_img" catchtap='searchProduct'>
+                <image src="../../../img/cxtripHomePage/search.png"></image>
+            </view>
+        </view>
+        <view class="show_to_meself" catchtap="personalCenter">
+            <image src='../../../img/direct_train/mine.png'></image>
+        </view>
+    </view>
+    <view wx:if="{{dataList.length == 0}}" class='nonedata'>暂无数据~</view>
+    <!-- 列表内容 -->
+    <view wx:if="{{dataList.length != 0}}" class='data-list'>
+        <scroll-view scroll-y>
+            <view class='list-item' wx:for='{{dataList}}' wx:key='{{index}}'>
+                <!-- 标题 -->
+                <view class='show-title'>
+                    <view class='show-title-txt'>{{item.orgnName}}</view>
+                    <view class="show-title-distance" catchtap='openTheMap' data-index='{{index}}'>
+                        <image src="../../../img/direct_train/address.png" />
+                        <text class='distance-num'>{{distance[index]}}km</text>
+                        <!-- <text class="address">{{item.orgnAddr}}</text> -->
+                    </view>
+                </view>
+                <!-- 评分 -->
+                <view class="show-start">
+                    <image src='../../../img/direct_train/start.png'></image>
+                    <image src='../../../img/direct_train/start.png'></image>
+                    <image src='../../../img/direct_train/start.png'></image>
+                    <image src='../../../img/direct_train/start.png'></image>
+                    <image src='../../../img/direct_train/start_half.png'></image>
+                    <view class="shownumber">
+                        <text>4.9</text>分
+                    </view>
+                </view>
+                <!-- 子列表 -->
+                <view class='show-items'>
+                    <view class='items-box {{idx == item.product.length - 1 ? "no-bt-border" : ""}}' wx:for='{{item.product}}' wx:for-index="idx" wx:for-item="itemName" wx:key='{{idx}}' catchtap='gotoDetail' data-pro-id='{{itemName.productId}}'>
+                        <view class='items-img'>
+                            <image mode='aspectFill' wx:if="{{itemName.imgUrls[0]}}" src="{{itemName.imgUrls[0]}}" />
+                        </view>
+                        <view class='items-content'>
+                            <view class='items-title'>{{itemName.productName}}</view>
+                            <view class='items-desc'>
+                                <text>{{itemName.productDesc}}</text>
+                            </view>
+                            <view class='items-price'>
+                                <text>¥ {{itemName.productPrice}}</text>
+                                <text class='shell' wx:if='{{itemName.sellNum != 0}}'>已售{{itemName.sellNum}}</text>
+                            </view>
+                        </view>
+                        <view class='items-btn'>购买</view>
+                    </view>
+                </view>
+            </view>
+            <view class='list-show-all' catchtap='showAll' wx:if='{{isAll}}'>查看所有</view>
+        </scroll-view>
+    </view>
+</view>

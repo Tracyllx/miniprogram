@@ -1,0 +1,94 @@
+<view class='the-container'>
+    <scroll-view scroll-y class='scroll-view'>
+        <view class='charge-banner'>
+            <image src='../imgs/img.png'></image>
+        </view>
+        <view class='charge-info mt-16 {{chargeStatus==2?"mb-16":""}}'>充电桩编号：
+            <text class='c-gray'>345553</text>
+            <view class='fr' wx:if='{{chargeStatus==2}}'>充电桩类型：
+                <text class='c-gray'>直流充电桩</text>
+            </view>
+        </view>
+        <view class='charge-info' wx:if='{{chargeStatus!=2}}'>充电桩类型：
+            <text class='c-gray'>直流充电桩</text>
+            <text class='c-gray fr'>状态：{{chargeStatus==0?'未连接':chargeStatus==1?'已连接':''}}</text>
+        </view>
+        <view class='charge-tab' wx:if='{{chargeStatus==0}}'>
+            <view class='charge-tab-item {{tabIndex==0?"charge-tab-active":""}}' catchtap='tabItemTap' data-index='0'>按时间充</view>
+            <view class='charge-tab-item {{tabIndex==1?"charge-tab-active":""}}' catchtap='tabItemTap' data-index='1'>自动充满</view>
+        </view>
+        <view class='time-bar' wx:if='{{tabIndex==0 && chargeStatus==0}}'>
+            <view class='time-bar-item {{timeIndex==1?"time-active":""}}' catchtap='chooseHour' data-index='1'>1小时</view>
+            <view class='time-bar-item {{timeIndex==2?"time-active":""}}' catchtap='chooseHour' data-index='2'>2小时</view>
+            <view class='time-bar-item {{timeIndex==3?"time-active":""}}' catchtap='chooseHour' data-index='3'>3小时</view>
+            <view class='time-bar-item {{timeIndex==4?"time-active":""}}' catchtap='chooseHour' data-index='4'>4小时</view>
+        </view>
+        <view class='time-input' wx:if='{{tabIndex==0 && chargeStatus==0}}'>
+            <view class='time-input-txt'>手动输入充电时间为</view>
+            <view class='time-input-box'>
+                <input type='number' value='{{hours}}' bindinput='inputHour' bindblur='inputHour'></input>
+            </view>
+            <view class='time-input-txt'>小时</view>
+        </view>
+        <view class='charge-self' wx:if='{{tabIndex==1 && chargeStatus==0}}'>
+            <view>预计充电时间为2小时</view>
+            <view>预计充电度数为40度</view>
+        </view>
+        <view class='charge-details' wx:if='{{chargeStatus==0}}'>
+            <view class='details-name'>计费详情</view>
+            <view class='details-txt'>电费：
+                <text class='fr'>0.9元/度</text>
+            </view>
+            <view class='details-txt'>服务费：
+                <text class='fr'>5元</text>
+            </view>
+        </view>
+        <view class='charging-table' wx:if='{{chargeStatus==1}}'>
+            <view class='table-tr t-bt'>
+                <view class='table-td t-br'>已充电量</view>
+                <view class='table-td t-br'>充电时间</view>
+                <view class='table-td'>消费金额</view>
+            </view>
+            <view class='table-tr'>
+                <view class='table-td t-br'>45度</view>
+                <view class='table-td t-br'>1小时</view>
+                <view class='table-td'>49元</view>
+            </view>
+        </view>
+        <view class='charging-canvas' wx:if='{{chargeStatus==1}}'>
+            <canvas class="canvas-circle" style="z-index: 1; width: 400rpx; height: 400rpx;" canvas-id="canvasCircle"></canvas>
+            <canvas class="canvas-circle" style="z-index: 2; width: 400rpx; height: 400rpx;" canvas-id="canvasArcCir"></canvas>
+            <text class='canvas-txt'>充电中</text>
+        </view>
+        <view class='charge-details b-t' wx:if='{{chargeStatus==2}}'>
+            <view class='details-txt'>充电方式：
+                <text class='fr'>按时间充</text>
+            </view>
+            <view class='details-txt'>电费：
+                <text class='fr'>0.9元/度</text>
+            </view>
+            <view class='details-txt'>服务费：
+                <text class='fr'>5元</text>
+            </view>
+            <view class='details-txt'>开始时间：
+                <text class='fr'>2018-07-30 08:00</text>
+            </view>
+            <view class='details-txt'>结束时间：
+                <text class='fr'>2018-07-30 10:00</text>
+            </view>
+        </view>
+    </scroll-view>
+    <view class='charge-bottom' wx:if='{{chargeStatus==0}}'>
+        <view class='bottom-item'>
+            <text class='c-black'>预估价：</text>
+            <text class='c-base'>56.00</text>
+        </view>
+        <view class='bottom-item c-wihte bg-base' catchtap='beginCharging' data-the-type='begin'>开始充电</view>
+    </view>
+    <view class='charge-bottom' wx:if='{{chargeStatus==1}}'>
+        <view class='bottom-item c-wihte bg-red' catchtap='beginCharging' data-the-type='finish'>结束充电</view>
+    </view>
+    <view class='charge-bottom' wx:if='{{chargeStatus==2}}'>
+        <view class='bottom-item c-black'>消费金额：<text class='c-base'>¥49.00</text></view>
+    </view>
+</view>

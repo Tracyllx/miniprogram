@@ -1,0 +1,69 @@
+<view class="myContainer">
+    <scroll-view scroll-y class='my-contents'>
+        <view class='my-information'>
+            <view class='my-details'>
+                <view class='my-bg'>
+                    <image mode='aspectFill' src='{{HTTPS}}img/personalCenter/bg.png'></image>
+                </view>
+                <view class='my-box'>
+                    <view class='my-head-img' catchtap='gotoMyInfo'>
+                        <image mode='aspectFill' wx:if="{{head_url}}" src="{{head_url}}"></image>
+                    </view>
+                    <view class='my-nickname' catchtap='gotoMyInfo'>{{nick_name}}</view>
+                    <view class='my-desc' catchtap='gotoMyInfo'>{{signature ? signature : '这家伙很懒，什么都没有留下...'}}</view>
+                    <view class='my-message' catchtap='gotoMessage'>消息
+                        <view class="weui-badge {{show_unreadNum==false || noRead ==0 ? 'nonedisplay':''}}">{{noRead ==0?"": noRead}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class='my-property'>
+                <view class='my-property-item' catchtap='propertyGoto' data-id='1'>
+                    <view class='item-txt'>余 额</view>
+                    <view class='item-txt'>{{myWallet}}元</view>
+                    <view class='item-line'></view>
+                </view>
+                <view class='my-property-item' catchtap='propertyGoto' data-id='2'>
+                    <view class='item-txt'>红 包</view>
+                    <view class='item-txt'>{{myRedBag}}个</view>
+                    <view class='item-line'></view>
+                </view>
+                <!-- <view class='my-property-item' catchtap='propertyGoto' data-id='3'>
+                    <view class='item-txt'>优惠券</view>
+                    <view class='item-txt'>{{myCoupon}}张</view>
+                </view> -->
+            </view>
+        </view>
+        <view class='my-options'>
+            <!-- <navigator class='options-item mt8 mb18 border0' hover-class="none" open-type='navigateTo' url='./activities/activities?isType=coupon&typeNum=1'>   -->
+            <!-- <navigator class='options-item mt8 mb18 border0' hover-class="none" open-type='navigateTo' url='./activities/activities?isType=redPacket&typeNum=2'>    -->
+            <!-- <navigator class='options-item mt8 mb18 border0' hover-class="none" open-type='navigateTo' url='./activities/activities?isType=redPacket&typeNum=3'>   -->
+            <navigator class='options-item mt8 mb18 border0' hover-class="none" open-type='navigateTo' url='./nameValidation/nameValidation'>
+                <view class='icon-name chuizhi'>
+                    <image src='../img/personalCenter/validation.png'></image>
+                </view>
+                <view class='title'>实名验证
+                    <text class='{{isValD ? "nameVald_yes" : "nameVald_no"}}'>{{isValD ? '已认证' : '未认证'}}</text>
+                </view>
+                <view class='arrow chuizhi'>
+                    <image src='../img/personalCenter/arrow.png'></image>
+                </view>
+            </navigator>
+            <!-- <view style='height: 8rpx;'></view> -->
+            <block wx:for='{{list}}' wx:key='{{index}}'>
+                <navigator class='options-item ' hover-class="none" open-type='navigateTo' url='{{item.url}}'>
+                    <view class='icon chuizhi'>
+                        <image src='../img/personalCenter/{{item.id}}.png' style='{{item.width?"width:"+item.width+";height:"+item.height+";":""}}'></image>
+                    </view>
+                    <view class='title'>{{item.name}}</view>
+                    <view class='arrow chuizhi'>
+                        <image src='../img/personalCenter/arrow.png'></image>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+    </scroll-view>
+
+    <!-- 底部公共样式 -->
+    <include src="../common/common_footer/common_footer.wxml" />
+
+</view>

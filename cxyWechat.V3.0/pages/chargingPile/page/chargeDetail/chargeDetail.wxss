@@ -1,0 +1,126 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll-view {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* banner图片 */
+
+.charge-banner {
+    width: 100%;
+    height: 340rpx;
+    overflow: hidden;
+}
+
+.charge-banner>image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* 说明 */
+
+.charge-info {
+    padding: 0 24rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.info-icon {
+    padding: 20rpx 24rpx;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+}
+
+.all-count {
+    width: auto;
+    padding: 0 10rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    text-align: center;
+    font-size: 22rpx;
+    color: #f68650;
+    border-radius: 8rpx;
+    border: 1rpx solid #f68650;
+    margin-right: 16rpx;
+}
+
+.free-count {
+    width: auto;
+    padding: 0 10rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #39b6a3;
+    border-radius: 8rpx;
+    border: 1rpx solid #39b6a3;
+}
+
+/* 计费详情 */
+
+.charge-details {
+    padding: 16rpx 24rpx;
+    border-top: 16rpx solid #f5f5f5;
+}
+
+.details-name {
+    font-size: 28rpx;
+    color: #333;
+    line-height: 60rpx;
+}
+
+.details-txt {
+    line-height: 68rpx;
+    font-size: 26rpx;
+    color: #999;
+    border-bottom: 1rpx solid #f5f5f5;
+}
+
+/* 页面公共样式 */
+
+.c-wihte {
+    color: #fff;
+}
+
+.c-black {
+    color: #333;
+}
+
+.c-gray {
+    color: #999;
+}
+
+.c-base {
+    color: #39b6a3;
+}
+
+.bg-base {
+    background-color: #39b6a3;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.mt-16 {
+    margin-top: 16rpx;
+}
+
+.mb-16 {
+    margin-bottom: 20rpx;
+}
+
+.fr {
+    float: right;
+}
+
+.b-t {
+    border-top: 16rpx solid #f5f5f5;
+}

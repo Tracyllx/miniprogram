@@ -1,0 +1,65 @@
+<view class='outside-view' wx:if='{{loadingDone}}'>
+    <scroll-view scroll-y class='scroll-view'>
+        <view class='list-box'>
+            <view class='list-item {{index == 0 ? "no-border" : ""}}' wx:for='{{listData}}' wx:key='{{index}}'>
+                <view class='item-check' catchtap='checkTap' data-index='{{index}}'>
+                    <text wx:if='{{item.kkErrorTxt!=""}}' style='background-color:#c9c9c9;display:inline-block;width:48rpx;height:48rpx;border-radius:100%;margin-top:10rpx;'></text>
+                    <block wx:else>
+                        <icon hidden='{{item.kkCheck}}' type="circle" size="26"></icon>
+                        <icon hidden='{{!item.kkCheck}}' type="success" size="26" color='#399'></icon>
+                    </block>
+                </view>
+                <view class='item-info'>
+                    <view class='item-name' catchtap='checkTap' data-index='{{index}}'>
+                        <view>{{item.product_name}}</view>
+                        <view class='item-error'>{{item.kkErrorTxt}}</view>
+                    </view>
+                    <view class='item-number'>
+                        <view class='item-number-txt'>购买数量：</view>
+                        <view class='item-number-box'>
+                            <text catchtap='countOptionTap' data-index='{{index}}' data-the-type='-'>-</text>
+                            <input type='number' maxlength='3' value='{{item.kkCount}}' disabled='{{item.kkErrorTxt!=""}}' bindinput='countInput' bindblur='countBlur' data-index='{{index}}'></input>
+                            <text catchtap='countOptionTap' data-index='{{index}}' data-the-type='+'>+</text>
+                        </view>
+                    </view>
+                    <view class='item-price'>¥{{item.kkAmount}}</view>
+                </view>
+            </view>
+        </view>
+        <view class='choose-date'>
+            <view class='choose-date-txt'>使用日期：{{useDate}}</view>
+            <view class='choose-date-btn'>
+                <view hidden='{{noMoreDate}}' catchtap='moreDateTap'>更多日期</view>
+                <view hidden='{{!noMoreDate}}' class='disabled'>暂无更多日期</view>
+            </view>
+        </view>
+        <view class='concat-info'>
+            <view class='concat-item'>
+                <view class='concat-label'>联系人：</view>
+                <view class='concat-input'>
+                    <input type='text' maxlength='20' value='{{nameVal}}' bindinput='nameInput' bindblur='nameInput' placeholder='请输入联系人' placeholder-style='color: #999;'></input>
+                </view>
+            </view>
+            <view class='concat-item'>
+                <view class='concat-label'>联系电话：</view>
+                <view class='concat-input'>
+                    <input type='text' maxlength='11' value='{{phoneVal}}' bindinput='phoneInput' bindblur='phoneBlur' placeholder='请输入联系电话' placeholder-style='color: #999;'></input>
+                </view>
+            </view>
+            <view class='concat-item' hidden='{{codeDisplay}}'>
+                <view class='concat-label'>短信验证码：</view>
+                <view class='concat-input'>
+                    <input type='text' maxlength='6' value='{{codeVal}}' focus='{{codeFocus}}' bindinput='codeInput' placeholder='请输入验证码' placeholder-style='color: #999;'></input>
+                </view>
+                <view class='concat-code-btn' catchtap='getCodeTap'>{{codeText}}</view>
+            </view>
+            <view class='concat-error'>
+                <text>{{phoneTip}}</text>
+            </view>
+        </view>
+    </scroll-view>
+    <view class='page-bottom'>
+        <view class='page-bottom-item chuizhi online-booking'>合计：¥ {{orderAmount}}</view>
+        <view class='page-bottom-item chuizhi buyBtn' style='{{ButtonActive?"":"background-color: #bbb;"}}' catchtap='gotoPay'>去 支 付</view>
+    </view>
+</view>

@@ -1,0 +1,14 @@
+.the-container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    box-sizing: content-box;
+    position: relative;
+}
+
+/* 去掉边框 */
+
+.no-b {
+    border: 0;
+}

@@ -1,0 +1,42 @@
+<scroll-view scroll-y class='myContainer'>
+    <view class='image'>
+        <view class='border_input'>
+            <view class='touxiang'>头像</view>
+            <image wx:if="{{list.head_url}}" src='{{list.head_url}}' class='logo_img'></image>
+        </view>
+
+        <view class='border_input'>
+            <view class='nickname'>昵称</view>
+            <view class='nicheng'>{{list.nick_name}}</view>
+        </view>
+
+        <view class='border_input' catchtap='toQianming' data-is-type='contacts'>
+            <view class='bangding'>绑定联系人</view>
+            <view class='if_bangding'>{{user_name == null ||user_name == ""? "未绑定":user_name}}</view>
+        </view>
+
+        <view class='border_input' catchtap='toBangding' data-is-type='changePhone'>
+            <view class='bangding'>绑定手机号</view>
+            <view class='if_bangding'>{{user_phone == null ||user_phone == ""? "未绑定":user_phone}}</view>
+        </view>
+
+        <view wx:if='{{!(pay_pass == null || pay_pass == "")}}' class='border_input' catchtap='gotoSetPSD' data-is-type='modifyPass'>
+            <view class='bangding'>修改支付密码</view>
+            <view class='if_bangding'>******
+                <!-- <image class='arrow-icon' src='../../img/personalCenter/arrow.png'></image> -->
+            </view>
+        </view>
+
+        <view class='border_input' catchtap='gotoSetPSD' data-is-type='forgetPass'>
+            <view class='bangding'>{{pay_pass == null || pay_pass == "" ? "设置支付密码" : "忘记支付密码"}}</view>
+            <view class='if_bangding'>
+                <image class='arrow-icon' src='../../img/personalCenter/arrow.png'></image>
+            </view>
+        </view>
+
+        <view class='last_input' catchtap='toQianming' data-is-type='autograph'>
+            <view class='qianming'>签名</view>
+            <view class='contents'>{{shanSignTure==null || shanSignTure.length==0?"还没有任何签名...":shanSignTure}}</view>
+        </view>
+    </view>
+</scroll-view>

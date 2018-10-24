@@ -1,0 +1,20 @@
+<scroll-view scroll-y class='scroll-view'>
+    <view class='item-info'>
+        <view class='item-img'>
+            <image mode='aspectFill' src='{{orderImg ? orderImg : "../../img/cxyMallPage/defaultImg.png"}}'></image>
+        </view>
+        <view class='item-txt'>
+            <view class='item-name'>{{orderName}}</view>
+            <view class='item-count'>数量：{{orderCount}}
+                <text class='item-price'>¥{{orderTotal}}</text>
+            </view>
+        </view>
+    </view>
+    <view class='msg'>
+        <textarea maxlength='100' value='{{message}}' bindinput='bindinput' bindblur='bindinput' placeholder='请填写退款原因' placeholder-style='color: #999;'></textarea>
+    </view>
+    <view class='tip'>{{tipText}}</view>
+    <view class='btn'>
+        <button type='primary' style='background-color: {{disabled?"#e65a00":"#ff6600"}};' disabled='{{disabled}}' catchtap='submitTap'>提 交</button>
+    </view>
+</scroll-view>

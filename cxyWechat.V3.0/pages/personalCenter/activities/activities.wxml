@@ -1,0 +1,80 @@
+<view class='activities'>
+    <image class='bg' mode='aspectFill' src='{{baseUrl}}img/personalCenter/activities/{{isType == "redPacket" ? "bg.png" : "bg2.png"}}'></image>
+
+    <!-- 红包 -->
+    <block wx:if='{{isType == "redPacket"}}'>
+        <view class='bag'>
+            <image wx:if='{{unopened}}' mode='aspectFill' src='{{baseUrl}}img/personalCenter/activities/unopened.png'></image>
+            <image wx:if='{{opened1}}' mode='aspectFill' src='{{baseUrl}}img/personalCenter/activities/opened2.png'></image>
+            <image wx:if='{{opened2}}' mode='aspectFill' src='{{baseUrl}}img/personalCenter/activities/opened1.png'></image>
+        </view>
+        <view class='txt'>
+            <!-- 拆红包 -->
+            <view wx:if='{{unopened && !isNull}}' class='txt-box'>
+                <view class='get-txt'>领取红包</view>
+                <view class='get-title'>畅享游欢乐大礼</view>
+                <view class='bottom-btn' catchtap='getData'>拆红包</view>
+            </view>
+
+            <!-- 红包已派完 -->
+            <view wx:if='{{isNull}}' class='txt-box'>
+                <view class='get-txt'>领取红包</view>
+                <view class='get-title'>畅享游欢乐大礼</view>
+                <view class='bottom-btn is-null-red'>红包已派完</view>
+            </view>
+
+            <!-- 红包为金额 -->
+            <view wx:if='{{opened1}}' class='txt-box'>
+                <view class='success-txt'>领取成功</view>
+                <view class='success-money'>¥
+                    <text class='success-money-num'>{{dataObj.coupon_value}}</text>
+                </view>
+                <view class='success-title'>
+                    <text>{{dataObj.coupon_name}}\n已存入余额</text>
+                </view>
+                <view class='bottom-btn' catchtap='gotoMyWallet'>查看我的余额 >></view>
+            </view>
+
+            <!-- 红包为购物红包 -->
+            <view wx:if='{{opened2}}' class='txt-box'>
+                <view class='success-txt'>领取成功</view>
+                <view class='success-box'>
+                    <view class='success-box-t'>
+                        <view class='success-box-num chuizhi'>¥
+                            <text class='success-box-num-num'>{{dataObj.coupon_value}}</text>
+                        </view>
+                        <view class='success-box-title'>
+                            <text>{{dataObj.coupon_name}}\n可用于畅享游商城商品</text>
+                        </view>
+                    </view>
+                    <view class='success-box-b'>有效期即日起至 {{dataObj.validity_end}}</view>
+                </view>
+                <view class='bottom-btn' catchtap='gotoDataList'>查看我的红包 >></view>
+            </view>
+        </view>
+    </block>
+
+    <!-- 优惠券 -->
+    <block wx:if='{{isType == "coupon"}}'>
+        <view class='bag bag2 {{isNull ? "is-null" : ""}}'>
+            <text wx:if='{{isNull}}'>优惠券已失效！</text>
+            <image wx:if='{{!isNull}}' mode='aspectFill' src='{{baseUrl}}img/personalCenter/activities/coupon1.png'></image>
+        </view>
+        <view class='txt txt2' wx:if='{{!isNull}}'>
+            <view class='txt-box txt2-box'>
+                <view class='txt2-box-l'>
+                    <view class='txt2-money'>¥
+                        <text class='txt2-money-num'>{{dataObj.coupon_value}}</text>
+                    </view>
+                    <view class='txt2-title'>{{dataObj.coupon_name}}</view>
+                    <view class='limit-time'>有效期限 {{dataObj.validity_end}} 前</view>
+                </view>
+                <view class='txt2-box-r' catchtap='getCoupon'></view>
+            </view>
+        </view>
+    </block>
+
+    <view class='close'>
+        <image catchtap='closePage' mode='aspectFill' src='{{baseUrl}}img/personalCenter/activities/close.png'></image>
+    </view>
+</view>

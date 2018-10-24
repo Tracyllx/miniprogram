@@ -1,0 +1,60 @@
+<view class='the-container'>
+    <view class='tab-bar'>
+        <view class='tab-box'>
+            <view class='tab-box-item chuizhi {{tabIndex==="0"?"tab-active":""}}' catchtap='tabItem' data-index='0'>影院</view>
+            <view class='tab-box-item chuizhi b-lr {{tabIndex==="1"?"tab-active":""}}' catchtap='tabItem' data-index='1'>游乐</view>
+            <view class='tab-box-item chuizhi {{tabIndex==="2"?"tab-active":""}}' catchtap='tabItem' data-index='2'>商家</view>
+        </view>
+    </view>
+    <scroll-view scroll-y class='scroll-view'>
+        <view class='nav-bar'>
+            <view class='nav-box'>
+                <view class='nav-box-item chuizhi {{navIndex==="0"?"nav-active-c":""}}' catchtap='navItem' data-index='0'>正在开放</view>
+                <view class='nav-box-item chuizhi {{navIndex==="1"?"nav-active-c":""}}' catchtap='navItem' data-index='1'>即将开放</view>
+            </view>
+        </view>
+        <view class='swiper-box'>
+            <image class='swiper-img' src='../imgs/banner.png'></image>
+        </view>
+        <!-- <swiper class='swiper-box' autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="{{indicatorDots}}" indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="#fff">
+            <block wx:for='{{bannerImgs}}' wx:key='{{index}}'>
+                <swiper-item>
+                    <image class='swiper-img' src='../imgs/banner.png'></image>
+                </swiper-item>
+            </block>
+        </swiper> -->
+        <view class='data-list'>
+            <block wx:for='{{dataList}}' wx:key='{{index}}'>
+                <view class='list-item {{index==0?"no-b":""}}' catchtap='gotoDetail' data-index='{{index}}'>
+                    <view class='item-img'>
+                        <image src='{{item.imgUrl}}'></image>
+                    </view>
+                    <view class='item-info'>
+                        <view class='info-name'>{{item.name}}</view>
+                        <view class='info-type'>{{item.times}}-{{item.types}}</view>
+                        <view class='info-type'>{{item.director}}</view>
+                        <view class='info-desc'>{{item.desc}}</view>
+                    </view>
+                    <view class='item-right'>
+                        <view class='item-price'>
+                            <text class='price-int'>{{item.scoreInt}}</text>
+                            <text class='price-float'>{{item.scoreFloat}}</text>
+                        </view>
+                        <view class='item-btn'>预约</view>
+                    </view>
+                </view>
+            </block>
+            <view wx:if='{{dataList.length != 0}}' class="nonedata">------ 我也是有底线哒 ------</view>
+        </view>
+    </scroll-view>
+    <view class='footer'>
+        <view class='homepage {{imgHome ==true?"home-color":""}}'>
+            <image src='{{imgHome == true ? "../../../img/cxtripHomePage/home_hue.png" : "../../../img/cxtripHomePage/home.png"}}'></image>
+            首页
+        </view>
+        <view class='personal  {{imgPersonal ==true?"home-color":""}}' bindtap='changePersonalActive'>
+            <image src='{{imgPersonal == false ? "../../../img/cxtripHomePage/my.png" : "../../../img/cxtripHomePage/my_hue.png"}}'></image>
+            个人中心
+        </view>
+    </view>
+</view>

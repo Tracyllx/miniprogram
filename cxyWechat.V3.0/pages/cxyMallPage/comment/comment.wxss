@@ -1,0 +1,108 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.productAddComment {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: relative
+}
+
+.content {
+    padding: 24rpx 5%;
+    border-top: 1rpx solid #cdcdcd;
+    border-bottom: 1rpx solid #cdcdcd;
+}
+
+.content-txt>textarea {
+    width: 100%;
+    height: 260rpx;
+    font-size: 28rpx;
+    color: #000;
+}
+
+.content-img {
+    margin-top: 20rpx;
+}
+
+.content-img image {
+    width: 122rpx;
+    height: 122rpx;
+    vertical-align: middle;
+    margin-right: 12rpx;
+    margin-bottom: 12rpx;
+}
+
+.anonymous {
+    padding: 24rpx 5%;
+    font-size: 28rpx;
+    color: #999;
+    line-height: 50rpx;
+}
+
+.anonymous>image {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: middle;
+    margin-right: 20rpx;
+}
+
+/* 星星 */
+
+.star-content {
+    width: 90%;
+    height: 90rpx;
+    margin: 0 auto;
+    padding: 30rpx 0;
+    overflow: hidden;
+    display: flex;
+    display: -webkit-flex;
+}
+
+.star-title {
+    flex: 0 0 120rpx;
+    padding-right: 20rpx;
+    height: 100%;
+    font-size: 30rpx;
+    color: #000;
+}
+
+.star-box {
+    flex: 1;
+    height: 100%;
+    position: relative;
+}
+
+.star-image {
+    position: absolute;
+    top: 5rpx;
+    width: 64rpx;
+    height: 64rpx;
+    src: "../../img/direct_train/no-star.png";
+}
+
+.star-item {
+    position: absolute;
+    top: 0;
+    width: 32rpx;
+    height: 64rpx;
+}
+
+.star-title::after {
+    content: '';
+    width: 0%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+button {
+    width: 60%;
+    color: #fff;
+    background-color: #01847D;
+    position: absolute;
+    bottom: 10%;
+    left: 20%;
+}

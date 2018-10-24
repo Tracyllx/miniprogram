@@ -1,0 +1,238 @@
+<!--pages/direct_train/hotelDetail/hotelDetail.wxml-->
+<view wx:if='{{statusCode == 100}}' class='loadingBox'>
+    <image src='../../../img/direct_train/loading.gif'></image>
+    <view>加载中...</view>
+</view>
+<view wx:if='{{statusCode == 200}}' class='ticket-detail'>
+
+    <scroll-view class='show-detail kk-bottom' scroll-y scroll-top='{{scrollTop}}' scroll-with-animation>
+        <!-- 轮播图 -->
+        <swiper class='swiper' autoplay="{{autoplay}}" indicator-color="rgba(255, 255, 255, .6)" indicator-dots="{{indicatorDots}}" indicator-active-color="#fff" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
+            <block wx:for="{{hotelOrgn.photos}}" wx:key="{{index}}">
+                <swiper-item class="swiper-items">
+                    <image wx:if="{{item}}" src="{{item}}" class="slide-image" mode='aspectFill' catchtap='previewImage' data-the-type='banner' data-img-url='{{item}}' />
+                </swiper-item>
+            </block>
+        </swiper>
+        <!-- 展示门票的详细 -->
+        <view class='show_content'>
+            <view wx:if='{{goToUrl}}' class='scenic-introduction' catchtap='scenicIntro'><text space='ensp'>简  介</text></view>
+            <view class='lu-product-info'>
+                <view class='lu-product-name zt-chaochu1'>{{hotelOrgn.name}}</view>
+                <view class='lu-product-desc zt-chaochu1'><text space='ensp'>{{hotelOrgn.desc}}</text></view>
+                <view class='lu-product-price'>
+                    <!-- ¥{{ticketPrice}}<text class='lu-product-price-qi'>起</text> -->
+                    <text class='lu-product-map' catchtap='openTheMap'>{{hotelOrgn.location ? '查看地图' : '暂无详细地址'}}</text>
+                </view>
+            </view>
+            <view class='lu-product-time'>
+                <view class='lu-product-time-item chuizhi' data-is-type="goIn" catchtap="chooseMoreDate" data-type-index='1'>入住时间：
+                    <text class='lu-color'>{{shanProductCode ? chooseDateDetailTime : "暂无预订日期"}}</text>
+                    <image src='../../../img/direct_train/choose_more.png' wx:if='{{shanProductCode}}'></image>
+                </view>
+                <view class='lu-product-time-item chuizhi' data-is-type="goOut" catchtap="chooseMoreDate" data-type-index='2'>离开时间：
+                    <text class='lu-color'>{{shanProductCode ? chooseDateDetailTimeEnd : "暂无预订日期"}}</text>
+                    <image src='../../../img/direct_train/choose_more.png' wx:if='{{shanProductCode}}'></image>
+                </view>
+            </view>
+            <view class='lu-product-specifications'>
+                <view wx:for='{{hotelType}}' wx:key='{{index}}' class='lu-product-specifications-item {{index==hotelType.length-1?"lu-border-b0":""}}'>
+                    <view class='lu-product-specifications-item-t' catchtap='hotelCheck' data-index='{{index}}'>
+                        <view class='lu-check-box {{hotelDateList[index].amount?"":"lu-disable"}}' hidden='{{hotelDateList[index].check}}'></view>
+                        <image class='lu-check-img' hidden='{{!hotelDateList[index].check}}' src='../../../img/personalCenter/check.png'></image>
+                        <view class='lu-product-specifications-item-name'>{{item.product_name}}</view>
+                        <view class='lu-product-specifications-item-num chuizhi'>{{hotelDateList[index].amount ? '¥' + hotelDateList[index].amount : '暂无价格'}}</view>
+                    </view>
+                    <view class='lu-product-specifications-item-b'>
+                        <view class='lu-item-boxLeft'>{{hotelDateList[index].dateLimitNote}}</view>
+                        <view class='lu-item-boxRight'>
+                            <view class='lu-item-tit'>购买数量：</view>
+                            <view class='lu-item-option {{hotelDateList[index].amount?"":"lu-disable"}}' catchtap='hotelOption' data-index='{{index}}' data-is-type='0'>-</view>
+                            <input class='lu-item-input {{hotelDateList[index].amount?"":"lu-disable"}}' disabled='{{!hotelDateList[index].amount}}' type='number' maxlength='3' value='{{hotelDateList[index].buyNum}}' data-index='{{index}}' bindinput='hotelOptionInput' bindblur='hotelOptionBlur'></input>
+                            <view class='lu-item-option {{hotelDateList[index].amount?"":"lu-disable"}}' catchtap='hotelOption' data-index='{{index}}' data-is-type='1'>+</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- 购票须知、产品评价 -->
+            <view class='lu-buy-note' wx:if='{{gOpenTime || gProductAttr.length != 0 || gBuyTicketNote.length != 0}}'>
+                <view class='lu-note-title'>
+                    <text class='{{noteIndex == 0 ? "llk-the-note-active" : ""}}' catchtap='llkNoteTap' data-index='0'>购票须知</text>
+                    <text class='llk-the-note-line'>|</text>
+                    <text class='{{noteIndex == 1 ? "llk-the-note-active" : ""}}' catchtap='llkNoteTap' data-index='1'>产品评价</text>
+                </view>
+                <!-- 购票须知 -->
+                <block wx:if='{{noteIndex == 0}}'>
+                    <view class='lu-note-tip' wx:if='{{gOpenTime || gProductAttr.length != 0}}'>
+                        <view class='lu-note-tip-item' wx:if='{{gOpenTime}}'>
+                            <image src='../../../img/direct_train/time.png'></image>
+                            <text>{{gOpenTime}}</text>
+                        </view>
+                        <view class='lu-note-tip-item' wx:for="{{gProductAttr}}" wx:key='{{index}}'>
+                            <image src='../../../img/direct_train/yes.png'></image>
+                            <text>{{item}}</text>
+                        </view>
+                    </view>
+                    <view class="show_ticket_block" wx:if='{{gBuyTicketNote.length != 0}}'>
+                        <ul><block wx:for="{{gBuyTicketNote}}" wx:key="{{index}}">
+                            <li wx:if='{{item.content != undefined && item.content != null && item.content != ""}}' class="use-tip {{index>=3?'nonedisplay':''}} {{look == true? 'display':''}}">
+                                <view class="showtitlecolor"><text space='emsp'>{{item.detailTitle}}</text></view>
+                                <view class="show_tip_content"><text decode>{{item.content}}</text></view>
+                            </li>
+                        </block></ul>
+                        <view class='shownext' catchtap='showOrHide'>
+                            <image class='fold-next' src='../../../img/direct_train/{{look == true ? "up.png" : "down.png"}}'></image>
+                        </view>
+                    </view>
+                </block>
+                <!-- 产品评价 -->
+                <block wx:if='{{noteIndex == 1}}'>
+                    <view wx:if='{{commentData.length == 0}}' class='show-commnet-no'>暂无评论</view>
+                    <view wx:if='{{commentData.length != 0}}' class="show-comment {{index == 0 ? 'llkNo-border' : ''}}" wx:for='{{commentData}}' wx:key='{{index}}' wx:if='{{index < 3}}'>
+                        <view class='show-comment-head'>
+                            <image wx:if='{{!item.headUrl}}' mode='aspectFill' src='../../../img/direct_train/user_head.png'></image>
+                            <image wx:if='{{item.headUrl}}' mode='aspectFill' src='{{item.headUrl}}'></image>
+                        </view>
+                        <view class='show-comment-con'>
+                            <view class='show-comment-name'>{{item.name ? item.name : '匿名用户'}}
+                                <text style='float: right;'>{{item.commentDate}}</text>
+                            </view>
+                            <view class='show-comment-start'>
+                                <!-- 全颗星 -->
+                                <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= item.starFull}}'>
+                                    <image src='../../../img/direct_train/full-star.png'></image>
+                                </block>
+                                <!-- 半颗星 -->
+                                <block wx:if='{{item.starHalf}}'>
+                                    <image src='../../../img/direct_train/half-star.png'></image>
+                                </block>
+                                <!-- 空星 -->
+                                <block wx:for='{{stars}}' wx:for-item='starItem' wx:key='{{index}}' wx:if='{{starItem + 1 <= item.starNo}}'>
+                                    <image src='../../../img/direct_train/no-star.png'></image>
+                                </block>
+                            </view>
+                            <view class='show-comment-txt'>
+                                <text space='ensp'>{{item.content}}</text>
+                            </view>
+                            <view class='show-comment-img'>
+                                <block wx:if='{{item.imgUrls}}' wx:for='{{item.imgUrls}}' wx:for-item='imgItem' wx:for-index='imgIndex' wx:key='{{imgIndex}}'>
+                                    <image mode='aspectFill' wx:if='{{imgItem}}' src='{{imgItem}}' catchtap='previewImage' data-img-url='{{imgItem}}' data-the-type='comment' data-img-list='{{item.imgUrls}}'></image>
+                                </block>
+                            </view>
+                        </view>
+                    </view>
+                    <view wx:if='{{noteIndex == 1 && commentData.length != 0}}' class='show-more-comment' catchtap='gotoComments'>查看更多评论</view>
+                </block>
+            </view>
+            <!--展示手机号码及验证码部分-->
+            <view class='show-bind-phone'>
+                <view class="show_phone">
+                    <view class="show_phone_number">
+                        <view class="show_client_phone">
+                            <input type="text" name="userName" id="phoneNumber" bindinput='bindInputName' bindblur="bindBlurName" maxlength="30" value="{{contactsVal}}" placeholder="请输入联系人姓名" />
+                        </view>
+                    </view>
+                    <view class='showMisstake'>{{isEmptyName ? "请填写联系人姓名" : ""}}</view>
+                    <view class="show_phone_number">
+                        <view class="show_client_phone">
+                            <input type="number" name="phoneNumber" id="phoneNumber" bindinput='getPhoneNumber' bindblur="getBlurValue" maxlength="11" value="{{phoneValue}}" placeholder="请输入手机号码" />
+                        </view>
+                        <button id="send_message_code" class='{{sixCodeDisplay == true?"nonedisplay":""}}' disabled='{{isFalse}}' catchtap='sendCode'>{{sendCodeTip}}</button>
+                    </view>
+                    <view class='showMisstake {{sixCodeDisplay == true?"nonedisplay":""}}'>{{phoneTip}}</view>
+                    <view class='show_phone_number {{sixCodeDisplay == true?"nonedisplay":""}}'>
+                        <input type="number" maxlength="6" name="checkCode" id="checkCode" focus='{{focusTo}}' bindinput='geSixCkeckedNumber' value="{{sixCode}}" placeholder="请输入手机短信中的验证码" />
+                    </view>
+                </view>
+            </view>
+            <!-- 接送上下车点最大view -->
+            <block wx:if='{{isServe == 1 && 1==0}}'>
+                <view class='show-car-to-feel {{isChoose == false? "noneborder":""}}'>
+                    <view class='shuttle-tourist'>
+                        <view class='show-fonts' style='{{isChoose == false ? "": "color: #339999;"}}'>免费接送</view>
+                    </view>
+                </view> 
+                <view class='show-shuttle-big-view'>
+                    <!-- 展示去程和返程 -->
+                    <view class='to-or-back'>
+                        <view class='show-to-here'>去程
+                            <view class='show-to-here-tip'>(为确保接送准时，只预约一个小时后的接送服务)</view>
+                        </view>
+                    </view>
+                    <view class='boarding' style='border-bottom: 1px solid #c6c6c6;'>
+                        <!-- 上车地点 -->
+                        <view>
+                            <view class='font-car-here  {{allNoChoose == false?"":"color"}}'>上车地点：</view>
+                            <view class='showpiker'>
+                                <picker class='show-picker  {{allNoChoose == false?"":"color"}}' disabled='{{allNoChoose == false?"":true}}' data-new-index='0' bindchange="bindPickerChange" value="{{index}}" range="{{toScenicList}}">
+                                    <view class="picker">{{toScenicList[currentIndex]}}</view>
+                                </picker>
+                                <view class='show-next'><image src='../../../img/direct_train/down.png'></image></view>
+                            </view>
+                        </view>
+                        <!-- 下车地点 -->
+                        <view class='none-color'>
+                            <view class='font-car-here'>下车地点：</view>
+                            <view class='showpiker kk-border-none'>{{noChangeStops[0].addrDetail}}</view>
+                        </view>
+                        <!-- 显示乘车时间 -->
+                        <view>
+                            <view class='font-car-here {{allNoChoose == false?"":"color"}}'>乘车时间：</view>
+                            <view class='showpiker'>
+                                <picker class='show-picker {{allNoChoose == false?"":"color"}}' disabled='{{allNoChoose == false?"":true}}' data-new-index='1' catchchange="bindPickerChange" value="{{index}}" range="{{toCarTime}}">
+                                    <view class="picker-left">{{toCarTime[secondeIndex]}}</view>
+                                </picker>
+                                <view class='show-next'>
+                                    <image src='../../../img/direct_train/down.png'></image>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='to-or-back'>
+                        <view class='show-to-here'>返程
+                            <view class='show-to-here-tip'>(可不填，可以在个人中心进行修改)</view>
+                        </view>
+                    </view>
+                    <view class='boarding'>
+                        <!-- 上车地点 -->
+                        <view class='none-color'>
+                            <view class='font-car-here'>上车地点：</view>
+                            <view class='showpiker kk-border-none'>{{noChangeStops[0].addrDetail}}</view>
+                        </view>
+                        <!-- 下车地点 -->
+                        <view>
+                            <view class='font-car-here {{allNoChoose == false?(backWhereList == false?"":"color"):"color"}}'>下车地点：</view>
+                            <view class='showpiker'>
+                                <picker disabled="{{allNoChoose == false?(backWhereList == false?false:true):true}}" class='show-picker {{allNoChoose == false?(backWhereList == false?"":"color"):"color"}}' data-new-index='2' bindchange="bindPickerChange" value="{{index}}" range="{{toScenicList}}">
+                                    <view class='picker ' catchchange="bindPickerChange">{{toScenicList[thridIndex]}}</view>
+                                </picker>
+                                <view class='show-next'>
+                                    <image src='../../../img/direct_train/down.png'></image>
+                                </view>
+                            </view>
+                        </view>
+                        <!-- 显示乘车时间 -->
+                        <view>
+                            <view class='font-car-here {{allNoChoose == false?(backWhereList == false?"":"color"):"color"}}'>乘车时间：</view>
+                            <view class='showpiker'>
+                                <picker disabled="{{allNoChoose == false?(backWhereList == false?false:true):true}}" class='show-picker {{allNoChoose == false?(backWhereList == false?"":"color"):"color"}}' data-new-index='3' bindchange="bindPickerChange" value="{{index}}" range="{{showBackCarTime}}">
+                                    <view class="picker-left" catchchange="bindPickerChange">{{showBackCarTime[fourthIndex]}}</view>
+                                </picker>
+                                <view class='show-next'>
+                                    <image src='../../../img/direct_train/down.png'></image>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+
+    <!-- 显示价格和在线预订 -->
+    <view class='allCount kk-style {{ButtonActive == false ? "no-border" : "no-border-active"}}'>
+        <view class='onePrice'>共计 {{allMoney == 0 ? '0.00' : allMoney}} 元</view>
+        <button class='book {{ButtonActive == false ? "book-no-color" : "book-active-color"}}' disabled='{{ButtonActive == false ? true : false}}' catchtap='bookTicket'>在线预订</button>
+    </view>
+
+</view>

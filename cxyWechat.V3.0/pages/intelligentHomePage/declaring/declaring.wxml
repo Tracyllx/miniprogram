@@ -1,0 +1,79 @@
+<view class='outside-view' style='background-color:#fff;'>
+    <scroll-view scroll-y class='scroll-view'>
+        <view class='bar-box'>
+            <view class='bar-label'>车辆编号：</view>
+            <view class='bar-right' style='{{titleText!="apply"?"background-color:#ddd;":""}}'>
+                <input type='text' value='{{carNum}}' disabled='{{titleText!="apply"}}' bindinput='carNumInput' placeholder='请输入车辆编号' placeholder-style='color:#999;'></input>
+            </view>
+        </view>
+        <view class='bar-box'>
+            <view class='bar-label'>报障人：</view>
+            <view class='bar-right' style='{{titleText!="apply"?"background-color:#ddd;":""}}'>
+                <input type='text' value='{{userName}}' disabled='{{titleText!="apply"}}' bindinput='userNameInput' placeholder='请输入报障人姓名' placeholder-style='color:#999;'></input>
+            </view>
+        </view>
+        <view class='bar-box'>
+            <view class='bar-label'>故障类型：</view>
+            <view class='bar-right' style='{{titleText!="apply"?"background-color:#ddd;":""}}'>
+                <view class='bar-type {{showType?"drop-up":"drop-down"}}' catchtap='chooseTypeTap'>{{chooseType}}</view>
+                <view class='bar-drop' hidden='{{!showType}}'>
+                    <view class='bar-drop-item' catchtap='chooseTypeItem' data-name='一般故障'>一般故障</view>
+                    <view class='bar-drop-item' catchtap='chooseTypeItem' data-name='轻微故障'>轻微故障</view>
+                    <view class='bar-drop-item' catchtap='chooseTypeItem' data-name='严重故障'>严重故障</view>
+                    <view class='bar-drop-item no-b' catchtap='chooseTypeItem' data-name='致命故障'>致命故障</view>
+                </view>
+            </view>
+        </view>
+        <view class='bar-box bar-content'>
+            <view class='bar-label'>故障内容：</view>
+            <view class='bar-right' style='{{titleText!="apply"?"background-color:#ddd;":""}}'>
+                <input type='text' maxlength='100' value='{{contentVal}}' disabled='{{titleText!="apply"}}' bindinput='contentInput' placeholder='请填写故障内容' placeholder-style='color:#999;'></input>
+            </view>
+            <!-- <view class='bar-right bar-textarea' style='{{titleText!="apply"?"background-color:#ddd;":""}}'>
+                <textarea maxlength='100' value='{{contentVal}}' disabled='{{titleText!="apply"}}' bindinput='contentInput' bindblur='contentInput' placeholder='请填写故障内容' placeholder-style='color:#999;'></textarea>
+                <view class='bar-textarea-len'>{{contentLen}}/100</view>
+            </view> -->
+        </view>
+        <view class='bar-box'>
+            <view class='bar-label'>地 点：</view>
+            <view class='bar-right' style='{{titleText!="apply"?"background-color:#ddd;":""}}'>
+                <input type='text' value='{{address}}' disabled='{{titleText!="apply"}}' bindinput='addressInput' placeholder='请输入地点' placeholder-style='color:#999;'></input>
+            </view>
+        </view>
+        <view class='upload-img'>
+            <view class='upload-title'>现场图片</view>
+            <view class='content-img'>
+                <view wx:if='{{chooseImgUrls.length==0 && titleText != "apply"}}' style='font-size:30rpx;color:#333;'>无</view>
+                <view class='image-box-item' wx:for="{{chooseImgUrls}}" wx:key="{{index}}">
+                    <image src="{{item}}" mode="aspectFill" data-index="{{index}}" bindtouchstart="imgTouchStart" bindtouchend="imgTouchEnd" bindtap="imgTap"></image>
+                    <view wx:if='{{del}}' class='clear-icon' catchtap='deleteImg' data-index='{{index}}'>
+                        <icon class='clear-icon-item' type='clear' size='20' color='red'></icon>
+                    </view>
+                </view>
+                <image wx:if='{{chooseImgUrls.length<chooseMax&&titleText=="apply"}}' catchtap='chooseImg' mode='aspectFill' src='{{HTTPS}}img/direct_train/add_img.png'></image>
+            </view>
+        </view>
+        <block wx:if='{{titleText=="followUp"}}'>
+            <view class='bar-box'>
+                <view class='bar-label'>审批人：</view>
+                <view class='bar-right' style='background-color:#ddd;'>
+                    <input type='text' value='{{approver}}' disabled='true'></input>
+                </view>
+            </view>
+            <view class='bar-box'>
+                <view class='bar-label kktxt'>
+                    <text>预估维修\n费用(元)：</text>
+                </view>
+                <view class='bar-right' style='background-color:#ddd;'>
+                    <input type='text' value='{{costsTotal}}' disabled='true'></input>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+    <view class='btm-button' wx:if='{{titleText=="apply"}}'>
+        <view class='btm-button-item' style='color:#399;' catchtap='cancelTap'>取 消</view>
+        <view class='btm-button-item' style='background-color:{{sendBtn?"#399":"#999"}};color:#fff;' catchtap='sendTap'>提 交</view>
+    </view>
+    <view class='btm-button2' wx:if='{{titleText=="approval"}}' catchtap='gotoOption' data-the-type='审批'>审 批</view>
+    <view class='btm-button2' wx:if='{{titleText=="followUp"}}' catchtap='gotoOption' data-the-type='跟进'>跟 进</view>
+</view>

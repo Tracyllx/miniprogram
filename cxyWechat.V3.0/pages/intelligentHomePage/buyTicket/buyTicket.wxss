@@ -1,0 +1,242 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+/* 滚动区域 */
+
+.scroll-view {
+    position: absolute;
+    top: 0;
+    bottom: 100rpx;
+    width: 100%;
+}
+
+/* 轮播图 */
+
+.swiper-box {
+    width: 100%;
+    height: 370rpx;
+    overflow: hidden;
+}
+
+.swiper-img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* 产品信息 */
+
+.product-content {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+}
+
+.product-name {
+    padding: 24rpx 24rpx 16rpx;
+    display: flex;
+}
+
+.product-name-txt {
+    flex: 1;
+    font-size: 32rpx;
+    color: #333;
+}
+
+.product-name-price {
+    font-size: 36rpx;
+    color: #f60;
+}
+
+/* 地址 */
+
+.product-address {
+    padding: 16rpx 24rpx;
+    line-height: 40rpx;
+}
+
+.product-address>image {
+    width: 30rpx;
+    height: 36rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+
+.product-address-txt {
+    font-size: 26rpx;
+    color: #333;
+}
+
+.product-address-map {
+    padding-left: 25rpx;
+    font-size: 26rpx;
+    color: #999;
+}
+
+/* 开放时间 */
+
+.product-time {
+    padding: 16rpx 24rpx;
+    font-size: 26rpx;
+    color: #333;
+    border-top: 1rpx solid #f1f1f1;
+}
+
+/* 产品tab */
+
+.product-info {
+    margin-top: 16rpx;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    position: relative;
+}
+
+.product-info-tab {
+    width: 100%;
+    height: 99rpx;
+    display: flex;
+    border-bottom: 1rpx solid #f1f1f1;
+    background-color: #fff;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+}
+
+.the-top-nav {
+    position: fixed;
+}
+
+.tab-item {
+    flex: 1;
+    padding-top: 6rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #333;
+}
+
+.tab-item-active {
+    color: #399;
+}
+
+.product-nav-content {
+    position: absolute;
+    top: 100rpx;
+    width: 100%;
+    background-color: #fff;
+}
+
+/* 产品详情 */
+
+.productDetail {
+    width: 94%;
+    height: auto;
+    margin: 30rpx auto;
+    overflow: hidden;
+}
+
+.productDetail img {
+    width: 100% !important;
+    vertical-align: middle;
+}
+
+/* 购买须知 */
+
+.buyNotes {
+    width: 94%;
+    height: auto;
+    margin: 30rpx auto;
+    overflow: hidden;
+}
+
+/* 用户评价 */
+
+.commentList {
+    width: 100%;
+    height: auto;
+    margin: 30rpx auto;
+    overflow: hidden;
+}
+
+.show-comment {
+    padding: 16rpx 24rpx 30rpx;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    display: -webkit-flex;
+    border-bottom: 1rpx solid rgba(153, 153, 153, 0.5);
+}
+
+.no-border {
+    border: 0;
+}
+
+.show-comment-head {
+    flex: 0 0 100rpx;
+    height: auto;
+    overflow: hidden;
+}
+
+.show-comment-head>image {
+    width: 65rpx;
+    height: 65rpx;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+
+.show-comment-con {
+    flex: 1;
+}
+
+.show-comment-name {
+    font-size: 22rpx;
+    color: #999;
+}
+
+.show-comment-start {
+    height: 30rpx;
+    line-height: 30rpx;
+    margin-top: 6rpx;
+}
+
+.show-comment-start>image {
+    width: 26rpx;
+    height: 26rpx;
+    margin-right: 5rpx;
+}
+
+.show-comment-txt {
+    font-size: 26rpx;
+    color: #333;
+    line-height: 40rpx;
+    margin: 10rpx 0;
+}
+
+.show-comment-img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.show-comment-img>image {
+    width: 100rpx;
+    height: 100rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.no-data {
+    font-size: 26rpx;
+    color: #399;
+    line-height: 60rpx;
+    text-align: center;
+}
+
+/* 取票指引 */
+
+.getTiket {
+    color: #399;
+}

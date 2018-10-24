@@ -1,0 +1,17 @@
+<view class='outside-view'>
+    <scroll-view scroll-y class='scroll-view'>
+        <view class='title-one'>租车须知</view>
+        <view class='title-two'>半日租</view>
+        <view class='content'>
+            含司机，按半天出租，最高行驶里程不超过60公里，超出范围的里程按8元/公里另外收费。单次满电使用里程约150公里，充满一次电需两小时，10-15座，已含交强险和商业险费（不含路桥费，不含发票）使用时间间距不超过4小时。（包含车辆从五指山景区到达接送站点时间）
+        </view>
+        <view class='title-two'>日租</view>
+        <view class='content'>
+            含司机，按天出租，最高行驶里程不超过100公里，超出范围的里程按8元/公里另外收费。单次满电使用里程约150公里，充满一次电需两小时，10-15座，已含交强险和商业险费（不含路桥费，不含发票）使用时间间距不超过10小时（包含车辆从五指山景区到接送站点时间）
+        </view>
+        <view class='title-two'>月租</view>
+        <view class='content'>
+            仅车辆出租，按月出租，不限里程，不限使用范围，单次满电使用里程约150公里，充满一次电需两小时；10-15座，已含交强险和商业险费，（不含充电费，不含司机，不含路桥费，不含发票）；含车辆管理平台；月租需交车辆押金。
+        </view>
+    </scroll-view>
+</view>

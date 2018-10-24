@@ -1,0 +1,17 @@
+<scroll-view scroll-y class='lu-item-content'>
+    <block wx:for="{{list}}" wx:key="{{index}}">
+        <view class='lu-item-box2 {{list.lenght - 1 == index ? "lu-bb0" : ""}}' catchtap='gotoUrl' data-goto-url='{{item.goto_url}}'>
+            <view class='lu-item-box2-l'>
+                <image mode='aspectFill' wx:if="{{item.intro_photo_url}}" src='{{item.intro_photo_url}}'></image>
+            </view>
+            <view class='lu-item-box2-r'>
+                <view class='title'>{{item.intro_name}}</view>
+                <view class='desc'>{{item.intro_desc}}</view>
+                <view class='tags'>
+                    <text wx:for='{{item.labelArr}}' wx:for-index='i' wx:for-item='val' wx:key='{{i}}' wx:if='{{i < 5}}'>{{val}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class='nonedata'>没有更多了~</view>
+</scroll-view>

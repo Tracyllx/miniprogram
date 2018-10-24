@@ -1,0 +1,205 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.kkContainer {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    color: #333;
+}
+
+.content {
+    position: absolute;
+    top: 102rpx;
+    bottom: 0;
+    width: 100%;
+}
+
+.title {
+    padding: 0 3%;
+    height: 100rpx;
+    display: flex;
+    background: #fff;
+}
+
+.txt {
+    flex: 1;
+    height: 100%;
+    line-height: 100rpx;
+    font-size: 30rpx;
+}
+
+.icon {
+    flex: 0 0 50rpx;
+    height: 50rpx;
+    margin-top: 25rpx;
+    text-align: center;
+    border: 1rpx solid #cdcdcd;
+    border-radius: 8rpx;
+}
+
+.icon>image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    margin-top: -15rpx;
+}
+
+.tip {
+    padding: 20rpx 3% 0;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 26rpx;
+    color: #9a9a9a;
+}
+
+/* 红包 box */
+
+.box {
+    margin: 0 auto 30rpx;
+    width: 92%;
+    overflow: hidden;
+    border: 1rpx solid #f00;
+    background: #fff;
+}
+
+.box-t {
+    height: 150rpx;
+    border-bottom: 1rpx dashed #cdcdcd;
+    display: flex;
+    padding: 50rpx 20rpx;
+}
+
+.box-t-l {
+    flex: 0 0 220rpx;
+    height: 100%;
+    color: #f00;
+    font-size: 28rpx;
+    text-align: center;
+    border-right: 1rpx dashed #cdcdcd;
+    overflow: hidden;
+}
+
+.money {
+    font-size: 52rpx;
+}
+
+.box-t-r {
+    flex: 1;
+    height: 100%;
+    padding-left: 30rpx;
+}
+
+.tit {
+    font-size: 32rpx;
+}
+
+.desc {
+    font-size: 26rpx;
+    color: #999;
+}
+
+.box-b {
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #999;
+}
+
+.c-red {
+    color: #f00;
+}
+
+/* 圆圈 */
+
+.content-box {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.box-circle {
+    position: absolute;
+    bottom: 70rpx;
+    left: 4%;
+    width: 92%;
+    height: 40rpx;
+}
+
+.box-circle-l, .box-circle-r {
+    width: 40rpx;
+    height: 40rpx;
+    background: #eee;
+    border-radius: 100%;
+}
+
+.box-circle-l {
+    float: left;
+    margin-left: -20rpx;
+    border-right: 1rpx solid #cdcdcd;
+}
+
+.box-circle-r {
+    float: right;
+    margin-right: -20rpx;
+    border-left: 1rpx solid #cdcdcd;
+}
+
+/* 红包被选中的状态 */
+
+.box-active {
+    background: #e8e1e8;
+}
+
+/* 无border */
+
+.borderR {
+    border: 0;
+}
+
+/* 优惠券-修改的样式 */
+
+.yhq-border {
+    border: 1rpx solid #cdcdcd;
+}
+
+.yhq-box-t {
+    padding: 40rpx 30rpx;
+    height: 170rpx;
+}
+
+.yhq-box-t-l {
+    flex: 0 0 170rpx;
+    border: 1rpx solid #cdcdcd;
+    border-radius: 100%;
+}
+
+.yhq-box-t-r {
+    padding-top: 20rpx;
+}
+
+.yhq-img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.noData {
+    width: 100%;
+    line-height: 70rpx;
+    height: 70rpx;
+    text-align: center;
+    color: #01827d;
+    font-size: 27rpx;
+}
+
+.lu-price {
+    line-height: 136rpx;
+}
+
+.box-overdue {
+    background: #e8e8e8;
+}

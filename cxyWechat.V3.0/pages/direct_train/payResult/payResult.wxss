@@ -1,0 +1,403 @@
+page {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+}
+
+.userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userinfo-avatar {
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+}
+
+.userinfo-nickname {
+    color: #aaa;
+}
+
+.usermotto {
+    margin-top: 200px;
+}
+
+/* 第一大部分：倒计时 */
+
+.index_first {
+    width: 100%;
+    height: 15%;
+    border-bottom: 1px solid #dedede;
+    background-color: #fff;
+}
+
+/* 文字：支付剩余时间 */
+
+.remainding_time {
+    text-align: center;
+    font-size: 28rpx;
+    color: #333;
+    letter-spacing: 3rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding-top: 3%;
+}
+
+/* 倒计时 */
+
+.times {
+    text-align: center;
+    width: 50%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    position: relative;
+    left: 50%;
+    margin-left: -25%;
+    overflow: hidden;
+}
+
+.text {
+    background-color: #01827d;
+    width: 60rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    float: left;
+    margin: 7rpx;
+    border-radius: 12rpx;
+    font-size: 28rpx;
+    color: #fff;
+}
+
+.maohao {
+    width: 60rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    float: left;
+    margin: 7rpx;
+    border-radius: 12rpx;
+    font-size: 32rpx;
+    color: #000;
+    font-weight: bold;
+}
+
+/* 第二大部分：订单信息 */
+
+.index_second {
+    width: 90%;
+    height: 15%;
+    border-bottom: 1px solid #dedede;
+    border-top: 1px solid #dedede;
+    background-color: #fff;
+    padding: 2% 5%;
+}
+
+/* 订单信息框 */
+
+.order_list {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 图片 */
+
+.show-img {
+    width: 23%;
+    height: 100%;
+    float: left;
+}
+
+.order_img {
+    margin-top: 20%;
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 120rpx;
+    display: block;
+}
+
+/* 右边部分 */
+
+.right_part {
+    width: 76.5%;
+    height: 100%;
+    float: left;
+}
+
+/* 价格 */
+
+.price {
+    font-size: 32rpx;
+    color: #333;
+    height: 60%;
+    line-height: 120rpx;
+}
+
+.order_message {
+    font-size: 28rpx;
+    color: #333;
+    height: 40%;
+    line-height: 50rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 第三大部分：微信支付 */
+
+.index_third {
+    width: 100%;
+    height: 100rpx;
+    background-color: #fff;
+    padding-left: 50rpx;
+    font-size: 30rpx;
+}
+
+.index_third>view {
+    line-height: 100rpx;
+    float: left;
+    height: 100%;
+}
+
+.show-wechat-pay {
+    width: 80%;
+}
+
+.show-checked {
+    width: 10%;
+}
+
+.show-checked radio {
+    float: right;
+}
+
+.show-checked-view {
+    float: right;
+    width: 44rpx;
+    height: 44rpx;
+    margin-top: 28rpx;
+    margin-right: 10rpx;
+    border-radius: 100%;
+    border: 1rpx solid #cdcdcd;
+}
+
+.show-checked>image {
+    float: right;
+    width: 20rpx;
+    height: 45rpx;
+    vertical-align: middle;
+    margin-top: 28rpx;
+    margin-left: 10rpx;
+}
+
+.icon {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: middle;
+    margin-right: 40rpx;
+}
+
+/* 第四大部分：确认支付 */
+
+.index_fourth {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-top: 1rpx solid #cdcdcd;
+    display: flex;
+}
+
+.kk-left {
+    flex: 1;
+    padding-left: 20rpx;
+    font-size: 36rpx;
+    background: #fff;
+    color: #01827d;
+}
+
+.kk-tip {
+    font-size: 24rpx;
+    color: #999;
+    padding-left: 20rpx;
+}
+
+.kk-right {
+    flex: 0 0 220rpx;
+    text-align: center;
+    font-size: 30rpx;
+    background: #01827d;
+    color: #fff;
+}
+
+/* 修改样式 */
+
+.mt30 {
+    margin-top: 30rpx;
+}
+
+.borderB {
+    border-bottom: 1rpx solid #cdcdcd;
+}
+
+.kkW1 {
+    width: 50%;
+}
+
+.kkW2 {
+    width: 40%;
+    text-align: right;
+}
+
+.kk-red {
+    color: red;
+}
+
+.detail-box {
+    background-color: #fff;
+    padding: 16rpx 30rpx;
+    display: flex;
+}
+
+.detail-box-l {
+    flex: 0 0 160rpx;
+    text-align: center;
+}
+
+.detail-box-r {
+    flex: 1;
+}
+
+.detail-img {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 100%;
+}
+
+.detail-price {
+    line-height: 60rpx;
+    font-size: 32rpx;
+    color: #333;
+}
+
+.detail-title {
+    font-size: 26rpx;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.errorBtn {
+    background: #999;
+}
+
+.psd-mask {
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.psd-box {
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    padding: 14rpx 3%;
+    background-color: #fff;
+}
+
+.psd-box-title {
+    width: 100%;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    text-align: center;
+}
+
+.psd-box-input {
+    width: 98%;
+    margin: 0 auto;
+    border-bottom: 1rpx solid #cdcdcd;
+}
+
+.psd-box-input>input {
+    width: 100%;
+    height: 80rpx;
+    min-height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+}
+
+.psd-box-tip {
+    width: 100%;
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 24rpx;
+    color: red;
+    text-align: center;
+}
+
+.psd-box-btn {
+    width: 60%;
+    margin: 30rpx auto 20rpx;
+    height: 60rpx;
+    display: flex;
+}
+
+#box-cancal, #box-conform {
+    flex: 1;
+    height: 100%;
+    font-size: 26rpx;
+    line-height: 60rpx;
+}
+
+#box-conform {
+    margin-left: 30rpx;
+    background-color: #01827d;
+}
+
+.codeW1 {
+    width: 16%;
+}
+
+.codeW2 {
+    width: 70%;
+    position: relative;
+}
+
+#referral-code {
+    width: 0%;
+    height: 100%;
+    min-height: 100%;
+}
+
+.item-code {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background-color: #fff;
+}
+
+.referral-code {
+    float: left;
+    width: 60rpx;
+    height: 90%;
+    min-height: 90%;
+    font-size: 30rpx;
+    text-align: center;
+    margin: 0 10rpx;
+    padding: 0 10rpx 8rpx;
+    border-bottom: 1rpx solid #ccc;
+}

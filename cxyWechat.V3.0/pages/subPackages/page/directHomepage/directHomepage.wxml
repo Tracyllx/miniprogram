@@ -1,0 +1,94 @@
+<view class="page directhomepage">
+    <!-- 搜索页面 -->
+    <view class="show_search">
+        <view class="input_to_search">
+            <view class="show_search_input">
+                <input type="text" id="search" value="{{InputValue}}"  confirm-type="search" bindconfirm="searchProduct" placeholder="输入景区/产品名" focus="{{focusTo}}" catchtap='getFocus' bindinput='getInputValue' />
+            </view>
+            <view class="show_search_img" catchtap='searchProduct'>
+                <image src="../../../img/cxtripHomePage/search.png"></image>
+            </view>
+        </view>
+        <view class="show_to_meself" catchtap="personalCenter">
+            <image src='../../../img/direct_train/mine.png'></image>
+        </view>
+    </view>
+    <view wx:if="{{List.length == 0}}" class='nonedata'>暂无数据~</view>
+    <!-- 内容部分 -->
+    <view wx:if="{{List.length != 0}}" class='showList'>
+        <scroll-view scroll-y class=" {{searchNoneReturn ==false?'':'nonedisplay'}}">
+            <view class=''></view>
+            <view class="show_one_all" wx:for="{{List}}" wx:key="{{index}}">
+                <view class="show_scenic_name">
+                    <view class="show_title_scenic_name">{{item.orgnName}}</view>
+                    <view class="show_distance_about_there" catchtap='openTheMap' data-index='{{index}}'>
+                        <image src="../../../img/direct_train/address.png" />
+                        <text class="show_where">{{distance[index]}}km</text>
+                        <!-- <text class="address">{{item.orgnAddr}}</text> -->
+                    </view>
+                </view>
+                <!-- 评分 -->
+                <view class="show_good_and_distance">
+                    <view class="show_start">
+                        <image src='../../../img/direct_train/start.png'></image>
+                        <image src='../../../img/direct_train/start.png'></image>
+                        <image src='../../../img/direct_train/start.png'></image>
+                        <image src='../../../img/direct_train/start.png'></image>
+                        <image src='../../../img/direct_train/start_half.png'></image>
+                        <view class="shownumber">
+                            <text>4.9</text>分
+                        </view>
+                    </view>
+                    <view class="show_now_distance"></view>
+                </view>
+
+                <view class="show_list">
+                    <ul class="ticketList">
+                        <li wx:for="{{item.product}}" wx:for-item="shanItems" data-product-name="{{shanItems.productName}}" data-ticketcode="{{item.product[index].productId}}" data-img-urls="{{shanItems.imgUrls}}" data-index="{{index}}" wx:key="{{index}}" catchtap="getTicketCodeOrgn"
+                            class=" showli  {{index>=2?'nonedisplay':''}} {{item.isLock ?'':'display'}}">
+                            <view class="show_detail_list">
+                                <view class="show_li_img">
+                                    <image mode='aspectFill' wx-if="{{shanItems.imgUrls[0]}}" src="{{shanItems.imgUrls[0]}}" />
+                                </view>
+                                <view class="shan_show_content">
+                                    <view class="show_this_ticket_content">{{shanItems.productName}} </view>
+                                    <view class="show_ticket_money">
+                                        <view class="now_price shan">¥{{shanItems.productPrice}}</view>
+                                        <view class="show_all_sale shan">
+                                            {{shanItems.sellNum && shanItems.sellNum != 0 ? '已售' + shanItems.sellNum : ''}}
+                                        </view>
+                                        <view class="bygone_price shan">
+                                            <!-- 门市价：¥{{shanItems.oldMoney}} -->
+                                        </view>
+                                        <button class="to_sale" data-product-name="{{shanItems.productName}}" data-ticketcode="{{item.product[index].productId}}" data-img-urls="{{shanItems.imgUrls}}" data-index="{{index}}" catchtap="getTicketCodeOrgn">预订</button>
+                                    </view>
+                                </view>
+                            </view>
+                        </li>
+                    </ul>
+                </view>
+                <view class="show_more_detail  {{item.isLock?'':'nonedisplay'}}" data-product-index="{{index}}" data-product="{{item.product}}" catchtap='showAllProduct'>
+                    查看其它
+                    <text class="showothernumber">{{item.product.length-2}}</text>个产品
+                    <image src="../../../img/direct_train/down.png" />
+                </view>
+            </view>
+            <view class="show_to_homepage {{searchListShow == false?'nonedisplay':''}}" catchtap='toHomePage'>查看所有</view>
+
+        </scroll-view>
+        <!-- 搜索没有更多信息显示 -->
+        <view class="show_none_data {{searchNoneReturn ==false?'nonedisplay':''}}">
+            <view>没有更多相关搜索信息</view>
+            <view class="show_to_homepages shanhomepage" catchtap='toHomePage'>返回首页</view>
+        </view>
+        <!-- 展示搜索结果 -->
+        <!-- 展示搜索列表 -->
+        <view class="show_search_result_div {{appearBlock == false?'':'shandisplay'}}">
+            <scroll-view scroll-y class='show-search-list'>
+                <ul class="search_result_list">
+                    <li wx:for="{{searchList}}" wx:key='{{index}}'></li>
+                </ul>
+            </scroll-view>
+        </view>
+    </view>
+</view>

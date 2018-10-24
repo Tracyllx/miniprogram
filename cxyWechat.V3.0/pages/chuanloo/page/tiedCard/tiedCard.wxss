@@ -1,0 +1,117 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll-view {
+    position: absolute;
+    top: 0;
+    bottom: 100rpx;
+    width: 100%;
+    overflow: hidden;
+}
+
+.list {
+    padding-top: 30rpx;
+}
+
+.item-box {
+    width: 100%;
+    height: 290rpx;
+    margin-bottom: 30rpx;
+    overflow: hidden;
+    display: flex;
+}
+
+.item-check {
+    width: 100rpx;
+    text-align: center;
+}
+
+.item-card {
+    flex: 1;
+    margin-right: 30rpx;
+    border-radius: 16rpx;
+    color: #fff;
+    position: relative;
+}
+
+.gradient {
+    background: -webkit-linear-gradient(-57deg, #3f8cf4, #6dbef4); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(-57deg, #3f8cf4, #6dbef4); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(-57deg, #3f8cf4, #6dbef4); /* Firefox 3.6 - 15 */
+    background: linear-gradient(-57deg, #3f8cf4, #6dbef4); /* 标准的语法 */
+}
+
+.item-name {
+    padding-top: 24rpx;
+    padding-left: 30rpx;
+    font-size: 28rpx;
+}
+
+.item-money {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50rpx;
+    font-weight: bold;
+}
+
+.item-info {
+    position: absolute;
+    bottom: 16rpx;
+    width: 100%;
+    font-size: 24rpx;
+    display: flex;
+}
+
+.item-no {
+    flex: 1;
+    padding-left: 30rpx;
+}
+
+.item-date {
+    flex: 1;
+    padding-right: 30rpx;
+    text-align: right;
+}
+
+/* 底部按钮 */
+
+.tied-card-btn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
+
+.tied-card-btn>button {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #fff;
+    font-size: 34rpx;
+    border-radius: 0;
+}
+
+/* 绑卡成功 */
+
+.success-box {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.success-box-icon {
+    margin-bottom: 6%;
+}
+
+.success-box-txt {
+    font-size: 34rpx;
+    color: #333;
+}
+
+@import '../common/common.wxss';

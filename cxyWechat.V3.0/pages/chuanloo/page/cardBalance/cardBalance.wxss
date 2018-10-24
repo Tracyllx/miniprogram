@@ -1,0 +1,152 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.card-balance {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    box-sizing: content-box;
+    position: relative;
+}
+
+/* 轮播图 */
+
+swiper {
+    width: 100%;
+    height: 370rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+swiper-item {
+    padding-top: 54rpx;
+}
+
+.card-box {
+    width: 87.5%;
+    height: 260rpx;
+    position: absolute;
+    left: 12%;
+    margin-left: -5%;
+    border-radius: 16rpx;
+    color: #fff;
+}
+
+.card-box.active {
+    transform: scale(1.12);
+    transition: all 0.2s ease-in 0s;
+}
+
+.gradient {
+    background: -webkit-linear-gradient(-57deg, #3f8cf4, #6dbef4); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(-57deg, #3f8cf4, #6dbef4); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(-57deg, #3f8cf4, #6dbef4); /* Firefox 3.6 - 15 */
+    background: linear-gradient(-57deg, #3f8cf4, #6dbef4); /* 标准的语法 */
+}
+
+.item-name {
+    padding-top: 24rpx;
+    padding-left: 30rpx;
+    font-size: 26rpx;
+}
+
+.item-money {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50rpx;
+    font-weight: bold;
+}
+
+.item-info {
+    position: absolute;
+    bottom: 16rpx;
+    width: 100%;
+    font-size: 20rpx;
+    display: flex;
+}
+
+.item-no {
+    flex: 1;
+    padding-left: 30rpx;
+}
+
+.item-date {
+    flex: 1;
+    padding-right: 30rpx;
+    text-align: right;
+}
+
+/* 时间条 */
+
+.time-bar {
+    padding: 0 4%;
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 26rpx;
+    color: #333;
+    background-color: #e6e6e6;
+}
+
+/* 列表 */
+
+.scroll-view {
+    position: absolute;
+    top: 420rpx;
+    bottom: 0;
+    left: 4%;
+    right: 4%;
+    width: 92%;
+    overflow: hidden;
+}
+
+.list-item {
+    padding: 24rpx 0;
+    height: auto;
+    overflow: hidden;
+    border-top: 1rpx solid #ededed;
+}
+
+.item-flex {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+}
+
+.item-left {
+    width: auto;
+}
+
+.item-right {
+    flex: 1;
+    text-align: right;
+}
+
+.s-big {
+    font-size: 34rpx;
+}
+
+.s-small {
+    font-size: 24rpx;
+}
+
+.c-black {
+    color: #000;
+}
+
+.c-red {
+    color: red;
+}
+
+.c-gray {
+    color: #999;
+}
+
+.no-b {
+    border: 0;
+}

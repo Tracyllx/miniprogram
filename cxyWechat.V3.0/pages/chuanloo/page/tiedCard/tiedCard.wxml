@@ -1,0 +1,34 @@
+<view class='the-container'>
+    <block wx:if='{{showMain}}'>
+        <scroll-view scroll-y class='scroll-view'>
+            <view class='list'>
+                <view wx:if='{{dataList.length == 0}}' class='nonedata'>您还没有游乐卡哟~</view>
+                <view wx:for='{{dataList}}' wx:key='{{index}}' class='item-box' catchtap='checkTap' data-index='{{index}}'>
+                    <view class='item-check chuizhi'>
+                        <icon wx:if='{{item.check}}' type="success" size="36" color='#39b6a3' />
+                        <icon wx:else type="circle" size="36" color='#cdcdcd' />
+                    </view>
+                    <view class='item-card gradient'>
+                        <view class='item-name'>游乐卡</view>
+                        <view class='item-money'>{{item.balance}}</view>
+                        <view class='item-info'>
+                            <view class='item-no'>NO.{{item.cardNo}}</view>
+                            <view class='item-date'>有效期：{{item.validityEnd}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class='tied-card-btn'>
+            <button type='primary' hover-class='none' catchtap='confirmBtn' style='{{buttonActive?"background-color:#39b6a3;":"background-color:#999;"}}'>确认绑卡</button>
+        </view>
+    </block>
+    <block wx:else>
+        <view class='success-box'>
+            <view class='success-box-icon'>
+                <icon type="success" size="90" color='#39b6a3' />
+            </view>
+            <view class='success-box-txt'>绑卡成功，祝您玩得开心！</view>
+        </view>
+    </block>
+</view>
